@@ -208,19 +208,18 @@
 
     SHN_UNDEF  = 0;
 
-    # XXX bitwise faffing
-    #SHF_WRITE            =   0x1; # Section contains writable data.
-    #SHF_ALLOC            =   0x2; # Section occupies memory.
-    #SHF_EXECINSTR        =   0x4; # Section contains instructions.
-    #SHF_MERGE            =  0x10; # Section may be merged.
-    #SHF_STRINGS          =  0x20; # Section contains strings.
-    #SHF_INFO_LINK        =  0x40; # sh_info holds section index.
-    #SHF_LINK_ORDER       =  0x80; # Special ordering requirements.
-    #SHF_OS_NONCONFORMING = 0x100; # OS-specific processing required.
-    #SHF_GROUP            = 0x200; # Member of section group.
-    #SHF_TLS              = 0x400; # Section contains TLS data.
-    #SHF_COMPRESSED       = 0x800; # Section contains compressed data.
-    ##SHF_MASKOS           = 0x0ff00000; # OS-specific semantics.
-    ##SHF_MASKPROC         = 0xf0000000; # Processor-specific semantics.
+    SHF_WRITE            =     1; # Section contains writable data.
+    SHF_ALLOC            =     2; # Section occupies memory.
+    SHF_EXECINSTR        =     4; # Section contains instructions.
+    SHF_MERGE            =    16; # Section may be merged.
+    SHF_STRINGS          =    32; # Section contains strings.
+    SHF_INFO_LINK        =    64; # sh_info holds section index.
+    SHF_LINK_ORDER       =   128; # Special ordering requirements.
+    SHF_OS_NONCONFORMING =   256; # OS-specific processing required.
+    SHF_GROUP            =   512; # Member of section group.
+    SHF_TLS              =  1024; # Section contains TLS data.
+    SHF_COMPRESSED       =  2048; # Section contains compressed data.
+    #SHF_MASKOS           = 0x0ff00000; # OS-specific semantics.
+    #SHF_MASKPROC         = 0xf0000000; # Processor-specific semantics.
   };
 }

@@ -181,6 +181,48 @@ rec {
         ]
       )
     ;
+    mkShFlags =
+      let
+        # Same as `readelf` uses.
+        #    W (write), A (alloc), X (execute), M (merge), S (strings), I (info),
+        #    L (link order), O (extra OS processing required), G (group), T (TLS),
+        #    C (compressed), x (unknown), o (OS specific), E (exclude),
+        #    D (mbind), l (large), p (processor specific)
+        letterValues = {
+          "W" = K.ELF_SHDR.SHF_WRITE;
+          "A" = K.ELF_SHDR.SHF_ALLOC;
+          "X" = K.ELF_SHDR.SHF_EXECINSTR;
+          "M" = K.ELF_SHDR.SHF_MERGE;
+          "S" = K.ELF_SHDR.SHF_STRINGS;
+          "I" = K.ELF_SHDR.SHF_INFO_LINK;
+
+          "L" = K.ELF_SHDR.SHF_LINK_ORDER;
+          "O" = K.ELF_SHDR.SHF_OS_NONCONFORMING;
+          "G" = K.ELF_SHDR.SHF_GROUP;
+          "T" = K.ELF_SHDR.SHF_TLS;
+
+          "C" = K.ELF_SHDR.SHF_COMPRESSED;
+        };
+      in
+      flags:
+      if builtins.isInt flags
+      then flags
+      else if builtins.isString flags
+      then (
+        builtins.foldl'
+        (
+          flags: letter:
+          flags + letterValues."${letter}"
+        )
+        0
+        (lib.chars flags)
+      ) else (throw "argument of unexpected type (${builtins.typeOf flags}) given to mkShFlags")
+    ;
+    defaultSectionFlags = {
+      # Some default flags...
+      ".text" = "AX"; #K.ELF_SHDR.SHF_ALLOC + K.ELF_SHDR.SHF_EXECINSTR; # FIXME: use "AX"
+      ".rodata" = "A"; # K.ELF_SHDR.SHF_ALLOC; # FIXME: use "A"
+    };
   };
 
   mkElf =
