@@ -282,16 +282,16 @@ rec {
       data_length = builtins.length data;
 
       section_headers_string_table_offset = code_offset + code_length + data_length;
-      section_headers_string_table = 
-        (/* string table */ builtins.concatLists [
-          (lib.basicLatinToBytes "(unset)") [ 0 ]
-          (lib.basicLatinToBytes ".shstrtab") [ 0 ]
-          (lib.basicLatinToBytes ".text") [ 0 ]
-        ])
+      section_headers_string_table =
+        lib.cstrings.mkCStrings [
+          "(unset)"
+          ".shstrtab"
+          ".text"
+        ]
       ;
       section_header_offset =
         section_headers_string_table_offset
-        + (builtins.length section_headers_string_table)
+        + (section_headers_string_table.length)
       ;
     in
     builtins.concatLists [
@@ -318,7 +318,7 @@ rec {
       #
 
       # Strings
-      section_headers_string_table
+      section_headers_string_table.bytes
 
       # FIXME: find doc about whether this is needed or not
       (ELF.mkSectionHeader {
@@ -329,15 +329,15 @@ rec {
       #       or else e_shstrndx would be zero, which means unset.
       (ELF.mkSectionHeader {
         inherit bits;
-        sh_name = 8; # XXX make a strtab helper...
+        sh_name = section_headers_string_table.offsets.".shstrtab";
         sh_type = K.ELF_SHDR.SHT_STRTAB;
         sh_offset = section_headers_string_table_offset;
-        sh_size = builtins.length section_headers_string_table;
+        sh_size = section_headers_string_table.length;
       })
       # The `.text` data here makes tools like `objdump` happy to disassemble our binaries.
       (ELF.mkSectionHeader {
         inherit bits;
-        sh_name = 18;
+        sh_name = section_headers_string_table.offsets.".text";
         sh_type = K.ELF_SHDR.SHT_PROGBITS;
         sh_offset = code_offset;
         sh_size = code_length;
