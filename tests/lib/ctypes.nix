@@ -87,4 +87,44 @@
       ;
     };
   };
+
+  cstrings = {
+    mkCStrings = {
+      worksWithAttrsSingle = expect "to work with attrs (single value)"
+        (lib.cstrings.mkCStrings { hello = "Hello, World!"; })
+        {
+          offsets = { hello = 0; };
+          bytes = [
+            72 101 108 108 111 44 32 87 111 114 108 100 33 0 # "Hello, World!\0"
+          ];
+          strings = { hello = "Hello, World!"; };
+          length = 14;
+        }
+      ;
+      worksWithAttrsMany = expect "to work with attrs (multiple value)"
+        (lib.cstrings.mkCStrings { z = "last"; hello = "Hello, World!"; })
+        {
+          offsets = { hello = 0; z = 14; };
+          bytes = [
+            72 101 108 108 111 44 32 87 111 114 108 100 33 0 # "Hello, World!\0"
+            108 97 115 116 0 # "last\0"
+          ];
+          strings = { hello = "Hello, World!"; z = "last"; };
+          length = 19;
+        }
+      ;
+      worksWithLists = expect "to work with lists"
+        (lib.cstrings.mkCStrings [ "z_last" "Hello, World!" ])
+        {
+          offsets = { "Hello, World!" = 0; z_last = 14; };
+          bytes = [
+            72 101 108 108 111 44 32 87 111 114 108 100 33 0 # "Hello, World!\0"
+            122 95 108 97 115 116 0 # "z_last\0"
+          ];
+          strings = { "Hello, World!" = "Hello, World!"; z_last = "z_last"; };
+          length = 21;
+        }
+      ;
+    };
+  };
 }

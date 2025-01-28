@@ -199,4 +199,69 @@ in
         }
     ;
   };
+  cstrings = {
+    # Given an attrset of `{ $name = "string"; }`,
+    # returns an attrset with the following shape:
+    # ```
+    # {
+    #   bytes = [ /*bytes*/ ];            # NUL-terminated strings concatenated together
+    #   offsets = { $name = offset; };    # Offset zero-indexed from the start
+    #   strings = {/* orginal input */};  # The original input
+    # }
+    # ```
+    # Note that list of bytes are also accepted as inputs, in addition to strings.
+    # This enables involving more complex strings than possible with basicLatinToBytes (by i.e. pre-processing them).
+    #
+    # The attribute names are explicitly lexicographically sorted.
+    #
+    # Given a list of strings, it is transformed to an attrset keyed by the string values.
+    mkCStrings =
+      strings':
+      let
+        strings =
+          if builtins.isList strings'
+          then (lib.listToAttrsStrings strings')
+          else if builtins.isAttrs strings'
+          then strings'
+          else (builtins.throw "Argument to cstrings.mkCStrings not a list or an attrset (was ${builtins.typeOf strings'}).")
+        ;
+        data =
+          builtins.foldl'
+          (prev: name:
+            let
+              value = strings."${name}";
+            in
+            {
+              offsets = prev.offsets // {
+                "${name}" = builtins.length prev.bytes;
+              };
+              bytes = prev.bytes
+                ++ (
+                  if builtins.isString value
+                  then (lib.basicLatinToBytes value)
+                  else if builtins.isList value
+                  then value
+                  else (throw "Element of unexpected type (${builtins.typeOf value}) for ${name} given to mkCStrings")
+                )
+                ++ [ 0 ]
+              ;
+            }
+          )
+          { offsets = {}; bytes = []; }
+          (builtins.sort builtins.lessThan (builtins.attrNames strings))
+        ;
+        length = builtins.length data.bytes;
+      in
+      {
+        inherit (data)
+          offsets
+          bytes
+        ;
+        inherit
+          length
+          strings
+        ;
+      }
+    ;
+  };
 }
