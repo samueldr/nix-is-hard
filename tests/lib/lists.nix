@@ -39,4 +39,14 @@
       { a = "a"; b = "b"; c = "c"; }
     ;
   };
+  listFind = {
+    findsThings = expect "that listFind finds the first element matching predicate"
+      (lib.listFind (el: el.a == 2) [ { a = 1; b = 9; } { a = 2; b = 8; } { a = 2; b = 7; } ])
+      { a = 2; b = 8; }
+    ;
+    findsNothin = expect "that listFind finds nothing when nothing matches"
+      (lib.listFind (el: el == 9) [ 1 2 3 4 ])
+      null
+    ;
+  };
 }

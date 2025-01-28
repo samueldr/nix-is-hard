@@ -42,4 +42,19 @@
       strings
     )
   ;
+  # Given a predicate, and a list, find the first element matching and returns, or null
+  listFind =
+    pred: list:
+    builtins.foldl'
+    (
+      found: candidate:
+      if !(builtins.isNull found) then found
+      else
+        if (pred candidate)
+        then candidate
+        else null
+    )
+    null
+    list
+  ;
 }
