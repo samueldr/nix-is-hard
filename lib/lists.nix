@@ -33,4 +33,13 @@
       fn i el
     ) len
   ;
+  # Given a list of strings, returns an attrset of the same strings, key and values matching.
+  listToAttrsStrings =
+    strings:
+    builtins.listToAttrs (
+      builtins.map
+      (str: { name = str; value = str; })
+      strings
+    )
+  ;
 }

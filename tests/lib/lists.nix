@@ -29,4 +29,14 @@
       ]
     ;
   };
+  listToAttrsStrings = {
+    works = expect "that listToAttrsStrings works"
+      (lib.listToAttrsStrings [ "a" "b" "c" ])
+      { a = "a"; b = "b"; c = "c"; }
+    ;
+    repeatedWorks = expect "that repeated strings works"
+      (lib.listToAttrsStrings [ "a" "b" "c" "b" "a" ])
+      { a = "a"; b = "b"; c = "c"; }
+    ;
+  };
 }
