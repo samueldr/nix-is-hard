@@ -1,0 +1,82 @@
+{ lib
+, expect
+, expectThrow
+, ... }:
+
+{
+  basicLatinToBytes = {
+    basic = expect "basicLatinToBytes to produce a list of bytes"
+      (lib.basicLatinToBytes "Hello")
+      [ 72 101 108 108 111 ]
+    ;
+  };
+  numberToBytes = {
+    singleByte = {
+      i_0 = expect "numberToBytes to produce a single byte for (0)" (lib.numberToBytes 0) [ 0 ];
+      i_1 = expect "numberToBytes to produce a single byte for (1)" (lib.numberToBytes 1) [ 1 ];
+      i_255 = expect "numberToBytes to produce a single byte for (255)" (lib.numberToBytes 255) [ 255 ];
+    };
+    twoBytes = {
+      # Confirms output is LSB.
+      i_256 = expect "numberToBytes to produce two bytes for (256)" (lib.numberToBytes 256) [ 0 1 ];
+      i_65535 = expect "numberToBytes to produce two bytes for (65535)" (lib.numberToBytes 65535) [ 255 255 ];
+    };
+    # We can extrapolate from there that it worked.
+    negative = {
+      /* TODO: Two's complement
+      i_-1 = expect "numberToBytes to produce a single byte for (-1)" (lib.numberToBytes (-1)) [ 255 ];
+      i_-32768 = expect "numberToBytes to produce two bytes for (-32768)" (lib.numberToBytes (-32768)) [ 0 128 ];
+      */
+    };
+  };
+  padBytesLeft = {
+    noop = {
+      for_1 = expect "padBytesLeft to be a no-op with the same size input (1 byte)"
+        (lib.padBytesLeft 1 [ 1 ])
+        [ 1 ]
+      ;
+      for_8 = expect "padBytesLeft to be a no-op with the same size input (8 bytes)"
+        (lib.padBytesLeft 8 [ 1 2 3 4 5 6 7 8 ])
+        [ 1 2 3 4 5 6 7 8 ]
+      ;
+    };
+    toPad = {
+      with_0 = expect "padBytesLeft to pad fully when given an empty list"
+        (lib.padBytesLeft 3 [])
+        [ 0 0 0 ]
+      ;
+      with_1 = expect "padBytesLeft to pad fully when given an empty list"
+        (lib.padBytesLeft 6 [ 8 ])
+        [ 0 0 0 0 0 8 ]
+      ;
+    };
+    toError = expectThrow "padBytesLeft to throw on overflow"
+      (lib.padBytesLeft 4 [ 1 2 3 4 5 ])
+    ;
+  };
+  padBytesRight = {
+    noop = {
+      for_1 = expect "padBytesRight to be a no-op with the same size input (1 byte)"
+        (lib.padBytesRight 1 [ 1 ])
+        [ 1 ]
+      ;
+      for_8 = expect "padBytesRight to be a no-op with the same size input (8 bytes)"
+        (lib.padBytesRight 8 [ 1 2 3 4 5 6 7 8 ])
+        [ 1 2 3 4 5 6 7 8 ]
+      ;
+    };
+    toPad = {
+      with_0 = expect "padBytesRight to pad fully when given an empty list"
+        (lib.padBytesRight 3 [])
+        [ 0 0 0 ]
+      ;
+      with_1 = expect "padBytesRight to pad fully when given an empty list"
+        (lib.padBytesRight 6 [ 8 ])
+        [ 8 0 0 0 0 0 ]
+      ;
+    };
+    toError = expectThrow "padBytesRight to throw on overflow"
+      (lib.padBytesRight 4 [ 1 2 3 4 5 ])
+    ;
+  };
+}
