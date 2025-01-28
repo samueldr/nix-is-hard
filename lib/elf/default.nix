@@ -225,6 +225,34 @@ rec {
     };
   };
 
+  # Given a `bytes` function for a section...
+  #   - When a list, returns it
+  #   - When a function, calls it with all required arguments set to `0`.
+  bogusSectionBytes =
+    bytes:
+    if builtins.isList bytes
+    then bytes
+    else if builtins.isFunction bytes
+    then (
+      let
+        fnArgs = builtins.functionArgs bytes;
+        requiredArgs =
+          builtins.filter
+          (name: fnArgs."${name}" == false)
+          (builtins.attrNames fnArgs)
+        ;
+        args =
+          builtins.listToAttrs (
+            builtins.map
+            (name: { inherit name; value = 0; })
+            (requiredArgs)
+          )
+        ;
+      in
+      bytes args
+    ) else (throw "`bytes` attribute of unexpected type (${builtins.typeOf bytes})")
+  ;
+
   mkElf =
     { load_addr ? 10 * 16 * 1024 # FIXME figure out better defaults to use.
     , code
