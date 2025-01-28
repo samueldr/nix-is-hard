@@ -37,9 +37,9 @@ VERBOSE = params.include?("--verbose")
 CMDS = [
   %w(readelf --program-headers --section-headers),
   if VERBOSE then
-    %w(objdump --wide --disassemble)
-  else
     %w(objdump --wide --disassemble-all)
+  else
+    %w(objdump --wide --disassemble)
   end,
   if VERBOSE then %w(xxd) end,
 ].compact
