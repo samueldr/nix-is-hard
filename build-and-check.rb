@@ -49,6 +49,12 @@ failed = false
 attrs.each do |attr|
   result = build_attr(attr).strip()
 
+  if result == ""
+    $stderr.puts "No paths returned by `nix-build`..."
+    $stderr.puts "Make sure a derivation is being produced... I guess..."
+    exit 3
+  end
+
   result_bin =
     Dir.glob(File.join(result, "*")).tap do |paths|
       if paths.length != 1
