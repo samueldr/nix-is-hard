@@ -99,7 +99,7 @@ rec {
 
         /* 0x000010 */
         (ElfMach_Half K.ET_EXEC)
-        (ElfMach_Half K.EM_X86_64)
+        (ElfMach_Half K.EM_X86_64) # FIXME: architecture selection
         (ElfMach_Word K.EV_CURRENT)
 
         /* 0x000018 */
