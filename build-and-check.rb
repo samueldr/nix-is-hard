@@ -36,11 +36,14 @@ VERBOSE = params.include?("--verbose")
 
 CMDS = [
   %w(readelf --program-headers --section-headers),
-  if VERBOSE then
-    %w(objdump --wide --disassemble-all)
-  else
-    %w(objdump --wide --disassemble)
-  end,
+  %w(objdump --architecture=i386 -Mintel,x86-64 --wide --disassembler-color=on --insn-width=10)
+    .tap do |cmd|
+      if VERBOSE then
+        cmd << "--disassemble-all"
+      else
+        cmd << "--disassemble"
+      end
+    end,
   if VERBOSE then %w(xxd) end,
 ].compact
 
