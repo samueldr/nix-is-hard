@@ -2,16 +2,8 @@ let
   lib = import ./lib;
 
   inherit (lib)
-    mkBinary
     buildProgram
-    basicLatinToBytes
     linux
-    arch
-  ;
-
-  inherit (lib.ctypes)
-    toUint32
-    toUint64
   ;
 
   simple = buildProgram {
