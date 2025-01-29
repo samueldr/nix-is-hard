@@ -61,7 +61,7 @@ in
             }) 8
           ;
           # The 8, 16 and 32 bit variants are suffixed.
-          _extended_S = [ "l" "w" "d" "" ];
+          _extended_S = [ "b" "w" "d" "" ];
           _extended =
             width:
             builtins.genList (i: rec {
