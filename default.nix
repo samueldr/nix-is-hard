@@ -14,6 +14,10 @@ let
     toUint64
   ;
 
+  simpleElf = buildProgram {
+    code = linux.x86_64.dsl.syscall.exit 42;
+  };
+
   helloElf =
     let
       stdout = 1;
@@ -68,6 +72,12 @@ let
 in
 {
   inherit lib;
+  inherit simpleElf;
+  simple = mkBinary {
+    name = "main";
+    bytes = simpleElf.bytes;
+    executable = true;
+  };
   inherit helloElf;
   hello = mkBinary {
     name = "main";
