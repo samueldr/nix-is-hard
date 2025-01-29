@@ -49,4 +49,10 @@
       null
     ;
   };
+  last = {
+    getsLastElement = expect "that last gets the last element"
+      (lib.last [ 0 1 2 3 4 ])
+      4
+    ;
+  };
 }

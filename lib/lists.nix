@@ -57,4 +57,8 @@
     null
     list
   ;
+  last =
+    list:
+    builtins.head (lib.mapReverse lib.identity list)
+  ;
 }
