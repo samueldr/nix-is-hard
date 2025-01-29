@@ -61,6 +61,33 @@ in
             ;
           }
         ;
+        # Copies the content of a *logical* register to another one.
+        # i.e. (copy_reg "ARG0" "RETURN")
+        # Copying to a system register is possible to (copy_reg "r15" "RETURN") but not inherently portable.
+        copy_reg =
+          # TODO: consider adding 'SCRATCH0~N' for non-syscall registers?
+          let
+            parseLogical =
+              name:
+              let
+                numMatch = builtins.match ".*([0-5])" name;
+                num = lib.toInt (builtins.head numMatch);
+              in
+              if !builtins.isString name
+              then (throw "A string must be provided to parseLogical")
+              else
+                if name == "RETURN"
+                then RETURN_REGISTER
+                else
+                  if numMatch != null
+                  then builtins.elemAt ARG_REGISTER num
+                  else
+                    name
+            ;
+          in
+          into: from:
+          (lib.arch.x86_64.instructions.MOV_reg (parseLogical into) (parseLogical from))
+        ;
         syscall =
           builtins.listToAttrs (
             builtins.map (
@@ -107,6 +134,8 @@ in
         "r8"
         "r9"
       ];
+      RETURN_REGISTER = "rax";
+      NR_REGISTER = "rax";
       syscall =
         let
           inherit (lib.arch.x86_64)
@@ -146,7 +175,7 @@ in
           # ... this would make it possible to re-use the last return value more easily.
           (
             instructions.MOV_imm
-            "rax"
+            NR_REGISTER
             (toUint32 _syscalls."${name}")
           )
           instructions.syscall

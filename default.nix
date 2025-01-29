@@ -51,7 +51,10 @@ let
 
   chmod =
     let
-      inherit (linux.x86_64.dsl) syscall;
+      inherit (linux.x86_64.dsl)
+        syscall
+        copy_reg
+      ;
     in
     buildProgram {
       name = "chmod";
@@ -61,7 +64,7 @@ let
           (syscall.chmod (getString "path").addr 511 /* 0777 */)
           # Move return value from previous syscall into ARG0
           # Making the tool return the return value of the syscall
-          (arch.x86_64.instructions.MOV_reg "rdi" "rax")
+          (copy_reg "ARG0" "RETURN")
           (syscall.exit null)
         ]
       ;
