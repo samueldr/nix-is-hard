@@ -2,7 +2,7 @@
 
 let
   inherit (lib)
-    mkElf
+    mkElf_legacy
   ;
 in
 {
@@ -12,7 +12,7 @@ in
     , data
     }:
 
-    mkElf rec {
+    mkElf_legacy rec {
       inherit code data;
     }
   ;

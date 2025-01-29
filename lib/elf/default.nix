@@ -4,6 +4,9 @@ let
   constants = import ./constants.nix;
   K = constants;
 
+  # FIXME figure out better or appropriate defaults to use.
+  DEFAULT_LOAD_ADDR = 10 * 16 * 1024;
+
   elfCtypes = with lib.ctypes; {
     Elf32_Addr  = toUint32;
     Elf32_Half  = toUint16;
@@ -253,8 +256,224 @@ rec {
     ) else (throw "`bytes` attribute of unexpected type (${builtins.typeOf bytes})")
   ;
 
+  mkElfSection =
+    { name ? null  # Name of the section, or null for unnamed section.
+    , type         # Type, either the constant name (SHT_PROGBITS) or the value (1).
+    , bytes        # bytes, either a list of bytes, or a set-pattern function returning a list of bytes.
+    , flags ? null # Flags for the section
+    }:
+    let type' = type; in # Break reference
+    let
+      # Eagerly resolve to integer type
+      type =
+        if builtins.isInt type'
+        then type'
+        else K.ELF_SHDR."${type'}"
+      ;
+    in
+    {
+      inherit name;
+      inherit bytes;
+      inherit type;
+      # Pick appropirate default flag for some well-known sections
+      flags =
+        ELF.mkShFlags (
+          if !builtins.isNull flags
+          then flags
+          else
+            if type == K.ELF_SHDR."SHT_PROGBITS"
+            then ELF.defaultSectionFlags."${name}" or 0
+            else 0
+        )
+      ;
+      length = builtins.length (bogusSectionBytes bytes);
+    }
+  ;
+
+  #
+  # NOTE: section names *must be unique*, or else expect unexpected behaviour.
+  #       (repeating null section bytes is fine.)
+  #
   mkElf =
-    { load_addr ? 10 * 16 * 1024 # FIXME figure out better defaults to use.
+    { bits ? 64 /* FIXME: determine how we expose the architecture */
+    , load_addr ? DEFAULT_LOAD_ADDR
+    , type ? "PT_LOAD" # An executable
+    , sections # ***list*** of sections
+    }:
+    # Algorithm:
+    #   - Pick all sections.
+    #   - Collect offsets into attrs.
+    #   - Collect section headers.
+    #   - Collect program bytes by calling bytes section appropriately.
+    let sections' = sections; in
+    let
+      dot_text_section =
+        sections_by_name.".text" or null
+      ;
+
+      entry_point =
+        if builtins.isNull dot_text_section
+        then 0
+        else dot_text_section.addr
+      ;
+
+      elf_headers_length =
+        ELF.sizeof."Elf${toString bits}_Ehdr"
+        + ELF.sizeof."Elf${toString bits}_Phdr"
+      ;
+
+      elf_header = ELF.mkElfHeader {
+        inherit bits;
+        e_entry = entry_point;
+        e_shoff = elf_headers_length;
+        e_shnum = sections_count;
+        e_shstrndx = 1; # hardcoded since we know it's .shstrtab is first (after null)
+      };
+
+      program_header = ELF.mkProgramHeader {
+        inherit bits;
+        inherit load_addr;
+        p_filesz =
+          let
+            last = lib.last sections;
+          in
+          last.offset + last.length
+        ;
+      };
+
+      section_names =
+        lib.cstrings.mkCStrings (
+          [
+            "(unnamed)"
+            ".shstrtab"
+          ] ++
+          (
+            builtins.filter 
+            (name: name != null)
+            (builtins.map (section: section.name) sections')
+          )
+        )
+      ;
+
+      shstrtab =
+        mkElfSection {
+          name = ".shstrtab";
+          type = "SHT_STRTAB";
+          bytes = section_names.bytes;
+        }
+      ;
+
+      # FIXME: find doc about whether this is needed or just a useful workaround for e_shstrndx
+      null_section =
+        mkElfSection {
+          type = "SHT_NULL";
+          bytes = [];
+        }
+      ;
+
+      innate_sections = [ null_section shstrtab ];
+
+      sections =
+        (
+          builtins.foldl'
+          (prev: section:
+            {
+              offset = prev.offset + section.length;
+              sections = prev.sections ++ [
+                (section // {
+                  # FIXME: this is not right for things that want to be loaded elsewhere
+                  addr = load_addr + prev.offset;
+                  inherit (prev) offset;
+                })
+              ];
+            }
+          )
+          {
+            offset = total_headers_length;
+            sections = [];
+          }
+          (innate_sections ++ sections')
+        ).sections
+      ;
+
+      sections_by_name =
+        builtins.listToAttrs (
+          lib.mapReverse (section: { inherit (section) name; value = section; }) (
+            builtins.filter
+            (section: section.name != null)
+            sections
+          )
+        )
+      ;
+
+      sections_count =
+        (builtins.length sections') + (builtins.length innate_sections)
+      ;
+
+      # NOTE: we cannot rely on `section_headers` since it needs this length to compute offsets.
+      section_headers_length = ELF.sizeof."Elf${toString bits}_Shdr" * sections_count;
+
+      total_headers_length =
+        elf_headers_length + section_headers_length
+      ;
+
+      section_headers =
+        let
+          headers =
+            builtins.map (
+              section:
+              ELF.mkSectionHeader {
+                sh_name =
+                  if builtins.isString section.name
+                  then section_names.offsets."${section.name}"
+                  else 0
+                ;
+                inherit bits;
+                sh_type = section.type;
+                sh_offset = section.offset;
+                sh_size = section.length;
+                sh_flags = section.flags;
+                sh_addr = section.addr;
+              }
+            ) sections
+          ;
+        in
+        rec {
+          bytes = builtins.concatLists headers;
+          length = builtins.length bytes;
+        }
+      ;
+
+      sections_bytes = builtins.concatLists (
+        builtins.map (
+          section:
+          if builtins.isList section.bytes
+          then section.bytes
+          else (section.bytes {
+            load_addr = load_addr;
+            section_addr = section.add;
+            sections = sections_by_name;
+          })
+        ) sections
+      );
+    in
+    {
+      inherit section_names;
+      inherit section_headers;
+      inherit section_headers_length;
+      inherit total_headers_length;
+      bytes = builtins.concatLists [
+        elf_header
+        program_header
+        section_headers.bytes
+        sections_bytes
+      ];
+      inherit sections;
+    }
+  ;
+
+  mkElf_legacy =
+    { load_addr ? DEFAULT_LOAD_ADDR
     , code
     , data
     }:
