@@ -4,7 +4,7 @@
   linux = {
     x86_64 = rec {
       # Kernel data types for x86_64
-      dataModel = lib.ctypes._data_model.LP64 // {
+      dataModel = lib.ctypes.dataModels.LP64 // {
           # Most 32 bit architectures use "unsigned int" size_t,
           # and all 64 bit architectures use "unsigned long" size_t.
           "size_t"  = dataModel."unsigned long";

@@ -97,7 +97,7 @@ in
     toInt64 = mkInt 64;
 
     # https://en.cppreference.com/w/cpp/language/types#Data_models
-    _data_model = {
+    dataModels = {
       _all = {
         # https://pubs.opengroup.org/onlinepubs/9799919799/basedefs/stdint.h.html
         # stdint
@@ -111,7 +111,7 @@ in
         uint64_t  = toUint64;
       };
       ILP32 = throw "TODO: ILP32 data model";
-      LP64 = _data_model._all // {
+      LP64 = dataModels._all // {
         "signed char"            = toInt8;
         "unsigned char"          = toUint8;
 
@@ -147,9 +147,9 @@ in
         #
 
         # For 64 bit
-        "intptr_t"               = _data_model.LP64."long int";
-        "uintptr_t"              = _data_model.LP64."unsigned long int";
-        "ptrdiff_t"              = _data_model.LP64.uintptr_t;
+        "intptr_t"               = dataModels.LP64."long int";
+        "uintptr_t"              = dataModels.LP64."unsigned long int";
+        "ptrdiff_t"              = dataModels.LP64.uintptr_t;
       };
     };
     parseDecl =
@@ -172,7 +172,7 @@ in
         let
           dataModel' =
             if builtins.isString dataModel
-            then _data_model."${dataModel}"
+            then dataModels."${dataModel}"
             else dataModel
           ;
           type    = collapseSpaces (builtins.elemAt fields 0);

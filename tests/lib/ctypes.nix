@@ -17,7 +17,7 @@
       ;
       pointerTypeSize = expect "pointer types to be equivalent to `uintptr_t`"
         ((lib.ctypes.parseDecl "LP64" "unsigned char * varname").convert 0)
-        (lib.ctypes._data_model.LP64."uintptr_t" 0)
+        (lib.ctypes.dataModels.LP64."uintptr_t" 0)
       ;
       usignedChar = expect "parseDecl to handle a type"
         ((lib.ctypes.parseDecl "LP64" "unsigned char boop").convert 255)
@@ -75,14 +75,14 @@
       ;
     };
   };
-  _data_model = {
+  dataModels = {
     LP64 = {
       pointer = expect "pointer type to be 64 bit wide"
-        (lib.ctypes._data_model.LP64."uintptr_t" 0)
+        (lib.ctypes.dataModels.LP64."uintptr_t" 0)
         [ 0 0 0 0 0 0 0 0 ]
       ;
       unsigned_char = expect "unsigned char to be 8 bit wide"
-        (lib.ctypes._data_model.LP64."unsigned char" 0)
+        (lib.ctypes.dataModels.LP64."unsigned char" 0)
         [ 0 ]
       ;
     };
