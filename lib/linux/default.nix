@@ -1,17 +1,5 @@
 { lib }:
 
-let
-  inherit (lib)
-    generateListLambda
-    mapWithIndex
-    optional
-    padBytesRight
-  ;
-  inherit (lib.ctypes)
-    toUint32
-    parseDecl
-  ;
-in
 {
   linux = {
     x86_64 = rec {
@@ -26,13 +14,13 @@ in
         mkSyscall =
           syscall_name:
           args:
-          generateListLambda {
+          lib.generateListLambda {
             finally = args: syscall syscall_name args;
             functions =
-              mapWithIndex
+              lib.mapWithIndex
               (arg_pos: syscall_arg:
                 let
-                  inherit (parseDecl dataModel syscall_arg)
+                  inherit (lib.ctypes.parseDecl dataModel syscall_arg)
                     name
                     type
                     convert
@@ -164,19 +152,20 @@ in
                     (
                       instructions.MOV_imm
                       (builtins.elemAt ARG_REGISTER i)
-                      (padBytesRight pad arg)
+                      (lib.padBytesRight pad arg)
                     )
                   ]
               )
               (builtins.length args)
             )
           )
-          # We're setting up the syscall number last...
-          # ... this would make it possible to re-use the last return value more easily.
+          # We're setting up the syscall number last.
+          # By passing null, a field is skipped from the args, and as such
+          # any previous value set can beu sed. See `copy_reg`.
           (
             instructions.MOV_imm
             NR_REGISTER
-            (toUint32 _syscalls."${name}")
+            (lib.ctypes.toUint32 _syscalls."${name}")
           )
           instructions.syscall
         ]
