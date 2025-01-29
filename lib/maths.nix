@@ -1,6 +1,5 @@
 { lib }:
 
-let pp = x: builtins.trace x x; in
 let
   #
   #  - Sign of return value is sign of the first operand.

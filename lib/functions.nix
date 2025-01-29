@@ -8,9 +8,9 @@
   # let
   #   example = generateListLambda {
   #     functions = [
-  #       (arg: "A: ${toString arg}") 
-  #       (arg: "B: ${toString arg}") 
-  #       (arg: "C: ${toString arg}") 
+  #       (arg: "A: ${toString arg}")
+  #       (arg: "B: ${toString arg}")
+  #       (arg: "C: ${toString arg}")
   #     ];
   #   };
   # in

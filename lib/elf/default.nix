@@ -223,8 +223,8 @@ rec {
     ;
     defaultSectionFlags = {
       # Some default flags...
-      ".text" = "AX"; #K.ELF_SHDR.SHF_ALLOC + K.ELF_SHDR.SHF_EXECINSTR; # FIXME: use "AX"
-      ".rodata" = "A"; # K.ELF_SHDR.SHF_ALLOC; # FIXME: use "A"
+      ".text" = "AX";
+      ".rodata" = "A";
     };
   };
 
@@ -348,7 +348,7 @@ rec {
             ".shstrtab"
           ] ++
           (
-            builtins.filter 
+            builtins.filter
             (name: name != null)
             (builtins.map (section: section.name) sections')
           )

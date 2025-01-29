@@ -1,7 +1,7 @@
 { lib
 , expect
 , expectThrow
-, ... 
+, ...
 }:
 
 {

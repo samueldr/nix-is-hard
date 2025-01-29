@@ -30,7 +30,7 @@ in
         then (throw "mkUint called with a non-byte-aligned bits width (${toString size} % 8 != 0)")
         else
           let
-            max = 
+            max =
               (builtins.foldl' builtins.add 0 (builtins.genList (i: lib.bitShiftLeft 1 i) (size)))
             ;
             min = 0;
@@ -72,7 +72,7 @@ in
         then (throw "mkInt called with a non-byte-aligned bits width (${toString size} % 8 != 0)")
         else
           let
-            max = 
+            max =
               (builtins.foldl' builtins.add 0 (builtins.genList (i: lib.bitShiftLeft 1 i) (size - 1)))
             ;
             min = max * (-1) - 1;
