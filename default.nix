@@ -14,16 +14,18 @@ let
     toUint64
   ;
 
-  simpleElf = buildProgram {
+  simple = buildProgram {
+    name = "simple";
     code = linux.x86_64.dsl.syscall.exit 42;
   };
 
-  helloElf =
+  hello =
     let
       stdout = 1;
       inherit (linux.x86_64.dsl) syscall;
     in
     buildProgram {
+      name = "hello";
       code =
         { getString, ... }:
         builtins.concatLists [
@@ -47,11 +49,12 @@ let
     }
   ;
 
-  chmodElf =
+  chmod =
     let
       inherit (linux.x86_64.dsl) syscall;
     in
     buildProgram {
+      name = "chmod";
       code =
         { getString, ... }:
         builtins.concatLists [
@@ -72,22 +75,7 @@ let
 in
 {
   inherit lib;
-  inherit simpleElf;
-  simple = mkBinary {
-    name = "main";
-    bytes = simpleElf.bytes;
-    executable = true;
-  };
-  inherit helloElf;
-  hello = mkBinary {
-    name = "main";
-    bytes = helloElf.bytes;
-    executable = true;
-  };
-  inherit chmodElf;
-  chmod = mkBinary {
-    name = "main";
-    bytes = chmodElf.bytes;
-    executable = true;
-  };
+  inherit simple;
+  inherit hello;
+  inherit chmod;
 }

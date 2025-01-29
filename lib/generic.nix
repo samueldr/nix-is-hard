@@ -18,7 +18,8 @@ in
   # It takes the attrname of the string as a parameter (or the full string, when using a list for `mkCStrings`).
   #
   buildProgram =
-    { code
+    { name # Name of the program, and the binary
+    , code
     , data ? null
     , strings ? null
     }:
@@ -35,37 +36,42 @@ in
         then strings.bytes
         else data'
       ;
+      elf = mkElf {
+        sections = [
+          (lib.mkElfSection {
+            name = ".text";
+            type = "SHT_PROGBITS";
+            bytes =
+              if builtins.isFunction code && !builtins.isNull strings
+              then (args: code (args // {
+                getString =
+                  name:
+                  {
+                    addr = (args.sections.".rodata".addr or 0) + strings.offsets."${name}";
+                    offset = strings.offsets."${name}";
+                    length = builtins.stringLength strings.strings."${name}";
+                  }
+                ;
+              }))
+              else code
+            ;
+          })
+        ]
+        ++
+        (lib.optional (data != null)
+          (lib.mkElfSection {
+            name = ".rodata";
+            type = "SHT_PROGBITS";
+            bytes = data;
+          })
+        )
+        ;
+      };
     in
-    mkElf {
-      sections = [
-        (lib.mkElfSection {
-          name = ".text";
-          type = "SHT_PROGBITS";
-          bytes =
-            if builtins.isFunction code && !builtins.isNull strings
-            then (args: code (args // {
-              getString =
-                name:
-                {
-                  addr = (args.sections.".rodata".addr or 0) + strings.offsets."${name}";
-                  offset = strings.offsets."${name}";
-                  length = builtins.stringLength strings.strings."${name}";
-                }
-              ;
-            }))
-            else code
-          ;
-        })
-      ]
-      ++
-      (lib.optional (data != null)
-        (lib.mkElfSection {
-          name = ".rodata";
-          type = "SHT_PROGBITS";
-          bytes = data;
-        })
-      )
-      ;
-    }
+    (lib.mkBinary {
+      inherit name;
+      bytes = elf.bytes;
+      executable = true;
+    }) // { inherit elf; }
   ;
 }
