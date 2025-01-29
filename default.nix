@@ -98,6 +98,40 @@ let
       inherit data;
     }
   ;
+
+  newBin =
+    let
+      strings = lib.cstrings.mkCStrings {
+        hello = "Hello, World!\n";
+      };
+    in
+    # TODO: make a "strings aware" builder instead of using raw elf sections.
+    lib.mkElf {
+      sections = [
+        (lib.mkElfSection {
+          name = ".text";
+          type = "SHT_PROGBITS";
+          bytes =
+            let
+              stdout = 1;
+            in
+            { sections ? { ".rodata" = { addr = 0; }; }
+            , ...
+            }:
+            builtins.concatLists [
+              (linux.x86_64.dsl.syscall.write stdout (sections.".rodata".addr + strings.offsets.hello) (builtins.stringLength strings.strings.hello))
+              (linux.x86_64.dsl.syscall.exit 0)
+            ]
+          ;
+        })
+        (lib.mkElfSection {
+          name = ".rodata";
+          type = "SHT_PROGBITS";
+          bytes = strings.bytes;
+        })
+      ];
+    }
+  ;
 in
 {
   inherit lib;
@@ -109,6 +143,11 @@ in
   chmod = mkBinary {
     name = "main";
     bytes = chmod;
+    executable = true;
+  };
+  newBin = mkBinary {
+    name = "main";
+    bytes = newBin.bytes;
     executable = true;
   };
 }
