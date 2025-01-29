@@ -84,4 +84,17 @@
     # Negative magnitudes
     i_16_sr_-2 = expect "16 >> -2 == 64" (lib.bitShiftRight 16 (-2)) 64;
   };
+
+  toInt = {
+    works = expect "toInt to convert numbers"
+      (lib.toInt "1234")
+      1234
+    ;
+    failsNonDecimal = expectThrow "toInt to fail when non-decimal digits are used"
+      (lib.toInt "12a34")
+    ;
+    failsNonString = expectThrow "toInt to fail when a non-string input is used"
+      (lib.toInt 1)
+    ;
+  };
 }

@@ -62,4 +62,11 @@ in
 
   bitShiftLeft  = _bitShift "mul";
   bitShiftRight = _bitShift "div";
+
+  toInt =
+    str:
+    if !builtins.isString str then (throw "toInt can only operate on strings.") else
+    if builtins.isNull (builtins.match "[0-9]+" str) then (throw "toInt can only convert strings containing decimal digits") else
+    builtins.fromJSON str
+  ;
 }
