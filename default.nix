@@ -6,12 +6,8 @@ let
   ;
   inherit (lib.linux.select builtins.currentSystem)
     dsl
+    STDOUT
   ;
-
-  # Some useful constants
-  # TODO: consider moving this into Linux?
-  #       or have higher level helpers in the DSL (`puts`?)
-  stdout = 1;
 
   simple = buildProgram {
     name = "simple";
@@ -24,7 +20,7 @@ let
       code =
         { getString, ... }:
         builtins.concatLists [
-          (dsl.syscall.write stdout (getString "hello").addr (getString "hello").length)
+          (dsl.syscall.write STDOUT (getString "hello").addr (getString "hello").length)
           (dsl.syscall.exit 0)
         ]
       ;
