@@ -2,6 +2,7 @@
 
 let
   inherit (lib)
+    mkBinary
     mkElf
   ;
 in
@@ -68,9 +69,9 @@ in
         ;
       };
     in
-    (lib.mkBinary {
+    (mkBinary {
       inherit name;
-      bytes = elf.bytes;
+      bytes = (lib.stripComments elf.bytes);
       executable = true;
     }) // { inherit elf; }
   ;
