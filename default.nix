@@ -3,26 +3,29 @@ let
 
   inherit (lib)
     buildProgram
-    linux
   ;
+  inherit (lib.linux.select builtins.currentSystem)
+    dsl
+  ;
+
+  # Some useful constants
+  # TODO: consider moving this into Linux?
+  #       or have higher level helpers in the DSL (`puts`?)
+  stdout = 1;
 
   simple = buildProgram {
     name = "simple";
-    code = linux.x86_64.dsl.syscall.exit 42;
+    code = dsl.syscall.exit 42;
   };
 
   hello =
-    let
-      stdout = 1;
-      inherit (linux.x86_64.dsl) syscall;
-    in
     buildProgram {
       name = "hello";
       code =
         { getString, ... }:
         builtins.concatLists [
-          (syscall.write stdout (getString "hello").addr (getString "hello").length)
-          (syscall.exit 0)
+          (dsl.syscall.write stdout (getString "hello").addr (getString "hello").length)
+          (dsl.syscall.exit 0)
         ]
       ;
       strings =
@@ -42,22 +45,16 @@ let
   ;
 
   chmod =
-    let
-      inherit (linux.x86_64.dsl)
-        syscall
-        copy_reg
-      ;
-    in
     buildProgram {
       name = "chmod";
       code =
         { getString, ... }:
         builtins.concatLists [
-          (syscall.chmod (getString "path").addr 511 /* 0777 */)
+          (dsl.syscall.chmod (getString "path").addr 511 /* 0777 */)
           # Move return value from previous syscall into ARG0
           # Making the tool return the return value of the syscall
-          (copy_reg "ARG0" "RETURN")
-          (syscall.exit null)
+          (dsl.copy_reg "ARG0" "RETURN")
+          (dsl.syscall.exit null)
         ]
       ;
       strings =
