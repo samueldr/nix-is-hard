@@ -10,6 +10,7 @@ let
       (import ./maths.nix     { inherit lib; })
       (import ./strings.nix   { inherit lib; })
       (import ./functions.nix { inherit lib; })
+      (import ./nix.nix       { inherit lib; })
 
       # This nonsense
       (import ./binary.nix    { inherit lib; })

@@ -9,6 +9,7 @@ in
   lists = import ./lists.nix (fns);
   attrs = import ./attrs.nix (fns);
   functions = import ./functions.nix (fns);
+  nix = import ./nix.nix (fns);
   binary = import ./binary.nix (fns);
   ctypes = import ./ctypes.nix (fns);
 }
