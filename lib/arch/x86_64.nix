@@ -17,10 +17,31 @@ let
   # Binary numbers
   b0100_0000 =  64; # 0x40
   b1100_0000 = 192; # 0xC0
+
+  synonymousArches =
+    [
+      "x86-64"
+      "amd64"
+    ]
+  ;
+  # Help out users in some situations with slightly wrong names being used.
+  architectureHints =
+    builtins.listToAttrs (
+      builtins.map (
+        name:
+        {
+          inherit name;
+          value = builtins.throw "architecture '${name}' is named 'x86_64'.";
+        }
+      ) synonymousArches
+    )
+  ;
 in
 {
-  arch = {
+  arch = architectureHints // {
     x86_64 = {
+      name = "x86_64";
+
       # https://wiki.osdev.org/X86-64_Instruction_Encoding#Registers
       # NOTE: these valures are not necessarily sufficient to encode in opcode operands.
       # NOTE: extended registers may require using the R or B REX flags.
