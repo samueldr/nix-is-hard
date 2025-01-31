@@ -13,11 +13,11 @@ let
 
       # This nonsense
       (import ./binary.nix    { inherit lib; })
-      (import ./generic.nix   { inherit lib; })
       (import ./ctypes.nix    { inherit lib; })
       (import ./elf           { inherit lib; })
       (import ./arch          { inherit lib; })
       (import ./linux         { inherit lib; })
+      (import ./buildProgram.nix { inherit lib; })
     ])
   ;
 in
