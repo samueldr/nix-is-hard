@@ -14,6 +14,7 @@ let
 
       # This nonsense
       (import ./binary.nix    { inherit lib; })
+      (import ./dsl.nix       { inherit lib; })
       (import ./ctypes.nix    { inherit lib; })
       (import ./elf           { inherit lib; })
       (import ./arch          { inherit lib; })
