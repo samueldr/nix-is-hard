@@ -2,7 +2,7 @@
 
 {
   linux = {
-    x86_64 = rec {
+    x86_64 = with lib.linux.generic; (lib.linux.generic // rec {
       # Kernel data types for x86_64
       dataModel = lib.ctypes.dataModels.LP64 // {
           # Most 32 bit architectures use "unsigned int" size_t,
@@ -170,6 +170,6 @@
           instructions.syscall
         ]
       ;
-    };
+    });
   };
 }
