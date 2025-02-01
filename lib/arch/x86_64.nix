@@ -6,7 +6,9 @@ let
     chars
     join
     mod
+    numberToBytes
     optional
+    optionals
     padBytesRight
   ;
   inherit (lib.arch.x86_64)
@@ -17,6 +19,10 @@ let
   # Binary numbers
   b0100_0000 =  64; # 0x40
   b1100_0000 = 192; # 0xC0
+  b100 = 4;
+  b101 = 5;
+  b110 = 6;
+  b111 = 7;
 
   synonymousArches =
     [
@@ -35,6 +41,21 @@ let
         }
       ) synonymousArches
     )
+  ;
+
+  # The power of two length of an operand, in bytes.
+  # NOTE: implementation is not great, but works.
+  operandWidth =
+    value:
+    let
+      bytesCount = lib.bytesCount (numberToBytes value);
+    in
+    # NOTE: Nix currently doesn't handle integer types bigger than 64 bit...
+    #       We are cheating a bit here by assuming this.
+    if bytesCount >= 8 then 8 else
+    if bytesCount >= 4 then 4 else
+    if bytesCount >= 2 then 2 else
+    1
   ;
 in
 {
@@ -137,7 +158,9 @@ in
         let
           MODRM = {
             mod = {
-              direct = b1100_0000;
+              indirect = 0; # For pedantic completeness; [r/m]
+              # NOTE: 01 and 10 not supported yet.
+              direct   = b1100_0000; # r/m
             };
           };
         in
@@ -192,8 +215,166 @@ in
             ++ (padBytesRight regLength value)
           ;
 
+          MOV_from_mem =
+            into: from:
+            let
+              into' = registers."${into}";
+              from' = registers."${from}";
+              rex_flags = []
+                ++ (optional (into'.width == 64) "W")
+                ++ (optional (from'.extended)    "B")
+                ++ (optional (into'.extended)    "R")
+              ;
+              rex_value =
+                prefix.REX (join rex_flags)
+              ;
+              operand =
+                (MODRM.mod.indirect)
+                + (into'.offset * 8)
+                + (from'.offset)
+              ;
+              opcodeOffset = if into'.width == 8 then 0 else 1;
+              additional_byte =
+                if from'.offset == b100
+                then [ 36 ] # SIB to 00.100.100; 0x24
+                else
+                  if from'.offset == b101 # RBP/R13
+                  then [ 0 ] # Displacement of zero
+                  else null
+              ;
+            in
+            if into'.width != 64 then (throw "FIXME: MOV_from_mem only implements 64 bit operands at the moment.") else
+            if into'.width != from'.width
+            then throw "'MOV_from_mem ${into},${from} ...' used with different size operands (${toString into'.width},${toString from'.width})"
+            else
+            (optional (rex_value != b0100_0000) rex_value)
+            ++ [ (138 + opcodeOffset) ] # 0x8A
+            ++ [ operand ]
+            ++ (optionals (additional_byte != null) additional_byte)
+          ;
+
           # 0F  05
           syscall   = [ 15 5 ];
+
+          #
+          # Control flow
+          #
+
+          # Comparison
+          CMP_imm =
+            reg: value:
+            let
+              reg' = registers."${reg}";
+              rex_flags = []
+                ++ (optional (reg'.width == 64) "W")
+                ++ (optional (reg'.extended)    "R")
+              ;
+              rex_value =
+                prefix.REX (join rex_flags)
+              ;
+              regLength =
+                let val = bitShiftRight reg'.width (4-1); in
+                # Fixup for imm32 on 64 bit registers
+                if val == 8 then 4 else val
+              ;
+              valueLength = lib.bytesCount value;
+              opcodeOffset = if reg'.width == 8 then 0 else 1;
+              operand =
+                (MODRM.mod.direct)
+                + (b111 * 8) # /7
+                + (reg'.offset)
+              ;
+            in
+            if valueLength > regLength
+            then throw "'CMP_imm ${reg} ...' used with immediate value too large. Expected at most ${toString regLength} bytes, got ${toString valueLength}"
+            else
+            (optional (rex_value != b0100_0000) rex_value)
+            # NOTE: no imm64!!!!
+            ++ [ (128 + opcodeOffset) ] # 0x80
+            ++ [ operand ]
+            ++ (padBytesRight regLength value)
+          ;
+
+          ADD_imm =
+            reg: value:
+            let
+              reg' = registers."${reg}";
+              rex_flags = []
+                ++ (optional (reg'.width == 64) "W")
+                ++ (optional (reg'.extended)    "R")
+              ;
+              rex_value =
+                prefix.REX (join rex_flags)
+              ;
+              regLength =
+                let val = bitShiftRight reg'.width (4-1); in
+                # Fixup for imm32 on 64 bit registers
+                if val == 8 then 4 else val
+              ;
+              valueLength = lib.bytesCount value;
+              opcodeOffset = if reg'.width == 8 then 0 else 1;
+              operand =
+                (MODRM.mod.direct)
+                + (0 * 8) # /0
+                + (reg'.offset)
+              ;
+            in
+            if valueLength > regLength
+            then throw "'ADD_imm ${reg} ...' used with immediate value too large. Expected at most ${toString regLength} bytes, got ${toString valueLength}"
+            else
+            (optional (rex_value != b0100_0000) rex_value)
+            ++ [ (128 + opcodeOffset) ] # 0x80
+            ++ [ operand ]
+            ++ (padBytesRight regLength value)
+          ;
+
+          # Jump if equal; All are relative jumps.
+          # (Conditional absolute jumps are not a thing in x86)
+          JE = 
+            value:
+            let
+              byteWidth = operandWidth value;
+            in
+            [(lib.comment "x86_64: JE ${toString value}")] ++
+            (
+            if byteWidth == 1
+            then (
+              [ 116 ] # 0x74; JE rel8
+              ++ (padBytesRight byteWidth (numberToBytes value))
+              )
+            else if byteWidth < 8
+            then (
+              [ 15 132 ] # 0x0f 0x84; JE rel32
+              ++ (padBytesRight byteWidth (numberToBytes value))
+            )
+            else
+              throw "64 bit operands not supported for JE."
+            )
+          ;
+
+          # Jump if not equal; All are relative jumps.
+          # (Conditional absolute jumps are not a thing in x86)
+          JNE = 
+            value:
+            let
+              byteWidth = operandWidth value;
+            in
+            [(lib.comment "x86_64: JNE ${toString value}")] ++
+            (
+            if byteWidth == 1
+            then (
+              [ 117 ] # 0x75; JNE rel8
+              ++ (padBytesRight byteWidth (numberToBytes value))
+              )
+            else if byteWidth < 8
+            then (
+              [ 15 133 ] # 0x0f 0x85; JNE rel32
+              ++ (padBytesRight byteWidth (numberToBytes value))
+            )
+            else
+              throw "64 bit operands not supported for JNE."
+            )
+          ;
         }
       ;
     };
