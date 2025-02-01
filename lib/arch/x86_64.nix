@@ -74,6 +74,7 @@ in
                 reg      = i;
                 extended = false;
                 offset   = i;
+                isAX     = value.offset == 0;
               };
             }) 8
           ;
@@ -89,6 +90,7 @@ in
                 reg      = i;
                 extended = false;
                 offset   = i;
+                isAX     = value.offset == 0;
               };
             }) 8
           ;
@@ -103,6 +105,7 @@ in
                 reg      = i + 8;
                 extended = true;
                 offset   = i;
+                isAX     = false;
               };
             }) 8
           ;
@@ -296,7 +299,7 @@ in
               reg' = registers."${reg}";
               rex_flags = []
                 ++ (optional (reg'.width == 64) "W")
-                ++ (optional (reg'.extended)    "R")
+                ++ (optional (reg'.extended)    "B")
               ;
               rex_value =
                 prefix.REX (join rex_flags)
@@ -307,20 +310,34 @@ in
                 if val == 8 then 4 else val
               ;
               valueLength = lib.bytesCount value;
-              opcodeOffset = if reg'.width == 8 then 0 else 1;
+              opcode = [(
+                if reg'.isAX
+                then (
+                  60 /* 0x3c */
+                  + ( if reg'.width == 8 then 0 else 1 )
+                ) else (
+                  128 /* 0x80 */
+                  + ( if reg'.width == 8 then 0 else 1 )
+                )
+              )];
               operand =
                 (MODRM.mod.direct)
                 + (b111 * 8) # /7
                 + (reg'.offset)
               ;
+              opcode_prefix =
+                if reg'.width == 16 then [ 102 /* 0x66 */ ] else
+                []
+              ;
             in
             if valueLength > regLength
             then throw "'CMP_imm ${reg} ...' used with immediate value too large. Expected at most ${toString regLength} bytes, got ${toString valueLength}"
-            else
-            (optional (rex_value != b0100_0000) rex_value)
+            else []
+            ++ opcode_prefix
+            ++ (optional (rex_value != b0100_0000) rex_value)
             # NOTE: no imm64!!!!
-            ++ [ (128 + opcodeOffset) ] # 0x80
-            ++ [ operand ]
+            ++ opcode
+            ++ (optional (!reg'.isAX) operand)
             ++ (padBytesRight regLength value)
           ;
 
@@ -330,7 +347,7 @@ in
               reg' = registers."${reg}";
               rex_flags = []
                 ++ (optional (reg'.width == 64) "W")
-                ++ (optional (reg'.extended)    "R")
+                ++ (optional (reg'.extended)    "B")
               ;
               rex_value =
                 prefix.REX (join rex_flags)
@@ -341,19 +358,34 @@ in
                 if val == 8 then 4 else val
               ;
               valueLength = lib.bytesCount value;
-              opcodeOffset = if reg'.width == 8 then 0 else 1;
+              opcode = [(
+                if reg'.isAX
+                then (
+                  4 /* 0x04 */
+                  + ( if reg'.width == 8 then 0 else 1 )
+                ) else (
+                  128 /* 0x80 */
+                  + ( if reg'.width == 8 then 0 else 1 )
+                )
+              )];
               operand =
                 (MODRM.mod.direct)
                 + (0 * 8) # /0
                 + (reg'.offset)
               ;
+              opcode_prefix =
+                if reg'.width == 16 then [ 102 /* 0x66 */ ] else
+                []
+              ;
             in
             if valueLength > regLength
             then throw "'ADD_imm ${reg} ...' used with immediate value too large. Expected at most ${toString regLength} bytes, got ${toString valueLength}"
-            else
-            (optional (rex_value != b0100_0000) rex_value)
-            ++ [ (128 + opcodeOffset) ] # 0x80
-            ++ [ operand ]
+            else []
+            ++ opcode_prefix
+            ++ (optional (rex_value != b0100_0000) rex_value)
+            # NOTE: no imm64!!!!
+            ++ opcode
+            ++ (optional (!reg'.isAX) operand)
             ++ (padBytesRight regLength value)
           ;
 
