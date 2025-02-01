@@ -233,7 +233,7 @@ in
             in
             {
               offsets = prev.offsets // {
-                "${name}" = builtins.length prev.bytes;
+                "${name}" = lib.bytesCount prev.bytes;
               };
               bytes = prev.bytes
                 ++ (
@@ -250,7 +250,7 @@ in
           { offsets = {}; bytes = []; }
           (builtins.sort builtins.lessThan (builtins.attrNames strings))
         ;
-        length = builtins.length data.bytes;
+        length = lib.bytesCount data.bytes;
       in
       {
         inherit (data)

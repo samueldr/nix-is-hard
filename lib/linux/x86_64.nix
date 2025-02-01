@@ -25,12 +25,12 @@
                     type
                     convert
                   ;
-                  expected_size = builtins.length (convert 0);
+                  expected_size = lib.bytesCount (convert 0);
                 in
                 value:
                 if builtins.isList value
                 then
-                  let len = (builtins.length value); in
+                  let len = (lib.bytesCount value); in
                   if len > expected_size
                   then throw (
                     "passed a ${toString len} bytes value to"

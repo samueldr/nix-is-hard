@@ -182,7 +182,7 @@ in
                 prefix.REX (join rex_flags)
               ;
               regLength = bitShiftRight reg'.width (4-1);
-              valueLength = builtins.length value;
+              valueLength = lib.bytesCount value;
             in
             if valueLength > regLength
             then throw "'MOV_imm ${reg} ...' used with immediate value too large. Expected at most ${toString regLength} bytes, got ${toString valueLength}"

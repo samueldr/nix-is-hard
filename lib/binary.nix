@@ -83,7 +83,7 @@ rec
   padBytesLeft =
     amount: bytes:
     let
-      len = builtins.length bytes;
+      len = lib.bytesCount bytes;
       todo =
         if len <= amount
         then amount - len
@@ -95,7 +95,7 @@ rec
   padBytesRight =
     amount: bytes:
     let
-      len = builtins.length bytes;
+      len = lib.bytesCount bytes;
       todo =
         if len <= amount
         then amount - len

@@ -54,9 +54,9 @@ rec {
 
     # Size of the types defined afterward.
     sizeof = {
-      Elf64_Ehdr = builtins.length (ELF.mkElfHeader { bits = 64; e_entry = 0; e_ehsize = 0; });
-      Elf64_Phdr = builtins.length (ELF.mkProgramHeader { bits = 64; load_addr = 0; p_filesz = 0; });
-      Elf64_Shdr = builtins.length (ELF.mkSectionHeader { bits = 64; });
+      Elf64_Ehdr = lib.bytesCount (ELF.mkElfHeader { bits = 64; e_entry = 0; e_ehsize = 0; });
+      Elf64_Phdr = lib.bytesCount (ELF.mkProgramHeader { bits = 64; load_addr = 0; p_filesz = 0; });
+      Elf64_Shdr = lib.bytesCount (ELF.mkSectionHeader { bits = 64; });
     };
 
     # ELF header, first thing in an ELF file.
@@ -286,7 +286,7 @@ rec {
             else 0
         )
       ;
-      length = builtins.length (bogusSectionBytes bytes);
+      length = lib.bytesCount (bogusSectionBytes bytes);
     }
   ;
 
@@ -440,7 +440,7 @@ rec {
         in
         rec {
           bytes = builtins.concatLists headers;
-          length = builtins.length bytes;
+          length = lib.bytesCount bytes;
         }
       ;
 
