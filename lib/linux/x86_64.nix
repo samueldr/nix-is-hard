@@ -106,6 +106,44 @@
             ]
           )
         ;
+        argv1_to_reg =
+          { register # Logical register names accepted (i.e. ARG0)
+          , errorMessage ? null # An attrset with `offset` and `length` for a given string.
+          }:
+          
+          let
+            register' = dsl.parseLogicalReg register;
+            errorFragment = builtins.concatLists [
+              (lib.optionals (!builtins.isNull errorMessage) 
+                (dsl.syscall.write STDOUT errorMessage.addr errorMessage.length)
+              )
+              (dsl.syscall.exit 1)
+            ];
+          in
+          builtins.concatLists [
+            [(lib.comment "<start> argv1 to register (${toString register})")]
+
+            # We're using the output register as scratch to test presence of argv1
+            # Get the *value* of argc
+            (lib.arch.x86_64.instructions.MOV_from_mem register' "rsp")
+
+            # We're checking *strictly* for argc == 1
+            (lib.arch.x86_64.instructions.CMP_imm register' (lib.ctypes.toUint32 1))
+            /* */ # When 1, move to after errorFragment
+            /* */ (lib.arch.x86_64.instructions.JNE (lib.bytesCount errorFragment))
+            /* */ # else, error out
+            /* */ errorFragment
+
+            # Get the argc pointer
+            (lib.arch.x86_64.instructions.MOV_reg register' "rsp")
+            # Skip over argc and argv0
+            (lib.arch.x86_64.instructions.ADD_imm register' (lib.ctypes.toUint32 (2 * 8)))
+            # Here we copy into the register (effectively (char*)argv[1]).
+            (lib.arch.x86_64.instructions.MOV_from_mem register' register')
+
+            [(lib.comment "<end> argv1 to register (${toString register})")]
+          ]
+        ;
       };
       # Syscall numbers
       _syscalls = {
