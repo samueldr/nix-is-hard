@@ -127,15 +127,16 @@ in
         self
       ;
       prefix = {
+        # Table 2-4. REX Prefix Fields [BITS: 0100WRXB]
         REX =
           flags:
           let
             # Values
             flagValues = {
               W = 8; # 0b1000 → 64 bit operands
-              R = 4; # 0b0100 → source **register**
-              X = 2; # 0b0010 → ...
-              B = 1; # 0b0001 → **base**(?) register
+              R = 4; # 0b0100 → Extension of the **ModR/M reg field**
+              X = 2; # 0b0010 → Extension of the SIB index field
+              B = 1; # 0b0001 → Extension of the **ModR/M r/m field**, SIB base field, or Opcode reg field
             };
             valueList =
               builtins.map (
