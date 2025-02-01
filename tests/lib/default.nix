@@ -12,4 +12,5 @@ in
   nix = import ./nix.nix (fns);
   binary = import ./binary.nix (fns);
   ctypes = import ./ctypes.nix (fns);
+  arch = import ./arch (fns);
 }
