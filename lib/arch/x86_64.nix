@@ -270,10 +270,12 @@ in
                   else null
               ;
             in
-            if into'.width != 64 then (throw "FIXME: MOV_from_mem only implements 64 bit operands at the moment.") else
+
+            if into'.width != 64
+              then (throw "FIXME: MOV_from_mem only implements 64 bit operands at the moment.") else
             if into'.width != from'.width
-            then throw "'MOV_from_mem ${into},${from} ...' used with different size operands (${toString into'.width},${toString from'.width})"
-            else
+              then (throw "'MOV_from_mem ${into},${from} ...' used with different size operands (${toString into'.width},${toString from'.width})") else
+
             (optional (rex_value != b0100_0000) rex_value)
             ++ opcode
             ++ [ operand ]
