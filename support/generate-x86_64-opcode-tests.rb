@@ -138,6 +138,9 @@ INSTRUCTIONS = [
   ["mov", "MOV_imm",      [:reg, :imm]],
   ["je",  "JE",           [:off]],
   ["jne", "JNE",          [:off]],
+  ["cmp", "CMP_imm",      [:reg, :imm]],
+  ["add", "ADD_imm",      [:reg, :imm]],
+  # syscall instruction not tested; no operands, trivial and tested otherwise.
 ]
 
 file = StringIO.new()
