@@ -119,6 +119,11 @@
               )
               (dsl.syscall.exit 1)
             ];
+            # NOTE: we have to compensate for JNE's operand length too...
+            relAfter_errorFragment = 0
+              + 4
+              + (lib.bytesCount errorFragment)
+            ;
           in
           builtins.concatLists [
             [(lib.comment "<start> argv1 to register (${toString register})")]
@@ -130,7 +135,7 @@
             # We're checking *strictly* for argc == 1
             (lib.arch.x86_64.instructions.CMP_imm register' (lib.ctypes.toUint32 1))
             /* */ # When 1, move to after errorFragment
-            /* */ (lib.arch.x86_64.instructions.JNE (lib.bytesCount errorFragment))
+            /* */ (lib.arch.x86_64.instructions.JNE relAfter_errorFragment)
             /* */ # else, error out
             /* */ errorFragment
 
