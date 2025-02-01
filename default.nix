@@ -40,9 +40,9 @@ let
     }
   ;
 
-  chmod =
+  "chmod+x" =
     buildProgram {
-      name = "chmod";
+      name = "chmod+x";
       code =
         { getString, ... }:
         builtins.concatLists [
@@ -60,7 +60,7 @@ let
       strings =
         {
           # Note: no argv0 support yet
-          no_argv1 = "Usage: chmod <path>\n";
+          no_argv1 = "Usage: chmod+x <path>\n";
         }
       ;
     }
@@ -70,5 +70,5 @@ in
   inherit lib;
   inherit simple;
   inherit hello;
-  inherit chmod;
+  inherit "chmod+x";
 }
