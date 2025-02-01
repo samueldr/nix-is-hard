@@ -5,17 +5,20 @@ let
     buildProgram
   ;
   inherit (lib.linux.select builtins.currentSystem)
+    arch
     dsl
     STDOUT
   ;
 
   simple = buildProgram {
+    inherit arch;
     name = "simple";
     code = dsl.syscall.exit 42;
   };
 
   hello =
     buildProgram {
+      inherit arch;
       name = "hello";
       code =
         { getString, ... }:
@@ -42,6 +45,7 @@ let
 
   "chmod+x" =
     buildProgram {
+      inherit arch;
       name = "chmod+x";
       code =
         { getString, ... }:
