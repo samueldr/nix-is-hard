@@ -30,18 +30,6 @@ let
       "amd64"
     ]
   ;
-  # Help out users in some situations with slightly wrong names being used.
-  architectureHints =
-    builtins.listToAttrs (
-      builtins.map (
-        name:
-        {
-          inherit name;
-          value = builtins.throw "architecture '${name}' is named 'x86_64'.";
-        }
-      ) synonymousArches
-    )
-  ;
 
   # The power of two length of an operand, in bytes.
   # NOTE: implementation is not great, but works.
@@ -59,9 +47,10 @@ let
   ;
 in
 {
-  arch = architectureHints // {
+  arch = {
     x86_64 = {
       name = "x86_64";
+      inherit synonymousArches;
 
       # https://wiki.osdev.org/X86-64_Instruction_Encoding#Registers
       # NOTE: these valures are not necessarily sufficient to encode in opcode operands.
