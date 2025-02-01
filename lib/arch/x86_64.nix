@@ -106,19 +106,25 @@ in
               };
             }) 8
           ;
+          self = (builtins.listToAttrs (
+            builtins.concatLists [
+              (_classic_8)
+              (_classic_16 1) # 16 bit
+              (_classic_16 2) # 32 bit
+              (_classic_16 3) # 64 bit
+              (_extended   0) #  8 bit
+              (_extended   1) # 16 bit
+              (_extended   2) # 32 bit
+              (_extended   3) # 64 bit
+            ]
+          )) // {
+            spl = self.ah;
+            bpl = self.ch;
+            sil = self.dh;
+            dil = self.bh;
+          };
         in
-        builtins.listToAttrs (
-          builtins.concatLists [
-            (_classic_8)
-            (_classic_16 1) # 16 bit
-            (_classic_16 2) # 32 bit
-            (_classic_16 3) # 64 bit
-            (_extended   0) #  8 bit
-            (_extended   1) # 16 bit
-            (_extended   2) # 32 bit
-            (_extended   3) # 64 bit
-          ]
-        )
+        self
       ;
       prefix = {
         REX =
