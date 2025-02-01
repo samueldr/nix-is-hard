@@ -54,14 +54,17 @@ rec {
 
     # Size of the types defined afterward.
     sizeof = {
-      Elf64_Ehdr = lib.bytesCount (ELF.mkElfHeader { bits = 64; e_entry = 0; e_ehsize = 0; });
+      Elf64_Ehdr = lib.bytesCount (ELF.mkElfHeader { bits = 64; e_entry = 0; e_ehsize = 0; e_machine = 0; });
       Elf64_Phdr = lib.bytesCount (ELF.mkProgramHeader { bits = 64; load_addr = 0; p_filesz = 0; });
       Elf64_Shdr = lib.bytesCount (ELF.mkSectionHeader { bits = 64; });
+      Elf32_Ehdr = lib.bytesCount (ELF.mkElfHeader { bits = 32; e_entry = 0; e_ehsize = 0; e_machine = 0; });
+      Elf32_Phdr = lib.bytesCount (ELF.mkProgramHeader { bits = 32; load_addr = 0; p_filesz = 0; });
+      Elf32_Shdr = lib.bytesCount (ELF.mkSectionHeader { bits = 32; });
     };
 
     # ELF header, first thing in an ELF file.
     mkElfHeader =
-      { bits    # 32 or 64
+      { bits
       , e_entry
       , e_flags ? 0
 
@@ -74,6 +77,9 @@ rec {
       , e_shentsize ? ELF.sizeof."Elf${toString bits}_Shdr"
       , e_shnum ? 0
       , e_shstrndx ? K.ELF_SHDR.SHN_UNDEF
+
+      , e_type ? K.ET_EXEC
+      , e_machine
       }:
       let
         inherit (sized_types."${toString bits}")
@@ -88,7 +94,7 @@ rec {
         /* 0x0000 */
         K.EI_MAG
         [
-          /* 0x04 */ K.EI_CLASS.ELFCLASS64
+          /* 0x04 */ (if bits == 64 then K.EI_CLASS.ELFCLASS64 else K.EI_CLASS.ELFCLASS32)
           /* 0x05 */ K.EI_DATA.ELFDATA2LSB
           /* 0x06 */ K.EI_VERSION.EV_CURRENT
           /* 0x07 */ K.EI_OSABI.ELFOSABI_NONE
@@ -98,9 +104,9 @@ rec {
         K.EI_PAD
 
         /* 0x000010 */
-        (ElfMach_Half K.ET_EXEC)
-        (ElfMach_Half K.EM_X86_64) # FIXME: architecture selection
-        (ElfMach_Word K.EV_CURRENT)
+        (ElfMach_Half         e_type) # e_type
+        (ElfMach_Half      e_machine) # e_machine
+        (ElfMach_Word   K.EV_CURRENT) # e_version
 
         /* 0x000018 */
         # e_entry      Entry point.
@@ -295,7 +301,9 @@ rec {
   #       (repeating null section bytes is fine.)
   #
   mkElf =
-    { bits ? 64 /* FIXME: determine how we expose the architecture */
+    { bits ? arch.ELF.bits
+    , machine ? arch.ELF.EM
+    , arch ? null
     , load_addr ? DEFAULT_LOAD_ADDR
     , type ? "PT_LOAD" # An executable
     , sections # ***list*** of sections
@@ -327,6 +335,7 @@ rec {
         e_entry = entry_point;
         e_shoff = elf_headers_length;
         e_shnum = sections_count;
+        e_machine = arch.ELF.EM;
         e_shstrndx = 1; # hardcoded since we know it's .shstrtab is first (after null)
       };
 
