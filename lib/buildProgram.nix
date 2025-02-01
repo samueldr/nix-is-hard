@@ -20,6 +20,7 @@ in
   #
   buildProgram =
     { name # Name of the program, and the binary
+    , arch # Architecture for the program
     , code
     , data ? null
     , strings ? null
@@ -38,6 +39,7 @@ in
         else data'
       ;
       elf = mkElf {
+        inherit arch;
         sections = [
           (lib.mkElfSection {
             name = ".text";
