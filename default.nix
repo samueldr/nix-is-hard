@@ -46,7 +46,11 @@ let
       code =
         { getString, ... }:
         builtins.concatLists [
-          (dsl.syscall.chmod (getString "path").addr 511 /* 0777 */)
+          (dsl.argv1_to_reg {
+            register = "ARG0";
+            errorMessage = getString "no_argv1";
+          })
+          (dsl.syscall.chmod null 511 /* 0777 */)
           # Move return value from previous syscall into ARG0
           # Making the tool return the return value of the syscall
           (dsl.copy_reg "ARG0" "RETURN")
@@ -55,7 +59,8 @@ let
       ;
       strings =
         {
-          path = "file.sh";
+          # Note: no argv0 support yet
+          no_argv1 = "Usage: chmod <path>\n";
         }
       ;
     }
