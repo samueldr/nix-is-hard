@@ -136,6 +136,8 @@ INSTRUCTIONS = [
   ["mov", "MOV_reg",      [:reg, :reg]],
   ["mov", "MOV_from_mem", [:reg, :mem]],
   ["mov", "MOV_imm",      [:reg, :imm]],
+  ["je",  "JE",           [:off]],
+  ["jne", "JNE",          [:off]],
 ]
 
 file = StringIO.new()
@@ -186,15 +188,26 @@ INSTRUCTIONS.each do |instruction_data|
       IMMEDIATES.map do |imm|
         [:imm, imm]
       end
+    when :off
+      [:off, 42]
     end
   end
-    .inject(:product)
+
+  type_cases =
+    case type_cases.length
+    when 0
+      throw "TODO: implement operands-less type cases..."
+    when 1
+      [ type_cases ]
+    else
+      type_cases.inject(:product)
+    end
 
   type_cases.each do |operands|
     register_operands = operands.select { REGISTER_OPERAND_TYPES.include?(_1.first) }
 
     # Skip register pairings of different sizes
-    next unless register_operands.map { _1[1][:width] }.inject(:==)
+    next unless register_operands == [] || register_operands.map { _1[1][:width] }.inject(:==)
 
     # Some register names differ when extended registers are used
     extended = register_operands.any? { _1[1][:type] == :extended }
@@ -208,6 +221,8 @@ INSTRUCTIONS.each do |instruction_data|
         "[#{extended_classic(operand, extended)}]"
       when :imm
         operand
+      when :off
+        operand
       end
     end
 
@@ -219,6 +234,8 @@ INSTRUCTIONS.each do |instruction_data|
         extended_classic(operand, extended)
       when :imm
         [ operand ]
+      when :off
+        operand
       end
     end
 
@@ -227,7 +244,7 @@ INSTRUCTIONS.each do |instruction_data|
     bytes = asm_bytes(code)
     instruction_tests.puts <<~EOF
       #{code.to_nix()} = expect ''#{code.to_nix} to be correct [#{bytes.map{_1.to_s(16)}.join(" ")}]''
-        (lib.arch.x86_64.instructions.#{implementation_instruction} #{nix_operands.map(&:to_nix).join(" ")})
+        (lib.stripComments (lib.arch.x86_64.instructions.#{implementation_instruction} #{nix_operands.map(&:to_nix).join(" ")}))
         #{bytes.to_nix}
       ;
     EOF
@@ -244,5 +261,5 @@ end
 file.puts("}")
 puts(file.string())
 
-File.delete(TEMP)
-File.delete(TEMP_OBJ)
+File.delete(TEMP) if File.exist?(TEMP)
+File.delete(TEMP_OBJ) if File.exist?(TEMP_OBJ)
