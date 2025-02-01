@@ -11,6 +11,23 @@
           "umode_t" = dataModel."unsigned short";
       };
       dsl = {
+        parseLogicalReg =
+          name:
+          let
+            numMatch = builtins.match ".*([0-5])" name;
+            num = lib.toInt (builtins.head numMatch);
+          in
+          if !builtins.isString name
+          then (throw "A string must be provided to parseLogicalReg")
+          else
+            if name == "RETURN"
+            then RETURN_REGISTER
+            else
+              if numMatch != null
+              then builtins.elemAt ARG_REGISTER num
+              else
+                name
+        ;
         mkSyscall =
           syscall_name:
           args:
@@ -54,27 +71,8 @@
         # Copying to a system register is possible to (copy_reg "r15" "RETURN") but not inherently portable.
         copy_reg =
           # TODO: consider adding 'SCRATCH0~N' for non-syscall registers?
-          let
-            parseLogical =
-              name:
-              let
-                numMatch = builtins.match ".*([0-5])" name;
-                num = lib.toInt (builtins.head numMatch);
-              in
-              if !builtins.isString name
-              then (throw "A string must be provided to parseLogical")
-              else
-                if name == "RETURN"
-                then RETURN_REGISTER
-                else
-                  if numMatch != null
-                  then builtins.elemAt ARG_REGISTER num
-                  else
-                    name
-            ;
-          in
           into: from:
-          (lib.arch.x86_64.instructions.MOV_reg (parseLogical into) (parseLogical from))
+          (lib.arch.x86_64.instructions.MOV_reg (dsl.parseLogicalReg into) (dsl.parseLogicalReg from))
         ;
         syscall =
           builtins.listToAttrs (
