@@ -363,18 +363,14 @@ in
             value:
             let
               byteWidth = operandWidth value;
+              operandLength = 4;
             in
             [(lib.comment "x86_64: JE ${toString value}")] ++
             (
-            if byteWidth == 1
-            then (
-              [ 116 ] # 0x74; JE rel8
-              ++ (padBytesRight byteWidth (numberToBytes value))
-              )
-            else if byteWidth < 8
+            if byteWidth <= 32
             then (
               [ 15 132 ] # 0x0f 0x84; JE rel32
-              ++ (padBytesRight byteWidth (numberToBytes value))
+              ++ (padBytesRight operandLength (numberToBytes (value - operandLength)))
             )
             else
               throw "64 bit operands not supported for JE."
@@ -387,18 +383,14 @@ in
             value:
             let
               byteWidth = operandWidth value;
+              operandLength = 4;
             in
             [(lib.comment "x86_64: JNE ${toString value}")] ++
             (
-            if byteWidth == 1
-            then (
-              [ 117 ] # 0x75; JNE rel8
-              ++ (padBytesRight byteWidth (numberToBytes value))
-              )
-            else if byteWidth < 8
+            if byteWidth < 32
             then (
               [ 15 133 ] # 0x0f 0x85; JNE rel32
-              ++ (padBytesRight byteWidth (numberToBytes value))
+              ++ (padBytesRight operandLength (numberToBytes (value - operandLength)))
             )
             else
               throw "64 bit operands not supported for JNE."
