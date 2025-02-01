@@ -150,15 +150,18 @@ in
           )
         ;
       };
+      MODRM = {
+        mod = {
+          indirect = 0; # For pedantic completeness; [r/m]
+          # NOTE: 01 and 10 not supported yet.
+          direct   = b1100_0000; # r/m
+        };
+      };
       instructions =
         let
-          MODRM = {
-            mod = {
-              indirect = 0; # For pedantic completeness; [r/m]
-              # NOTE: 01 and 10 not supported yet.
-              direct   = b1100_0000; # r/m
-            };
-          };
+          inherit (lib.arch.x86_64)
+            MODRM
+          ;
         in
         {
           MOV_reg =
