@@ -51,6 +51,10 @@ in
     x86_64 = {
       name = "x86_64";
       inherit synonymousArches;
+      ELF = {
+        EM = lib.ELF.constants.EM_X86_64;
+        bits = 64;
+      };
 
       # https://wiki.osdev.org/X86-64_Instruction_Encoding#Registers
       # NOTE: these valures are not necessarily sufficient to encode in opcode operands.
