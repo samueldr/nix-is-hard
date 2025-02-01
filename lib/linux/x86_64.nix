@@ -32,7 +32,11 @@
           syscall_name:
           args:
           lib.generateListLambda {
-            finally = args: syscall syscall_name args;
+            finally =
+              args:
+              [(lib.comment "linux x86_64 syscall: ${syscall_name}")]
+              ++ (syscall syscall_name args)
+            ;
             functions =
               lib.mapWithIndex
               (arg_pos: syscall_arg:
