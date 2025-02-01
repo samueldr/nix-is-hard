@@ -70,6 +70,7 @@ in
             (i: rec {
               name = "${at _classic_8A i}${at _classic_8L i}";
               value = {
+                width    = 8;
                 reg      = i;
                 extended = false;
                 offset   = i;
@@ -167,18 +168,28 @@ in
               rex_value =
                 prefix.REX (join rex_flags)
               ;
-              operand =
+              operand = [(
                 (MODRM.mod.direct)
                 + (into'.offset)
                 + (from'.offset * 8)
+              )];
+              opcode = [(
+                if into'.width == 8
+                then 136 # 0x88
+                else 137 # 0x89
+              )];
+              opcode_prefix =
+                if into'.width == 16 then [ 102 /* 0x66 */ ] else
+                []
               ;
             in
             if into'.width != from'.width
             then throw "'MOV_reg ${into},${from} ...' used with different size operands (${toString into'.width},${toString from'.width})"
-            else
-            (optional (rex_value != b0100_0000) rex_value)
-            ++ [ 137 ] # 0x89
-            ++ [ operand ]
+            else []
+            ++ opcode_prefix
+            ++ (optional (rex_value != b0100_0000) rex_value)
+            ++ opcode
+            ++ operand
           ;
 
           # B8+
