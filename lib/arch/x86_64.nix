@@ -247,12 +247,20 @@ in
               rex_value =
                 prefix.REX (join rex_flags)
               ;
+              opcode = [(
+                if into'.width == 8
+                then 138 # 0x8A
+                else 139 # 0x8B
+              )];
               operand =
-                (MODRM.mod.indirect)
+                (
+                  if from'.offset == b101
+                  then (lib.bitShiftLeft 1 6) # 01.___.___
+                  else MODRM.mod.indirect     # 00.___.___
+                )
                 + (into'.offset * 8)
                 + (from'.offset)
               ;
-              opcodeOffset = if into'.width == 8 then 0 else 1;
               additional_byte =
                 if from'.offset == b100
                 then [ 36 ] # SIB to 00.100.100; 0x24
@@ -267,7 +275,7 @@ in
             then throw "'MOV_from_mem ${into},${from} ...' used with different size operands (${toString into'.width},${toString from'.width})"
             else
             (optional (rex_value != b0100_0000) rex_value)
-            ++ [ (138 + opcodeOffset) ] # 0x8A
+            ++ opcode
             ++ [ operand ]
             ++ (optionals (additional_byte != null) additional_byte)
           ;
