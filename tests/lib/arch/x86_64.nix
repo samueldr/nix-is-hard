@@ -4,12 +4,16 @@
 }:
 
 #
-# NOTE: tests generated using support/generate-opcode-tests.rb
+# NOTE: tests generated using support/generate-x86_64-opcode-tests.rb
 #
 # The content of the tests is created from `nasm` output.
 #
 {
-  "mov" = {
+  #
+  # Test generation input:
+  #     ["mov","MOV_reg",["reg","reg"]]
+  #
+  "MOV_reg" = {
     "mov al,al" = expect ''"mov al,al" to be correct [88 c0]''
       (lib.arch.x86_64.instructions.MOV_reg "al" "al")
       [ 136 192 ]
@@ -521,518 +525,6 @@
     "mov dil,r15b" = expect ''"mov dil,r15b" to be correct [44 88 ff]''
       (lib.arch.x86_64.instructions.MOV_reg "dil" "r15b")
       [ 68 136 255 ]
-    ;
-    "mov r8b,al" = expect ''"mov r8b,al" to be correct [41 88 c0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "al")
-      [ 65 136 192 ]
-    ;
-    "mov r8b,cl" = expect ''"mov r8b,cl" to be correct [41 88 c8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "cl")
-      [ 65 136 200 ]
-    ;
-    "mov r8b,dl" = expect ''"mov r8b,dl" to be correct [41 88 d0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "dl")
-      [ 65 136 208 ]
-    ;
-    "mov r8b,bl" = expect ''"mov r8b,bl" to be correct [41 88 d8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "bl")
-      [ 65 136 216 ]
-    ;
-    "mov r8b,spl" = expect ''"mov r8b,spl" to be correct [41 88 e0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "spl")
-      [ 65 136 224 ]
-    ;
-    "mov r8b,bpl" = expect ''"mov r8b,bpl" to be correct [41 88 e8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "bpl")
-      [ 65 136 232 ]
-    ;
-    "mov r8b,sil" = expect ''"mov r8b,sil" to be correct [41 88 f0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "sil")
-      [ 65 136 240 ]
-    ;
-    "mov r8b,dil" = expect ''"mov r8b,dil" to be correct [41 88 f8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "dil")
-      [ 65 136 248 ]
-    ;
-    "mov r8b,r8b" = expect ''"mov r8b,r8b" to be correct [45 88 c0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r8b")
-      [ 69 136 192 ]
-    ;
-    "mov r8b,r9b" = expect ''"mov r8b,r9b" to be correct [45 88 c8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r9b")
-      [ 69 136 200 ]
-    ;
-    "mov r8b,r10b" = expect ''"mov r8b,r10b" to be correct [45 88 d0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r10b")
-      [ 69 136 208 ]
-    ;
-    "mov r8b,r11b" = expect ''"mov r8b,r11b" to be correct [45 88 d8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r11b")
-      [ 69 136 216 ]
-    ;
-    "mov r8b,r12b" = expect ''"mov r8b,r12b" to be correct [45 88 e0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r12b")
-      [ 69 136 224 ]
-    ;
-    "mov r8b,r13b" = expect ''"mov r8b,r13b" to be correct [45 88 e8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r13b")
-      [ 69 136 232 ]
-    ;
-    "mov r8b,r14b" = expect ''"mov r8b,r14b" to be correct [45 88 f0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r14b")
-      [ 69 136 240 ]
-    ;
-    "mov r8b,r15b" = expect ''"mov r8b,r15b" to be correct [45 88 f8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r15b")
-      [ 69 136 248 ]
-    ;
-    "mov r9b,al" = expect ''"mov r9b,al" to be correct [41 88 c1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "al")
-      [ 65 136 193 ]
-    ;
-    "mov r9b,cl" = expect ''"mov r9b,cl" to be correct [41 88 c9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "cl")
-      [ 65 136 201 ]
-    ;
-    "mov r9b,dl" = expect ''"mov r9b,dl" to be correct [41 88 d1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "dl")
-      [ 65 136 209 ]
-    ;
-    "mov r9b,bl" = expect ''"mov r9b,bl" to be correct [41 88 d9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "bl")
-      [ 65 136 217 ]
-    ;
-    "mov r9b,spl" = expect ''"mov r9b,spl" to be correct [41 88 e1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "spl")
-      [ 65 136 225 ]
-    ;
-    "mov r9b,bpl" = expect ''"mov r9b,bpl" to be correct [41 88 e9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "bpl")
-      [ 65 136 233 ]
-    ;
-    "mov r9b,sil" = expect ''"mov r9b,sil" to be correct [41 88 f1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "sil")
-      [ 65 136 241 ]
-    ;
-    "mov r9b,dil" = expect ''"mov r9b,dil" to be correct [41 88 f9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "dil")
-      [ 65 136 249 ]
-    ;
-    "mov r9b,r8b" = expect ''"mov r9b,r8b" to be correct [45 88 c1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r8b")
-      [ 69 136 193 ]
-    ;
-    "mov r9b,r9b" = expect ''"mov r9b,r9b" to be correct [45 88 c9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r9b")
-      [ 69 136 201 ]
-    ;
-    "mov r9b,r10b" = expect ''"mov r9b,r10b" to be correct [45 88 d1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r10b")
-      [ 69 136 209 ]
-    ;
-    "mov r9b,r11b" = expect ''"mov r9b,r11b" to be correct [45 88 d9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r11b")
-      [ 69 136 217 ]
-    ;
-    "mov r9b,r12b" = expect ''"mov r9b,r12b" to be correct [45 88 e1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r12b")
-      [ 69 136 225 ]
-    ;
-    "mov r9b,r13b" = expect ''"mov r9b,r13b" to be correct [45 88 e9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r13b")
-      [ 69 136 233 ]
-    ;
-    "mov r9b,r14b" = expect ''"mov r9b,r14b" to be correct [45 88 f1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r14b")
-      [ 69 136 241 ]
-    ;
-    "mov r9b,r15b" = expect ''"mov r9b,r15b" to be correct [45 88 f9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r15b")
-      [ 69 136 249 ]
-    ;
-    "mov r10b,al" = expect ''"mov r10b,al" to be correct [41 88 c2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "al")
-      [ 65 136 194 ]
-    ;
-    "mov r10b,cl" = expect ''"mov r10b,cl" to be correct [41 88 ca]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "cl")
-      [ 65 136 202 ]
-    ;
-    "mov r10b,dl" = expect ''"mov r10b,dl" to be correct [41 88 d2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "dl")
-      [ 65 136 210 ]
-    ;
-    "mov r10b,bl" = expect ''"mov r10b,bl" to be correct [41 88 da]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "bl")
-      [ 65 136 218 ]
-    ;
-    "mov r10b,spl" = expect ''"mov r10b,spl" to be correct [41 88 e2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "spl")
-      [ 65 136 226 ]
-    ;
-    "mov r10b,bpl" = expect ''"mov r10b,bpl" to be correct [41 88 ea]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "bpl")
-      [ 65 136 234 ]
-    ;
-    "mov r10b,sil" = expect ''"mov r10b,sil" to be correct [41 88 f2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "sil")
-      [ 65 136 242 ]
-    ;
-    "mov r10b,dil" = expect ''"mov r10b,dil" to be correct [41 88 fa]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "dil")
-      [ 65 136 250 ]
-    ;
-    "mov r10b,r8b" = expect ''"mov r10b,r8b" to be correct [45 88 c2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r8b")
-      [ 69 136 194 ]
-    ;
-    "mov r10b,r9b" = expect ''"mov r10b,r9b" to be correct [45 88 ca]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r9b")
-      [ 69 136 202 ]
-    ;
-    "mov r10b,r10b" = expect ''"mov r10b,r10b" to be correct [45 88 d2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r10b")
-      [ 69 136 210 ]
-    ;
-    "mov r10b,r11b" = expect ''"mov r10b,r11b" to be correct [45 88 da]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r11b")
-      [ 69 136 218 ]
-    ;
-    "mov r10b,r12b" = expect ''"mov r10b,r12b" to be correct [45 88 e2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r12b")
-      [ 69 136 226 ]
-    ;
-    "mov r10b,r13b" = expect ''"mov r10b,r13b" to be correct [45 88 ea]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r13b")
-      [ 69 136 234 ]
-    ;
-    "mov r10b,r14b" = expect ''"mov r10b,r14b" to be correct [45 88 f2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r14b")
-      [ 69 136 242 ]
-    ;
-    "mov r10b,r15b" = expect ''"mov r10b,r15b" to be correct [45 88 fa]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r15b")
-      [ 69 136 250 ]
-    ;
-    "mov r11b,al" = expect ''"mov r11b,al" to be correct [41 88 c3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "al")
-      [ 65 136 195 ]
-    ;
-    "mov r11b,cl" = expect ''"mov r11b,cl" to be correct [41 88 cb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "cl")
-      [ 65 136 203 ]
-    ;
-    "mov r11b,dl" = expect ''"mov r11b,dl" to be correct [41 88 d3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "dl")
-      [ 65 136 211 ]
-    ;
-    "mov r11b,bl" = expect ''"mov r11b,bl" to be correct [41 88 db]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "bl")
-      [ 65 136 219 ]
-    ;
-    "mov r11b,spl" = expect ''"mov r11b,spl" to be correct [41 88 e3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "spl")
-      [ 65 136 227 ]
-    ;
-    "mov r11b,bpl" = expect ''"mov r11b,bpl" to be correct [41 88 eb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "bpl")
-      [ 65 136 235 ]
-    ;
-    "mov r11b,sil" = expect ''"mov r11b,sil" to be correct [41 88 f3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "sil")
-      [ 65 136 243 ]
-    ;
-    "mov r11b,dil" = expect ''"mov r11b,dil" to be correct [41 88 fb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "dil")
-      [ 65 136 251 ]
-    ;
-    "mov r11b,r8b" = expect ''"mov r11b,r8b" to be correct [45 88 c3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r8b")
-      [ 69 136 195 ]
-    ;
-    "mov r11b,r9b" = expect ''"mov r11b,r9b" to be correct [45 88 cb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r9b")
-      [ 69 136 203 ]
-    ;
-    "mov r11b,r10b" = expect ''"mov r11b,r10b" to be correct [45 88 d3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r10b")
-      [ 69 136 211 ]
-    ;
-    "mov r11b,r11b" = expect ''"mov r11b,r11b" to be correct [45 88 db]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r11b")
-      [ 69 136 219 ]
-    ;
-    "mov r11b,r12b" = expect ''"mov r11b,r12b" to be correct [45 88 e3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r12b")
-      [ 69 136 227 ]
-    ;
-    "mov r11b,r13b" = expect ''"mov r11b,r13b" to be correct [45 88 eb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r13b")
-      [ 69 136 235 ]
-    ;
-    "mov r11b,r14b" = expect ''"mov r11b,r14b" to be correct [45 88 f3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r14b")
-      [ 69 136 243 ]
-    ;
-    "mov r11b,r15b" = expect ''"mov r11b,r15b" to be correct [45 88 fb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r15b")
-      [ 69 136 251 ]
-    ;
-    "mov r12b,al" = expect ''"mov r12b,al" to be correct [41 88 c4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "al")
-      [ 65 136 196 ]
-    ;
-    "mov r12b,cl" = expect ''"mov r12b,cl" to be correct [41 88 cc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "cl")
-      [ 65 136 204 ]
-    ;
-    "mov r12b,dl" = expect ''"mov r12b,dl" to be correct [41 88 d4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "dl")
-      [ 65 136 212 ]
-    ;
-    "mov r12b,bl" = expect ''"mov r12b,bl" to be correct [41 88 dc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "bl")
-      [ 65 136 220 ]
-    ;
-    "mov r12b,spl" = expect ''"mov r12b,spl" to be correct [41 88 e4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "spl")
-      [ 65 136 228 ]
-    ;
-    "mov r12b,bpl" = expect ''"mov r12b,bpl" to be correct [41 88 ec]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "bpl")
-      [ 65 136 236 ]
-    ;
-    "mov r12b,sil" = expect ''"mov r12b,sil" to be correct [41 88 f4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "sil")
-      [ 65 136 244 ]
-    ;
-    "mov r12b,dil" = expect ''"mov r12b,dil" to be correct [41 88 fc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "dil")
-      [ 65 136 252 ]
-    ;
-    "mov r12b,r8b" = expect ''"mov r12b,r8b" to be correct [45 88 c4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r8b")
-      [ 69 136 196 ]
-    ;
-    "mov r12b,r9b" = expect ''"mov r12b,r9b" to be correct [45 88 cc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r9b")
-      [ 69 136 204 ]
-    ;
-    "mov r12b,r10b" = expect ''"mov r12b,r10b" to be correct [45 88 d4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r10b")
-      [ 69 136 212 ]
-    ;
-    "mov r12b,r11b" = expect ''"mov r12b,r11b" to be correct [45 88 dc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r11b")
-      [ 69 136 220 ]
-    ;
-    "mov r12b,r12b" = expect ''"mov r12b,r12b" to be correct [45 88 e4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r12b")
-      [ 69 136 228 ]
-    ;
-    "mov r12b,r13b" = expect ''"mov r12b,r13b" to be correct [45 88 ec]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r13b")
-      [ 69 136 236 ]
-    ;
-    "mov r12b,r14b" = expect ''"mov r12b,r14b" to be correct [45 88 f4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r14b")
-      [ 69 136 244 ]
-    ;
-    "mov r12b,r15b" = expect ''"mov r12b,r15b" to be correct [45 88 fc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r15b")
-      [ 69 136 252 ]
-    ;
-    "mov r13b,al" = expect ''"mov r13b,al" to be correct [41 88 c5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "al")
-      [ 65 136 197 ]
-    ;
-    "mov r13b,cl" = expect ''"mov r13b,cl" to be correct [41 88 cd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "cl")
-      [ 65 136 205 ]
-    ;
-    "mov r13b,dl" = expect ''"mov r13b,dl" to be correct [41 88 d5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "dl")
-      [ 65 136 213 ]
-    ;
-    "mov r13b,bl" = expect ''"mov r13b,bl" to be correct [41 88 dd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "bl")
-      [ 65 136 221 ]
-    ;
-    "mov r13b,spl" = expect ''"mov r13b,spl" to be correct [41 88 e5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "spl")
-      [ 65 136 229 ]
-    ;
-    "mov r13b,bpl" = expect ''"mov r13b,bpl" to be correct [41 88 ed]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "bpl")
-      [ 65 136 237 ]
-    ;
-    "mov r13b,sil" = expect ''"mov r13b,sil" to be correct [41 88 f5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "sil")
-      [ 65 136 245 ]
-    ;
-    "mov r13b,dil" = expect ''"mov r13b,dil" to be correct [41 88 fd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "dil")
-      [ 65 136 253 ]
-    ;
-    "mov r13b,r8b" = expect ''"mov r13b,r8b" to be correct [45 88 c5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r8b")
-      [ 69 136 197 ]
-    ;
-    "mov r13b,r9b" = expect ''"mov r13b,r9b" to be correct [45 88 cd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r9b")
-      [ 69 136 205 ]
-    ;
-    "mov r13b,r10b" = expect ''"mov r13b,r10b" to be correct [45 88 d5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r10b")
-      [ 69 136 213 ]
-    ;
-    "mov r13b,r11b" = expect ''"mov r13b,r11b" to be correct [45 88 dd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r11b")
-      [ 69 136 221 ]
-    ;
-    "mov r13b,r12b" = expect ''"mov r13b,r12b" to be correct [45 88 e5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r12b")
-      [ 69 136 229 ]
-    ;
-    "mov r13b,r13b" = expect ''"mov r13b,r13b" to be correct [45 88 ed]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r13b")
-      [ 69 136 237 ]
-    ;
-    "mov r13b,r14b" = expect ''"mov r13b,r14b" to be correct [45 88 f5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r14b")
-      [ 69 136 245 ]
-    ;
-    "mov r13b,r15b" = expect ''"mov r13b,r15b" to be correct [45 88 fd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r15b")
-      [ 69 136 253 ]
-    ;
-    "mov r14b,al" = expect ''"mov r14b,al" to be correct [41 88 c6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "al")
-      [ 65 136 198 ]
-    ;
-    "mov r14b,cl" = expect ''"mov r14b,cl" to be correct [41 88 ce]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "cl")
-      [ 65 136 206 ]
-    ;
-    "mov r14b,dl" = expect ''"mov r14b,dl" to be correct [41 88 d6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "dl")
-      [ 65 136 214 ]
-    ;
-    "mov r14b,bl" = expect ''"mov r14b,bl" to be correct [41 88 de]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "bl")
-      [ 65 136 222 ]
-    ;
-    "mov r14b,spl" = expect ''"mov r14b,spl" to be correct [41 88 e6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "spl")
-      [ 65 136 230 ]
-    ;
-    "mov r14b,bpl" = expect ''"mov r14b,bpl" to be correct [41 88 ee]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "bpl")
-      [ 65 136 238 ]
-    ;
-    "mov r14b,sil" = expect ''"mov r14b,sil" to be correct [41 88 f6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "sil")
-      [ 65 136 246 ]
-    ;
-    "mov r14b,dil" = expect ''"mov r14b,dil" to be correct [41 88 fe]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "dil")
-      [ 65 136 254 ]
-    ;
-    "mov r14b,r8b" = expect ''"mov r14b,r8b" to be correct [45 88 c6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r8b")
-      [ 69 136 198 ]
-    ;
-    "mov r14b,r9b" = expect ''"mov r14b,r9b" to be correct [45 88 ce]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r9b")
-      [ 69 136 206 ]
-    ;
-    "mov r14b,r10b" = expect ''"mov r14b,r10b" to be correct [45 88 d6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r10b")
-      [ 69 136 214 ]
-    ;
-    "mov r14b,r11b" = expect ''"mov r14b,r11b" to be correct [45 88 de]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r11b")
-      [ 69 136 222 ]
-    ;
-    "mov r14b,r12b" = expect ''"mov r14b,r12b" to be correct [45 88 e6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r12b")
-      [ 69 136 230 ]
-    ;
-    "mov r14b,r13b" = expect ''"mov r14b,r13b" to be correct [45 88 ee]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r13b")
-      [ 69 136 238 ]
-    ;
-    "mov r14b,r14b" = expect ''"mov r14b,r14b" to be correct [45 88 f6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r14b")
-      [ 69 136 246 ]
-    ;
-    "mov r14b,r15b" = expect ''"mov r14b,r15b" to be correct [45 88 fe]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r15b")
-      [ 69 136 254 ]
-    ;
-    "mov r15b,al" = expect ''"mov r15b,al" to be correct [41 88 c7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "al")
-      [ 65 136 199 ]
-    ;
-    "mov r15b,cl" = expect ''"mov r15b,cl" to be correct [41 88 cf]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "cl")
-      [ 65 136 207 ]
-    ;
-    "mov r15b,dl" = expect ''"mov r15b,dl" to be correct [41 88 d7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "dl")
-      [ 65 136 215 ]
-    ;
-    "mov r15b,bl" = expect ''"mov r15b,bl" to be correct [41 88 df]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "bl")
-      [ 65 136 223 ]
-    ;
-    "mov r15b,spl" = expect ''"mov r15b,spl" to be correct [41 88 e7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "spl")
-      [ 65 136 231 ]
-    ;
-    "mov r15b,bpl" = expect ''"mov r15b,bpl" to be correct [41 88 ef]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "bpl")
-      [ 65 136 239 ]
-    ;
-    "mov r15b,sil" = expect ''"mov r15b,sil" to be correct [41 88 f7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "sil")
-      [ 65 136 247 ]
-    ;
-    "mov r15b,dil" = expect ''"mov r15b,dil" to be correct [41 88 ff]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "dil")
-      [ 65 136 255 ]
-    ;
-    "mov r15b,r8b" = expect ''"mov r15b,r8b" to be correct [45 88 c7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r8b")
-      [ 69 136 199 ]
-    ;
-    "mov r15b,r9b" = expect ''"mov r15b,r9b" to be correct [45 88 cf]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r9b")
-      [ 69 136 207 ]
-    ;
-    "mov r15b,r10b" = expect ''"mov r15b,r10b" to be correct [45 88 d7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r10b")
-      [ 69 136 215 ]
-    ;
-    "mov r15b,r11b" = expect ''"mov r15b,r11b" to be correct [45 88 df]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r11b")
-      [ 69 136 223 ]
-    ;
-    "mov r15b,r12b" = expect ''"mov r15b,r12b" to be correct [45 88 e7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r12b")
-      [ 69 136 231 ]
-    ;
-    "mov r15b,r13b" = expect ''"mov r15b,r13b" to be correct [45 88 ef]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r13b")
-      [ 69 136 239 ]
-    ;
-    "mov r15b,r14b" = expect ''"mov r15b,r14b" to be correct [45 88 f7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r14b")
-      [ 69 136 247 ]
-    ;
-    "mov r15b,r15b" = expect ''"mov r15b,r15b" to be correct [45 88 ff]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r15b")
-      [ 69 136 255 ]
     ;
     "mov ax,ax" = expect ''"mov ax,ax" to be correct [66 89 c0]''
       (lib.arch.x86_64.instructions.MOV_reg "ax" "ax")
@@ -1546,518 +1038,6 @@
       (lib.arch.x86_64.instructions.MOV_reg "di" "r15w")
       [ 102 68 137 255 ]
     ;
-    "mov r8w,ax" = expect ''"mov r8w,ax" to be correct [66 41 89 c0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "ax")
-      [ 102 65 137 192 ]
-    ;
-    "mov r8w,cx" = expect ''"mov r8w,cx" to be correct [66 41 89 c8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "cx")
-      [ 102 65 137 200 ]
-    ;
-    "mov r8w,dx" = expect ''"mov r8w,dx" to be correct [66 41 89 d0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "dx")
-      [ 102 65 137 208 ]
-    ;
-    "mov r8w,bx" = expect ''"mov r8w,bx" to be correct [66 41 89 d8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "bx")
-      [ 102 65 137 216 ]
-    ;
-    "mov r8w,sp" = expect ''"mov r8w,sp" to be correct [66 41 89 e0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "sp")
-      [ 102 65 137 224 ]
-    ;
-    "mov r8w,bp" = expect ''"mov r8w,bp" to be correct [66 41 89 e8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "bp")
-      [ 102 65 137 232 ]
-    ;
-    "mov r8w,si" = expect ''"mov r8w,si" to be correct [66 41 89 f0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "si")
-      [ 102 65 137 240 ]
-    ;
-    "mov r8w,di" = expect ''"mov r8w,di" to be correct [66 41 89 f8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "di")
-      [ 102 65 137 248 ]
-    ;
-    "mov r8w,r8w" = expect ''"mov r8w,r8w" to be correct [66 45 89 c0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r8w")
-      [ 102 69 137 192 ]
-    ;
-    "mov r8w,r9w" = expect ''"mov r8w,r9w" to be correct [66 45 89 c8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r9w")
-      [ 102 69 137 200 ]
-    ;
-    "mov r8w,r10w" = expect ''"mov r8w,r10w" to be correct [66 45 89 d0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r10w")
-      [ 102 69 137 208 ]
-    ;
-    "mov r8w,r11w" = expect ''"mov r8w,r11w" to be correct [66 45 89 d8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r11w")
-      [ 102 69 137 216 ]
-    ;
-    "mov r8w,r12w" = expect ''"mov r8w,r12w" to be correct [66 45 89 e0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r12w")
-      [ 102 69 137 224 ]
-    ;
-    "mov r8w,r13w" = expect ''"mov r8w,r13w" to be correct [66 45 89 e8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r13w")
-      [ 102 69 137 232 ]
-    ;
-    "mov r8w,r14w" = expect ''"mov r8w,r14w" to be correct [66 45 89 f0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r14w")
-      [ 102 69 137 240 ]
-    ;
-    "mov r8w,r15w" = expect ''"mov r8w,r15w" to be correct [66 45 89 f8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r15w")
-      [ 102 69 137 248 ]
-    ;
-    "mov r9w,ax" = expect ''"mov r9w,ax" to be correct [66 41 89 c1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "ax")
-      [ 102 65 137 193 ]
-    ;
-    "mov r9w,cx" = expect ''"mov r9w,cx" to be correct [66 41 89 c9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "cx")
-      [ 102 65 137 201 ]
-    ;
-    "mov r9w,dx" = expect ''"mov r9w,dx" to be correct [66 41 89 d1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "dx")
-      [ 102 65 137 209 ]
-    ;
-    "mov r9w,bx" = expect ''"mov r9w,bx" to be correct [66 41 89 d9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "bx")
-      [ 102 65 137 217 ]
-    ;
-    "mov r9w,sp" = expect ''"mov r9w,sp" to be correct [66 41 89 e1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "sp")
-      [ 102 65 137 225 ]
-    ;
-    "mov r9w,bp" = expect ''"mov r9w,bp" to be correct [66 41 89 e9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "bp")
-      [ 102 65 137 233 ]
-    ;
-    "mov r9w,si" = expect ''"mov r9w,si" to be correct [66 41 89 f1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "si")
-      [ 102 65 137 241 ]
-    ;
-    "mov r9w,di" = expect ''"mov r9w,di" to be correct [66 41 89 f9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "di")
-      [ 102 65 137 249 ]
-    ;
-    "mov r9w,r8w" = expect ''"mov r9w,r8w" to be correct [66 45 89 c1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r8w")
-      [ 102 69 137 193 ]
-    ;
-    "mov r9w,r9w" = expect ''"mov r9w,r9w" to be correct [66 45 89 c9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r9w")
-      [ 102 69 137 201 ]
-    ;
-    "mov r9w,r10w" = expect ''"mov r9w,r10w" to be correct [66 45 89 d1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r10w")
-      [ 102 69 137 209 ]
-    ;
-    "mov r9w,r11w" = expect ''"mov r9w,r11w" to be correct [66 45 89 d9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r11w")
-      [ 102 69 137 217 ]
-    ;
-    "mov r9w,r12w" = expect ''"mov r9w,r12w" to be correct [66 45 89 e1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r12w")
-      [ 102 69 137 225 ]
-    ;
-    "mov r9w,r13w" = expect ''"mov r9w,r13w" to be correct [66 45 89 e9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r13w")
-      [ 102 69 137 233 ]
-    ;
-    "mov r9w,r14w" = expect ''"mov r9w,r14w" to be correct [66 45 89 f1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r14w")
-      [ 102 69 137 241 ]
-    ;
-    "mov r9w,r15w" = expect ''"mov r9w,r15w" to be correct [66 45 89 f9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r15w")
-      [ 102 69 137 249 ]
-    ;
-    "mov r10w,ax" = expect ''"mov r10w,ax" to be correct [66 41 89 c2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "ax")
-      [ 102 65 137 194 ]
-    ;
-    "mov r10w,cx" = expect ''"mov r10w,cx" to be correct [66 41 89 ca]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "cx")
-      [ 102 65 137 202 ]
-    ;
-    "mov r10w,dx" = expect ''"mov r10w,dx" to be correct [66 41 89 d2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "dx")
-      [ 102 65 137 210 ]
-    ;
-    "mov r10w,bx" = expect ''"mov r10w,bx" to be correct [66 41 89 da]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "bx")
-      [ 102 65 137 218 ]
-    ;
-    "mov r10w,sp" = expect ''"mov r10w,sp" to be correct [66 41 89 e2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "sp")
-      [ 102 65 137 226 ]
-    ;
-    "mov r10w,bp" = expect ''"mov r10w,bp" to be correct [66 41 89 ea]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "bp")
-      [ 102 65 137 234 ]
-    ;
-    "mov r10w,si" = expect ''"mov r10w,si" to be correct [66 41 89 f2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "si")
-      [ 102 65 137 242 ]
-    ;
-    "mov r10w,di" = expect ''"mov r10w,di" to be correct [66 41 89 fa]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "di")
-      [ 102 65 137 250 ]
-    ;
-    "mov r10w,r8w" = expect ''"mov r10w,r8w" to be correct [66 45 89 c2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r8w")
-      [ 102 69 137 194 ]
-    ;
-    "mov r10w,r9w" = expect ''"mov r10w,r9w" to be correct [66 45 89 ca]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r9w")
-      [ 102 69 137 202 ]
-    ;
-    "mov r10w,r10w" = expect ''"mov r10w,r10w" to be correct [66 45 89 d2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r10w")
-      [ 102 69 137 210 ]
-    ;
-    "mov r10w,r11w" = expect ''"mov r10w,r11w" to be correct [66 45 89 da]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r11w")
-      [ 102 69 137 218 ]
-    ;
-    "mov r10w,r12w" = expect ''"mov r10w,r12w" to be correct [66 45 89 e2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r12w")
-      [ 102 69 137 226 ]
-    ;
-    "mov r10w,r13w" = expect ''"mov r10w,r13w" to be correct [66 45 89 ea]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r13w")
-      [ 102 69 137 234 ]
-    ;
-    "mov r10w,r14w" = expect ''"mov r10w,r14w" to be correct [66 45 89 f2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r14w")
-      [ 102 69 137 242 ]
-    ;
-    "mov r10w,r15w" = expect ''"mov r10w,r15w" to be correct [66 45 89 fa]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r15w")
-      [ 102 69 137 250 ]
-    ;
-    "mov r11w,ax" = expect ''"mov r11w,ax" to be correct [66 41 89 c3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "ax")
-      [ 102 65 137 195 ]
-    ;
-    "mov r11w,cx" = expect ''"mov r11w,cx" to be correct [66 41 89 cb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "cx")
-      [ 102 65 137 203 ]
-    ;
-    "mov r11w,dx" = expect ''"mov r11w,dx" to be correct [66 41 89 d3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "dx")
-      [ 102 65 137 211 ]
-    ;
-    "mov r11w,bx" = expect ''"mov r11w,bx" to be correct [66 41 89 db]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "bx")
-      [ 102 65 137 219 ]
-    ;
-    "mov r11w,sp" = expect ''"mov r11w,sp" to be correct [66 41 89 e3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "sp")
-      [ 102 65 137 227 ]
-    ;
-    "mov r11w,bp" = expect ''"mov r11w,bp" to be correct [66 41 89 eb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "bp")
-      [ 102 65 137 235 ]
-    ;
-    "mov r11w,si" = expect ''"mov r11w,si" to be correct [66 41 89 f3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "si")
-      [ 102 65 137 243 ]
-    ;
-    "mov r11w,di" = expect ''"mov r11w,di" to be correct [66 41 89 fb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "di")
-      [ 102 65 137 251 ]
-    ;
-    "mov r11w,r8w" = expect ''"mov r11w,r8w" to be correct [66 45 89 c3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r8w")
-      [ 102 69 137 195 ]
-    ;
-    "mov r11w,r9w" = expect ''"mov r11w,r9w" to be correct [66 45 89 cb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r9w")
-      [ 102 69 137 203 ]
-    ;
-    "mov r11w,r10w" = expect ''"mov r11w,r10w" to be correct [66 45 89 d3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r10w")
-      [ 102 69 137 211 ]
-    ;
-    "mov r11w,r11w" = expect ''"mov r11w,r11w" to be correct [66 45 89 db]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r11w")
-      [ 102 69 137 219 ]
-    ;
-    "mov r11w,r12w" = expect ''"mov r11w,r12w" to be correct [66 45 89 e3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r12w")
-      [ 102 69 137 227 ]
-    ;
-    "mov r11w,r13w" = expect ''"mov r11w,r13w" to be correct [66 45 89 eb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r13w")
-      [ 102 69 137 235 ]
-    ;
-    "mov r11w,r14w" = expect ''"mov r11w,r14w" to be correct [66 45 89 f3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r14w")
-      [ 102 69 137 243 ]
-    ;
-    "mov r11w,r15w" = expect ''"mov r11w,r15w" to be correct [66 45 89 fb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r15w")
-      [ 102 69 137 251 ]
-    ;
-    "mov r12w,ax" = expect ''"mov r12w,ax" to be correct [66 41 89 c4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "ax")
-      [ 102 65 137 196 ]
-    ;
-    "mov r12w,cx" = expect ''"mov r12w,cx" to be correct [66 41 89 cc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "cx")
-      [ 102 65 137 204 ]
-    ;
-    "mov r12w,dx" = expect ''"mov r12w,dx" to be correct [66 41 89 d4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "dx")
-      [ 102 65 137 212 ]
-    ;
-    "mov r12w,bx" = expect ''"mov r12w,bx" to be correct [66 41 89 dc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "bx")
-      [ 102 65 137 220 ]
-    ;
-    "mov r12w,sp" = expect ''"mov r12w,sp" to be correct [66 41 89 e4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "sp")
-      [ 102 65 137 228 ]
-    ;
-    "mov r12w,bp" = expect ''"mov r12w,bp" to be correct [66 41 89 ec]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "bp")
-      [ 102 65 137 236 ]
-    ;
-    "mov r12w,si" = expect ''"mov r12w,si" to be correct [66 41 89 f4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "si")
-      [ 102 65 137 244 ]
-    ;
-    "mov r12w,di" = expect ''"mov r12w,di" to be correct [66 41 89 fc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "di")
-      [ 102 65 137 252 ]
-    ;
-    "mov r12w,r8w" = expect ''"mov r12w,r8w" to be correct [66 45 89 c4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r8w")
-      [ 102 69 137 196 ]
-    ;
-    "mov r12w,r9w" = expect ''"mov r12w,r9w" to be correct [66 45 89 cc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r9w")
-      [ 102 69 137 204 ]
-    ;
-    "mov r12w,r10w" = expect ''"mov r12w,r10w" to be correct [66 45 89 d4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r10w")
-      [ 102 69 137 212 ]
-    ;
-    "mov r12w,r11w" = expect ''"mov r12w,r11w" to be correct [66 45 89 dc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r11w")
-      [ 102 69 137 220 ]
-    ;
-    "mov r12w,r12w" = expect ''"mov r12w,r12w" to be correct [66 45 89 e4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r12w")
-      [ 102 69 137 228 ]
-    ;
-    "mov r12w,r13w" = expect ''"mov r12w,r13w" to be correct [66 45 89 ec]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r13w")
-      [ 102 69 137 236 ]
-    ;
-    "mov r12w,r14w" = expect ''"mov r12w,r14w" to be correct [66 45 89 f4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r14w")
-      [ 102 69 137 244 ]
-    ;
-    "mov r12w,r15w" = expect ''"mov r12w,r15w" to be correct [66 45 89 fc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r15w")
-      [ 102 69 137 252 ]
-    ;
-    "mov r13w,ax" = expect ''"mov r13w,ax" to be correct [66 41 89 c5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "ax")
-      [ 102 65 137 197 ]
-    ;
-    "mov r13w,cx" = expect ''"mov r13w,cx" to be correct [66 41 89 cd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "cx")
-      [ 102 65 137 205 ]
-    ;
-    "mov r13w,dx" = expect ''"mov r13w,dx" to be correct [66 41 89 d5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "dx")
-      [ 102 65 137 213 ]
-    ;
-    "mov r13w,bx" = expect ''"mov r13w,bx" to be correct [66 41 89 dd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "bx")
-      [ 102 65 137 221 ]
-    ;
-    "mov r13w,sp" = expect ''"mov r13w,sp" to be correct [66 41 89 e5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "sp")
-      [ 102 65 137 229 ]
-    ;
-    "mov r13w,bp" = expect ''"mov r13w,bp" to be correct [66 41 89 ed]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "bp")
-      [ 102 65 137 237 ]
-    ;
-    "mov r13w,si" = expect ''"mov r13w,si" to be correct [66 41 89 f5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "si")
-      [ 102 65 137 245 ]
-    ;
-    "mov r13w,di" = expect ''"mov r13w,di" to be correct [66 41 89 fd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "di")
-      [ 102 65 137 253 ]
-    ;
-    "mov r13w,r8w" = expect ''"mov r13w,r8w" to be correct [66 45 89 c5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r8w")
-      [ 102 69 137 197 ]
-    ;
-    "mov r13w,r9w" = expect ''"mov r13w,r9w" to be correct [66 45 89 cd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r9w")
-      [ 102 69 137 205 ]
-    ;
-    "mov r13w,r10w" = expect ''"mov r13w,r10w" to be correct [66 45 89 d5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r10w")
-      [ 102 69 137 213 ]
-    ;
-    "mov r13w,r11w" = expect ''"mov r13w,r11w" to be correct [66 45 89 dd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r11w")
-      [ 102 69 137 221 ]
-    ;
-    "mov r13w,r12w" = expect ''"mov r13w,r12w" to be correct [66 45 89 e5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r12w")
-      [ 102 69 137 229 ]
-    ;
-    "mov r13w,r13w" = expect ''"mov r13w,r13w" to be correct [66 45 89 ed]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r13w")
-      [ 102 69 137 237 ]
-    ;
-    "mov r13w,r14w" = expect ''"mov r13w,r14w" to be correct [66 45 89 f5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r14w")
-      [ 102 69 137 245 ]
-    ;
-    "mov r13w,r15w" = expect ''"mov r13w,r15w" to be correct [66 45 89 fd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r15w")
-      [ 102 69 137 253 ]
-    ;
-    "mov r14w,ax" = expect ''"mov r14w,ax" to be correct [66 41 89 c6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "ax")
-      [ 102 65 137 198 ]
-    ;
-    "mov r14w,cx" = expect ''"mov r14w,cx" to be correct [66 41 89 ce]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "cx")
-      [ 102 65 137 206 ]
-    ;
-    "mov r14w,dx" = expect ''"mov r14w,dx" to be correct [66 41 89 d6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "dx")
-      [ 102 65 137 214 ]
-    ;
-    "mov r14w,bx" = expect ''"mov r14w,bx" to be correct [66 41 89 de]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "bx")
-      [ 102 65 137 222 ]
-    ;
-    "mov r14w,sp" = expect ''"mov r14w,sp" to be correct [66 41 89 e6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "sp")
-      [ 102 65 137 230 ]
-    ;
-    "mov r14w,bp" = expect ''"mov r14w,bp" to be correct [66 41 89 ee]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "bp")
-      [ 102 65 137 238 ]
-    ;
-    "mov r14w,si" = expect ''"mov r14w,si" to be correct [66 41 89 f6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "si")
-      [ 102 65 137 246 ]
-    ;
-    "mov r14w,di" = expect ''"mov r14w,di" to be correct [66 41 89 fe]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "di")
-      [ 102 65 137 254 ]
-    ;
-    "mov r14w,r8w" = expect ''"mov r14w,r8w" to be correct [66 45 89 c6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r8w")
-      [ 102 69 137 198 ]
-    ;
-    "mov r14w,r9w" = expect ''"mov r14w,r9w" to be correct [66 45 89 ce]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r9w")
-      [ 102 69 137 206 ]
-    ;
-    "mov r14w,r10w" = expect ''"mov r14w,r10w" to be correct [66 45 89 d6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r10w")
-      [ 102 69 137 214 ]
-    ;
-    "mov r14w,r11w" = expect ''"mov r14w,r11w" to be correct [66 45 89 de]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r11w")
-      [ 102 69 137 222 ]
-    ;
-    "mov r14w,r12w" = expect ''"mov r14w,r12w" to be correct [66 45 89 e6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r12w")
-      [ 102 69 137 230 ]
-    ;
-    "mov r14w,r13w" = expect ''"mov r14w,r13w" to be correct [66 45 89 ee]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r13w")
-      [ 102 69 137 238 ]
-    ;
-    "mov r14w,r14w" = expect ''"mov r14w,r14w" to be correct [66 45 89 f6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r14w")
-      [ 102 69 137 246 ]
-    ;
-    "mov r14w,r15w" = expect ''"mov r14w,r15w" to be correct [66 45 89 fe]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r15w")
-      [ 102 69 137 254 ]
-    ;
-    "mov r15w,ax" = expect ''"mov r15w,ax" to be correct [66 41 89 c7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "ax")
-      [ 102 65 137 199 ]
-    ;
-    "mov r15w,cx" = expect ''"mov r15w,cx" to be correct [66 41 89 cf]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "cx")
-      [ 102 65 137 207 ]
-    ;
-    "mov r15w,dx" = expect ''"mov r15w,dx" to be correct [66 41 89 d7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "dx")
-      [ 102 65 137 215 ]
-    ;
-    "mov r15w,bx" = expect ''"mov r15w,bx" to be correct [66 41 89 df]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "bx")
-      [ 102 65 137 223 ]
-    ;
-    "mov r15w,sp" = expect ''"mov r15w,sp" to be correct [66 41 89 e7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "sp")
-      [ 102 65 137 231 ]
-    ;
-    "mov r15w,bp" = expect ''"mov r15w,bp" to be correct [66 41 89 ef]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "bp")
-      [ 102 65 137 239 ]
-    ;
-    "mov r15w,si" = expect ''"mov r15w,si" to be correct [66 41 89 f7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "si")
-      [ 102 65 137 247 ]
-    ;
-    "mov r15w,di" = expect ''"mov r15w,di" to be correct [66 41 89 ff]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "di")
-      [ 102 65 137 255 ]
-    ;
-    "mov r15w,r8w" = expect ''"mov r15w,r8w" to be correct [66 45 89 c7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r8w")
-      [ 102 69 137 199 ]
-    ;
-    "mov r15w,r9w" = expect ''"mov r15w,r9w" to be correct [66 45 89 cf]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r9w")
-      [ 102 69 137 207 ]
-    ;
-    "mov r15w,r10w" = expect ''"mov r15w,r10w" to be correct [66 45 89 d7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r10w")
-      [ 102 69 137 215 ]
-    ;
-    "mov r15w,r11w" = expect ''"mov r15w,r11w" to be correct [66 45 89 df]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r11w")
-      [ 102 69 137 223 ]
-    ;
-    "mov r15w,r12w" = expect ''"mov r15w,r12w" to be correct [66 45 89 e7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r12w")
-      [ 102 69 137 231 ]
-    ;
-    "mov r15w,r13w" = expect ''"mov r15w,r13w" to be correct [66 45 89 ef]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r13w")
-      [ 102 69 137 239 ]
-    ;
-    "mov r15w,r14w" = expect ''"mov r15w,r14w" to be correct [66 45 89 f7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r14w")
-      [ 102 69 137 247 ]
-    ;
-    "mov r15w,r15w" = expect ''"mov r15w,r15w" to be correct [66 45 89 ff]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r15w")
-      [ 102 69 137 255 ]
-    ;
     "mov eax,eax" = expect ''"mov eax,eax" to be correct [89 c0]''
       (lib.arch.x86_64.instructions.MOV_reg "eax" "eax")
       [ 137 192 ]
@@ -2569,518 +1549,6 @@
     "mov edi,r15d" = expect ''"mov edi,r15d" to be correct [44 89 ff]''
       (lib.arch.x86_64.instructions.MOV_reg "edi" "r15d")
       [ 68 137 255 ]
-    ;
-    "mov r8d,eax" = expect ''"mov r8d,eax" to be correct [41 89 c0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "eax")
-      [ 65 137 192 ]
-    ;
-    "mov r8d,ecx" = expect ''"mov r8d,ecx" to be correct [41 89 c8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "ecx")
-      [ 65 137 200 ]
-    ;
-    "mov r8d,edx" = expect ''"mov r8d,edx" to be correct [41 89 d0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "edx")
-      [ 65 137 208 ]
-    ;
-    "mov r8d,ebx" = expect ''"mov r8d,ebx" to be correct [41 89 d8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "ebx")
-      [ 65 137 216 ]
-    ;
-    "mov r8d,esp" = expect ''"mov r8d,esp" to be correct [41 89 e0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "esp")
-      [ 65 137 224 ]
-    ;
-    "mov r8d,ebp" = expect ''"mov r8d,ebp" to be correct [41 89 e8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "ebp")
-      [ 65 137 232 ]
-    ;
-    "mov r8d,esi" = expect ''"mov r8d,esi" to be correct [41 89 f0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "esi")
-      [ 65 137 240 ]
-    ;
-    "mov r8d,edi" = expect ''"mov r8d,edi" to be correct [41 89 f8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "edi")
-      [ 65 137 248 ]
-    ;
-    "mov r8d,r8d" = expect ''"mov r8d,r8d" to be correct [45 89 c0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r8d")
-      [ 69 137 192 ]
-    ;
-    "mov r8d,r9d" = expect ''"mov r8d,r9d" to be correct [45 89 c8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r9d")
-      [ 69 137 200 ]
-    ;
-    "mov r8d,r10d" = expect ''"mov r8d,r10d" to be correct [45 89 d0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r10d")
-      [ 69 137 208 ]
-    ;
-    "mov r8d,r11d" = expect ''"mov r8d,r11d" to be correct [45 89 d8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r11d")
-      [ 69 137 216 ]
-    ;
-    "mov r8d,r12d" = expect ''"mov r8d,r12d" to be correct [45 89 e0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r12d")
-      [ 69 137 224 ]
-    ;
-    "mov r8d,r13d" = expect ''"mov r8d,r13d" to be correct [45 89 e8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r13d")
-      [ 69 137 232 ]
-    ;
-    "mov r8d,r14d" = expect ''"mov r8d,r14d" to be correct [45 89 f0]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r14d")
-      [ 69 137 240 ]
-    ;
-    "mov r8d,r15d" = expect ''"mov r8d,r15d" to be correct [45 89 f8]''
-      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r15d")
-      [ 69 137 248 ]
-    ;
-    "mov r9d,eax" = expect ''"mov r9d,eax" to be correct [41 89 c1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "eax")
-      [ 65 137 193 ]
-    ;
-    "mov r9d,ecx" = expect ''"mov r9d,ecx" to be correct [41 89 c9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "ecx")
-      [ 65 137 201 ]
-    ;
-    "mov r9d,edx" = expect ''"mov r9d,edx" to be correct [41 89 d1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "edx")
-      [ 65 137 209 ]
-    ;
-    "mov r9d,ebx" = expect ''"mov r9d,ebx" to be correct [41 89 d9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "ebx")
-      [ 65 137 217 ]
-    ;
-    "mov r9d,esp" = expect ''"mov r9d,esp" to be correct [41 89 e1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "esp")
-      [ 65 137 225 ]
-    ;
-    "mov r9d,ebp" = expect ''"mov r9d,ebp" to be correct [41 89 e9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "ebp")
-      [ 65 137 233 ]
-    ;
-    "mov r9d,esi" = expect ''"mov r9d,esi" to be correct [41 89 f1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "esi")
-      [ 65 137 241 ]
-    ;
-    "mov r9d,edi" = expect ''"mov r9d,edi" to be correct [41 89 f9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "edi")
-      [ 65 137 249 ]
-    ;
-    "mov r9d,r8d" = expect ''"mov r9d,r8d" to be correct [45 89 c1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r8d")
-      [ 69 137 193 ]
-    ;
-    "mov r9d,r9d" = expect ''"mov r9d,r9d" to be correct [45 89 c9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r9d")
-      [ 69 137 201 ]
-    ;
-    "mov r9d,r10d" = expect ''"mov r9d,r10d" to be correct [45 89 d1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r10d")
-      [ 69 137 209 ]
-    ;
-    "mov r9d,r11d" = expect ''"mov r9d,r11d" to be correct [45 89 d9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r11d")
-      [ 69 137 217 ]
-    ;
-    "mov r9d,r12d" = expect ''"mov r9d,r12d" to be correct [45 89 e1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r12d")
-      [ 69 137 225 ]
-    ;
-    "mov r9d,r13d" = expect ''"mov r9d,r13d" to be correct [45 89 e9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r13d")
-      [ 69 137 233 ]
-    ;
-    "mov r9d,r14d" = expect ''"mov r9d,r14d" to be correct [45 89 f1]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r14d")
-      [ 69 137 241 ]
-    ;
-    "mov r9d,r15d" = expect ''"mov r9d,r15d" to be correct [45 89 f9]''
-      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r15d")
-      [ 69 137 249 ]
-    ;
-    "mov r10d,eax" = expect ''"mov r10d,eax" to be correct [41 89 c2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "eax")
-      [ 65 137 194 ]
-    ;
-    "mov r10d,ecx" = expect ''"mov r10d,ecx" to be correct [41 89 ca]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "ecx")
-      [ 65 137 202 ]
-    ;
-    "mov r10d,edx" = expect ''"mov r10d,edx" to be correct [41 89 d2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "edx")
-      [ 65 137 210 ]
-    ;
-    "mov r10d,ebx" = expect ''"mov r10d,ebx" to be correct [41 89 da]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "ebx")
-      [ 65 137 218 ]
-    ;
-    "mov r10d,esp" = expect ''"mov r10d,esp" to be correct [41 89 e2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "esp")
-      [ 65 137 226 ]
-    ;
-    "mov r10d,ebp" = expect ''"mov r10d,ebp" to be correct [41 89 ea]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "ebp")
-      [ 65 137 234 ]
-    ;
-    "mov r10d,esi" = expect ''"mov r10d,esi" to be correct [41 89 f2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "esi")
-      [ 65 137 242 ]
-    ;
-    "mov r10d,edi" = expect ''"mov r10d,edi" to be correct [41 89 fa]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "edi")
-      [ 65 137 250 ]
-    ;
-    "mov r10d,r8d" = expect ''"mov r10d,r8d" to be correct [45 89 c2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r8d")
-      [ 69 137 194 ]
-    ;
-    "mov r10d,r9d" = expect ''"mov r10d,r9d" to be correct [45 89 ca]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r9d")
-      [ 69 137 202 ]
-    ;
-    "mov r10d,r10d" = expect ''"mov r10d,r10d" to be correct [45 89 d2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r10d")
-      [ 69 137 210 ]
-    ;
-    "mov r10d,r11d" = expect ''"mov r10d,r11d" to be correct [45 89 da]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r11d")
-      [ 69 137 218 ]
-    ;
-    "mov r10d,r12d" = expect ''"mov r10d,r12d" to be correct [45 89 e2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r12d")
-      [ 69 137 226 ]
-    ;
-    "mov r10d,r13d" = expect ''"mov r10d,r13d" to be correct [45 89 ea]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r13d")
-      [ 69 137 234 ]
-    ;
-    "mov r10d,r14d" = expect ''"mov r10d,r14d" to be correct [45 89 f2]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r14d")
-      [ 69 137 242 ]
-    ;
-    "mov r10d,r15d" = expect ''"mov r10d,r15d" to be correct [45 89 fa]''
-      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r15d")
-      [ 69 137 250 ]
-    ;
-    "mov r11d,eax" = expect ''"mov r11d,eax" to be correct [41 89 c3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "eax")
-      [ 65 137 195 ]
-    ;
-    "mov r11d,ecx" = expect ''"mov r11d,ecx" to be correct [41 89 cb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "ecx")
-      [ 65 137 203 ]
-    ;
-    "mov r11d,edx" = expect ''"mov r11d,edx" to be correct [41 89 d3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "edx")
-      [ 65 137 211 ]
-    ;
-    "mov r11d,ebx" = expect ''"mov r11d,ebx" to be correct [41 89 db]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "ebx")
-      [ 65 137 219 ]
-    ;
-    "mov r11d,esp" = expect ''"mov r11d,esp" to be correct [41 89 e3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "esp")
-      [ 65 137 227 ]
-    ;
-    "mov r11d,ebp" = expect ''"mov r11d,ebp" to be correct [41 89 eb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "ebp")
-      [ 65 137 235 ]
-    ;
-    "mov r11d,esi" = expect ''"mov r11d,esi" to be correct [41 89 f3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "esi")
-      [ 65 137 243 ]
-    ;
-    "mov r11d,edi" = expect ''"mov r11d,edi" to be correct [41 89 fb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "edi")
-      [ 65 137 251 ]
-    ;
-    "mov r11d,r8d" = expect ''"mov r11d,r8d" to be correct [45 89 c3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r8d")
-      [ 69 137 195 ]
-    ;
-    "mov r11d,r9d" = expect ''"mov r11d,r9d" to be correct [45 89 cb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r9d")
-      [ 69 137 203 ]
-    ;
-    "mov r11d,r10d" = expect ''"mov r11d,r10d" to be correct [45 89 d3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r10d")
-      [ 69 137 211 ]
-    ;
-    "mov r11d,r11d" = expect ''"mov r11d,r11d" to be correct [45 89 db]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r11d")
-      [ 69 137 219 ]
-    ;
-    "mov r11d,r12d" = expect ''"mov r11d,r12d" to be correct [45 89 e3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r12d")
-      [ 69 137 227 ]
-    ;
-    "mov r11d,r13d" = expect ''"mov r11d,r13d" to be correct [45 89 eb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r13d")
-      [ 69 137 235 ]
-    ;
-    "mov r11d,r14d" = expect ''"mov r11d,r14d" to be correct [45 89 f3]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r14d")
-      [ 69 137 243 ]
-    ;
-    "mov r11d,r15d" = expect ''"mov r11d,r15d" to be correct [45 89 fb]''
-      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r15d")
-      [ 69 137 251 ]
-    ;
-    "mov r12d,eax" = expect ''"mov r12d,eax" to be correct [41 89 c4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "eax")
-      [ 65 137 196 ]
-    ;
-    "mov r12d,ecx" = expect ''"mov r12d,ecx" to be correct [41 89 cc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "ecx")
-      [ 65 137 204 ]
-    ;
-    "mov r12d,edx" = expect ''"mov r12d,edx" to be correct [41 89 d4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "edx")
-      [ 65 137 212 ]
-    ;
-    "mov r12d,ebx" = expect ''"mov r12d,ebx" to be correct [41 89 dc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "ebx")
-      [ 65 137 220 ]
-    ;
-    "mov r12d,esp" = expect ''"mov r12d,esp" to be correct [41 89 e4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "esp")
-      [ 65 137 228 ]
-    ;
-    "mov r12d,ebp" = expect ''"mov r12d,ebp" to be correct [41 89 ec]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "ebp")
-      [ 65 137 236 ]
-    ;
-    "mov r12d,esi" = expect ''"mov r12d,esi" to be correct [41 89 f4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "esi")
-      [ 65 137 244 ]
-    ;
-    "mov r12d,edi" = expect ''"mov r12d,edi" to be correct [41 89 fc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "edi")
-      [ 65 137 252 ]
-    ;
-    "mov r12d,r8d" = expect ''"mov r12d,r8d" to be correct [45 89 c4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r8d")
-      [ 69 137 196 ]
-    ;
-    "mov r12d,r9d" = expect ''"mov r12d,r9d" to be correct [45 89 cc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r9d")
-      [ 69 137 204 ]
-    ;
-    "mov r12d,r10d" = expect ''"mov r12d,r10d" to be correct [45 89 d4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r10d")
-      [ 69 137 212 ]
-    ;
-    "mov r12d,r11d" = expect ''"mov r12d,r11d" to be correct [45 89 dc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r11d")
-      [ 69 137 220 ]
-    ;
-    "mov r12d,r12d" = expect ''"mov r12d,r12d" to be correct [45 89 e4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r12d")
-      [ 69 137 228 ]
-    ;
-    "mov r12d,r13d" = expect ''"mov r12d,r13d" to be correct [45 89 ec]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r13d")
-      [ 69 137 236 ]
-    ;
-    "mov r12d,r14d" = expect ''"mov r12d,r14d" to be correct [45 89 f4]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r14d")
-      [ 69 137 244 ]
-    ;
-    "mov r12d,r15d" = expect ''"mov r12d,r15d" to be correct [45 89 fc]''
-      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r15d")
-      [ 69 137 252 ]
-    ;
-    "mov r13d,eax" = expect ''"mov r13d,eax" to be correct [41 89 c5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "eax")
-      [ 65 137 197 ]
-    ;
-    "mov r13d,ecx" = expect ''"mov r13d,ecx" to be correct [41 89 cd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "ecx")
-      [ 65 137 205 ]
-    ;
-    "mov r13d,edx" = expect ''"mov r13d,edx" to be correct [41 89 d5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "edx")
-      [ 65 137 213 ]
-    ;
-    "mov r13d,ebx" = expect ''"mov r13d,ebx" to be correct [41 89 dd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "ebx")
-      [ 65 137 221 ]
-    ;
-    "mov r13d,esp" = expect ''"mov r13d,esp" to be correct [41 89 e5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "esp")
-      [ 65 137 229 ]
-    ;
-    "mov r13d,ebp" = expect ''"mov r13d,ebp" to be correct [41 89 ed]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "ebp")
-      [ 65 137 237 ]
-    ;
-    "mov r13d,esi" = expect ''"mov r13d,esi" to be correct [41 89 f5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "esi")
-      [ 65 137 245 ]
-    ;
-    "mov r13d,edi" = expect ''"mov r13d,edi" to be correct [41 89 fd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "edi")
-      [ 65 137 253 ]
-    ;
-    "mov r13d,r8d" = expect ''"mov r13d,r8d" to be correct [45 89 c5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r8d")
-      [ 69 137 197 ]
-    ;
-    "mov r13d,r9d" = expect ''"mov r13d,r9d" to be correct [45 89 cd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r9d")
-      [ 69 137 205 ]
-    ;
-    "mov r13d,r10d" = expect ''"mov r13d,r10d" to be correct [45 89 d5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r10d")
-      [ 69 137 213 ]
-    ;
-    "mov r13d,r11d" = expect ''"mov r13d,r11d" to be correct [45 89 dd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r11d")
-      [ 69 137 221 ]
-    ;
-    "mov r13d,r12d" = expect ''"mov r13d,r12d" to be correct [45 89 e5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r12d")
-      [ 69 137 229 ]
-    ;
-    "mov r13d,r13d" = expect ''"mov r13d,r13d" to be correct [45 89 ed]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r13d")
-      [ 69 137 237 ]
-    ;
-    "mov r13d,r14d" = expect ''"mov r13d,r14d" to be correct [45 89 f5]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r14d")
-      [ 69 137 245 ]
-    ;
-    "mov r13d,r15d" = expect ''"mov r13d,r15d" to be correct [45 89 fd]''
-      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r15d")
-      [ 69 137 253 ]
-    ;
-    "mov r14d,eax" = expect ''"mov r14d,eax" to be correct [41 89 c6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "eax")
-      [ 65 137 198 ]
-    ;
-    "mov r14d,ecx" = expect ''"mov r14d,ecx" to be correct [41 89 ce]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "ecx")
-      [ 65 137 206 ]
-    ;
-    "mov r14d,edx" = expect ''"mov r14d,edx" to be correct [41 89 d6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "edx")
-      [ 65 137 214 ]
-    ;
-    "mov r14d,ebx" = expect ''"mov r14d,ebx" to be correct [41 89 de]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "ebx")
-      [ 65 137 222 ]
-    ;
-    "mov r14d,esp" = expect ''"mov r14d,esp" to be correct [41 89 e6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "esp")
-      [ 65 137 230 ]
-    ;
-    "mov r14d,ebp" = expect ''"mov r14d,ebp" to be correct [41 89 ee]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "ebp")
-      [ 65 137 238 ]
-    ;
-    "mov r14d,esi" = expect ''"mov r14d,esi" to be correct [41 89 f6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "esi")
-      [ 65 137 246 ]
-    ;
-    "mov r14d,edi" = expect ''"mov r14d,edi" to be correct [41 89 fe]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "edi")
-      [ 65 137 254 ]
-    ;
-    "mov r14d,r8d" = expect ''"mov r14d,r8d" to be correct [45 89 c6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r8d")
-      [ 69 137 198 ]
-    ;
-    "mov r14d,r9d" = expect ''"mov r14d,r9d" to be correct [45 89 ce]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r9d")
-      [ 69 137 206 ]
-    ;
-    "mov r14d,r10d" = expect ''"mov r14d,r10d" to be correct [45 89 d6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r10d")
-      [ 69 137 214 ]
-    ;
-    "mov r14d,r11d" = expect ''"mov r14d,r11d" to be correct [45 89 de]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r11d")
-      [ 69 137 222 ]
-    ;
-    "mov r14d,r12d" = expect ''"mov r14d,r12d" to be correct [45 89 e6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r12d")
-      [ 69 137 230 ]
-    ;
-    "mov r14d,r13d" = expect ''"mov r14d,r13d" to be correct [45 89 ee]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r13d")
-      [ 69 137 238 ]
-    ;
-    "mov r14d,r14d" = expect ''"mov r14d,r14d" to be correct [45 89 f6]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r14d")
-      [ 69 137 246 ]
-    ;
-    "mov r14d,r15d" = expect ''"mov r14d,r15d" to be correct [45 89 fe]''
-      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r15d")
-      [ 69 137 254 ]
-    ;
-    "mov r15d,eax" = expect ''"mov r15d,eax" to be correct [41 89 c7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "eax")
-      [ 65 137 199 ]
-    ;
-    "mov r15d,ecx" = expect ''"mov r15d,ecx" to be correct [41 89 cf]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "ecx")
-      [ 65 137 207 ]
-    ;
-    "mov r15d,edx" = expect ''"mov r15d,edx" to be correct [41 89 d7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "edx")
-      [ 65 137 215 ]
-    ;
-    "mov r15d,ebx" = expect ''"mov r15d,ebx" to be correct [41 89 df]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "ebx")
-      [ 65 137 223 ]
-    ;
-    "mov r15d,esp" = expect ''"mov r15d,esp" to be correct [41 89 e7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "esp")
-      [ 65 137 231 ]
-    ;
-    "mov r15d,ebp" = expect ''"mov r15d,ebp" to be correct [41 89 ef]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "ebp")
-      [ 65 137 239 ]
-    ;
-    "mov r15d,esi" = expect ''"mov r15d,esi" to be correct [41 89 f7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "esi")
-      [ 65 137 247 ]
-    ;
-    "mov r15d,edi" = expect ''"mov r15d,edi" to be correct [41 89 ff]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "edi")
-      [ 65 137 255 ]
-    ;
-    "mov r15d,r8d" = expect ''"mov r15d,r8d" to be correct [45 89 c7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r8d")
-      [ 69 137 199 ]
-    ;
-    "mov r15d,r9d" = expect ''"mov r15d,r9d" to be correct [45 89 cf]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r9d")
-      [ 69 137 207 ]
-    ;
-    "mov r15d,r10d" = expect ''"mov r15d,r10d" to be correct [45 89 d7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r10d")
-      [ 69 137 215 ]
-    ;
-    "mov r15d,r11d" = expect ''"mov r15d,r11d" to be correct [45 89 df]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r11d")
-      [ 69 137 223 ]
-    ;
-    "mov r15d,r12d" = expect ''"mov r15d,r12d" to be correct [45 89 e7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r12d")
-      [ 69 137 231 ]
-    ;
-    "mov r15d,r13d" = expect ''"mov r15d,r13d" to be correct [45 89 ef]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r13d")
-      [ 69 137 239 ]
-    ;
-    "mov r15d,r14d" = expect ''"mov r15d,r14d" to be correct [45 89 f7]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r14d")
-      [ 69 137 247 ]
-    ;
-    "mov r15d,r15d" = expect ''"mov r15d,r15d" to be correct [45 89 ff]''
-      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r15d")
-      [ 69 137 255 ]
     ;
     "mov rax,rax" = expect ''"mov rax,rax" to be correct [48 89 c0]''
       (lib.arch.x86_64.instructions.MOV_reg "rax" "rax")
@@ -3594,6 +2062,198 @@
       (lib.arch.x86_64.instructions.MOV_reg "rdi" "r15")
       [ 76 137 255 ]
     ;
+    "mov r8b,al" = expect ''"mov r8b,al" to be correct [41 88 c0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "al")
+      [ 65 136 192 ]
+    ;
+    "mov r8b,cl" = expect ''"mov r8b,cl" to be correct [41 88 c8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "cl")
+      [ 65 136 200 ]
+    ;
+    "mov r8b,dl" = expect ''"mov r8b,dl" to be correct [41 88 d0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "dl")
+      [ 65 136 208 ]
+    ;
+    "mov r8b,bl" = expect ''"mov r8b,bl" to be correct [41 88 d8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "bl")
+      [ 65 136 216 ]
+    ;
+    "mov r8b,spl" = expect ''"mov r8b,spl" to be correct [41 88 e0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "spl")
+      [ 65 136 224 ]
+    ;
+    "mov r8b,bpl" = expect ''"mov r8b,bpl" to be correct [41 88 e8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "bpl")
+      [ 65 136 232 ]
+    ;
+    "mov r8b,sil" = expect ''"mov r8b,sil" to be correct [41 88 f0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "sil")
+      [ 65 136 240 ]
+    ;
+    "mov r8b,dil" = expect ''"mov r8b,dil" to be correct [41 88 f8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "dil")
+      [ 65 136 248 ]
+    ;
+    "mov r8b,r8b" = expect ''"mov r8b,r8b" to be correct [45 88 c0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r8b")
+      [ 69 136 192 ]
+    ;
+    "mov r8b,r9b" = expect ''"mov r8b,r9b" to be correct [45 88 c8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r9b")
+      [ 69 136 200 ]
+    ;
+    "mov r8b,r10b" = expect ''"mov r8b,r10b" to be correct [45 88 d0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r10b")
+      [ 69 136 208 ]
+    ;
+    "mov r8b,r11b" = expect ''"mov r8b,r11b" to be correct [45 88 d8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r11b")
+      [ 69 136 216 ]
+    ;
+    "mov r8b,r12b" = expect ''"mov r8b,r12b" to be correct [45 88 e0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r12b")
+      [ 69 136 224 ]
+    ;
+    "mov r8b,r13b" = expect ''"mov r8b,r13b" to be correct [45 88 e8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r13b")
+      [ 69 136 232 ]
+    ;
+    "mov r8b,r14b" = expect ''"mov r8b,r14b" to be correct [45 88 f0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r14b")
+      [ 69 136 240 ]
+    ;
+    "mov r8b,r15b" = expect ''"mov r8b,r15b" to be correct [45 88 f8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8b" "r15b")
+      [ 69 136 248 ]
+    ;
+    "mov r8w,ax" = expect ''"mov r8w,ax" to be correct [66 41 89 c0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "ax")
+      [ 102 65 137 192 ]
+    ;
+    "mov r8w,cx" = expect ''"mov r8w,cx" to be correct [66 41 89 c8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "cx")
+      [ 102 65 137 200 ]
+    ;
+    "mov r8w,dx" = expect ''"mov r8w,dx" to be correct [66 41 89 d0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "dx")
+      [ 102 65 137 208 ]
+    ;
+    "mov r8w,bx" = expect ''"mov r8w,bx" to be correct [66 41 89 d8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "bx")
+      [ 102 65 137 216 ]
+    ;
+    "mov r8w,sp" = expect ''"mov r8w,sp" to be correct [66 41 89 e0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "sp")
+      [ 102 65 137 224 ]
+    ;
+    "mov r8w,bp" = expect ''"mov r8w,bp" to be correct [66 41 89 e8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "bp")
+      [ 102 65 137 232 ]
+    ;
+    "mov r8w,si" = expect ''"mov r8w,si" to be correct [66 41 89 f0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "si")
+      [ 102 65 137 240 ]
+    ;
+    "mov r8w,di" = expect ''"mov r8w,di" to be correct [66 41 89 f8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "di")
+      [ 102 65 137 248 ]
+    ;
+    "mov r8w,r8w" = expect ''"mov r8w,r8w" to be correct [66 45 89 c0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r8w")
+      [ 102 69 137 192 ]
+    ;
+    "mov r8w,r9w" = expect ''"mov r8w,r9w" to be correct [66 45 89 c8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r9w")
+      [ 102 69 137 200 ]
+    ;
+    "mov r8w,r10w" = expect ''"mov r8w,r10w" to be correct [66 45 89 d0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r10w")
+      [ 102 69 137 208 ]
+    ;
+    "mov r8w,r11w" = expect ''"mov r8w,r11w" to be correct [66 45 89 d8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r11w")
+      [ 102 69 137 216 ]
+    ;
+    "mov r8w,r12w" = expect ''"mov r8w,r12w" to be correct [66 45 89 e0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r12w")
+      [ 102 69 137 224 ]
+    ;
+    "mov r8w,r13w" = expect ''"mov r8w,r13w" to be correct [66 45 89 e8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r13w")
+      [ 102 69 137 232 ]
+    ;
+    "mov r8w,r14w" = expect ''"mov r8w,r14w" to be correct [66 45 89 f0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r14w")
+      [ 102 69 137 240 ]
+    ;
+    "mov r8w,r15w" = expect ''"mov r8w,r15w" to be correct [66 45 89 f8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8w" "r15w")
+      [ 102 69 137 248 ]
+    ;
+    "mov r8d,eax" = expect ''"mov r8d,eax" to be correct [41 89 c0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "eax")
+      [ 65 137 192 ]
+    ;
+    "mov r8d,ecx" = expect ''"mov r8d,ecx" to be correct [41 89 c8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "ecx")
+      [ 65 137 200 ]
+    ;
+    "mov r8d,edx" = expect ''"mov r8d,edx" to be correct [41 89 d0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "edx")
+      [ 65 137 208 ]
+    ;
+    "mov r8d,ebx" = expect ''"mov r8d,ebx" to be correct [41 89 d8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "ebx")
+      [ 65 137 216 ]
+    ;
+    "mov r8d,esp" = expect ''"mov r8d,esp" to be correct [41 89 e0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "esp")
+      [ 65 137 224 ]
+    ;
+    "mov r8d,ebp" = expect ''"mov r8d,ebp" to be correct [41 89 e8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "ebp")
+      [ 65 137 232 ]
+    ;
+    "mov r8d,esi" = expect ''"mov r8d,esi" to be correct [41 89 f0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "esi")
+      [ 65 137 240 ]
+    ;
+    "mov r8d,edi" = expect ''"mov r8d,edi" to be correct [41 89 f8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "edi")
+      [ 65 137 248 ]
+    ;
+    "mov r8d,r8d" = expect ''"mov r8d,r8d" to be correct [45 89 c0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r8d")
+      [ 69 137 192 ]
+    ;
+    "mov r8d,r9d" = expect ''"mov r8d,r9d" to be correct [45 89 c8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r9d")
+      [ 69 137 200 ]
+    ;
+    "mov r8d,r10d" = expect ''"mov r8d,r10d" to be correct [45 89 d0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r10d")
+      [ 69 137 208 ]
+    ;
+    "mov r8d,r11d" = expect ''"mov r8d,r11d" to be correct [45 89 d8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r11d")
+      [ 69 137 216 ]
+    ;
+    "mov r8d,r12d" = expect ''"mov r8d,r12d" to be correct [45 89 e0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r12d")
+      [ 69 137 224 ]
+    ;
+    "mov r8d,r13d" = expect ''"mov r8d,r13d" to be correct [45 89 e8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r13d")
+      [ 69 137 232 ]
+    ;
+    "mov r8d,r14d" = expect ''"mov r8d,r14d" to be correct [45 89 f0]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r14d")
+      [ 69 137 240 ]
+    ;
+    "mov r8d,r15d" = expect ''"mov r8d,r15d" to be correct [45 89 f8]''
+      (lib.arch.x86_64.instructions.MOV_reg "r8d" "r15d")
+      [ 69 137 248 ]
+    ;
     "mov r8,rax" = expect ''"mov r8,rax" to be correct [49 89 c0]''
       (lib.arch.x86_64.instructions.MOV_reg "r8" "rax")
       [ 73 137 192 ]
@@ -3657,6 +2317,198 @@
     "mov r8,r15" = expect ''"mov r8,r15" to be correct [4d 89 f8]''
       (lib.arch.x86_64.instructions.MOV_reg "r8" "r15")
       [ 77 137 248 ]
+    ;
+    "mov r9b,al" = expect ''"mov r9b,al" to be correct [41 88 c1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "al")
+      [ 65 136 193 ]
+    ;
+    "mov r9b,cl" = expect ''"mov r9b,cl" to be correct [41 88 c9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "cl")
+      [ 65 136 201 ]
+    ;
+    "mov r9b,dl" = expect ''"mov r9b,dl" to be correct [41 88 d1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "dl")
+      [ 65 136 209 ]
+    ;
+    "mov r9b,bl" = expect ''"mov r9b,bl" to be correct [41 88 d9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "bl")
+      [ 65 136 217 ]
+    ;
+    "mov r9b,spl" = expect ''"mov r9b,spl" to be correct [41 88 e1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "spl")
+      [ 65 136 225 ]
+    ;
+    "mov r9b,bpl" = expect ''"mov r9b,bpl" to be correct [41 88 e9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "bpl")
+      [ 65 136 233 ]
+    ;
+    "mov r9b,sil" = expect ''"mov r9b,sil" to be correct [41 88 f1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "sil")
+      [ 65 136 241 ]
+    ;
+    "mov r9b,dil" = expect ''"mov r9b,dil" to be correct [41 88 f9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "dil")
+      [ 65 136 249 ]
+    ;
+    "mov r9b,r8b" = expect ''"mov r9b,r8b" to be correct [45 88 c1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r8b")
+      [ 69 136 193 ]
+    ;
+    "mov r9b,r9b" = expect ''"mov r9b,r9b" to be correct [45 88 c9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r9b")
+      [ 69 136 201 ]
+    ;
+    "mov r9b,r10b" = expect ''"mov r9b,r10b" to be correct [45 88 d1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r10b")
+      [ 69 136 209 ]
+    ;
+    "mov r9b,r11b" = expect ''"mov r9b,r11b" to be correct [45 88 d9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r11b")
+      [ 69 136 217 ]
+    ;
+    "mov r9b,r12b" = expect ''"mov r9b,r12b" to be correct [45 88 e1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r12b")
+      [ 69 136 225 ]
+    ;
+    "mov r9b,r13b" = expect ''"mov r9b,r13b" to be correct [45 88 e9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r13b")
+      [ 69 136 233 ]
+    ;
+    "mov r9b,r14b" = expect ''"mov r9b,r14b" to be correct [45 88 f1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r14b")
+      [ 69 136 241 ]
+    ;
+    "mov r9b,r15b" = expect ''"mov r9b,r15b" to be correct [45 88 f9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9b" "r15b")
+      [ 69 136 249 ]
+    ;
+    "mov r9w,ax" = expect ''"mov r9w,ax" to be correct [66 41 89 c1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "ax")
+      [ 102 65 137 193 ]
+    ;
+    "mov r9w,cx" = expect ''"mov r9w,cx" to be correct [66 41 89 c9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "cx")
+      [ 102 65 137 201 ]
+    ;
+    "mov r9w,dx" = expect ''"mov r9w,dx" to be correct [66 41 89 d1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "dx")
+      [ 102 65 137 209 ]
+    ;
+    "mov r9w,bx" = expect ''"mov r9w,bx" to be correct [66 41 89 d9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "bx")
+      [ 102 65 137 217 ]
+    ;
+    "mov r9w,sp" = expect ''"mov r9w,sp" to be correct [66 41 89 e1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "sp")
+      [ 102 65 137 225 ]
+    ;
+    "mov r9w,bp" = expect ''"mov r9w,bp" to be correct [66 41 89 e9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "bp")
+      [ 102 65 137 233 ]
+    ;
+    "mov r9w,si" = expect ''"mov r9w,si" to be correct [66 41 89 f1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "si")
+      [ 102 65 137 241 ]
+    ;
+    "mov r9w,di" = expect ''"mov r9w,di" to be correct [66 41 89 f9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "di")
+      [ 102 65 137 249 ]
+    ;
+    "mov r9w,r8w" = expect ''"mov r9w,r8w" to be correct [66 45 89 c1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r8w")
+      [ 102 69 137 193 ]
+    ;
+    "mov r9w,r9w" = expect ''"mov r9w,r9w" to be correct [66 45 89 c9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r9w")
+      [ 102 69 137 201 ]
+    ;
+    "mov r9w,r10w" = expect ''"mov r9w,r10w" to be correct [66 45 89 d1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r10w")
+      [ 102 69 137 209 ]
+    ;
+    "mov r9w,r11w" = expect ''"mov r9w,r11w" to be correct [66 45 89 d9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r11w")
+      [ 102 69 137 217 ]
+    ;
+    "mov r9w,r12w" = expect ''"mov r9w,r12w" to be correct [66 45 89 e1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r12w")
+      [ 102 69 137 225 ]
+    ;
+    "mov r9w,r13w" = expect ''"mov r9w,r13w" to be correct [66 45 89 e9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r13w")
+      [ 102 69 137 233 ]
+    ;
+    "mov r9w,r14w" = expect ''"mov r9w,r14w" to be correct [66 45 89 f1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r14w")
+      [ 102 69 137 241 ]
+    ;
+    "mov r9w,r15w" = expect ''"mov r9w,r15w" to be correct [66 45 89 f9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9w" "r15w")
+      [ 102 69 137 249 ]
+    ;
+    "mov r9d,eax" = expect ''"mov r9d,eax" to be correct [41 89 c1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "eax")
+      [ 65 137 193 ]
+    ;
+    "mov r9d,ecx" = expect ''"mov r9d,ecx" to be correct [41 89 c9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "ecx")
+      [ 65 137 201 ]
+    ;
+    "mov r9d,edx" = expect ''"mov r9d,edx" to be correct [41 89 d1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "edx")
+      [ 65 137 209 ]
+    ;
+    "mov r9d,ebx" = expect ''"mov r9d,ebx" to be correct [41 89 d9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "ebx")
+      [ 65 137 217 ]
+    ;
+    "mov r9d,esp" = expect ''"mov r9d,esp" to be correct [41 89 e1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "esp")
+      [ 65 137 225 ]
+    ;
+    "mov r9d,ebp" = expect ''"mov r9d,ebp" to be correct [41 89 e9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "ebp")
+      [ 65 137 233 ]
+    ;
+    "mov r9d,esi" = expect ''"mov r9d,esi" to be correct [41 89 f1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "esi")
+      [ 65 137 241 ]
+    ;
+    "mov r9d,edi" = expect ''"mov r9d,edi" to be correct [41 89 f9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "edi")
+      [ 65 137 249 ]
+    ;
+    "mov r9d,r8d" = expect ''"mov r9d,r8d" to be correct [45 89 c1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r8d")
+      [ 69 137 193 ]
+    ;
+    "mov r9d,r9d" = expect ''"mov r9d,r9d" to be correct [45 89 c9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r9d")
+      [ 69 137 201 ]
+    ;
+    "mov r9d,r10d" = expect ''"mov r9d,r10d" to be correct [45 89 d1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r10d")
+      [ 69 137 209 ]
+    ;
+    "mov r9d,r11d" = expect ''"mov r9d,r11d" to be correct [45 89 d9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r11d")
+      [ 69 137 217 ]
+    ;
+    "mov r9d,r12d" = expect ''"mov r9d,r12d" to be correct [45 89 e1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r12d")
+      [ 69 137 225 ]
+    ;
+    "mov r9d,r13d" = expect ''"mov r9d,r13d" to be correct [45 89 e9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r13d")
+      [ 69 137 233 ]
+    ;
+    "mov r9d,r14d" = expect ''"mov r9d,r14d" to be correct [45 89 f1]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r14d")
+      [ 69 137 241 ]
+    ;
+    "mov r9d,r15d" = expect ''"mov r9d,r15d" to be correct [45 89 f9]''
+      (lib.arch.x86_64.instructions.MOV_reg "r9d" "r15d")
+      [ 69 137 249 ]
     ;
     "mov r9,rax" = expect ''"mov r9,rax" to be correct [49 89 c1]''
       (lib.arch.x86_64.instructions.MOV_reg "r9" "rax")
@@ -3722,6 +2574,198 @@
       (lib.arch.x86_64.instructions.MOV_reg "r9" "r15")
       [ 77 137 249 ]
     ;
+    "mov r10b,al" = expect ''"mov r10b,al" to be correct [41 88 c2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "al")
+      [ 65 136 194 ]
+    ;
+    "mov r10b,cl" = expect ''"mov r10b,cl" to be correct [41 88 ca]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "cl")
+      [ 65 136 202 ]
+    ;
+    "mov r10b,dl" = expect ''"mov r10b,dl" to be correct [41 88 d2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "dl")
+      [ 65 136 210 ]
+    ;
+    "mov r10b,bl" = expect ''"mov r10b,bl" to be correct [41 88 da]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "bl")
+      [ 65 136 218 ]
+    ;
+    "mov r10b,spl" = expect ''"mov r10b,spl" to be correct [41 88 e2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "spl")
+      [ 65 136 226 ]
+    ;
+    "mov r10b,bpl" = expect ''"mov r10b,bpl" to be correct [41 88 ea]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "bpl")
+      [ 65 136 234 ]
+    ;
+    "mov r10b,sil" = expect ''"mov r10b,sil" to be correct [41 88 f2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "sil")
+      [ 65 136 242 ]
+    ;
+    "mov r10b,dil" = expect ''"mov r10b,dil" to be correct [41 88 fa]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "dil")
+      [ 65 136 250 ]
+    ;
+    "mov r10b,r8b" = expect ''"mov r10b,r8b" to be correct [45 88 c2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r8b")
+      [ 69 136 194 ]
+    ;
+    "mov r10b,r9b" = expect ''"mov r10b,r9b" to be correct [45 88 ca]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r9b")
+      [ 69 136 202 ]
+    ;
+    "mov r10b,r10b" = expect ''"mov r10b,r10b" to be correct [45 88 d2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r10b")
+      [ 69 136 210 ]
+    ;
+    "mov r10b,r11b" = expect ''"mov r10b,r11b" to be correct [45 88 da]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r11b")
+      [ 69 136 218 ]
+    ;
+    "mov r10b,r12b" = expect ''"mov r10b,r12b" to be correct [45 88 e2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r12b")
+      [ 69 136 226 ]
+    ;
+    "mov r10b,r13b" = expect ''"mov r10b,r13b" to be correct [45 88 ea]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r13b")
+      [ 69 136 234 ]
+    ;
+    "mov r10b,r14b" = expect ''"mov r10b,r14b" to be correct [45 88 f2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r14b")
+      [ 69 136 242 ]
+    ;
+    "mov r10b,r15b" = expect ''"mov r10b,r15b" to be correct [45 88 fa]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10b" "r15b")
+      [ 69 136 250 ]
+    ;
+    "mov r10w,ax" = expect ''"mov r10w,ax" to be correct [66 41 89 c2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "ax")
+      [ 102 65 137 194 ]
+    ;
+    "mov r10w,cx" = expect ''"mov r10w,cx" to be correct [66 41 89 ca]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "cx")
+      [ 102 65 137 202 ]
+    ;
+    "mov r10w,dx" = expect ''"mov r10w,dx" to be correct [66 41 89 d2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "dx")
+      [ 102 65 137 210 ]
+    ;
+    "mov r10w,bx" = expect ''"mov r10w,bx" to be correct [66 41 89 da]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "bx")
+      [ 102 65 137 218 ]
+    ;
+    "mov r10w,sp" = expect ''"mov r10w,sp" to be correct [66 41 89 e2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "sp")
+      [ 102 65 137 226 ]
+    ;
+    "mov r10w,bp" = expect ''"mov r10w,bp" to be correct [66 41 89 ea]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "bp")
+      [ 102 65 137 234 ]
+    ;
+    "mov r10w,si" = expect ''"mov r10w,si" to be correct [66 41 89 f2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "si")
+      [ 102 65 137 242 ]
+    ;
+    "mov r10w,di" = expect ''"mov r10w,di" to be correct [66 41 89 fa]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "di")
+      [ 102 65 137 250 ]
+    ;
+    "mov r10w,r8w" = expect ''"mov r10w,r8w" to be correct [66 45 89 c2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r8w")
+      [ 102 69 137 194 ]
+    ;
+    "mov r10w,r9w" = expect ''"mov r10w,r9w" to be correct [66 45 89 ca]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r9w")
+      [ 102 69 137 202 ]
+    ;
+    "mov r10w,r10w" = expect ''"mov r10w,r10w" to be correct [66 45 89 d2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r10w")
+      [ 102 69 137 210 ]
+    ;
+    "mov r10w,r11w" = expect ''"mov r10w,r11w" to be correct [66 45 89 da]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r11w")
+      [ 102 69 137 218 ]
+    ;
+    "mov r10w,r12w" = expect ''"mov r10w,r12w" to be correct [66 45 89 e2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r12w")
+      [ 102 69 137 226 ]
+    ;
+    "mov r10w,r13w" = expect ''"mov r10w,r13w" to be correct [66 45 89 ea]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r13w")
+      [ 102 69 137 234 ]
+    ;
+    "mov r10w,r14w" = expect ''"mov r10w,r14w" to be correct [66 45 89 f2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r14w")
+      [ 102 69 137 242 ]
+    ;
+    "mov r10w,r15w" = expect ''"mov r10w,r15w" to be correct [66 45 89 fa]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10w" "r15w")
+      [ 102 69 137 250 ]
+    ;
+    "mov r10d,eax" = expect ''"mov r10d,eax" to be correct [41 89 c2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "eax")
+      [ 65 137 194 ]
+    ;
+    "mov r10d,ecx" = expect ''"mov r10d,ecx" to be correct [41 89 ca]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "ecx")
+      [ 65 137 202 ]
+    ;
+    "mov r10d,edx" = expect ''"mov r10d,edx" to be correct [41 89 d2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "edx")
+      [ 65 137 210 ]
+    ;
+    "mov r10d,ebx" = expect ''"mov r10d,ebx" to be correct [41 89 da]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "ebx")
+      [ 65 137 218 ]
+    ;
+    "mov r10d,esp" = expect ''"mov r10d,esp" to be correct [41 89 e2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "esp")
+      [ 65 137 226 ]
+    ;
+    "mov r10d,ebp" = expect ''"mov r10d,ebp" to be correct [41 89 ea]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "ebp")
+      [ 65 137 234 ]
+    ;
+    "mov r10d,esi" = expect ''"mov r10d,esi" to be correct [41 89 f2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "esi")
+      [ 65 137 242 ]
+    ;
+    "mov r10d,edi" = expect ''"mov r10d,edi" to be correct [41 89 fa]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "edi")
+      [ 65 137 250 ]
+    ;
+    "mov r10d,r8d" = expect ''"mov r10d,r8d" to be correct [45 89 c2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r8d")
+      [ 69 137 194 ]
+    ;
+    "mov r10d,r9d" = expect ''"mov r10d,r9d" to be correct [45 89 ca]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r9d")
+      [ 69 137 202 ]
+    ;
+    "mov r10d,r10d" = expect ''"mov r10d,r10d" to be correct [45 89 d2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r10d")
+      [ 69 137 210 ]
+    ;
+    "mov r10d,r11d" = expect ''"mov r10d,r11d" to be correct [45 89 da]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r11d")
+      [ 69 137 218 ]
+    ;
+    "mov r10d,r12d" = expect ''"mov r10d,r12d" to be correct [45 89 e2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r12d")
+      [ 69 137 226 ]
+    ;
+    "mov r10d,r13d" = expect ''"mov r10d,r13d" to be correct [45 89 ea]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r13d")
+      [ 69 137 234 ]
+    ;
+    "mov r10d,r14d" = expect ''"mov r10d,r14d" to be correct [45 89 f2]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r14d")
+      [ 69 137 242 ]
+    ;
+    "mov r10d,r15d" = expect ''"mov r10d,r15d" to be correct [45 89 fa]''
+      (lib.arch.x86_64.instructions.MOV_reg "r10d" "r15d")
+      [ 69 137 250 ]
+    ;
     "mov r10,rax" = expect ''"mov r10,rax" to be correct [49 89 c2]''
       (lib.arch.x86_64.instructions.MOV_reg "r10" "rax")
       [ 73 137 194 ]
@@ -3785,6 +2829,198 @@
     "mov r10,r15" = expect ''"mov r10,r15" to be correct [4d 89 fa]''
       (lib.arch.x86_64.instructions.MOV_reg "r10" "r15")
       [ 77 137 250 ]
+    ;
+    "mov r11b,al" = expect ''"mov r11b,al" to be correct [41 88 c3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "al")
+      [ 65 136 195 ]
+    ;
+    "mov r11b,cl" = expect ''"mov r11b,cl" to be correct [41 88 cb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "cl")
+      [ 65 136 203 ]
+    ;
+    "mov r11b,dl" = expect ''"mov r11b,dl" to be correct [41 88 d3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "dl")
+      [ 65 136 211 ]
+    ;
+    "mov r11b,bl" = expect ''"mov r11b,bl" to be correct [41 88 db]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "bl")
+      [ 65 136 219 ]
+    ;
+    "mov r11b,spl" = expect ''"mov r11b,spl" to be correct [41 88 e3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "spl")
+      [ 65 136 227 ]
+    ;
+    "mov r11b,bpl" = expect ''"mov r11b,bpl" to be correct [41 88 eb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "bpl")
+      [ 65 136 235 ]
+    ;
+    "mov r11b,sil" = expect ''"mov r11b,sil" to be correct [41 88 f3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "sil")
+      [ 65 136 243 ]
+    ;
+    "mov r11b,dil" = expect ''"mov r11b,dil" to be correct [41 88 fb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "dil")
+      [ 65 136 251 ]
+    ;
+    "mov r11b,r8b" = expect ''"mov r11b,r8b" to be correct [45 88 c3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r8b")
+      [ 69 136 195 ]
+    ;
+    "mov r11b,r9b" = expect ''"mov r11b,r9b" to be correct [45 88 cb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r9b")
+      [ 69 136 203 ]
+    ;
+    "mov r11b,r10b" = expect ''"mov r11b,r10b" to be correct [45 88 d3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r10b")
+      [ 69 136 211 ]
+    ;
+    "mov r11b,r11b" = expect ''"mov r11b,r11b" to be correct [45 88 db]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r11b")
+      [ 69 136 219 ]
+    ;
+    "mov r11b,r12b" = expect ''"mov r11b,r12b" to be correct [45 88 e3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r12b")
+      [ 69 136 227 ]
+    ;
+    "mov r11b,r13b" = expect ''"mov r11b,r13b" to be correct [45 88 eb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r13b")
+      [ 69 136 235 ]
+    ;
+    "mov r11b,r14b" = expect ''"mov r11b,r14b" to be correct [45 88 f3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r14b")
+      [ 69 136 243 ]
+    ;
+    "mov r11b,r15b" = expect ''"mov r11b,r15b" to be correct [45 88 fb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11b" "r15b")
+      [ 69 136 251 ]
+    ;
+    "mov r11w,ax" = expect ''"mov r11w,ax" to be correct [66 41 89 c3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "ax")
+      [ 102 65 137 195 ]
+    ;
+    "mov r11w,cx" = expect ''"mov r11w,cx" to be correct [66 41 89 cb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "cx")
+      [ 102 65 137 203 ]
+    ;
+    "mov r11w,dx" = expect ''"mov r11w,dx" to be correct [66 41 89 d3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "dx")
+      [ 102 65 137 211 ]
+    ;
+    "mov r11w,bx" = expect ''"mov r11w,bx" to be correct [66 41 89 db]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "bx")
+      [ 102 65 137 219 ]
+    ;
+    "mov r11w,sp" = expect ''"mov r11w,sp" to be correct [66 41 89 e3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "sp")
+      [ 102 65 137 227 ]
+    ;
+    "mov r11w,bp" = expect ''"mov r11w,bp" to be correct [66 41 89 eb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "bp")
+      [ 102 65 137 235 ]
+    ;
+    "mov r11w,si" = expect ''"mov r11w,si" to be correct [66 41 89 f3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "si")
+      [ 102 65 137 243 ]
+    ;
+    "mov r11w,di" = expect ''"mov r11w,di" to be correct [66 41 89 fb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "di")
+      [ 102 65 137 251 ]
+    ;
+    "mov r11w,r8w" = expect ''"mov r11w,r8w" to be correct [66 45 89 c3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r8w")
+      [ 102 69 137 195 ]
+    ;
+    "mov r11w,r9w" = expect ''"mov r11w,r9w" to be correct [66 45 89 cb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r9w")
+      [ 102 69 137 203 ]
+    ;
+    "mov r11w,r10w" = expect ''"mov r11w,r10w" to be correct [66 45 89 d3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r10w")
+      [ 102 69 137 211 ]
+    ;
+    "mov r11w,r11w" = expect ''"mov r11w,r11w" to be correct [66 45 89 db]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r11w")
+      [ 102 69 137 219 ]
+    ;
+    "mov r11w,r12w" = expect ''"mov r11w,r12w" to be correct [66 45 89 e3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r12w")
+      [ 102 69 137 227 ]
+    ;
+    "mov r11w,r13w" = expect ''"mov r11w,r13w" to be correct [66 45 89 eb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r13w")
+      [ 102 69 137 235 ]
+    ;
+    "mov r11w,r14w" = expect ''"mov r11w,r14w" to be correct [66 45 89 f3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r14w")
+      [ 102 69 137 243 ]
+    ;
+    "mov r11w,r15w" = expect ''"mov r11w,r15w" to be correct [66 45 89 fb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11w" "r15w")
+      [ 102 69 137 251 ]
+    ;
+    "mov r11d,eax" = expect ''"mov r11d,eax" to be correct [41 89 c3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "eax")
+      [ 65 137 195 ]
+    ;
+    "mov r11d,ecx" = expect ''"mov r11d,ecx" to be correct [41 89 cb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "ecx")
+      [ 65 137 203 ]
+    ;
+    "mov r11d,edx" = expect ''"mov r11d,edx" to be correct [41 89 d3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "edx")
+      [ 65 137 211 ]
+    ;
+    "mov r11d,ebx" = expect ''"mov r11d,ebx" to be correct [41 89 db]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "ebx")
+      [ 65 137 219 ]
+    ;
+    "mov r11d,esp" = expect ''"mov r11d,esp" to be correct [41 89 e3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "esp")
+      [ 65 137 227 ]
+    ;
+    "mov r11d,ebp" = expect ''"mov r11d,ebp" to be correct [41 89 eb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "ebp")
+      [ 65 137 235 ]
+    ;
+    "mov r11d,esi" = expect ''"mov r11d,esi" to be correct [41 89 f3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "esi")
+      [ 65 137 243 ]
+    ;
+    "mov r11d,edi" = expect ''"mov r11d,edi" to be correct [41 89 fb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "edi")
+      [ 65 137 251 ]
+    ;
+    "mov r11d,r8d" = expect ''"mov r11d,r8d" to be correct [45 89 c3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r8d")
+      [ 69 137 195 ]
+    ;
+    "mov r11d,r9d" = expect ''"mov r11d,r9d" to be correct [45 89 cb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r9d")
+      [ 69 137 203 ]
+    ;
+    "mov r11d,r10d" = expect ''"mov r11d,r10d" to be correct [45 89 d3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r10d")
+      [ 69 137 211 ]
+    ;
+    "mov r11d,r11d" = expect ''"mov r11d,r11d" to be correct [45 89 db]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r11d")
+      [ 69 137 219 ]
+    ;
+    "mov r11d,r12d" = expect ''"mov r11d,r12d" to be correct [45 89 e3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r12d")
+      [ 69 137 227 ]
+    ;
+    "mov r11d,r13d" = expect ''"mov r11d,r13d" to be correct [45 89 eb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r13d")
+      [ 69 137 235 ]
+    ;
+    "mov r11d,r14d" = expect ''"mov r11d,r14d" to be correct [45 89 f3]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r14d")
+      [ 69 137 243 ]
+    ;
+    "mov r11d,r15d" = expect ''"mov r11d,r15d" to be correct [45 89 fb]''
+      (lib.arch.x86_64.instructions.MOV_reg "r11d" "r15d")
+      [ 69 137 251 ]
     ;
     "mov r11,rax" = expect ''"mov r11,rax" to be correct [49 89 c3]''
       (lib.arch.x86_64.instructions.MOV_reg "r11" "rax")
@@ -3850,6 +3086,198 @@
       (lib.arch.x86_64.instructions.MOV_reg "r11" "r15")
       [ 77 137 251 ]
     ;
+    "mov r12b,al" = expect ''"mov r12b,al" to be correct [41 88 c4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "al")
+      [ 65 136 196 ]
+    ;
+    "mov r12b,cl" = expect ''"mov r12b,cl" to be correct [41 88 cc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "cl")
+      [ 65 136 204 ]
+    ;
+    "mov r12b,dl" = expect ''"mov r12b,dl" to be correct [41 88 d4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "dl")
+      [ 65 136 212 ]
+    ;
+    "mov r12b,bl" = expect ''"mov r12b,bl" to be correct [41 88 dc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "bl")
+      [ 65 136 220 ]
+    ;
+    "mov r12b,spl" = expect ''"mov r12b,spl" to be correct [41 88 e4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "spl")
+      [ 65 136 228 ]
+    ;
+    "mov r12b,bpl" = expect ''"mov r12b,bpl" to be correct [41 88 ec]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "bpl")
+      [ 65 136 236 ]
+    ;
+    "mov r12b,sil" = expect ''"mov r12b,sil" to be correct [41 88 f4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "sil")
+      [ 65 136 244 ]
+    ;
+    "mov r12b,dil" = expect ''"mov r12b,dil" to be correct [41 88 fc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "dil")
+      [ 65 136 252 ]
+    ;
+    "mov r12b,r8b" = expect ''"mov r12b,r8b" to be correct [45 88 c4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r8b")
+      [ 69 136 196 ]
+    ;
+    "mov r12b,r9b" = expect ''"mov r12b,r9b" to be correct [45 88 cc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r9b")
+      [ 69 136 204 ]
+    ;
+    "mov r12b,r10b" = expect ''"mov r12b,r10b" to be correct [45 88 d4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r10b")
+      [ 69 136 212 ]
+    ;
+    "mov r12b,r11b" = expect ''"mov r12b,r11b" to be correct [45 88 dc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r11b")
+      [ 69 136 220 ]
+    ;
+    "mov r12b,r12b" = expect ''"mov r12b,r12b" to be correct [45 88 e4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r12b")
+      [ 69 136 228 ]
+    ;
+    "mov r12b,r13b" = expect ''"mov r12b,r13b" to be correct [45 88 ec]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r13b")
+      [ 69 136 236 ]
+    ;
+    "mov r12b,r14b" = expect ''"mov r12b,r14b" to be correct [45 88 f4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r14b")
+      [ 69 136 244 ]
+    ;
+    "mov r12b,r15b" = expect ''"mov r12b,r15b" to be correct [45 88 fc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12b" "r15b")
+      [ 69 136 252 ]
+    ;
+    "mov r12w,ax" = expect ''"mov r12w,ax" to be correct [66 41 89 c4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "ax")
+      [ 102 65 137 196 ]
+    ;
+    "mov r12w,cx" = expect ''"mov r12w,cx" to be correct [66 41 89 cc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "cx")
+      [ 102 65 137 204 ]
+    ;
+    "mov r12w,dx" = expect ''"mov r12w,dx" to be correct [66 41 89 d4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "dx")
+      [ 102 65 137 212 ]
+    ;
+    "mov r12w,bx" = expect ''"mov r12w,bx" to be correct [66 41 89 dc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "bx")
+      [ 102 65 137 220 ]
+    ;
+    "mov r12w,sp" = expect ''"mov r12w,sp" to be correct [66 41 89 e4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "sp")
+      [ 102 65 137 228 ]
+    ;
+    "mov r12w,bp" = expect ''"mov r12w,bp" to be correct [66 41 89 ec]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "bp")
+      [ 102 65 137 236 ]
+    ;
+    "mov r12w,si" = expect ''"mov r12w,si" to be correct [66 41 89 f4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "si")
+      [ 102 65 137 244 ]
+    ;
+    "mov r12w,di" = expect ''"mov r12w,di" to be correct [66 41 89 fc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "di")
+      [ 102 65 137 252 ]
+    ;
+    "mov r12w,r8w" = expect ''"mov r12w,r8w" to be correct [66 45 89 c4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r8w")
+      [ 102 69 137 196 ]
+    ;
+    "mov r12w,r9w" = expect ''"mov r12w,r9w" to be correct [66 45 89 cc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r9w")
+      [ 102 69 137 204 ]
+    ;
+    "mov r12w,r10w" = expect ''"mov r12w,r10w" to be correct [66 45 89 d4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r10w")
+      [ 102 69 137 212 ]
+    ;
+    "mov r12w,r11w" = expect ''"mov r12w,r11w" to be correct [66 45 89 dc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r11w")
+      [ 102 69 137 220 ]
+    ;
+    "mov r12w,r12w" = expect ''"mov r12w,r12w" to be correct [66 45 89 e4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r12w")
+      [ 102 69 137 228 ]
+    ;
+    "mov r12w,r13w" = expect ''"mov r12w,r13w" to be correct [66 45 89 ec]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r13w")
+      [ 102 69 137 236 ]
+    ;
+    "mov r12w,r14w" = expect ''"mov r12w,r14w" to be correct [66 45 89 f4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r14w")
+      [ 102 69 137 244 ]
+    ;
+    "mov r12w,r15w" = expect ''"mov r12w,r15w" to be correct [66 45 89 fc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12w" "r15w")
+      [ 102 69 137 252 ]
+    ;
+    "mov r12d,eax" = expect ''"mov r12d,eax" to be correct [41 89 c4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "eax")
+      [ 65 137 196 ]
+    ;
+    "mov r12d,ecx" = expect ''"mov r12d,ecx" to be correct [41 89 cc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "ecx")
+      [ 65 137 204 ]
+    ;
+    "mov r12d,edx" = expect ''"mov r12d,edx" to be correct [41 89 d4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "edx")
+      [ 65 137 212 ]
+    ;
+    "mov r12d,ebx" = expect ''"mov r12d,ebx" to be correct [41 89 dc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "ebx")
+      [ 65 137 220 ]
+    ;
+    "mov r12d,esp" = expect ''"mov r12d,esp" to be correct [41 89 e4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "esp")
+      [ 65 137 228 ]
+    ;
+    "mov r12d,ebp" = expect ''"mov r12d,ebp" to be correct [41 89 ec]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "ebp")
+      [ 65 137 236 ]
+    ;
+    "mov r12d,esi" = expect ''"mov r12d,esi" to be correct [41 89 f4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "esi")
+      [ 65 137 244 ]
+    ;
+    "mov r12d,edi" = expect ''"mov r12d,edi" to be correct [41 89 fc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "edi")
+      [ 65 137 252 ]
+    ;
+    "mov r12d,r8d" = expect ''"mov r12d,r8d" to be correct [45 89 c4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r8d")
+      [ 69 137 196 ]
+    ;
+    "mov r12d,r9d" = expect ''"mov r12d,r9d" to be correct [45 89 cc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r9d")
+      [ 69 137 204 ]
+    ;
+    "mov r12d,r10d" = expect ''"mov r12d,r10d" to be correct [45 89 d4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r10d")
+      [ 69 137 212 ]
+    ;
+    "mov r12d,r11d" = expect ''"mov r12d,r11d" to be correct [45 89 dc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r11d")
+      [ 69 137 220 ]
+    ;
+    "mov r12d,r12d" = expect ''"mov r12d,r12d" to be correct [45 89 e4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r12d")
+      [ 69 137 228 ]
+    ;
+    "mov r12d,r13d" = expect ''"mov r12d,r13d" to be correct [45 89 ec]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r13d")
+      [ 69 137 236 ]
+    ;
+    "mov r12d,r14d" = expect ''"mov r12d,r14d" to be correct [45 89 f4]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r14d")
+      [ 69 137 244 ]
+    ;
+    "mov r12d,r15d" = expect ''"mov r12d,r15d" to be correct [45 89 fc]''
+      (lib.arch.x86_64.instructions.MOV_reg "r12d" "r15d")
+      [ 69 137 252 ]
+    ;
     "mov r12,rax" = expect ''"mov r12,rax" to be correct [49 89 c4]''
       (lib.arch.x86_64.instructions.MOV_reg "r12" "rax")
       [ 73 137 196 ]
@@ -3913,6 +3341,198 @@
     "mov r12,r15" = expect ''"mov r12,r15" to be correct [4d 89 fc]''
       (lib.arch.x86_64.instructions.MOV_reg "r12" "r15")
       [ 77 137 252 ]
+    ;
+    "mov r13b,al" = expect ''"mov r13b,al" to be correct [41 88 c5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "al")
+      [ 65 136 197 ]
+    ;
+    "mov r13b,cl" = expect ''"mov r13b,cl" to be correct [41 88 cd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "cl")
+      [ 65 136 205 ]
+    ;
+    "mov r13b,dl" = expect ''"mov r13b,dl" to be correct [41 88 d5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "dl")
+      [ 65 136 213 ]
+    ;
+    "mov r13b,bl" = expect ''"mov r13b,bl" to be correct [41 88 dd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "bl")
+      [ 65 136 221 ]
+    ;
+    "mov r13b,spl" = expect ''"mov r13b,spl" to be correct [41 88 e5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "spl")
+      [ 65 136 229 ]
+    ;
+    "mov r13b,bpl" = expect ''"mov r13b,bpl" to be correct [41 88 ed]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "bpl")
+      [ 65 136 237 ]
+    ;
+    "mov r13b,sil" = expect ''"mov r13b,sil" to be correct [41 88 f5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "sil")
+      [ 65 136 245 ]
+    ;
+    "mov r13b,dil" = expect ''"mov r13b,dil" to be correct [41 88 fd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "dil")
+      [ 65 136 253 ]
+    ;
+    "mov r13b,r8b" = expect ''"mov r13b,r8b" to be correct [45 88 c5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r8b")
+      [ 69 136 197 ]
+    ;
+    "mov r13b,r9b" = expect ''"mov r13b,r9b" to be correct [45 88 cd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r9b")
+      [ 69 136 205 ]
+    ;
+    "mov r13b,r10b" = expect ''"mov r13b,r10b" to be correct [45 88 d5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r10b")
+      [ 69 136 213 ]
+    ;
+    "mov r13b,r11b" = expect ''"mov r13b,r11b" to be correct [45 88 dd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r11b")
+      [ 69 136 221 ]
+    ;
+    "mov r13b,r12b" = expect ''"mov r13b,r12b" to be correct [45 88 e5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r12b")
+      [ 69 136 229 ]
+    ;
+    "mov r13b,r13b" = expect ''"mov r13b,r13b" to be correct [45 88 ed]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r13b")
+      [ 69 136 237 ]
+    ;
+    "mov r13b,r14b" = expect ''"mov r13b,r14b" to be correct [45 88 f5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r14b")
+      [ 69 136 245 ]
+    ;
+    "mov r13b,r15b" = expect ''"mov r13b,r15b" to be correct [45 88 fd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13b" "r15b")
+      [ 69 136 253 ]
+    ;
+    "mov r13w,ax" = expect ''"mov r13w,ax" to be correct [66 41 89 c5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "ax")
+      [ 102 65 137 197 ]
+    ;
+    "mov r13w,cx" = expect ''"mov r13w,cx" to be correct [66 41 89 cd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "cx")
+      [ 102 65 137 205 ]
+    ;
+    "mov r13w,dx" = expect ''"mov r13w,dx" to be correct [66 41 89 d5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "dx")
+      [ 102 65 137 213 ]
+    ;
+    "mov r13w,bx" = expect ''"mov r13w,bx" to be correct [66 41 89 dd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "bx")
+      [ 102 65 137 221 ]
+    ;
+    "mov r13w,sp" = expect ''"mov r13w,sp" to be correct [66 41 89 e5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "sp")
+      [ 102 65 137 229 ]
+    ;
+    "mov r13w,bp" = expect ''"mov r13w,bp" to be correct [66 41 89 ed]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "bp")
+      [ 102 65 137 237 ]
+    ;
+    "mov r13w,si" = expect ''"mov r13w,si" to be correct [66 41 89 f5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "si")
+      [ 102 65 137 245 ]
+    ;
+    "mov r13w,di" = expect ''"mov r13w,di" to be correct [66 41 89 fd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "di")
+      [ 102 65 137 253 ]
+    ;
+    "mov r13w,r8w" = expect ''"mov r13w,r8w" to be correct [66 45 89 c5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r8w")
+      [ 102 69 137 197 ]
+    ;
+    "mov r13w,r9w" = expect ''"mov r13w,r9w" to be correct [66 45 89 cd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r9w")
+      [ 102 69 137 205 ]
+    ;
+    "mov r13w,r10w" = expect ''"mov r13w,r10w" to be correct [66 45 89 d5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r10w")
+      [ 102 69 137 213 ]
+    ;
+    "mov r13w,r11w" = expect ''"mov r13w,r11w" to be correct [66 45 89 dd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r11w")
+      [ 102 69 137 221 ]
+    ;
+    "mov r13w,r12w" = expect ''"mov r13w,r12w" to be correct [66 45 89 e5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r12w")
+      [ 102 69 137 229 ]
+    ;
+    "mov r13w,r13w" = expect ''"mov r13w,r13w" to be correct [66 45 89 ed]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r13w")
+      [ 102 69 137 237 ]
+    ;
+    "mov r13w,r14w" = expect ''"mov r13w,r14w" to be correct [66 45 89 f5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r14w")
+      [ 102 69 137 245 ]
+    ;
+    "mov r13w,r15w" = expect ''"mov r13w,r15w" to be correct [66 45 89 fd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13w" "r15w")
+      [ 102 69 137 253 ]
+    ;
+    "mov r13d,eax" = expect ''"mov r13d,eax" to be correct [41 89 c5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "eax")
+      [ 65 137 197 ]
+    ;
+    "mov r13d,ecx" = expect ''"mov r13d,ecx" to be correct [41 89 cd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "ecx")
+      [ 65 137 205 ]
+    ;
+    "mov r13d,edx" = expect ''"mov r13d,edx" to be correct [41 89 d5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "edx")
+      [ 65 137 213 ]
+    ;
+    "mov r13d,ebx" = expect ''"mov r13d,ebx" to be correct [41 89 dd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "ebx")
+      [ 65 137 221 ]
+    ;
+    "mov r13d,esp" = expect ''"mov r13d,esp" to be correct [41 89 e5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "esp")
+      [ 65 137 229 ]
+    ;
+    "mov r13d,ebp" = expect ''"mov r13d,ebp" to be correct [41 89 ed]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "ebp")
+      [ 65 137 237 ]
+    ;
+    "mov r13d,esi" = expect ''"mov r13d,esi" to be correct [41 89 f5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "esi")
+      [ 65 137 245 ]
+    ;
+    "mov r13d,edi" = expect ''"mov r13d,edi" to be correct [41 89 fd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "edi")
+      [ 65 137 253 ]
+    ;
+    "mov r13d,r8d" = expect ''"mov r13d,r8d" to be correct [45 89 c5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r8d")
+      [ 69 137 197 ]
+    ;
+    "mov r13d,r9d" = expect ''"mov r13d,r9d" to be correct [45 89 cd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r9d")
+      [ 69 137 205 ]
+    ;
+    "mov r13d,r10d" = expect ''"mov r13d,r10d" to be correct [45 89 d5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r10d")
+      [ 69 137 213 ]
+    ;
+    "mov r13d,r11d" = expect ''"mov r13d,r11d" to be correct [45 89 dd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r11d")
+      [ 69 137 221 ]
+    ;
+    "mov r13d,r12d" = expect ''"mov r13d,r12d" to be correct [45 89 e5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r12d")
+      [ 69 137 229 ]
+    ;
+    "mov r13d,r13d" = expect ''"mov r13d,r13d" to be correct [45 89 ed]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r13d")
+      [ 69 137 237 ]
+    ;
+    "mov r13d,r14d" = expect ''"mov r13d,r14d" to be correct [45 89 f5]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r14d")
+      [ 69 137 245 ]
+    ;
+    "mov r13d,r15d" = expect ''"mov r13d,r15d" to be correct [45 89 fd]''
+      (lib.arch.x86_64.instructions.MOV_reg "r13d" "r15d")
+      [ 69 137 253 ]
     ;
     "mov r13,rax" = expect ''"mov r13,rax" to be correct [49 89 c5]''
       (lib.arch.x86_64.instructions.MOV_reg "r13" "rax")
@@ -3978,6 +3598,198 @@
       (lib.arch.x86_64.instructions.MOV_reg "r13" "r15")
       [ 77 137 253 ]
     ;
+    "mov r14b,al" = expect ''"mov r14b,al" to be correct [41 88 c6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "al")
+      [ 65 136 198 ]
+    ;
+    "mov r14b,cl" = expect ''"mov r14b,cl" to be correct [41 88 ce]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "cl")
+      [ 65 136 206 ]
+    ;
+    "mov r14b,dl" = expect ''"mov r14b,dl" to be correct [41 88 d6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "dl")
+      [ 65 136 214 ]
+    ;
+    "mov r14b,bl" = expect ''"mov r14b,bl" to be correct [41 88 de]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "bl")
+      [ 65 136 222 ]
+    ;
+    "mov r14b,spl" = expect ''"mov r14b,spl" to be correct [41 88 e6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "spl")
+      [ 65 136 230 ]
+    ;
+    "mov r14b,bpl" = expect ''"mov r14b,bpl" to be correct [41 88 ee]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "bpl")
+      [ 65 136 238 ]
+    ;
+    "mov r14b,sil" = expect ''"mov r14b,sil" to be correct [41 88 f6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "sil")
+      [ 65 136 246 ]
+    ;
+    "mov r14b,dil" = expect ''"mov r14b,dil" to be correct [41 88 fe]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "dil")
+      [ 65 136 254 ]
+    ;
+    "mov r14b,r8b" = expect ''"mov r14b,r8b" to be correct [45 88 c6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r8b")
+      [ 69 136 198 ]
+    ;
+    "mov r14b,r9b" = expect ''"mov r14b,r9b" to be correct [45 88 ce]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r9b")
+      [ 69 136 206 ]
+    ;
+    "mov r14b,r10b" = expect ''"mov r14b,r10b" to be correct [45 88 d6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r10b")
+      [ 69 136 214 ]
+    ;
+    "mov r14b,r11b" = expect ''"mov r14b,r11b" to be correct [45 88 de]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r11b")
+      [ 69 136 222 ]
+    ;
+    "mov r14b,r12b" = expect ''"mov r14b,r12b" to be correct [45 88 e6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r12b")
+      [ 69 136 230 ]
+    ;
+    "mov r14b,r13b" = expect ''"mov r14b,r13b" to be correct [45 88 ee]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r13b")
+      [ 69 136 238 ]
+    ;
+    "mov r14b,r14b" = expect ''"mov r14b,r14b" to be correct [45 88 f6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r14b")
+      [ 69 136 246 ]
+    ;
+    "mov r14b,r15b" = expect ''"mov r14b,r15b" to be correct [45 88 fe]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14b" "r15b")
+      [ 69 136 254 ]
+    ;
+    "mov r14w,ax" = expect ''"mov r14w,ax" to be correct [66 41 89 c6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "ax")
+      [ 102 65 137 198 ]
+    ;
+    "mov r14w,cx" = expect ''"mov r14w,cx" to be correct [66 41 89 ce]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "cx")
+      [ 102 65 137 206 ]
+    ;
+    "mov r14w,dx" = expect ''"mov r14w,dx" to be correct [66 41 89 d6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "dx")
+      [ 102 65 137 214 ]
+    ;
+    "mov r14w,bx" = expect ''"mov r14w,bx" to be correct [66 41 89 de]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "bx")
+      [ 102 65 137 222 ]
+    ;
+    "mov r14w,sp" = expect ''"mov r14w,sp" to be correct [66 41 89 e6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "sp")
+      [ 102 65 137 230 ]
+    ;
+    "mov r14w,bp" = expect ''"mov r14w,bp" to be correct [66 41 89 ee]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "bp")
+      [ 102 65 137 238 ]
+    ;
+    "mov r14w,si" = expect ''"mov r14w,si" to be correct [66 41 89 f6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "si")
+      [ 102 65 137 246 ]
+    ;
+    "mov r14w,di" = expect ''"mov r14w,di" to be correct [66 41 89 fe]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "di")
+      [ 102 65 137 254 ]
+    ;
+    "mov r14w,r8w" = expect ''"mov r14w,r8w" to be correct [66 45 89 c6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r8w")
+      [ 102 69 137 198 ]
+    ;
+    "mov r14w,r9w" = expect ''"mov r14w,r9w" to be correct [66 45 89 ce]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r9w")
+      [ 102 69 137 206 ]
+    ;
+    "mov r14w,r10w" = expect ''"mov r14w,r10w" to be correct [66 45 89 d6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r10w")
+      [ 102 69 137 214 ]
+    ;
+    "mov r14w,r11w" = expect ''"mov r14w,r11w" to be correct [66 45 89 de]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r11w")
+      [ 102 69 137 222 ]
+    ;
+    "mov r14w,r12w" = expect ''"mov r14w,r12w" to be correct [66 45 89 e6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r12w")
+      [ 102 69 137 230 ]
+    ;
+    "mov r14w,r13w" = expect ''"mov r14w,r13w" to be correct [66 45 89 ee]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r13w")
+      [ 102 69 137 238 ]
+    ;
+    "mov r14w,r14w" = expect ''"mov r14w,r14w" to be correct [66 45 89 f6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r14w")
+      [ 102 69 137 246 ]
+    ;
+    "mov r14w,r15w" = expect ''"mov r14w,r15w" to be correct [66 45 89 fe]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14w" "r15w")
+      [ 102 69 137 254 ]
+    ;
+    "mov r14d,eax" = expect ''"mov r14d,eax" to be correct [41 89 c6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "eax")
+      [ 65 137 198 ]
+    ;
+    "mov r14d,ecx" = expect ''"mov r14d,ecx" to be correct [41 89 ce]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "ecx")
+      [ 65 137 206 ]
+    ;
+    "mov r14d,edx" = expect ''"mov r14d,edx" to be correct [41 89 d6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "edx")
+      [ 65 137 214 ]
+    ;
+    "mov r14d,ebx" = expect ''"mov r14d,ebx" to be correct [41 89 de]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "ebx")
+      [ 65 137 222 ]
+    ;
+    "mov r14d,esp" = expect ''"mov r14d,esp" to be correct [41 89 e6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "esp")
+      [ 65 137 230 ]
+    ;
+    "mov r14d,ebp" = expect ''"mov r14d,ebp" to be correct [41 89 ee]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "ebp")
+      [ 65 137 238 ]
+    ;
+    "mov r14d,esi" = expect ''"mov r14d,esi" to be correct [41 89 f6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "esi")
+      [ 65 137 246 ]
+    ;
+    "mov r14d,edi" = expect ''"mov r14d,edi" to be correct [41 89 fe]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "edi")
+      [ 65 137 254 ]
+    ;
+    "mov r14d,r8d" = expect ''"mov r14d,r8d" to be correct [45 89 c6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r8d")
+      [ 69 137 198 ]
+    ;
+    "mov r14d,r9d" = expect ''"mov r14d,r9d" to be correct [45 89 ce]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r9d")
+      [ 69 137 206 ]
+    ;
+    "mov r14d,r10d" = expect ''"mov r14d,r10d" to be correct [45 89 d6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r10d")
+      [ 69 137 214 ]
+    ;
+    "mov r14d,r11d" = expect ''"mov r14d,r11d" to be correct [45 89 de]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r11d")
+      [ 69 137 222 ]
+    ;
+    "mov r14d,r12d" = expect ''"mov r14d,r12d" to be correct [45 89 e6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r12d")
+      [ 69 137 230 ]
+    ;
+    "mov r14d,r13d" = expect ''"mov r14d,r13d" to be correct [45 89 ee]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r13d")
+      [ 69 137 238 ]
+    ;
+    "mov r14d,r14d" = expect ''"mov r14d,r14d" to be correct [45 89 f6]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r14d")
+      [ 69 137 246 ]
+    ;
+    "mov r14d,r15d" = expect ''"mov r14d,r15d" to be correct [45 89 fe]''
+      (lib.arch.x86_64.instructions.MOV_reg "r14d" "r15d")
+      [ 69 137 254 ]
+    ;
     "mov r14,rax" = expect ''"mov r14,rax" to be correct [49 89 c6]''
       (lib.arch.x86_64.instructions.MOV_reg "r14" "rax")
       [ 73 137 198 ]
@@ -4041,6 +3853,198 @@
     "mov r14,r15" = expect ''"mov r14,r15" to be correct [4d 89 fe]''
       (lib.arch.x86_64.instructions.MOV_reg "r14" "r15")
       [ 77 137 254 ]
+    ;
+    "mov r15b,al" = expect ''"mov r15b,al" to be correct [41 88 c7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "al")
+      [ 65 136 199 ]
+    ;
+    "mov r15b,cl" = expect ''"mov r15b,cl" to be correct [41 88 cf]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "cl")
+      [ 65 136 207 ]
+    ;
+    "mov r15b,dl" = expect ''"mov r15b,dl" to be correct [41 88 d7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "dl")
+      [ 65 136 215 ]
+    ;
+    "mov r15b,bl" = expect ''"mov r15b,bl" to be correct [41 88 df]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "bl")
+      [ 65 136 223 ]
+    ;
+    "mov r15b,spl" = expect ''"mov r15b,spl" to be correct [41 88 e7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "spl")
+      [ 65 136 231 ]
+    ;
+    "mov r15b,bpl" = expect ''"mov r15b,bpl" to be correct [41 88 ef]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "bpl")
+      [ 65 136 239 ]
+    ;
+    "mov r15b,sil" = expect ''"mov r15b,sil" to be correct [41 88 f7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "sil")
+      [ 65 136 247 ]
+    ;
+    "mov r15b,dil" = expect ''"mov r15b,dil" to be correct [41 88 ff]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "dil")
+      [ 65 136 255 ]
+    ;
+    "mov r15b,r8b" = expect ''"mov r15b,r8b" to be correct [45 88 c7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r8b")
+      [ 69 136 199 ]
+    ;
+    "mov r15b,r9b" = expect ''"mov r15b,r9b" to be correct [45 88 cf]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r9b")
+      [ 69 136 207 ]
+    ;
+    "mov r15b,r10b" = expect ''"mov r15b,r10b" to be correct [45 88 d7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r10b")
+      [ 69 136 215 ]
+    ;
+    "mov r15b,r11b" = expect ''"mov r15b,r11b" to be correct [45 88 df]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r11b")
+      [ 69 136 223 ]
+    ;
+    "mov r15b,r12b" = expect ''"mov r15b,r12b" to be correct [45 88 e7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r12b")
+      [ 69 136 231 ]
+    ;
+    "mov r15b,r13b" = expect ''"mov r15b,r13b" to be correct [45 88 ef]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r13b")
+      [ 69 136 239 ]
+    ;
+    "mov r15b,r14b" = expect ''"mov r15b,r14b" to be correct [45 88 f7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r14b")
+      [ 69 136 247 ]
+    ;
+    "mov r15b,r15b" = expect ''"mov r15b,r15b" to be correct [45 88 ff]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15b" "r15b")
+      [ 69 136 255 ]
+    ;
+    "mov r15w,ax" = expect ''"mov r15w,ax" to be correct [66 41 89 c7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "ax")
+      [ 102 65 137 199 ]
+    ;
+    "mov r15w,cx" = expect ''"mov r15w,cx" to be correct [66 41 89 cf]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "cx")
+      [ 102 65 137 207 ]
+    ;
+    "mov r15w,dx" = expect ''"mov r15w,dx" to be correct [66 41 89 d7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "dx")
+      [ 102 65 137 215 ]
+    ;
+    "mov r15w,bx" = expect ''"mov r15w,bx" to be correct [66 41 89 df]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "bx")
+      [ 102 65 137 223 ]
+    ;
+    "mov r15w,sp" = expect ''"mov r15w,sp" to be correct [66 41 89 e7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "sp")
+      [ 102 65 137 231 ]
+    ;
+    "mov r15w,bp" = expect ''"mov r15w,bp" to be correct [66 41 89 ef]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "bp")
+      [ 102 65 137 239 ]
+    ;
+    "mov r15w,si" = expect ''"mov r15w,si" to be correct [66 41 89 f7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "si")
+      [ 102 65 137 247 ]
+    ;
+    "mov r15w,di" = expect ''"mov r15w,di" to be correct [66 41 89 ff]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "di")
+      [ 102 65 137 255 ]
+    ;
+    "mov r15w,r8w" = expect ''"mov r15w,r8w" to be correct [66 45 89 c7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r8w")
+      [ 102 69 137 199 ]
+    ;
+    "mov r15w,r9w" = expect ''"mov r15w,r9w" to be correct [66 45 89 cf]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r9w")
+      [ 102 69 137 207 ]
+    ;
+    "mov r15w,r10w" = expect ''"mov r15w,r10w" to be correct [66 45 89 d7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r10w")
+      [ 102 69 137 215 ]
+    ;
+    "mov r15w,r11w" = expect ''"mov r15w,r11w" to be correct [66 45 89 df]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r11w")
+      [ 102 69 137 223 ]
+    ;
+    "mov r15w,r12w" = expect ''"mov r15w,r12w" to be correct [66 45 89 e7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r12w")
+      [ 102 69 137 231 ]
+    ;
+    "mov r15w,r13w" = expect ''"mov r15w,r13w" to be correct [66 45 89 ef]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r13w")
+      [ 102 69 137 239 ]
+    ;
+    "mov r15w,r14w" = expect ''"mov r15w,r14w" to be correct [66 45 89 f7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r14w")
+      [ 102 69 137 247 ]
+    ;
+    "mov r15w,r15w" = expect ''"mov r15w,r15w" to be correct [66 45 89 ff]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15w" "r15w")
+      [ 102 69 137 255 ]
+    ;
+    "mov r15d,eax" = expect ''"mov r15d,eax" to be correct [41 89 c7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "eax")
+      [ 65 137 199 ]
+    ;
+    "mov r15d,ecx" = expect ''"mov r15d,ecx" to be correct [41 89 cf]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "ecx")
+      [ 65 137 207 ]
+    ;
+    "mov r15d,edx" = expect ''"mov r15d,edx" to be correct [41 89 d7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "edx")
+      [ 65 137 215 ]
+    ;
+    "mov r15d,ebx" = expect ''"mov r15d,ebx" to be correct [41 89 df]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "ebx")
+      [ 65 137 223 ]
+    ;
+    "mov r15d,esp" = expect ''"mov r15d,esp" to be correct [41 89 e7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "esp")
+      [ 65 137 231 ]
+    ;
+    "mov r15d,ebp" = expect ''"mov r15d,ebp" to be correct [41 89 ef]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "ebp")
+      [ 65 137 239 ]
+    ;
+    "mov r15d,esi" = expect ''"mov r15d,esi" to be correct [41 89 f7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "esi")
+      [ 65 137 247 ]
+    ;
+    "mov r15d,edi" = expect ''"mov r15d,edi" to be correct [41 89 ff]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "edi")
+      [ 65 137 255 ]
+    ;
+    "mov r15d,r8d" = expect ''"mov r15d,r8d" to be correct [45 89 c7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r8d")
+      [ 69 137 199 ]
+    ;
+    "mov r15d,r9d" = expect ''"mov r15d,r9d" to be correct [45 89 cf]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r9d")
+      [ 69 137 207 ]
+    ;
+    "mov r15d,r10d" = expect ''"mov r15d,r10d" to be correct [45 89 d7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r10d")
+      [ 69 137 215 ]
+    ;
+    "mov r15d,r11d" = expect ''"mov r15d,r11d" to be correct [45 89 df]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r11d")
+      [ 69 137 223 ]
+    ;
+    "mov r15d,r12d" = expect ''"mov r15d,r12d" to be correct [45 89 e7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r12d")
+      [ 69 137 231 ]
+    ;
+    "mov r15d,r13d" = expect ''"mov r15d,r13d" to be correct [45 89 ef]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r13d")
+      [ 69 137 239 ]
+    ;
+    "mov r15d,r14d" = expect ''"mov r15d,r14d" to be correct [45 89 f7]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r14d")
+      [ 69 137 247 ]
+    ;
+    "mov r15d,r15d" = expect ''"mov r15d,r15d" to be correct [45 89 ff]''
+      (lib.arch.x86_64.instructions.MOV_reg "r15d" "r15d")
+      [ 69 137 255 ]
     ;
     "mov r15,rax" = expect ''"mov r15,rax" to be correct [49 89 c7]''
       (lib.arch.x86_64.instructions.MOV_reg "r15" "rax")
@@ -4107,4 +4111,1555 @@
       [ 77 137 255 ]
     ;
   };
+  
+  #
+  # Test generation input:
+  #     ["mov","MOV_from_mem",["reg","mem"]]
+  #
+  "MOV_from_mem" = {
+    "mov rax,[rax]" = expect ''"mov rax,[rax]" to be correct [48 8b 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rax")
+      [ 72 139 0 ]
+    ;
+    "mov rax,[rcx]" = expect ''"mov rax,[rcx]" to be correct [48 8b 1]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rcx")
+      [ 72 139 1 ]
+    ;
+    "mov rax,[rdx]" = expect ''"mov rax,[rdx]" to be correct [48 8b 2]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rdx")
+      [ 72 139 2 ]
+    ;
+    "mov rax,[rbx]" = expect ''"mov rax,[rbx]" to be correct [48 8b 3]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rbx")
+      [ 72 139 3 ]
+    ;
+    "mov rax,[rsp]" = expect ''"mov rax,[rsp]" to be correct [48 8b 4 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rsp")
+      [ 72 139 4 36 ]
+    ;
+    "mov rax,[rbp]" = expect ''"mov rax,[rbp]" to be correct [48 8b 45 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rbp")
+      [ 72 139 69 0 ]
+    ;
+    "mov rax,[rsi]" = expect ''"mov rax,[rsi]" to be correct [48 8b 6]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rsi")
+      [ 72 139 6 ]
+    ;
+    "mov rax,[rdi]" = expect ''"mov rax,[rdi]" to be correct [48 8b 7]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "rdi")
+      [ 72 139 7 ]
+    ;
+    "mov rax,[r8]" = expect ''"mov rax,[r8]" to be correct [49 8b 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r8")
+      [ 73 139 0 ]
+    ;
+    "mov rax,[r9]" = expect ''"mov rax,[r9]" to be correct [49 8b 1]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r9")
+      [ 73 139 1 ]
+    ;
+    "mov rax,[r10]" = expect ''"mov rax,[r10]" to be correct [49 8b 2]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r10")
+      [ 73 139 2 ]
+    ;
+    "mov rax,[r11]" = expect ''"mov rax,[r11]" to be correct [49 8b 3]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r11")
+      [ 73 139 3 ]
+    ;
+    "mov rax,[r12]" = expect ''"mov rax,[r12]" to be correct [49 8b 4 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r12")
+      [ 73 139 4 36 ]
+    ;
+    "mov rax,[r13]" = expect ''"mov rax,[r13]" to be correct [49 8b 45 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r13")
+      [ 73 139 69 0 ]
+    ;
+    "mov rax,[r14]" = expect ''"mov rax,[r14]" to be correct [49 8b 6]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r14")
+      [ 73 139 6 ]
+    ;
+    "mov rax,[r15]" = expect ''"mov rax,[r15]" to be correct [49 8b 7]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rax" "r15")
+      [ 73 139 7 ]
+    ;
+    "mov rcx,[rax]" = expect ''"mov rcx,[rax]" to be correct [48 8b 8]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rax")
+      [ 72 139 8 ]
+    ;
+    "mov rcx,[rcx]" = expect ''"mov rcx,[rcx]" to be correct [48 8b 9]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rcx")
+      [ 72 139 9 ]
+    ;
+    "mov rcx,[rdx]" = expect ''"mov rcx,[rdx]" to be correct [48 8b a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rdx")
+      [ 72 139 10 ]
+    ;
+    "mov rcx,[rbx]" = expect ''"mov rcx,[rbx]" to be correct [48 8b b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rbx")
+      [ 72 139 11 ]
+    ;
+    "mov rcx,[rsp]" = expect ''"mov rcx,[rsp]" to be correct [48 8b c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rsp")
+      [ 72 139 12 36 ]
+    ;
+    "mov rcx,[rbp]" = expect ''"mov rcx,[rbp]" to be correct [48 8b 4d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rbp")
+      [ 72 139 77 0 ]
+    ;
+    "mov rcx,[rsi]" = expect ''"mov rcx,[rsi]" to be correct [48 8b e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rsi")
+      [ 72 139 14 ]
+    ;
+    "mov rcx,[rdi]" = expect ''"mov rcx,[rdi]" to be correct [48 8b f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "rdi")
+      [ 72 139 15 ]
+    ;
+    "mov rcx,[r8]" = expect ''"mov rcx,[r8]" to be correct [49 8b 8]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r8")
+      [ 73 139 8 ]
+    ;
+    "mov rcx,[r9]" = expect ''"mov rcx,[r9]" to be correct [49 8b 9]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r9")
+      [ 73 139 9 ]
+    ;
+    "mov rcx,[r10]" = expect ''"mov rcx,[r10]" to be correct [49 8b a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r10")
+      [ 73 139 10 ]
+    ;
+    "mov rcx,[r11]" = expect ''"mov rcx,[r11]" to be correct [49 8b b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r11")
+      [ 73 139 11 ]
+    ;
+    "mov rcx,[r12]" = expect ''"mov rcx,[r12]" to be correct [49 8b c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r12")
+      [ 73 139 12 36 ]
+    ;
+    "mov rcx,[r13]" = expect ''"mov rcx,[r13]" to be correct [49 8b 4d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r13")
+      [ 73 139 77 0 ]
+    ;
+    "mov rcx,[r14]" = expect ''"mov rcx,[r14]" to be correct [49 8b e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r14")
+      [ 73 139 14 ]
+    ;
+    "mov rcx,[r15]" = expect ''"mov rcx,[r15]" to be correct [49 8b f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rcx" "r15")
+      [ 73 139 15 ]
+    ;
+    "mov rdx,[rax]" = expect ''"mov rdx,[rax]" to be correct [48 8b 10]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rax")
+      [ 72 139 16 ]
+    ;
+    "mov rdx,[rcx]" = expect ''"mov rdx,[rcx]" to be correct [48 8b 11]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rcx")
+      [ 72 139 17 ]
+    ;
+    "mov rdx,[rdx]" = expect ''"mov rdx,[rdx]" to be correct [48 8b 12]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rdx")
+      [ 72 139 18 ]
+    ;
+    "mov rdx,[rbx]" = expect ''"mov rdx,[rbx]" to be correct [48 8b 13]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rbx")
+      [ 72 139 19 ]
+    ;
+    "mov rdx,[rsp]" = expect ''"mov rdx,[rsp]" to be correct [48 8b 14 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rsp")
+      [ 72 139 20 36 ]
+    ;
+    "mov rdx,[rbp]" = expect ''"mov rdx,[rbp]" to be correct [48 8b 55 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rbp")
+      [ 72 139 85 0 ]
+    ;
+    "mov rdx,[rsi]" = expect ''"mov rdx,[rsi]" to be correct [48 8b 16]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rsi")
+      [ 72 139 22 ]
+    ;
+    "mov rdx,[rdi]" = expect ''"mov rdx,[rdi]" to be correct [48 8b 17]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "rdi")
+      [ 72 139 23 ]
+    ;
+    "mov rdx,[r8]" = expect ''"mov rdx,[r8]" to be correct [49 8b 10]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r8")
+      [ 73 139 16 ]
+    ;
+    "mov rdx,[r9]" = expect ''"mov rdx,[r9]" to be correct [49 8b 11]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r9")
+      [ 73 139 17 ]
+    ;
+    "mov rdx,[r10]" = expect ''"mov rdx,[r10]" to be correct [49 8b 12]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r10")
+      [ 73 139 18 ]
+    ;
+    "mov rdx,[r11]" = expect ''"mov rdx,[r11]" to be correct [49 8b 13]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r11")
+      [ 73 139 19 ]
+    ;
+    "mov rdx,[r12]" = expect ''"mov rdx,[r12]" to be correct [49 8b 14 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r12")
+      [ 73 139 20 36 ]
+    ;
+    "mov rdx,[r13]" = expect ''"mov rdx,[r13]" to be correct [49 8b 55 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r13")
+      [ 73 139 85 0 ]
+    ;
+    "mov rdx,[r14]" = expect ''"mov rdx,[r14]" to be correct [49 8b 16]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r14")
+      [ 73 139 22 ]
+    ;
+    "mov rdx,[r15]" = expect ''"mov rdx,[r15]" to be correct [49 8b 17]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdx" "r15")
+      [ 73 139 23 ]
+    ;
+    "mov rbx,[rax]" = expect ''"mov rbx,[rax]" to be correct [48 8b 18]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rax")
+      [ 72 139 24 ]
+    ;
+    "mov rbx,[rcx]" = expect ''"mov rbx,[rcx]" to be correct [48 8b 19]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rcx")
+      [ 72 139 25 ]
+    ;
+    "mov rbx,[rdx]" = expect ''"mov rbx,[rdx]" to be correct [48 8b 1a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rdx")
+      [ 72 139 26 ]
+    ;
+    "mov rbx,[rbx]" = expect ''"mov rbx,[rbx]" to be correct [48 8b 1b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rbx")
+      [ 72 139 27 ]
+    ;
+    "mov rbx,[rsp]" = expect ''"mov rbx,[rsp]" to be correct [48 8b 1c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rsp")
+      [ 72 139 28 36 ]
+    ;
+    "mov rbx,[rbp]" = expect ''"mov rbx,[rbp]" to be correct [48 8b 5d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rbp")
+      [ 72 139 93 0 ]
+    ;
+    "mov rbx,[rsi]" = expect ''"mov rbx,[rsi]" to be correct [48 8b 1e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rsi")
+      [ 72 139 30 ]
+    ;
+    "mov rbx,[rdi]" = expect ''"mov rbx,[rdi]" to be correct [48 8b 1f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "rdi")
+      [ 72 139 31 ]
+    ;
+    "mov rbx,[r8]" = expect ''"mov rbx,[r8]" to be correct [49 8b 18]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r8")
+      [ 73 139 24 ]
+    ;
+    "mov rbx,[r9]" = expect ''"mov rbx,[r9]" to be correct [49 8b 19]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r9")
+      [ 73 139 25 ]
+    ;
+    "mov rbx,[r10]" = expect ''"mov rbx,[r10]" to be correct [49 8b 1a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r10")
+      [ 73 139 26 ]
+    ;
+    "mov rbx,[r11]" = expect ''"mov rbx,[r11]" to be correct [49 8b 1b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r11")
+      [ 73 139 27 ]
+    ;
+    "mov rbx,[r12]" = expect ''"mov rbx,[r12]" to be correct [49 8b 1c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r12")
+      [ 73 139 28 36 ]
+    ;
+    "mov rbx,[r13]" = expect ''"mov rbx,[r13]" to be correct [49 8b 5d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r13")
+      [ 73 139 93 0 ]
+    ;
+    "mov rbx,[r14]" = expect ''"mov rbx,[r14]" to be correct [49 8b 1e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r14")
+      [ 73 139 30 ]
+    ;
+    "mov rbx,[r15]" = expect ''"mov rbx,[r15]" to be correct [49 8b 1f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbx" "r15")
+      [ 73 139 31 ]
+    ;
+    "mov rsp,[rax]" = expect ''"mov rsp,[rax]" to be correct [48 8b 20]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rax")
+      [ 72 139 32 ]
+    ;
+    "mov rsp,[rcx]" = expect ''"mov rsp,[rcx]" to be correct [48 8b 21]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rcx")
+      [ 72 139 33 ]
+    ;
+    "mov rsp,[rdx]" = expect ''"mov rsp,[rdx]" to be correct [48 8b 22]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rdx")
+      [ 72 139 34 ]
+    ;
+    "mov rsp,[rbx]" = expect ''"mov rsp,[rbx]" to be correct [48 8b 23]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rbx")
+      [ 72 139 35 ]
+    ;
+    "mov rsp,[rsp]" = expect ''"mov rsp,[rsp]" to be correct [48 8b 24 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rsp")
+      [ 72 139 36 36 ]
+    ;
+    "mov rsp,[rbp]" = expect ''"mov rsp,[rbp]" to be correct [48 8b 65 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rbp")
+      [ 72 139 101 0 ]
+    ;
+    "mov rsp,[rsi]" = expect ''"mov rsp,[rsi]" to be correct [48 8b 26]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rsi")
+      [ 72 139 38 ]
+    ;
+    "mov rsp,[rdi]" = expect ''"mov rsp,[rdi]" to be correct [48 8b 27]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "rdi")
+      [ 72 139 39 ]
+    ;
+    "mov rsp,[r8]" = expect ''"mov rsp,[r8]" to be correct [49 8b 20]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r8")
+      [ 73 139 32 ]
+    ;
+    "mov rsp,[r9]" = expect ''"mov rsp,[r9]" to be correct [49 8b 21]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r9")
+      [ 73 139 33 ]
+    ;
+    "mov rsp,[r10]" = expect ''"mov rsp,[r10]" to be correct [49 8b 22]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r10")
+      [ 73 139 34 ]
+    ;
+    "mov rsp,[r11]" = expect ''"mov rsp,[r11]" to be correct [49 8b 23]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r11")
+      [ 73 139 35 ]
+    ;
+    "mov rsp,[r12]" = expect ''"mov rsp,[r12]" to be correct [49 8b 24 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r12")
+      [ 73 139 36 36 ]
+    ;
+    "mov rsp,[r13]" = expect ''"mov rsp,[r13]" to be correct [49 8b 65 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r13")
+      [ 73 139 101 0 ]
+    ;
+    "mov rsp,[r14]" = expect ''"mov rsp,[r14]" to be correct [49 8b 26]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r14")
+      [ 73 139 38 ]
+    ;
+    "mov rsp,[r15]" = expect ''"mov rsp,[r15]" to be correct [49 8b 27]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsp" "r15")
+      [ 73 139 39 ]
+    ;
+    "mov rbp,[rax]" = expect ''"mov rbp,[rax]" to be correct [48 8b 28]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rax")
+      [ 72 139 40 ]
+    ;
+    "mov rbp,[rcx]" = expect ''"mov rbp,[rcx]" to be correct [48 8b 29]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rcx")
+      [ 72 139 41 ]
+    ;
+    "mov rbp,[rdx]" = expect ''"mov rbp,[rdx]" to be correct [48 8b 2a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rdx")
+      [ 72 139 42 ]
+    ;
+    "mov rbp,[rbx]" = expect ''"mov rbp,[rbx]" to be correct [48 8b 2b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rbx")
+      [ 72 139 43 ]
+    ;
+    "mov rbp,[rsp]" = expect ''"mov rbp,[rsp]" to be correct [48 8b 2c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rsp")
+      [ 72 139 44 36 ]
+    ;
+    "mov rbp,[rbp]" = expect ''"mov rbp,[rbp]" to be correct [48 8b 6d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rbp")
+      [ 72 139 109 0 ]
+    ;
+    "mov rbp,[rsi]" = expect ''"mov rbp,[rsi]" to be correct [48 8b 2e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rsi")
+      [ 72 139 46 ]
+    ;
+    "mov rbp,[rdi]" = expect ''"mov rbp,[rdi]" to be correct [48 8b 2f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "rdi")
+      [ 72 139 47 ]
+    ;
+    "mov rbp,[r8]" = expect ''"mov rbp,[r8]" to be correct [49 8b 28]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r8")
+      [ 73 139 40 ]
+    ;
+    "mov rbp,[r9]" = expect ''"mov rbp,[r9]" to be correct [49 8b 29]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r9")
+      [ 73 139 41 ]
+    ;
+    "mov rbp,[r10]" = expect ''"mov rbp,[r10]" to be correct [49 8b 2a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r10")
+      [ 73 139 42 ]
+    ;
+    "mov rbp,[r11]" = expect ''"mov rbp,[r11]" to be correct [49 8b 2b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r11")
+      [ 73 139 43 ]
+    ;
+    "mov rbp,[r12]" = expect ''"mov rbp,[r12]" to be correct [49 8b 2c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r12")
+      [ 73 139 44 36 ]
+    ;
+    "mov rbp,[r13]" = expect ''"mov rbp,[r13]" to be correct [49 8b 6d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r13")
+      [ 73 139 109 0 ]
+    ;
+    "mov rbp,[r14]" = expect ''"mov rbp,[r14]" to be correct [49 8b 2e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r14")
+      [ 73 139 46 ]
+    ;
+    "mov rbp,[r15]" = expect ''"mov rbp,[r15]" to be correct [49 8b 2f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rbp" "r15")
+      [ 73 139 47 ]
+    ;
+    "mov rsi,[rax]" = expect ''"mov rsi,[rax]" to be correct [48 8b 30]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rax")
+      [ 72 139 48 ]
+    ;
+    "mov rsi,[rcx]" = expect ''"mov rsi,[rcx]" to be correct [48 8b 31]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rcx")
+      [ 72 139 49 ]
+    ;
+    "mov rsi,[rdx]" = expect ''"mov rsi,[rdx]" to be correct [48 8b 32]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rdx")
+      [ 72 139 50 ]
+    ;
+    "mov rsi,[rbx]" = expect ''"mov rsi,[rbx]" to be correct [48 8b 33]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rbx")
+      [ 72 139 51 ]
+    ;
+    "mov rsi,[rsp]" = expect ''"mov rsi,[rsp]" to be correct [48 8b 34 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rsp")
+      [ 72 139 52 36 ]
+    ;
+    "mov rsi,[rbp]" = expect ''"mov rsi,[rbp]" to be correct [48 8b 75 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rbp")
+      [ 72 139 117 0 ]
+    ;
+    "mov rsi,[rsi]" = expect ''"mov rsi,[rsi]" to be correct [48 8b 36]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rsi")
+      [ 72 139 54 ]
+    ;
+    "mov rsi,[rdi]" = expect ''"mov rsi,[rdi]" to be correct [48 8b 37]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "rdi")
+      [ 72 139 55 ]
+    ;
+    "mov rsi,[r8]" = expect ''"mov rsi,[r8]" to be correct [49 8b 30]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r8")
+      [ 73 139 48 ]
+    ;
+    "mov rsi,[r9]" = expect ''"mov rsi,[r9]" to be correct [49 8b 31]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r9")
+      [ 73 139 49 ]
+    ;
+    "mov rsi,[r10]" = expect ''"mov rsi,[r10]" to be correct [49 8b 32]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r10")
+      [ 73 139 50 ]
+    ;
+    "mov rsi,[r11]" = expect ''"mov rsi,[r11]" to be correct [49 8b 33]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r11")
+      [ 73 139 51 ]
+    ;
+    "mov rsi,[r12]" = expect ''"mov rsi,[r12]" to be correct [49 8b 34 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r12")
+      [ 73 139 52 36 ]
+    ;
+    "mov rsi,[r13]" = expect ''"mov rsi,[r13]" to be correct [49 8b 75 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r13")
+      [ 73 139 117 0 ]
+    ;
+    "mov rsi,[r14]" = expect ''"mov rsi,[r14]" to be correct [49 8b 36]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r14")
+      [ 73 139 54 ]
+    ;
+    "mov rsi,[r15]" = expect ''"mov rsi,[r15]" to be correct [49 8b 37]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rsi" "r15")
+      [ 73 139 55 ]
+    ;
+    "mov rdi,[rax]" = expect ''"mov rdi,[rax]" to be correct [48 8b 38]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rax")
+      [ 72 139 56 ]
+    ;
+    "mov rdi,[rcx]" = expect ''"mov rdi,[rcx]" to be correct [48 8b 39]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rcx")
+      [ 72 139 57 ]
+    ;
+    "mov rdi,[rdx]" = expect ''"mov rdi,[rdx]" to be correct [48 8b 3a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rdx")
+      [ 72 139 58 ]
+    ;
+    "mov rdi,[rbx]" = expect ''"mov rdi,[rbx]" to be correct [48 8b 3b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rbx")
+      [ 72 139 59 ]
+    ;
+    "mov rdi,[rsp]" = expect ''"mov rdi,[rsp]" to be correct [48 8b 3c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rsp")
+      [ 72 139 60 36 ]
+    ;
+    "mov rdi,[rbp]" = expect ''"mov rdi,[rbp]" to be correct [48 8b 7d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rbp")
+      [ 72 139 125 0 ]
+    ;
+    "mov rdi,[rsi]" = expect ''"mov rdi,[rsi]" to be correct [48 8b 3e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rsi")
+      [ 72 139 62 ]
+    ;
+    "mov rdi,[rdi]" = expect ''"mov rdi,[rdi]" to be correct [48 8b 3f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "rdi")
+      [ 72 139 63 ]
+    ;
+    "mov rdi,[r8]" = expect ''"mov rdi,[r8]" to be correct [49 8b 38]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r8")
+      [ 73 139 56 ]
+    ;
+    "mov rdi,[r9]" = expect ''"mov rdi,[r9]" to be correct [49 8b 39]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r9")
+      [ 73 139 57 ]
+    ;
+    "mov rdi,[r10]" = expect ''"mov rdi,[r10]" to be correct [49 8b 3a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r10")
+      [ 73 139 58 ]
+    ;
+    "mov rdi,[r11]" = expect ''"mov rdi,[r11]" to be correct [49 8b 3b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r11")
+      [ 73 139 59 ]
+    ;
+    "mov rdi,[r12]" = expect ''"mov rdi,[r12]" to be correct [49 8b 3c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r12")
+      [ 73 139 60 36 ]
+    ;
+    "mov rdi,[r13]" = expect ''"mov rdi,[r13]" to be correct [49 8b 7d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r13")
+      [ 73 139 125 0 ]
+    ;
+    "mov rdi,[r14]" = expect ''"mov rdi,[r14]" to be correct [49 8b 3e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r14")
+      [ 73 139 62 ]
+    ;
+    "mov rdi,[r15]" = expect ''"mov rdi,[r15]" to be correct [49 8b 3f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "rdi" "r15")
+      [ 73 139 63 ]
+    ;
+    "mov r8,[rax]" = expect ''"mov r8,[rax]" to be correct [4c 8b 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rax")
+      [ 76 139 0 ]
+    ;
+    "mov r8,[rcx]" = expect ''"mov r8,[rcx]" to be correct [4c 8b 1]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rcx")
+      [ 76 139 1 ]
+    ;
+    "mov r8,[rdx]" = expect ''"mov r8,[rdx]" to be correct [4c 8b 2]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rdx")
+      [ 76 139 2 ]
+    ;
+    "mov r8,[rbx]" = expect ''"mov r8,[rbx]" to be correct [4c 8b 3]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rbx")
+      [ 76 139 3 ]
+    ;
+    "mov r8,[rsp]" = expect ''"mov r8,[rsp]" to be correct [4c 8b 4 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rsp")
+      [ 76 139 4 36 ]
+    ;
+    "mov r8,[rbp]" = expect ''"mov r8,[rbp]" to be correct [4c 8b 45 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rbp")
+      [ 76 139 69 0 ]
+    ;
+    "mov r8,[rsi]" = expect ''"mov r8,[rsi]" to be correct [4c 8b 6]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rsi")
+      [ 76 139 6 ]
+    ;
+    "mov r8,[rdi]" = expect ''"mov r8,[rdi]" to be correct [4c 8b 7]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "rdi")
+      [ 76 139 7 ]
+    ;
+    "mov r8,[r8]" = expect ''"mov r8,[r8]" to be correct [4d 8b 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r8")
+      [ 77 139 0 ]
+    ;
+    "mov r8,[r9]" = expect ''"mov r8,[r9]" to be correct [4d 8b 1]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r9")
+      [ 77 139 1 ]
+    ;
+    "mov r8,[r10]" = expect ''"mov r8,[r10]" to be correct [4d 8b 2]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r10")
+      [ 77 139 2 ]
+    ;
+    "mov r8,[r11]" = expect ''"mov r8,[r11]" to be correct [4d 8b 3]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r11")
+      [ 77 139 3 ]
+    ;
+    "mov r8,[r12]" = expect ''"mov r8,[r12]" to be correct [4d 8b 4 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r12")
+      [ 77 139 4 36 ]
+    ;
+    "mov r8,[r13]" = expect ''"mov r8,[r13]" to be correct [4d 8b 45 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r13")
+      [ 77 139 69 0 ]
+    ;
+    "mov r8,[r14]" = expect ''"mov r8,[r14]" to be correct [4d 8b 6]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r14")
+      [ 77 139 6 ]
+    ;
+    "mov r8,[r15]" = expect ''"mov r8,[r15]" to be correct [4d 8b 7]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r8" "r15")
+      [ 77 139 7 ]
+    ;
+    "mov r9,[rax]" = expect ''"mov r9,[rax]" to be correct [4c 8b 8]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rax")
+      [ 76 139 8 ]
+    ;
+    "mov r9,[rcx]" = expect ''"mov r9,[rcx]" to be correct [4c 8b 9]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rcx")
+      [ 76 139 9 ]
+    ;
+    "mov r9,[rdx]" = expect ''"mov r9,[rdx]" to be correct [4c 8b a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rdx")
+      [ 76 139 10 ]
+    ;
+    "mov r9,[rbx]" = expect ''"mov r9,[rbx]" to be correct [4c 8b b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rbx")
+      [ 76 139 11 ]
+    ;
+    "mov r9,[rsp]" = expect ''"mov r9,[rsp]" to be correct [4c 8b c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rsp")
+      [ 76 139 12 36 ]
+    ;
+    "mov r9,[rbp]" = expect ''"mov r9,[rbp]" to be correct [4c 8b 4d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rbp")
+      [ 76 139 77 0 ]
+    ;
+    "mov r9,[rsi]" = expect ''"mov r9,[rsi]" to be correct [4c 8b e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rsi")
+      [ 76 139 14 ]
+    ;
+    "mov r9,[rdi]" = expect ''"mov r9,[rdi]" to be correct [4c 8b f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "rdi")
+      [ 76 139 15 ]
+    ;
+    "mov r9,[r8]" = expect ''"mov r9,[r8]" to be correct [4d 8b 8]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r8")
+      [ 77 139 8 ]
+    ;
+    "mov r9,[r9]" = expect ''"mov r9,[r9]" to be correct [4d 8b 9]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r9")
+      [ 77 139 9 ]
+    ;
+    "mov r9,[r10]" = expect ''"mov r9,[r10]" to be correct [4d 8b a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r10")
+      [ 77 139 10 ]
+    ;
+    "mov r9,[r11]" = expect ''"mov r9,[r11]" to be correct [4d 8b b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r11")
+      [ 77 139 11 ]
+    ;
+    "mov r9,[r12]" = expect ''"mov r9,[r12]" to be correct [4d 8b c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r12")
+      [ 77 139 12 36 ]
+    ;
+    "mov r9,[r13]" = expect ''"mov r9,[r13]" to be correct [4d 8b 4d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r13")
+      [ 77 139 77 0 ]
+    ;
+    "mov r9,[r14]" = expect ''"mov r9,[r14]" to be correct [4d 8b e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r14")
+      [ 77 139 14 ]
+    ;
+    "mov r9,[r15]" = expect ''"mov r9,[r15]" to be correct [4d 8b f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r9" "r15")
+      [ 77 139 15 ]
+    ;
+    "mov r10,[rax]" = expect ''"mov r10,[rax]" to be correct [4c 8b 10]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rax")
+      [ 76 139 16 ]
+    ;
+    "mov r10,[rcx]" = expect ''"mov r10,[rcx]" to be correct [4c 8b 11]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rcx")
+      [ 76 139 17 ]
+    ;
+    "mov r10,[rdx]" = expect ''"mov r10,[rdx]" to be correct [4c 8b 12]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rdx")
+      [ 76 139 18 ]
+    ;
+    "mov r10,[rbx]" = expect ''"mov r10,[rbx]" to be correct [4c 8b 13]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rbx")
+      [ 76 139 19 ]
+    ;
+    "mov r10,[rsp]" = expect ''"mov r10,[rsp]" to be correct [4c 8b 14 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rsp")
+      [ 76 139 20 36 ]
+    ;
+    "mov r10,[rbp]" = expect ''"mov r10,[rbp]" to be correct [4c 8b 55 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rbp")
+      [ 76 139 85 0 ]
+    ;
+    "mov r10,[rsi]" = expect ''"mov r10,[rsi]" to be correct [4c 8b 16]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rsi")
+      [ 76 139 22 ]
+    ;
+    "mov r10,[rdi]" = expect ''"mov r10,[rdi]" to be correct [4c 8b 17]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "rdi")
+      [ 76 139 23 ]
+    ;
+    "mov r10,[r8]" = expect ''"mov r10,[r8]" to be correct [4d 8b 10]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r8")
+      [ 77 139 16 ]
+    ;
+    "mov r10,[r9]" = expect ''"mov r10,[r9]" to be correct [4d 8b 11]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r9")
+      [ 77 139 17 ]
+    ;
+    "mov r10,[r10]" = expect ''"mov r10,[r10]" to be correct [4d 8b 12]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r10")
+      [ 77 139 18 ]
+    ;
+    "mov r10,[r11]" = expect ''"mov r10,[r11]" to be correct [4d 8b 13]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r11")
+      [ 77 139 19 ]
+    ;
+    "mov r10,[r12]" = expect ''"mov r10,[r12]" to be correct [4d 8b 14 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r12")
+      [ 77 139 20 36 ]
+    ;
+    "mov r10,[r13]" = expect ''"mov r10,[r13]" to be correct [4d 8b 55 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r13")
+      [ 77 139 85 0 ]
+    ;
+    "mov r10,[r14]" = expect ''"mov r10,[r14]" to be correct [4d 8b 16]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r14")
+      [ 77 139 22 ]
+    ;
+    "mov r10,[r15]" = expect ''"mov r10,[r15]" to be correct [4d 8b 17]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r10" "r15")
+      [ 77 139 23 ]
+    ;
+    "mov r11,[rax]" = expect ''"mov r11,[rax]" to be correct [4c 8b 18]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rax")
+      [ 76 139 24 ]
+    ;
+    "mov r11,[rcx]" = expect ''"mov r11,[rcx]" to be correct [4c 8b 19]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rcx")
+      [ 76 139 25 ]
+    ;
+    "mov r11,[rdx]" = expect ''"mov r11,[rdx]" to be correct [4c 8b 1a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rdx")
+      [ 76 139 26 ]
+    ;
+    "mov r11,[rbx]" = expect ''"mov r11,[rbx]" to be correct [4c 8b 1b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rbx")
+      [ 76 139 27 ]
+    ;
+    "mov r11,[rsp]" = expect ''"mov r11,[rsp]" to be correct [4c 8b 1c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rsp")
+      [ 76 139 28 36 ]
+    ;
+    "mov r11,[rbp]" = expect ''"mov r11,[rbp]" to be correct [4c 8b 5d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rbp")
+      [ 76 139 93 0 ]
+    ;
+    "mov r11,[rsi]" = expect ''"mov r11,[rsi]" to be correct [4c 8b 1e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rsi")
+      [ 76 139 30 ]
+    ;
+    "mov r11,[rdi]" = expect ''"mov r11,[rdi]" to be correct [4c 8b 1f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "rdi")
+      [ 76 139 31 ]
+    ;
+    "mov r11,[r8]" = expect ''"mov r11,[r8]" to be correct [4d 8b 18]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r8")
+      [ 77 139 24 ]
+    ;
+    "mov r11,[r9]" = expect ''"mov r11,[r9]" to be correct [4d 8b 19]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r9")
+      [ 77 139 25 ]
+    ;
+    "mov r11,[r10]" = expect ''"mov r11,[r10]" to be correct [4d 8b 1a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r10")
+      [ 77 139 26 ]
+    ;
+    "mov r11,[r11]" = expect ''"mov r11,[r11]" to be correct [4d 8b 1b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r11")
+      [ 77 139 27 ]
+    ;
+    "mov r11,[r12]" = expect ''"mov r11,[r12]" to be correct [4d 8b 1c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r12")
+      [ 77 139 28 36 ]
+    ;
+    "mov r11,[r13]" = expect ''"mov r11,[r13]" to be correct [4d 8b 5d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r13")
+      [ 77 139 93 0 ]
+    ;
+    "mov r11,[r14]" = expect ''"mov r11,[r14]" to be correct [4d 8b 1e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r14")
+      [ 77 139 30 ]
+    ;
+    "mov r11,[r15]" = expect ''"mov r11,[r15]" to be correct [4d 8b 1f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r11" "r15")
+      [ 77 139 31 ]
+    ;
+    "mov r12,[rax]" = expect ''"mov r12,[rax]" to be correct [4c 8b 20]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rax")
+      [ 76 139 32 ]
+    ;
+    "mov r12,[rcx]" = expect ''"mov r12,[rcx]" to be correct [4c 8b 21]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rcx")
+      [ 76 139 33 ]
+    ;
+    "mov r12,[rdx]" = expect ''"mov r12,[rdx]" to be correct [4c 8b 22]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rdx")
+      [ 76 139 34 ]
+    ;
+    "mov r12,[rbx]" = expect ''"mov r12,[rbx]" to be correct [4c 8b 23]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rbx")
+      [ 76 139 35 ]
+    ;
+    "mov r12,[rsp]" = expect ''"mov r12,[rsp]" to be correct [4c 8b 24 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rsp")
+      [ 76 139 36 36 ]
+    ;
+    "mov r12,[rbp]" = expect ''"mov r12,[rbp]" to be correct [4c 8b 65 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rbp")
+      [ 76 139 101 0 ]
+    ;
+    "mov r12,[rsi]" = expect ''"mov r12,[rsi]" to be correct [4c 8b 26]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rsi")
+      [ 76 139 38 ]
+    ;
+    "mov r12,[rdi]" = expect ''"mov r12,[rdi]" to be correct [4c 8b 27]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "rdi")
+      [ 76 139 39 ]
+    ;
+    "mov r12,[r8]" = expect ''"mov r12,[r8]" to be correct [4d 8b 20]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r8")
+      [ 77 139 32 ]
+    ;
+    "mov r12,[r9]" = expect ''"mov r12,[r9]" to be correct [4d 8b 21]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r9")
+      [ 77 139 33 ]
+    ;
+    "mov r12,[r10]" = expect ''"mov r12,[r10]" to be correct [4d 8b 22]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r10")
+      [ 77 139 34 ]
+    ;
+    "mov r12,[r11]" = expect ''"mov r12,[r11]" to be correct [4d 8b 23]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r11")
+      [ 77 139 35 ]
+    ;
+    "mov r12,[r12]" = expect ''"mov r12,[r12]" to be correct [4d 8b 24 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r12")
+      [ 77 139 36 36 ]
+    ;
+    "mov r12,[r13]" = expect ''"mov r12,[r13]" to be correct [4d 8b 65 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r13")
+      [ 77 139 101 0 ]
+    ;
+    "mov r12,[r14]" = expect ''"mov r12,[r14]" to be correct [4d 8b 26]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r14")
+      [ 77 139 38 ]
+    ;
+    "mov r12,[r15]" = expect ''"mov r12,[r15]" to be correct [4d 8b 27]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r12" "r15")
+      [ 77 139 39 ]
+    ;
+    "mov r13,[rax]" = expect ''"mov r13,[rax]" to be correct [4c 8b 28]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rax")
+      [ 76 139 40 ]
+    ;
+    "mov r13,[rcx]" = expect ''"mov r13,[rcx]" to be correct [4c 8b 29]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rcx")
+      [ 76 139 41 ]
+    ;
+    "mov r13,[rdx]" = expect ''"mov r13,[rdx]" to be correct [4c 8b 2a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rdx")
+      [ 76 139 42 ]
+    ;
+    "mov r13,[rbx]" = expect ''"mov r13,[rbx]" to be correct [4c 8b 2b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rbx")
+      [ 76 139 43 ]
+    ;
+    "mov r13,[rsp]" = expect ''"mov r13,[rsp]" to be correct [4c 8b 2c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rsp")
+      [ 76 139 44 36 ]
+    ;
+    "mov r13,[rbp]" = expect ''"mov r13,[rbp]" to be correct [4c 8b 6d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rbp")
+      [ 76 139 109 0 ]
+    ;
+    "mov r13,[rsi]" = expect ''"mov r13,[rsi]" to be correct [4c 8b 2e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rsi")
+      [ 76 139 46 ]
+    ;
+    "mov r13,[rdi]" = expect ''"mov r13,[rdi]" to be correct [4c 8b 2f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "rdi")
+      [ 76 139 47 ]
+    ;
+    "mov r13,[r8]" = expect ''"mov r13,[r8]" to be correct [4d 8b 28]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r8")
+      [ 77 139 40 ]
+    ;
+    "mov r13,[r9]" = expect ''"mov r13,[r9]" to be correct [4d 8b 29]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r9")
+      [ 77 139 41 ]
+    ;
+    "mov r13,[r10]" = expect ''"mov r13,[r10]" to be correct [4d 8b 2a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r10")
+      [ 77 139 42 ]
+    ;
+    "mov r13,[r11]" = expect ''"mov r13,[r11]" to be correct [4d 8b 2b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r11")
+      [ 77 139 43 ]
+    ;
+    "mov r13,[r12]" = expect ''"mov r13,[r12]" to be correct [4d 8b 2c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r12")
+      [ 77 139 44 36 ]
+    ;
+    "mov r13,[r13]" = expect ''"mov r13,[r13]" to be correct [4d 8b 6d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r13")
+      [ 77 139 109 0 ]
+    ;
+    "mov r13,[r14]" = expect ''"mov r13,[r14]" to be correct [4d 8b 2e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r14")
+      [ 77 139 46 ]
+    ;
+    "mov r13,[r15]" = expect ''"mov r13,[r15]" to be correct [4d 8b 2f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r13" "r15")
+      [ 77 139 47 ]
+    ;
+    "mov r14,[rax]" = expect ''"mov r14,[rax]" to be correct [4c 8b 30]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rax")
+      [ 76 139 48 ]
+    ;
+    "mov r14,[rcx]" = expect ''"mov r14,[rcx]" to be correct [4c 8b 31]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rcx")
+      [ 76 139 49 ]
+    ;
+    "mov r14,[rdx]" = expect ''"mov r14,[rdx]" to be correct [4c 8b 32]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rdx")
+      [ 76 139 50 ]
+    ;
+    "mov r14,[rbx]" = expect ''"mov r14,[rbx]" to be correct [4c 8b 33]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rbx")
+      [ 76 139 51 ]
+    ;
+    "mov r14,[rsp]" = expect ''"mov r14,[rsp]" to be correct [4c 8b 34 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rsp")
+      [ 76 139 52 36 ]
+    ;
+    "mov r14,[rbp]" = expect ''"mov r14,[rbp]" to be correct [4c 8b 75 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rbp")
+      [ 76 139 117 0 ]
+    ;
+    "mov r14,[rsi]" = expect ''"mov r14,[rsi]" to be correct [4c 8b 36]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rsi")
+      [ 76 139 54 ]
+    ;
+    "mov r14,[rdi]" = expect ''"mov r14,[rdi]" to be correct [4c 8b 37]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "rdi")
+      [ 76 139 55 ]
+    ;
+    "mov r14,[r8]" = expect ''"mov r14,[r8]" to be correct [4d 8b 30]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r8")
+      [ 77 139 48 ]
+    ;
+    "mov r14,[r9]" = expect ''"mov r14,[r9]" to be correct [4d 8b 31]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r9")
+      [ 77 139 49 ]
+    ;
+    "mov r14,[r10]" = expect ''"mov r14,[r10]" to be correct [4d 8b 32]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r10")
+      [ 77 139 50 ]
+    ;
+    "mov r14,[r11]" = expect ''"mov r14,[r11]" to be correct [4d 8b 33]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r11")
+      [ 77 139 51 ]
+    ;
+    "mov r14,[r12]" = expect ''"mov r14,[r12]" to be correct [4d 8b 34 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r12")
+      [ 77 139 52 36 ]
+    ;
+    "mov r14,[r13]" = expect ''"mov r14,[r13]" to be correct [4d 8b 75 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r13")
+      [ 77 139 117 0 ]
+    ;
+    "mov r14,[r14]" = expect ''"mov r14,[r14]" to be correct [4d 8b 36]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r14")
+      [ 77 139 54 ]
+    ;
+    "mov r14,[r15]" = expect ''"mov r14,[r15]" to be correct [4d 8b 37]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r14" "r15")
+      [ 77 139 55 ]
+    ;
+    "mov r15,[rax]" = expect ''"mov r15,[rax]" to be correct [4c 8b 38]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rax")
+      [ 76 139 56 ]
+    ;
+    "mov r15,[rcx]" = expect ''"mov r15,[rcx]" to be correct [4c 8b 39]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rcx")
+      [ 76 139 57 ]
+    ;
+    "mov r15,[rdx]" = expect ''"mov r15,[rdx]" to be correct [4c 8b 3a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rdx")
+      [ 76 139 58 ]
+    ;
+    "mov r15,[rbx]" = expect ''"mov r15,[rbx]" to be correct [4c 8b 3b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rbx")
+      [ 76 139 59 ]
+    ;
+    "mov r15,[rsp]" = expect ''"mov r15,[rsp]" to be correct [4c 8b 3c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rsp")
+      [ 76 139 60 36 ]
+    ;
+    "mov r15,[rbp]" = expect ''"mov r15,[rbp]" to be correct [4c 8b 7d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rbp")
+      [ 76 139 125 0 ]
+    ;
+    "mov r15,[rsi]" = expect ''"mov r15,[rsi]" to be correct [4c 8b 3e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rsi")
+      [ 76 139 62 ]
+    ;
+    "mov r15,[rdi]" = expect ''"mov r15,[rdi]" to be correct [4c 8b 3f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "rdi")
+      [ 76 139 63 ]
+    ;
+    "mov r15,[r8]" = expect ''"mov r15,[r8]" to be correct [4d 8b 38]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r8")
+      [ 77 139 56 ]
+    ;
+    "mov r15,[r9]" = expect ''"mov r15,[r9]" to be correct [4d 8b 39]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r9")
+      [ 77 139 57 ]
+    ;
+    "mov r15,[r10]" = expect ''"mov r15,[r10]" to be correct [4d 8b 3a]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r10")
+      [ 77 139 58 ]
+    ;
+    "mov r15,[r11]" = expect ''"mov r15,[r11]" to be correct [4d 8b 3b]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r11")
+      [ 77 139 59 ]
+    ;
+    "mov r15,[r12]" = expect ''"mov r15,[r12]" to be correct [4d 8b 3c 24]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r12")
+      [ 77 139 60 36 ]
+    ;
+    "mov r15,[r13]" = expect ''"mov r15,[r13]" to be correct [4d 8b 7d 0]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r13")
+      [ 77 139 125 0 ]
+    ;
+    "mov r15,[r14]" = expect ''"mov r15,[r14]" to be correct [4d 8b 3e]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r14")
+      [ 77 139 62 ]
+    ;
+    "mov r15,[r15]" = expect ''"mov r15,[r15]" to be correct [4d 8b 3f]''
+      (lib.arch.x86_64.instructions.MOV_from_mem "r15" "r15")
+      [ 77 139 63 ]
+    ;
+  };
+  
+  #
+  # Test generation input:
+  #     ["mov","MOV_imm",["reg","imm"]]
+  #
+  "MOV_imm" = {
+    "mov al,0" = expect ''"mov al,0" to be correct [b0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "al" [ 0 ])
+      [ 176 0 ]
+    ;
+    "mov al,1" = expect ''"mov al,1" to be correct [b0 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "al" [ 1 ])
+      [ 176 1 ]
+    ;
+    "mov cl,0" = expect ''"mov cl,0" to be correct [b1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "cl" [ 0 ])
+      [ 177 0 ]
+    ;
+    "mov cl,1" = expect ''"mov cl,1" to be correct [b1 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "cl" [ 1 ])
+      [ 177 1 ]
+    ;
+    "mov dl,0" = expect ''"mov dl,0" to be correct [b2 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "dl" [ 0 ])
+      [ 178 0 ]
+    ;
+    "mov dl,1" = expect ''"mov dl,1" to be correct [b2 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "dl" [ 1 ])
+      [ 178 1 ]
+    ;
+    "mov bl,0" = expect ''"mov bl,0" to be correct [b3 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "bl" [ 0 ])
+      [ 179 0 ]
+    ;
+    "mov bl,1" = expect ''"mov bl,1" to be correct [b3 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "bl" [ 1 ])
+      [ 179 1 ]
+    ;
+    "mov ah,0" = expect ''"mov ah,0" to be correct [b4 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ah" [ 0 ])
+      [ 180 0 ]
+    ;
+    "mov ah,1" = expect ''"mov ah,1" to be correct [b4 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "ah" [ 1 ])
+      [ 180 1 ]
+    ;
+    "mov ch,0" = expect ''"mov ch,0" to be correct [b5 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ch" [ 0 ])
+      [ 181 0 ]
+    ;
+    "mov ch,1" = expect ''"mov ch,1" to be correct [b5 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "ch" [ 1 ])
+      [ 181 1 ]
+    ;
+    "mov dh,0" = expect ''"mov dh,0" to be correct [b6 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "dh" [ 0 ])
+      [ 182 0 ]
+    ;
+    "mov dh,1" = expect ''"mov dh,1" to be correct [b6 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "dh" [ 1 ])
+      [ 182 1 ]
+    ;
+    "mov bh,0" = expect ''"mov bh,0" to be correct [b7 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "bh" [ 0 ])
+      [ 183 0 ]
+    ;
+    "mov bh,1" = expect ''"mov bh,1" to be correct [b7 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "bh" [ 1 ])
+      [ 183 1 ]
+    ;
+    "mov ax,0" = expect ''"mov ax,0" to be correct [66 b8 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ax" [ 0 ])
+      [ 102 184 0 0 ]
+    ;
+    "mov ax,1" = expect ''"mov ax,1" to be correct [66 b8 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ax" [ 1 ])
+      [ 102 184 1 0 ]
+    ;
+    "mov cx,0" = expect ''"mov cx,0" to be correct [66 b9 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "cx" [ 0 ])
+      [ 102 185 0 0 ]
+    ;
+    "mov cx,1" = expect ''"mov cx,1" to be correct [66 b9 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "cx" [ 1 ])
+      [ 102 185 1 0 ]
+    ;
+    "mov dx,0" = expect ''"mov dx,0" to be correct [66 ba 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "dx" [ 0 ])
+      [ 102 186 0 0 ]
+    ;
+    "mov dx,1" = expect ''"mov dx,1" to be correct [66 ba 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "dx" [ 1 ])
+      [ 102 186 1 0 ]
+    ;
+    "mov bx,0" = expect ''"mov bx,0" to be correct [66 bb 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "bx" [ 0 ])
+      [ 102 187 0 0 ]
+    ;
+    "mov bx,1" = expect ''"mov bx,1" to be correct [66 bb 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "bx" [ 1 ])
+      [ 102 187 1 0 ]
+    ;
+    "mov sp,0" = expect ''"mov sp,0" to be correct [66 bc 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "sp" [ 0 ])
+      [ 102 188 0 0 ]
+    ;
+    "mov sp,1" = expect ''"mov sp,1" to be correct [66 bc 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "sp" [ 1 ])
+      [ 102 188 1 0 ]
+    ;
+    "mov bp,0" = expect ''"mov bp,0" to be correct [66 bd 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "bp" [ 0 ])
+      [ 102 189 0 0 ]
+    ;
+    "mov bp,1" = expect ''"mov bp,1" to be correct [66 bd 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "bp" [ 1 ])
+      [ 102 189 1 0 ]
+    ;
+    "mov si,0" = expect ''"mov si,0" to be correct [66 be 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "si" [ 0 ])
+      [ 102 190 0 0 ]
+    ;
+    "mov si,1" = expect ''"mov si,1" to be correct [66 be 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "si" [ 1 ])
+      [ 102 190 1 0 ]
+    ;
+    "mov di,0" = expect ''"mov di,0" to be correct [66 bf 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "di" [ 0 ])
+      [ 102 191 0 0 ]
+    ;
+    "mov di,1" = expect ''"mov di,1" to be correct [66 bf 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "di" [ 1 ])
+      [ 102 191 1 0 ]
+    ;
+    "mov eax,0" = expect ''"mov eax,0" to be correct [b8 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "eax" [ 0 ])
+      [ 184 0 0 0 0 ]
+    ;
+    "mov eax,1" = expect ''"mov eax,1" to be correct [b8 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "eax" [ 1 ])
+      [ 184 1 0 0 0 ]
+    ;
+    "mov ecx,0" = expect ''"mov ecx,0" to be correct [b9 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ecx" [ 0 ])
+      [ 185 0 0 0 0 ]
+    ;
+    "mov ecx,1" = expect ''"mov ecx,1" to be correct [b9 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ecx" [ 1 ])
+      [ 185 1 0 0 0 ]
+    ;
+    "mov edx,0" = expect ''"mov edx,0" to be correct [ba 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "edx" [ 0 ])
+      [ 186 0 0 0 0 ]
+    ;
+    "mov edx,1" = expect ''"mov edx,1" to be correct [ba 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "edx" [ 1 ])
+      [ 186 1 0 0 0 ]
+    ;
+    "mov ebx,0" = expect ''"mov ebx,0" to be correct [bb 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ebx" [ 0 ])
+      [ 187 0 0 0 0 ]
+    ;
+    "mov ebx,1" = expect ''"mov ebx,1" to be correct [bb 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ebx" [ 1 ])
+      [ 187 1 0 0 0 ]
+    ;
+    "mov esp,0" = expect ''"mov esp,0" to be correct [bc 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "esp" [ 0 ])
+      [ 188 0 0 0 0 ]
+    ;
+    "mov esp,1" = expect ''"mov esp,1" to be correct [bc 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "esp" [ 1 ])
+      [ 188 1 0 0 0 ]
+    ;
+    "mov ebp,0" = expect ''"mov ebp,0" to be correct [bd 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ebp" [ 0 ])
+      [ 189 0 0 0 0 ]
+    ;
+    "mov ebp,1" = expect ''"mov ebp,1" to be correct [bd 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "ebp" [ 1 ])
+      [ 189 1 0 0 0 ]
+    ;
+    "mov esi,0" = expect ''"mov esi,0" to be correct [be 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "esi" [ 0 ])
+      [ 190 0 0 0 0 ]
+    ;
+    "mov esi,1" = expect ''"mov esi,1" to be correct [be 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "esi" [ 1 ])
+      [ 190 1 0 0 0 ]
+    ;
+    "mov edi,0" = expect ''"mov edi,0" to be correct [bf 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "edi" [ 0 ])
+      [ 191 0 0 0 0 ]
+    ;
+    "mov edi,1" = expect ''"mov edi,1" to be correct [bf 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "edi" [ 1 ])
+      [ 191 1 0 0 0 ]
+    ;
+    "mov rax,0" = expect ''"mov rax,0" to be correct [48 b8 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rax" [ 0 ])
+      [ 72 184 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rax,1" = expect ''"mov rax,1" to be correct [48 b8 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rax" [ 1 ])
+      [ 72 184 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov rcx,0" = expect ''"mov rcx,0" to be correct [48 b9 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rcx" [ 0 ])
+      [ 72 185 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rcx,1" = expect ''"mov rcx,1" to be correct [48 b9 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rcx" [ 1 ])
+      [ 72 185 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov rdx,0" = expect ''"mov rdx,0" to be correct [48 ba 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rdx" [ 0 ])
+      [ 72 186 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rdx,1" = expect ''"mov rdx,1" to be correct [48 ba 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rdx" [ 1 ])
+      [ 72 186 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov rbx,0" = expect ''"mov rbx,0" to be correct [48 bb 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rbx" [ 0 ])
+      [ 72 187 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rbx,1" = expect ''"mov rbx,1" to be correct [48 bb 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rbx" [ 1 ])
+      [ 72 187 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov rsp,0" = expect ''"mov rsp,0" to be correct [48 bc 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rsp" [ 0 ])
+      [ 72 188 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rsp,1" = expect ''"mov rsp,1" to be correct [48 bc 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rsp" [ 1 ])
+      [ 72 188 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov rbp,0" = expect ''"mov rbp,0" to be correct [48 bd 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rbp" [ 0 ])
+      [ 72 189 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rbp,1" = expect ''"mov rbp,1" to be correct [48 bd 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rbp" [ 1 ])
+      [ 72 189 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov rsi,0" = expect ''"mov rsi,0" to be correct [48 be 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rsi" [ 0 ])
+      [ 72 190 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rsi,1" = expect ''"mov rsi,1" to be correct [48 be 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rsi" [ 1 ])
+      [ 72 190 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov rdi,0" = expect ''"mov rdi,0" to be correct [48 bf 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rdi" [ 0 ])
+      [ 72 191 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov rdi,1" = expect ''"mov rdi,1" to be correct [48 bf 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "rdi" [ 1 ])
+      [ 72 191 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r8b,0" = expect ''"mov r8b,0" to be correct [41 b0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8b" [ 0 ])
+      [ 65 176 0 ]
+    ;
+    "mov r8b,1" = expect ''"mov r8b,1" to be correct [41 b0 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8b" [ 1 ])
+      [ 65 176 1 ]
+    ;
+    "mov r8w,0" = expect ''"mov r8w,0" to be correct [66 41 b8 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8w" [ 0 ])
+      [ 102 65 184 0 0 ]
+    ;
+    "mov r8w,1" = expect ''"mov r8w,1" to be correct [66 41 b8 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8w" [ 1 ])
+      [ 102 65 184 1 0 ]
+    ;
+    "mov r8d,0" = expect ''"mov r8d,0" to be correct [41 b8 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8d" [ 0 ])
+      [ 65 184 0 0 0 0 ]
+    ;
+    "mov r8d,1" = expect ''"mov r8d,1" to be correct [41 b8 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8d" [ 1 ])
+      [ 65 184 1 0 0 0 ]
+    ;
+    "mov r8,0" = expect ''"mov r8,0" to be correct [49 b8 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8" [ 0 ])
+      [ 73 184 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r8,1" = expect ''"mov r8,1" to be correct [49 b8 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r8" [ 1 ])
+      [ 73 184 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r9b,0" = expect ''"mov r9b,0" to be correct [41 b1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9b" [ 0 ])
+      [ 65 177 0 ]
+    ;
+    "mov r9b,1" = expect ''"mov r9b,1" to be correct [41 b1 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9b" [ 1 ])
+      [ 65 177 1 ]
+    ;
+    "mov r9w,0" = expect ''"mov r9w,0" to be correct [66 41 b9 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9w" [ 0 ])
+      [ 102 65 185 0 0 ]
+    ;
+    "mov r9w,1" = expect ''"mov r9w,1" to be correct [66 41 b9 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9w" [ 1 ])
+      [ 102 65 185 1 0 ]
+    ;
+    "mov r9d,0" = expect ''"mov r9d,0" to be correct [41 b9 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9d" [ 0 ])
+      [ 65 185 0 0 0 0 ]
+    ;
+    "mov r9d,1" = expect ''"mov r9d,1" to be correct [41 b9 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9d" [ 1 ])
+      [ 65 185 1 0 0 0 ]
+    ;
+    "mov r9,0" = expect ''"mov r9,0" to be correct [49 b9 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9" [ 0 ])
+      [ 73 185 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r9,1" = expect ''"mov r9,1" to be correct [49 b9 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r9" [ 1 ])
+      [ 73 185 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r10b,0" = expect ''"mov r10b,0" to be correct [41 b2 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10b" [ 0 ])
+      [ 65 178 0 ]
+    ;
+    "mov r10b,1" = expect ''"mov r10b,1" to be correct [41 b2 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10b" [ 1 ])
+      [ 65 178 1 ]
+    ;
+    "mov r10w,0" = expect ''"mov r10w,0" to be correct [66 41 ba 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10w" [ 0 ])
+      [ 102 65 186 0 0 ]
+    ;
+    "mov r10w,1" = expect ''"mov r10w,1" to be correct [66 41 ba 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10w" [ 1 ])
+      [ 102 65 186 1 0 ]
+    ;
+    "mov r10d,0" = expect ''"mov r10d,0" to be correct [41 ba 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10d" [ 0 ])
+      [ 65 186 0 0 0 0 ]
+    ;
+    "mov r10d,1" = expect ''"mov r10d,1" to be correct [41 ba 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10d" [ 1 ])
+      [ 65 186 1 0 0 0 ]
+    ;
+    "mov r10,0" = expect ''"mov r10,0" to be correct [49 ba 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10" [ 0 ])
+      [ 73 186 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r10,1" = expect ''"mov r10,1" to be correct [49 ba 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r10" [ 1 ])
+      [ 73 186 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r11b,0" = expect ''"mov r11b,0" to be correct [41 b3 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11b" [ 0 ])
+      [ 65 179 0 ]
+    ;
+    "mov r11b,1" = expect ''"mov r11b,1" to be correct [41 b3 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11b" [ 1 ])
+      [ 65 179 1 ]
+    ;
+    "mov r11w,0" = expect ''"mov r11w,0" to be correct [66 41 bb 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11w" [ 0 ])
+      [ 102 65 187 0 0 ]
+    ;
+    "mov r11w,1" = expect ''"mov r11w,1" to be correct [66 41 bb 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11w" [ 1 ])
+      [ 102 65 187 1 0 ]
+    ;
+    "mov r11d,0" = expect ''"mov r11d,0" to be correct [41 bb 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11d" [ 0 ])
+      [ 65 187 0 0 0 0 ]
+    ;
+    "mov r11d,1" = expect ''"mov r11d,1" to be correct [41 bb 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11d" [ 1 ])
+      [ 65 187 1 0 0 0 ]
+    ;
+    "mov r11,0" = expect ''"mov r11,0" to be correct [49 bb 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11" [ 0 ])
+      [ 73 187 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r11,1" = expect ''"mov r11,1" to be correct [49 bb 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r11" [ 1 ])
+      [ 73 187 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r12b,0" = expect ''"mov r12b,0" to be correct [41 b4 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12b" [ 0 ])
+      [ 65 180 0 ]
+    ;
+    "mov r12b,1" = expect ''"mov r12b,1" to be correct [41 b4 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12b" [ 1 ])
+      [ 65 180 1 ]
+    ;
+    "mov r12w,0" = expect ''"mov r12w,0" to be correct [66 41 bc 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12w" [ 0 ])
+      [ 102 65 188 0 0 ]
+    ;
+    "mov r12w,1" = expect ''"mov r12w,1" to be correct [66 41 bc 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12w" [ 1 ])
+      [ 102 65 188 1 0 ]
+    ;
+    "mov r12d,0" = expect ''"mov r12d,0" to be correct [41 bc 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12d" [ 0 ])
+      [ 65 188 0 0 0 0 ]
+    ;
+    "mov r12d,1" = expect ''"mov r12d,1" to be correct [41 bc 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12d" [ 1 ])
+      [ 65 188 1 0 0 0 ]
+    ;
+    "mov r12,0" = expect ''"mov r12,0" to be correct [49 bc 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12" [ 0 ])
+      [ 73 188 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r12,1" = expect ''"mov r12,1" to be correct [49 bc 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r12" [ 1 ])
+      [ 73 188 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r13b,0" = expect ''"mov r13b,0" to be correct [41 b5 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13b" [ 0 ])
+      [ 65 181 0 ]
+    ;
+    "mov r13b,1" = expect ''"mov r13b,1" to be correct [41 b5 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13b" [ 1 ])
+      [ 65 181 1 ]
+    ;
+    "mov r13w,0" = expect ''"mov r13w,0" to be correct [66 41 bd 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13w" [ 0 ])
+      [ 102 65 189 0 0 ]
+    ;
+    "mov r13w,1" = expect ''"mov r13w,1" to be correct [66 41 bd 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13w" [ 1 ])
+      [ 102 65 189 1 0 ]
+    ;
+    "mov r13d,0" = expect ''"mov r13d,0" to be correct [41 bd 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13d" [ 0 ])
+      [ 65 189 0 0 0 0 ]
+    ;
+    "mov r13d,1" = expect ''"mov r13d,1" to be correct [41 bd 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13d" [ 1 ])
+      [ 65 189 1 0 0 0 ]
+    ;
+    "mov r13,0" = expect ''"mov r13,0" to be correct [49 bd 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13" [ 0 ])
+      [ 73 189 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r13,1" = expect ''"mov r13,1" to be correct [49 bd 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r13" [ 1 ])
+      [ 73 189 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r14b,0" = expect ''"mov r14b,0" to be correct [41 b6 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14b" [ 0 ])
+      [ 65 182 0 ]
+    ;
+    "mov r14b,1" = expect ''"mov r14b,1" to be correct [41 b6 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14b" [ 1 ])
+      [ 65 182 1 ]
+    ;
+    "mov r14w,0" = expect ''"mov r14w,0" to be correct [66 41 be 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14w" [ 0 ])
+      [ 102 65 190 0 0 ]
+    ;
+    "mov r14w,1" = expect ''"mov r14w,1" to be correct [66 41 be 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14w" [ 1 ])
+      [ 102 65 190 1 0 ]
+    ;
+    "mov r14d,0" = expect ''"mov r14d,0" to be correct [41 be 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14d" [ 0 ])
+      [ 65 190 0 0 0 0 ]
+    ;
+    "mov r14d,1" = expect ''"mov r14d,1" to be correct [41 be 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14d" [ 1 ])
+      [ 65 190 1 0 0 0 ]
+    ;
+    "mov r14,0" = expect ''"mov r14,0" to be correct [49 be 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14" [ 0 ])
+      [ 73 190 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r14,1" = expect ''"mov r14,1" to be correct [49 be 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r14" [ 1 ])
+      [ 73 190 1 0 0 0 0 0 0 0 ]
+    ;
+    "mov r15b,0" = expect ''"mov r15b,0" to be correct [41 b7 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15b" [ 0 ])
+      [ 65 183 0 ]
+    ;
+    "mov r15b,1" = expect ''"mov r15b,1" to be correct [41 b7 1]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15b" [ 1 ])
+      [ 65 183 1 ]
+    ;
+    "mov r15w,0" = expect ''"mov r15w,0" to be correct [66 41 bf 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15w" [ 0 ])
+      [ 102 65 191 0 0 ]
+    ;
+    "mov r15w,1" = expect ''"mov r15w,1" to be correct [66 41 bf 1 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15w" [ 1 ])
+      [ 102 65 191 1 0 ]
+    ;
+    "mov r15d,0" = expect ''"mov r15d,0" to be correct [41 bf 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15d" [ 0 ])
+      [ 65 191 0 0 0 0 ]
+    ;
+    "mov r15d,1" = expect ''"mov r15d,1" to be correct [41 bf 1 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15d" [ 1 ])
+      [ 65 191 1 0 0 0 ]
+    ;
+    "mov r15,0" = expect ''"mov r15,0" to be correct [49 bf 0 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15" [ 0 ])
+      [ 73 191 0 0 0 0 0 0 0 0 ]
+    ;
+    "mov r15,1" = expect ''"mov r15,1" to be correct [49 bf 1 0 0 0 0 0 0 0]''
+      (lib.arch.x86_64.instructions.MOV_imm "r15" [ 1 ])
+      [ 73 191 1 0 0 0 0 0 0 0 ]
+    ;
+  };
+  
 }
