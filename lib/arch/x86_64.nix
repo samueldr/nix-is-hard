@@ -202,26 +202,35 @@ in
             ++ operand
           ;
 
-          # B8+
           MOV_imm =
             reg: value:
             let
               reg' = registers."${reg}";
               rex_flags = []
                 ++ (optional (reg'.width == 64) "W")
-                ++ (optional (reg'.extended)    "R")
+                ++ (optional (reg'.extended)    "B")
               ;
               rex_value =
                 prefix.REX (join rex_flags)
               ;
               regLength = bitShiftRight reg'.width (4-1);
               valueLength = lib.bytesCount value;
+              opcode = [(
+                if reg'.width == 8
+                then (176 + reg'.offset) # 0xB0
+                else (184 + reg'.offset) # 0xB8
+              )];
+              opcode_prefix =
+                if reg'.width == 16 then [ 102 /* 0x66 */ ] else
+                []
+              ;
             in
             if valueLength > regLength
             then throw "'MOV_imm ${reg} ...' used with immediate value too large. Expected at most ${toString regLength} bytes, got ${toString valueLength}"
-            else
-            (optional (rex_value != b0100_0000) rex_value)
-            ++ [ (184 + (reg'.offset)) ]
+            else []
+            ++ opcode_prefix
+            ++ (optional (rex_value != b0100_0000) rex_value)
+            ++ opcode
             ++ (padBytesRight regLength value)
           ;
 
