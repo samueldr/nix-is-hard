@@ -15,6 +15,8 @@
       STDIN  = 0;
       STDOUT = 1;
       STDERR = 2;
+      # Special value used to indicate openat should use the current working directory.
+      AT_FDCWD = -100;
     };
   }
     // (import ./x86_64.nix { inherit lib; }).linux
