@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+set -u
+
+f="${1/.asm/}"
+
+(
+PS4=" $ "
+set -x
+nasm -O0 -f elf64 "$f".asm
+ld "$f.o" -o "$f"
+objdump --architecture=i386 -Mintel,x86-64 --disassembler-color=on --disassemble --wide --insn-width=12 --visualize-jumps=color ./"$f"
+)
+set +e
+(
+PS4=" $ "
+set -x
+"./$f"
+)
+printf ' → exit status: %s\n' "$?"

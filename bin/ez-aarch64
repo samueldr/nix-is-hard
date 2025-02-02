@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -e
+set -u
+
+f="${1/.asm/}"
+
+AS_FLAGS=(
+	--gen-debug
+	-no-pad-sections
+)
+LD_FLAGS=(
+	--omagic
+	--no-apply-dynamic-relocs
+)
+
+(
+PS4=" $ "
+set -x
+aarch64-unknown-linux-gnu-as "${AS_FLAGS[@]}" -o "$f".o "$f".asm
+aarch64-unknown-linux-gnu-ld "${LD_FLAGS[@]}" -s -o "$f" "$f".o
+
+aarch64-unknown-linux-gnu-objdump --disassembler-color=on --disassemble --insn-width=12 --visualize-jumps=color ./"$f"
+)
+set +e
+(
+PS4=" $ "
+set -x
+qemu-aarch64 "$f"
+)
+printf ' → exit status: %s\n' "$?"
