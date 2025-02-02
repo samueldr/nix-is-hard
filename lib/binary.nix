@@ -104,4 +104,18 @@ rec
     in
       bytes ++ (builtins.genList (x: 0) todo)
   ;
+
+  twosComplement =
+    width: value:
+    if value >= 0
+    then padBytesRight width (numberToBytes value)
+    else
+      lib.mapWithIndex
+      (i: byte:
+        builtins.bitOr # (then) Set the sign bit
+        (if i == (width - 1) then lib.b10000000 else 0)
+        (builtins.bitXor lib.b11111111 byte) # (first) Invert every bit
+      )
+      (padBytesRight width (numberToBytes ((lib.abs value)-1)))
+  ;
 }
