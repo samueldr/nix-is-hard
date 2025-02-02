@@ -122,9 +122,9 @@ in
         "unsigned short"         = toUint16;
         "unsigned short int"     = toUint16;
 
-        "int"                    = toUint32;
-        "signed"                 = toUint32;
-        "signed int"             = toUint32;
+        "int"                    = toInt32;
+        "signed"                 = toInt32;
+        "signed int"             = toInt32;
         "unsigned"               = toUint32;
         "unsigned int"           = toUint32;
 
