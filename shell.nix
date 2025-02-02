@@ -8,20 +8,27 @@
 , xxd
 , ruby
 , jq
+, qemu
+, pkgsCross
 }:
 
 mkShell {
-  buildInputs = [
-    nasm
-    gdb
-    xxd
-    ruby
-    jq
-  ] ++ (
-    builtins.map
-    (attr: pkgs."${attr}")
-    additionalPackages
-  );
+  nativeBuildInputs =
+    [
+      nasm
+      gdb
+      xxd
+      ruby
+      jq
+      qemu
+      pkgsCross.aarch64-multiplatform.stdenv.cc
+    ]
+    ++ (
+        builtins.map
+        (attr: pkgs."${attr}")
+        additionalPackages
+      )
+  ;
 }
 
 ) {}
