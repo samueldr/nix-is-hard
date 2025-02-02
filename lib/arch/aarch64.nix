@@ -31,13 +31,13 @@ in
       # The 32 AArch64 registers
       registers =
         let
-          prefixWidth = { x = 64; w = 32; };
+          prefixWidth = { x = 64; w = 32; r = 64 /* Makes `sp` to `sp` work at 64 bit. */; };
           attrsFor =
             offset: prefix:
             rec {
               name =
                 if offset == 31
-                then if prefix == "r" then "rsp" else "${prefix}zr"
+                then if prefix == "r" then "sp" else "${prefix}zr"
                 else "${prefix}${toString offset}"
               ;
               value = {
