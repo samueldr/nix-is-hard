@@ -21,13 +21,6 @@
       i_256 = expect "numberToBytes to produce two bytes for (256)" (lib.numberToBytes 256) [ 0 1 ];
       i_65535 = expect "numberToBytes to produce two bytes for (65535)" (lib.numberToBytes 65535) [ 255 255 ];
     };
-    # We can extrapolate from there that it worked.
-    negative = {
-      /* TODO: Two's complement
-      i_-1 = expect "numberToBytes to produce a single byte for (-1)" (lib.numberToBytes (-1)) [ 255 ];
-      i_-32768 = expect "numberToBytes to produce two bytes for (-32768)" (lib.numberToBytes (-32768)) [ 0 128 ];
-      */
-    };
   };
   padBytesLeft = {
     noop = {
