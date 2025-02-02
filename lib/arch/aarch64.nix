@@ -69,6 +69,21 @@ in
         ;
 
         MOV_imm =
+          # NOTE: MOVK and MOVZ are combined to form this synthetic MOV_imm.
+          #        ╒══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╦══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╕
+          # ╒══════╡  31  │  30  │  29  │  28  │  27  │  26  │  25  │  24  ║  23  │  22  │  21  │  20  │  19  │  18  │  17  │  16  │
+          # │ MOVZ │░░░░░░│   1  │   0  │   1  │   0  │   0  │   1  │   0  ║   1  │░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # │ MOVK │░░░░░░│   1  │   1  │   1  │   0  │   0  │   1  │   0  ║   1  │░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡  sf  │  opc    ^^                                            │  hw         │  imm16                           │
+          #        ├──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────╥──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┤
+          # ╒══════╡  15  │  14  │  13  │  12  │  11  │  10  │   9  │   8  ║   7  │   6  │   5  │   4  │   3  │   2  │   1  │   0  │
+          # │ MOVZ │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # │ MOVK │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡  ... imm16                                                                 │  Rd (destination)                │
+          #        ╘═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
+          #         See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/MOVZ--Move-wide-with-zero-
+          #         See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/MOVK--Move-wide-with-keep-
+          #
           # `reg` is the destination register name
           # `value` is either the numeric representation or the list of bytes to place in destination `reg`.
           reg: value:
@@ -92,17 +107,17 @@ in
                   (lib.bitShiftRight value (16*shift));
               in
               builtins.foldl' builtins.add 0 ([]
-                ++ optional reg'.is64 lib.b10000000_00000000_00000000_00000000   # bit[31] (sf)
+                ++ optional reg'.is64 (lib.bitShiftLeft 1 31)  # bit[31]    (sf)
                 ++ [
                   (
                     # Zero register with first move.
                     if shift == 0
-                    then (1384120320)                                            # bit[23:30] 10100101 MOVZ
-                    else (1920991232)                                            # bit[23:30] 11100101 MOVK
+                    then (1384120320)                          # bit[23:30] 10100101 MOVZ
+                    else (1920991232)                          # bit[23:30] 11100101 MOVK
                   )
-                  (lib.bitShiftLeft shift 21)                                    # bit[21:22] (hw)
-                  (lib.bitShiftLeft imm16 5)                                     # bit[5:20]  (imm16)
-                  (reg'.offset)                                                  # bit[0:4]   (Rd)
+                  (lib.bitShiftLeft shift 21)                  # bit[21:22] (hw)
+                  (lib.bitShiftLeft imm16 5)                   # bit[5:20]  (imm16)
+                  (reg'.offset)                                # bit[0:4]   (Rd)
                 ]
               )
             ;
