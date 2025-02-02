@@ -93,4 +93,52 @@
   twosComplement = {
     # Tested through `ctypes.mkInt`
   };
+  getAlignedLength = {
+    alignment_0 = {
+      length_1 =
+        expect "getAlignedLength with 0 alignment to be a no-op (1)"
+        (lib.getAlignedLength 0 1)
+        (1)
+      ;
+      length_255 =
+        expect "getAlignedLength with 0 alignment to be a no-op (255)"
+        (lib.getAlignedLength 0 255)
+        (255)
+      ;
+    };
+    value_0 = {
+      alignment_0 =
+        expect "getAlignedLength (alignment 0) with value 0 to be 0"
+        (lib.getAlignedLength 0 0)
+        (0)
+      ;
+      alignment_8 =
+        expect "getAlignedLength (alignment 8) with value 0 to be 0"
+        (lib.getAlignedLength 8 0)
+        (0)
+      ;
+    };
+    checks = {
+      align_8_1 =
+        expect "getAlignedLength 8 1"
+        (lib.getAlignedLength 8 1)
+        (8)
+      ;
+      align_8_7 =
+        expect "getAlignedLength 8 7"
+        (lib.getAlignedLength 8 7)
+        (8)
+      ;
+      align_8_8 =
+        expect "getAlignedLength 8 8"
+        (lib.getAlignedLength 8 8)
+        (8)
+      ;
+      align_8_9 =
+        expect "getAlignedLength 8 9"
+        (lib.getAlignedLength 8 9)
+        (16)
+      ;
+    };
+  };
 }
