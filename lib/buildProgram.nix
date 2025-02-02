@@ -80,6 +80,7 @@ in
     }) // {
       inherit elf;
       inherit code;
+      inherit strings;
     }
   ;
 }
