@@ -492,7 +492,7 @@ rec {
               then section.bytes
               else (section.bytes {
                 load_addr = load_addr;
-                section_addr = section.add;
+                section_addr = section.addr;
                 sections = sections_by_name;
               })
             ;
