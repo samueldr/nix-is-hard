@@ -7,6 +7,7 @@ let
       # Nix
       (import ./attrs.nix     { inherit lib; })
       (import ./lists.nix     { inherit lib; })
+      (import ./bits.nix      { inherit lib; })
       (import ./maths.nix     { inherit lib; })
       (import ./strings.nix   { inherit lib; })
       (import ./functions.nix { inherit lib; })
