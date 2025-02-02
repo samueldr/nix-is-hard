@@ -37,6 +37,7 @@ in
       throw "Unknown or unimplemented architecture '${parsed}'` in `arch`."
     ;
   }
+    // (import ./aarch64.nix { inherit lib; }).arch
     // (import ./x86_64.nix { inherit lib; }).arch
   ;
 }
