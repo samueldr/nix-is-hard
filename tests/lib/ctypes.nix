@@ -42,16 +42,38 @@
     bits_0 = expectThrow "A zero bit width to fail"
       (lib.ctypes.mkInt 0)
     ;
-    # TODO: implement, then test negative numbers
-    negativeFail = expectThrow "A negative value provided to fail"
-      ((lib.ctypes.mkInt 8) (-1))
-    ;
     overflow = {
       w_8_v_128 = expectThrow "A signed overflow (positive) to fail"
         ((lib.ctypes.mkInt 8) (128))
       ;
       w_8_v_-129 = expectThrow "A signed overflow (negative) to fail"
         ((lib.ctypes.mkInt 8) (-129))
+      ;
+    };
+    negativeValues = {
+      bits_8_val_-1 = expect "8 bit representation of -1"
+        (lib.ctypes.mkInt 8 (-1))
+        [ 255 ]
+      ;
+      bits_8_val_-128 = expect "8 bit representation of -128"
+        (lib.ctypes.mkInt 8 (-128))
+        [ 128 ]
+      ;
+      bits_8_val_-127 = expect "8 bit representation of -128"
+        (lib.ctypes.mkInt 8 (-127))
+        [ 129 ]
+      ;
+      bits_16_val_-1 = expect "16 bit representation of -1"
+        (lib.ctypes.mkInt 16 (-1))
+        [ 255 255 ]
+      ;
+      bits_16_val_-129 = expect "16 bit representation of -129"
+        (lib.ctypes.mkInt 16 (-129))
+        [ 127 255 ]
+      ;
+      bits_16_val_-32768 = expect "16 bit representation of -32768"
+        (lib.ctypes.mkInt 16 (-32768))
+        [ 0 128 ]
       ;
     };
   };
