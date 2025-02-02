@@ -487,7 +487,7 @@ rec {
         builtins.map (
           section:
           let
-            bytes =
+            bytes = lib.stripComments (
               if builtins.isList section.bytes
               then section.bytes
               else (section.bytes {
@@ -495,7 +495,7 @@ rec {
                 section_addr = section.addr;
                 sections = sections_by_name;
               })
-            ;
+            );
             actualLength = lib.bytesCount bytes;
           in
           if actualLength != section.length
