@@ -40,34 +40,36 @@ in
       ;
       elf = mkElf {
         inherit arch;
-        sections = [
-          (lib.mkElfSection {
-            name = ".text";
-            type = "SHT_PROGBITS";
-            bytes =
-              if builtins.isFunction code && !builtins.isNull strings
-              then (args: code (args // {
-                getString =
-                  name:
-                  {
-                    addr = (args.sections.".rodata".addr or 0) + strings.offsets."${name}";
-                    offset = strings.offsets."${name}";
-                    length = builtins.stringLength strings.strings."${name}";
-                  }
-                ;
-              }))
-              else code
-            ;
-          })
-        ]
-        ++
-        (lib.optional (data != null)
-          (lib.mkElfSection {
-            name = ".rodata";
-            type = "SHT_PROGBITS";
-            bytes = data;
-          })
-        )
+        sections =
+          { mkElfSection }:
+          [
+            (mkElfSection {
+              name = ".text";
+              type = "SHT_PROGBITS";
+              bytes =
+                if builtins.isFunction code && !builtins.isNull strings
+                then (args: code (args // {
+                  getString =
+                    name:
+                    {
+                      addr = (args.sections.".rodata".addr or 0) + strings.offsets."${name}";
+                      offset = strings.offsets."${name}";
+                      length = builtins.stringLength strings.strings."${name}";
+                    }
+                  ;
+                }))
+                else code
+              ;
+            })
+          ]
+          ++
+          (lib.optional (data != null)
+            (mkElfSection {
+              name = ".rodata";
+              type = "SHT_PROGBITS";
+              bytes = data;
+            })
+          )
         ;
       };
     in
