@@ -441,7 +441,7 @@ rec {
       ;
 
       sections_count =
-        (builtins.length sections') + (builtins.length innate_sections)
+        (lib.bytesCount sections') + (lib.bytesCount innate_sections)
       ;
 
       # NOTE: we cannot rely on `section_headers` since it needs this length to compute offsets.
@@ -496,8 +496,12 @@ rec {
                 sections = sections_by_name;
               })
             ;
+            actualLength = lib.bytesCount bytes;
           in
-          lib.padToAlignment alignment bytes
+          if actualLength != section.length
+          then throw "Section ${section.name} length (${toString section.length}) did not match actual length (${toString actualLength})"
+          else
+            lib.padToAlignment alignment bytes
         ) sections
       );
     in
