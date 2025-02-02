@@ -53,16 +53,6 @@ in
     toUint64 = mkUint 64;
 
     mkInt =
-      #
-      # TODO: throw on signed overflow (i.e. putting 128 into an 8 bit signed value)
-      #
-      # irb(main):019> [127].pack("c").unpack("c")
-      # => [127]
-      # irb(main):018> [128].pack("c").unpack("c")
-      # => [-128]
-      # irb(main):022> [-129].pack("c").unpack("c")
-      # => [127]
-      #
       size:
       if size <= 0
       then (throw "mkInt called with a zero or negative bits width (${toString size} <= 0)")
@@ -85,10 +75,7 @@ in
           else
             if doCheck && value < min
             then (throw "Signed value ${toString value} is smaller than the signed ${toString size} bits type allows.")
-            else
-              if value < 0
-              then throw "Negative representation not supported yet."
-              else (mkUint size value)
+            else (lib.twosComplement bytes_count value)
     ;
 
     toInt8  = mkInt  8;
