@@ -137,4 +137,16 @@ rec
       )
       (padBytesRight width (numberToBytes ((lib.abs value)-1)))
   ;
+
+  getAlignedLength =
+    alignment: length:
+    if alignment == 0
+    then length
+    else
+      if length <= 0
+      then 0
+      else
+        length +
+        (alignment - (lib.mod (length - 1) alignment) - 1)
+  ;
 }
