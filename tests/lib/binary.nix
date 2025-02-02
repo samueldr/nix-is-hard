@@ -141,4 +141,46 @@
       ;
     };
   };
+  padToAlignment = {
+    align_no-ops = {
+      empty_0 = expect "padToAlignment with empty list to return an empty list (0)"
+        (lib.padToAlignment 0 [])
+        []
+      ;
+      empty_1 = expect "padToAlignment with empty list to return an empty list (1)"
+        (lib.padToAlignment 1 [])
+        []
+      ;
+      empty_4 = expect "padToAlignment with empty list to return an empty list (4)"
+        (lib.padToAlignment 4 [])
+        []
+      ;
+      alignment_0_length_1 = expect "padToAlignment with alignment 0 to be a no-op ([ 1 ])"
+        (lib.padToAlignment 0 [ 1 ])
+        [ 1 ]
+      ;
+      alignment_0_length_2 = expect "padToAlignment with alignment 0 to be a no-op ([ 1 2 ])"
+        (lib.padToAlignment 0 [ 1 2 ])
+        [ 1 2 ]
+      ;
+      alignment_1_length_1 = expect "padToAlignment with alignment 1 to be a no-op ([ 1 ])"
+        (lib.padToAlignment 1 [ 1 ])
+        [ 1 ]
+      ;
+      alignment_1_length_2 = expect "padToAlignment with alignment 1 to be a no-op ([ 1 2 ])"
+        (lib.padToAlignment 1 [ 1 2 ])
+        [ 1 2 ]
+      ;
+    };
+    alignment = {
+      alignment_4_length_1 = expect "padToAlignment 4 [ 1 ]"
+        (lib.padToAlignment 4 [ 1 ])
+        [ 1 0 0 0 ]
+      ;
+      alignment_4_length_2 = expect "padToAlignment 4 [ 1 2 ]"
+        (lib.padToAlignment 4 [ 1 2 ])
+        [ 1 2 0 0 ]
+      ;
+    };
+  };
 }
