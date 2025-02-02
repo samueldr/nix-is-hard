@@ -149,4 +149,15 @@ rec
         length +
         (alignment - (lib.mod (length - 1) alignment) - 1)
   ;
+
+  padToAlignment =
+    alignment: bytes:
+    let
+      length = builtins.length bytes;
+      alignedLength = getAlignedLength alignment length;
+      padding = alignedLength - length;
+    in
+    bytes ++
+    (builtins.genList (_: 0) padding)
+  ;
 }
