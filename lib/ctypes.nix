@@ -39,10 +39,10 @@ in
           in
             value:
             if doCheck && value > max
-            then (throw "Unsigned value ${toString value} is bigger than the signed ${toString size} bits type allows.")
+            then (throw "Unsigned value ${toString value} is bigger than the unsigned ${toString size} bits type allows.")
             else
               if doCheck && value < min
-              then (throw "Unsigned value ${toString value} is smaller than the signed ${toString size} bits type allows.")
+              then (throw "Unsigned value ${toString value} is smaller than the unsigned ${toString size} bits type allows.")
               else
               padBytesRight bytes_count (numberToBytes value)
     ;
