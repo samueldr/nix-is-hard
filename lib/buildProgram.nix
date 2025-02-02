@@ -75,7 +75,7 @@ in
     in
     (mkBinary {
       inherit name;
-      bytes = (lib.stripComments elf.bytes);
+      inherit (elf) bytes;
       executable = true;
     }) // {
       inherit elf;
