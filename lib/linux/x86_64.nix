@@ -5,12 +5,7 @@
     x86_64 = with lib.linux.generic; (lib.linux.generic // rec {
       arch = lib.arch.x86_64;
       # Kernel data types for x86_64
-      dataModel = lib.ctypes.dataModels.LP64 // {
-          # Most 32 bit architectures use "unsigned int" size_t,
-          # and all 64 bit architectures use "unsigned long" size_t.
-          "size_t"  = dataModel."unsigned long";
-          "umode_t" = dataModel."unsigned short";
-      };
+      dataModel = lib.linux.generic.dataModels.LP64;
       dsl = {
         parseLogicalReg =
           name:
