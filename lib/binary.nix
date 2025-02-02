@@ -60,6 +60,25 @@ rec
     (lib.chars str)
   ;
 
+  # LSB only
+  bytesUnsignedToNumber =
+    bytes:
+    if ((builtins.filter (byte: byte > 256) bytes) != [])
+    then throw "bytesUnsignedToNumber called with overflowed byte value (>= 256)"
+    else
+    (
+      builtins.foldl'
+      (state: byte: {
+        offset = state.offset + 1;
+        value = state.value
+          + (lib.bitShiftLeft byte (8*state.offset))
+        ;
+      })
+      { value = 0; offset = 0; }
+      bytes
+    ).value
+  ;
+
   # NOTE: range: 9223372036854775807 to -9223372036854775808
   # NOTE: order is LSB first.
   numberToBytes =
