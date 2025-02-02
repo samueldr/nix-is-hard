@@ -75,6 +75,9 @@ in
       inherit name;
       bytes = (lib.stripComments elf.bytes);
       executable = true;
-    }) // { inherit elf; }
+    }) // {
+      inherit elf;
+      inherit code;
+    }
   ;
 }
