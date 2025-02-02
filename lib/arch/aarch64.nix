@@ -68,6 +68,78 @@ in
           [ (lib.comment "aarch64: syscall (svc 0)") 1 0 0 212 ]
         ;
 
+        MOV_reg =
+          # NOTE: MOV operations are aliases of ORR.
+          #
+          #        ╒══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╦══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╕
+          # ╒══════╡  31  │  30  │  29  │  28  │  27  │  26  │  25  │  24  ║  23  │  22  │  21  │  20  │  19  │  18  │  17  │  16  │
+          # │ ORRsr│░░░░░░│   0  │   1  │   0  │   1  │   0  │   1  │   0  ║   0  │   0  │   0  │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡  sf  │  opc                                           ║  shift      │   N  │  Rm (source)                     │
+          #        ├──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────╥──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┤
+          # ╒══════╡  15  │  14  │  13  │  12  │  11  │  10  │   9  │   8  ║   7  │   6  │   5  │   4  │   3  │   2  │   1  │   0  │
+          # │ ORRsr│   0  │   0  │   0  │   0  │   0  │   0  │   1  │   1  ║   1  │   1  │   1  │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡  imm6                                   │  Rn                              │  Rd (destination)                │
+          #        ╘═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
+          #         See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/MOV--register---Move-register-value--an-alias-of-ORR--shifted-register--
+          #         See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/ORR--shifted-register---Bitwise-OR--shifted-register--
+          #         AKA: ORR_64_log_shift
+          #         AKA: ORR_32_log_shift
+          #         Encoded operation: 10101010xx0xxxxxxxxxxxxxxxxxxxxx
+          #
+          #        ╒══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╦══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╕
+          # ╒══════╡  31  │  30  │  29  │  28  │  27  │  26  │  25  │  24  ║  23  │  22  │  21  │  20  │  19  │  18  │  17  │  16  │
+          # │ ADDim│░░░░░░│   0  │   0  │   1  │   0  │   0  │   0  │   1  ║   0  │   0  │   0  │   0  │   0  │   0  │   0  │   0  │
+          # ╘══════╡  sf  │  op  │   S  │                                         │  sh  │  imm12                              ... │
+          #        ├──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────╥──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┤
+          # ╒══════╡  15  │  14  │  13  │  12  │  11  │  10  │   9  │   8  ║   7  │   6  │   5  │   4  │   3  │   2  │   1  │   0  │
+          # │ ADDim│   0  │   0  │   0  │   0  │   0  │   0  │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡ ... imm12                               │  Rn (source)                     │  Rd (destination)                │
+          #        ╘═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
+          #         See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/MOV--to-from-SP---Move-register-value-to-or-from-SP--an-alias-of-ADD--immediate--
+          #         See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/ADD--immediate---Add-immediate-value-
+          #         AKA: ADD_64_addsub_imm
+          #         AKA: ADD_32_addsub_imm
+          #         Encoded operation: 100100010xxxxxxxxxxxxxxxxxxxxxxx
+          #
+          #
+          # NOTE: ORR (shifted register) cannot operate on SP.
+          #       The convention is to use ADD (immediate) when dealing with SP.
+          #
+          # `dest` is the destination register name.
+          # `src` is the source register name.
+          dest: src:
+          let
+            dest' = registers."${dest}";
+            src' = registers."${src}";
+            instruction =
+              if src == "sp" || dest == "sp"
+              then
+                builtins.foldl' builtins.add 0 ([]
+                  ++ optional dest'.is64 (lib.bitShiftLeft 1 31)  # bit[31]    (sf)
+                  ++ [
+                      (lib.bitShiftLeft 34 /* 0b0010_0010 */ 23)  # bit[23:30] (shift)
+                      (lib.bitShiftLeft src'.offset 5)            # bit[5:9]   (Rn)
+                      (dest'.offset)                              # bit[0:4]   (Rd)
+                    ]
+                )
+              else
+                builtins.foldl' builtins.add 0 ([]
+                  ++ optional dest'.is64 (lib.bitShiftLeft 1 31)  # bit[31]    (sf)
+                  ++ [
+                      (lib.bitShiftLeft 42 /* 0b010_1010 */ 24)   # bit[24:30] (shift)
+                      (0)                                         # bit[21:23] (shift)
+                      (lib.bitShiftLeft src'.offset 16)           # bit[16:20] (Rm)
+                      (0)                                         # bit[10:15] (imm6)
+                      (lib.bitShiftLeft 31 /* 0b1_1111 */ 5)      # bit[5:9]   (Rn)
+                      (dest'.offset)                              # bit[0:4]   (Rd)
+                    ]
+                )
+            ;
+          in
+          [ (lib.comment "aarch64: MOV_reg ${dest} ${src}") ]
+          ++ (instructionToBytes instruction)
+        ;
+
         MOV_imm =
           # NOTE: MOVK and MOVZ are combined to form this synthetic MOV_imm.
           #        ╒══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╦══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╕
