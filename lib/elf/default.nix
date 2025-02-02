@@ -6,6 +6,8 @@ let
 
   # FIXME figure out better or appropriate defaults to use.
   DEFAULT_LOAD_ADDR = 10 * 16 * 1024;
+  # (Default alignment to be on the safe side; power of two, and "relatively large".)
+  DEFAULT_ALIGNMENT = 16;
 
   elfCtypes = with lib.ctypes; {
     Elf32_Addr  = toUint32;
@@ -131,6 +133,7 @@ rec {
       , type ? "PT_LOAD"
       , p_filesz
       , p_memsz ? p_filesz
+      , p_align ? 0
       }:
       let
         inherit (constants) ELF_PHDR;
@@ -154,7 +157,7 @@ rec {
           (ElfMach_Addr               load_addr) # p_paddr  Physical address (not used).
           (ElfMach_Xword               p_filesz) # p_filesz Size of contents in file.
           (ElfMach_Xword                p_memsz) # p_memsz  Size of contents in memory.
-          (ElfMach_Xword      (2 * 1024 * 1024)) # p_align  Alignment in memory and file.
+          (ElfMach_Xword                p_align) # p_align  Alignment in memory and file.
         ]
       )
     ;
@@ -166,6 +169,7 @@ rec {
       , sh_addr ? 0
       , sh_size ? 0
       , sh_flags ? 0
+      , sh_addralign ? 0
       }:
       builtins.concatLists (
         let
@@ -185,7 +189,7 @@ rec {
           (ElfMach_Xword          sh_size) # sh_size        Length of section in file
           (ElfMach_Word                 0) # sh_link        (Type-dependent data)
           (ElfMach_Word                 0) # sh_info        (Type-dependent info)
-          (ElfMach_Xword                0) # sh_addralign   Alignment constraints (powers of two)
+          (ElfMach_Xword     sh_addralign) # sh_addralign   Alignment constraints (powers of two)
           (ElfMach_Xword                0) # sh_entsize     Entry size for fixed-size entries, or 0
         ]
       )
@@ -262,40 +266,6 @@ rec {
     ) else (throw "`bytes` attribute of unexpected type (${builtins.typeOf bytes})")
   ;
 
-  mkElfSection =
-    { name ? null  # Name of the section, or null for unnamed section.
-    , type         # Type, either the constant name (SHT_PROGBITS) or the value (1).
-    , bytes        # bytes, either a list of bytes, or a set-pattern function returning a list of bytes.
-    , flags ? null # Flags for the section
-    }:
-    let type' = type; in # Break reference
-    let
-      # Eagerly resolve to integer type
-      type =
-        if builtins.isInt type'
-        then type'
-        else K.ELF_SHDR."${type'}"
-      ;
-    in
-    {
-      inherit name;
-      inherit bytes;
-      inherit type;
-      # Pick appropirate default flag for some well-known sections
-      flags =
-        ELF.mkShFlags (
-          if !builtins.isNull flags
-          then flags
-          else
-            if type == K.ELF_SHDR."SHT_PROGBITS"
-            then ELF.defaultSectionFlags."${name}" or 0
-            else 0
-        )
-      ;
-      length = lib.bytesCount (bogusSectionBytes bytes);
-    }
-  ;
-
   #
   # NOTE: section names *must be unique*, or else expect unexpected behaviour.
   #       (repeating null section bytes is fine.)
@@ -307,13 +277,62 @@ rec {
     , load_addr ? DEFAULT_LOAD_ADDR
     , type ? "PT_LOAD" # An executable
     , sections # ***list*** of sections
+    , alignment ? DEFAULT_ALIGNMENT # Sections will start on this alignment boundary.
     }:
     # Algorithm:
     #   - Pick all sections.
     #   - Collect offsets into attrs.
     #   - Collect section headers.
     #   - Collect program bytes by calling bytes section appropriately.
-    let sections' = sections; in
+    let
+      # This is within `mkElf` as it needs to know about the whole Elf alignment.
+      mkElfSection =
+        { name ? null  # Name of the section, or null for unnamed section.
+        , type         # Type, either the constant name (SHT_PROGBITS) or the value (1).
+        , bytes        # bytes, either a list of bytes, or a set-pattern function returning a list of bytes.
+        , flags ? null # Flags for the section
+        }:
+        let type' = type; in # Break reference
+        let
+          # Eagerly resolve to integer type
+          self =
+            {
+              #
+              # Header data
+              #
+              inherit name;
+              type =
+                if builtins.isInt type'
+                then type'
+                else K.ELF_SHDR."${type'}"
+              ;
+              # Pick appropirate default flag for some well-known sections
+              flags =
+                ELF.mkShFlags (
+                  if !builtins.isNull flags
+                  then flags
+                  else
+                    if self.type == K.ELF_SHDR."SHT_PROGBITS"
+                    then ELF.defaultSectionFlags."${name}" or 0
+                    else 0
+                )
+              ;
+              #
+              # Section properties
+              #
+              inherit bytes;
+              length = lib.bytesCount (bogusSectionBytes bytes);
+              alignedLength = lib.getAlignedLength alignment self.length;
+            }
+          ;
+        in
+          self
+      ;
+      # Provide the mkElfSection function now that we know the alignment.
+      sections' = sections {
+        inherit mkElfSection;
+      };
+    in
     let
       dot_text_section =
         sections_by_name.".text" or null
@@ -325,30 +344,36 @@ rec {
         else dot_text_section.addr
       ;
 
-      elf_headers_length =
+      # NOTE: elfHeadersBytes depends on this value to be set, so let's just use the (aligned) static type sizes.
+      elf_headers_length = lib.getAlignedLength alignment (
         ELF.sizeof."Elf${toString bits}_Ehdr"
         + ELF.sizeof."Elf${toString bits}_Phdr"
-      ;
+      );
 
-      elf_header = ELF.mkElfHeader {
-        inherit bits;
-        e_entry = entry_point;
-        e_shoff = elf_headers_length;
-        e_shnum = sections_count;
-        e_machine = arch.ELF.EM;
-        e_shstrndx = 1; # hardcoded since we know it's .shstrtab is first (after null)
-      };
 
-      program_header = ELF.mkProgramHeader {
-        inherit bits;
-        inherit load_addr;
-        p_filesz =
-          let
-            last = lib.last sections;
-          in
-          last.offset + last.length
-        ;
-      };
+      # The Elf header *and* Program header
+      # NOTE: the header pair needs to be aligned here.
+      elfHeadersBytes = lib.padToAlignment alignment (builtins.concatLists [
+        (ELF.mkElfHeader {
+          inherit bits;
+          e_entry = entry_point;
+          e_shoff = elf_headers_length;
+          e_shnum = sections_count;
+          e_machine = arch.ELF.EM;
+          e_shstrndx = 1; # hardcoded since we know it's .shstrtab is first (after null)
+        })
+        (ELF.mkProgramHeader {
+          inherit bits;
+          inherit load_addr;
+          p_align = alignment;
+          p_filesz =
+            let
+              last = lib.last sections;
+            in
+            last.offset + last.alignedLength
+          ;
+        })
+      ]);
 
       section_names =
         lib.cstrings.mkCStrings (
@@ -387,7 +412,7 @@ rec {
           builtins.foldl'
           (prev: section:
             {
-              offset = prev.offset + section.length;
+              offset = prev.offset + section.alignedLength;
               sections = prev.sections ++ [
                 (section // {
                   # FIXME: this is not right for things that want to be loaded elsewhere
@@ -420,12 +445,15 @@ rec {
       ;
 
       # NOTE: we cannot rely on `section_headers` since it needs this length to compute offsets.
-      section_headers_length = ELF.sizeof."Elf${toString bits}_Shdr" * sections_count;
+      section_headers_length = lib.getAlignedLength alignment (
+        ELF.sizeof."Elf${toString bits}_Shdr" * sections_count
+      );
 
       total_headers_length =
         elf_headers_length + section_headers_length
       ;
 
+      # NOTE: the header group needs to be aligned here.
       section_headers =
         let
           headers =
@@ -443,26 +471,33 @@ rec {
                 sh_size = section.length;
                 sh_flags = section.flags;
                 sh_addr = section.addr;
+                sh_addralign = alignment;
               }
             ) sections
           ;
         in
         rec {
-          bytes = builtins.concatLists headers;
-          length = lib.bytesCount bytes;
+          bytes = lib.padToAlignment alignment (builtins.concatLists headers);
+          length = lib.getAlignedLength alignment (lib.bytesCount bytes);
         }
       ;
 
+      # NOTE: the sections need to be individually aligned here.
       sections_bytes = builtins.concatLists (
         builtins.map (
           section:
-          if builtins.isList section.bytes
-          then section.bytes
-          else (section.bytes {
-            load_addr = load_addr;
-            section_addr = section.add;
-            sections = sections_by_name;
-          })
+          let
+            bytes =
+              if builtins.isList section.bytes
+              then section.bytes
+              else (section.bytes {
+                load_addr = load_addr;
+                section_addr = section.add;
+                sections = sections_by_name;
+              })
+            ;
+          in
+          lib.padToAlignment alignment bytes
         ) sections
       );
     in
@@ -472,8 +507,7 @@ rec {
       inherit section_headers_length;
       inherit total_headers_length;
       bytes = builtins.concatLists [
-        elf_header
-        program_header
+        elfHeadersBytes
         section_headers.bytes
         sections_bytes
       ];
