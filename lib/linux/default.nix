@@ -12,6 +12,7 @@
     ;
   }
     // (import ./generic.nix { inherit lib; }).linux
+    // (import ./aarch64.nix { inherit lib; }).linux
     // (import ./x86_64.nix { inherit lib; }).linux
   ;
 }
