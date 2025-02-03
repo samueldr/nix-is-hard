@@ -107,7 +107,47 @@ in
           )
         ;
         argv1_to_reg =
-          throw "dsl.argv1_to_reg not yet implemented for aarch64."
+          { register # Logical register names accepted (i.e. ARG0)
+          , errorMessage ? null # An attrset with `offset` and `length` for a given string.
+          }:
+          
+          let
+            register' = dsl.parseLogicalReg register;
+            errorFragment = builtins.concatLists [
+              (lib.optionals (!builtins.isNull errorMessage) 
+                (dsl.syscall.write STDOUT errorMessage.addr errorMessage.length)
+              )
+              (dsl.syscall.exit 1)
+            ];
+            # NOTE: we have to compensate for the jump's operand length too...
+            relAfter_errorFragment = 0
+              + 4
+              + (lib.bytesCount errorFragment)
+            ;
+          in
+          builtins.concatLists [
+            [(lib.comment "<start> argv1 to register (${toString register})")]
+
+            # We're using the output register as scratch to test presence of argv1
+            # Get the *value* of argc
+            (lib.arch.aarch64.instructions.LDR_imm register' "sp")
+
+            # We're checking *strictly* for argc == 1
+            (lib.arch.aarch64.instructions.CMP_imm register' (lib.ctypes.toUint32 1))
+            /* */ # When 1, move to after errorFragment
+            /* */ (lib.arch.aarch64.instructions.B.NE relAfter_errorFragment)
+            /* */ # else, error out
+            /* */ errorFragment
+
+            # Get the argc pointer
+            (lib.arch.aarch64.instructions.MOV_reg register' "sp")
+            # Skip over argc and argv0
+            (lib.arch.aarch64.instructions.ADD_imm register' (lib.ctypes.toUint32 (2 * 8)))
+            # Here we copy into the register (effectively (char*)argv[1]).
+            (lib.arch.aarch64.instructions.LDR_imm register' register')
+
+            [(lib.comment "<end> argv1 to register (${toString register})")]
+          ]
         ;
       };
       # Syscall numbers
