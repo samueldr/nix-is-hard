@@ -41,7 +41,8 @@ let
     ;
   };
 
-  "chmod+x" = buildProgram {
+  "chmod+x" = chmod_x;
+  "chmod_x" = buildProgram {
     inherit arch;
     name = "chmod+x";
     code =
@@ -70,5 +71,6 @@ in
   inherit lib;
   inherit simple;
   inherit hello;
+  inherit chmod_x;
   inherit "chmod+x";
 }
