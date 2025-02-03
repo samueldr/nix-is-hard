@@ -92,12 +92,13 @@
                 "char *buf"
                 "size_t count"
               ]]
-              ["exit" [
-                "int error_code"
-              ]]
-              ["chmod" [
+              ["fchmodat" [
+                "int dfd"
                 "const char *filename"
                 "umode_t mode"
+              ]]
+              ["exit" [
+                "int error_code"
               ]]
             ]
           )
@@ -148,11 +149,11 @@
       };
       # Syscall numbers
       _syscalls = {
-        "write" =  1;
-        "open"  =  2;
-        "close" =  3;
-        "chmod" = 90;
-        "exit"  = 60;
+        "write"    =   1;
+        "open"     =   2;
+        "close"    =   3;
+        "exit"     =  60;
+        "fchmodat" = 268;
       };
       # Registers in argument position order
       ARG_REGISTER = [
