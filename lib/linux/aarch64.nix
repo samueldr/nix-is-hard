@@ -165,7 +165,7 @@ in
         "x4"
         "x5"
       ];
-      RETURN_REGISTER = "x8";
+      RETURN_REGISTER = "x0";
       NR_REGISTER = "x8";
       syscall =
         let
