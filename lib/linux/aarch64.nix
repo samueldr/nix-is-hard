@@ -69,8 +69,13 @@ in
             ;
           }
         ;
+        # Copies the content of a *logical* register to another one.
+        # i.e. (copy_reg "ARG0" "RETURN")
+        # Copying to an architecture-specific register is possible (copy_reg "x20" "RETURN") but not inherently portable.
         copy_reg =
-          throw "dsl.copy_reg not yet implemented for aarch64."
+          # TODO: consider adding 'SCRATCH0~N' for non-syscall portable registers?
+          into: from:
+          (lib.arch.aarch64.instructions.MOV_reg (dsl.parseLogicalReg into) (dsl.parseLogicalReg from))
         ;
         syscall =
           builtins.listToAttrs (
