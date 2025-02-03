@@ -68,6 +68,36 @@ in
           [ (lib.comment "aarch64: syscall (svc 0)") 1 0 0 212 ]
         ;
 
+        # TODO: The bits table
+        # TODO: Generate all conditions, for B and BC
+        B.NE =
+          rel:
+          # See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/B-cond--Branch-conditionally-?lang=en
+          # `B_cond` (B_only_condbranch)
+          # Encoded operation: 01010100xxxxxxxxxxxxxxxxxxx0xxxx
+          # `BC_cond` (BC_only_condbranch)
+          # Encoded operation: 01010100xxxxxxxxxxxxxxxxxxx1xxxx
+          # B.__ and BC.__ are implemented from the same base, with o0 set diffently
+          # BC o0 == 1
+          # B  o0 == 0
+          let
+            NE = 1; # 0b0001
+            instruction =
+              builtins.foldl' builtins.add 0 ([]
+                ++ [
+                    (lib.bitShiftLeft 84/* 0b0101_0100 */ 24)   # bit[24:31]
+                    (lib.bitShiftLeft (rel / 4) 5)              # bit[5:23]  (imm19)
+                    #                                           # bit[4]     (o0)
+                    NE                                          # bit[0:4]   (cond)
+                  ]
+              )
+            ;
+          in
+          if (lib.mod rel 4) != 0 then (throw "B.NE called with relative offset not divisible by 4.") else
+          [ (lib.comment "aarch64: B.NE PC+${toString rel}") ]
+          ++ instructionToBytes instruction
+        ;
+
         CMP_imm =
           #        ╒══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╦══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╕
           # ╒══════╡  31  │  30  │  29  │  28  │  27  │  26  │  25  │  24  ║  23  │  22  │  21  │  20  │  19  │  18  │  17  │  16  │
