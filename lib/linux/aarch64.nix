@@ -105,10 +105,6 @@ in
               ]]
             ]
           )
-          //
-          {
-            chmod = self.dsl.syscall.fchmodat AT_FDCWD;
-          }
         ;
         argv1_to_reg =
           throw "dsl.argv1_to_reg not yet implemented for aarch64."
