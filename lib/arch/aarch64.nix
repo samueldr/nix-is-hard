@@ -68,6 +68,50 @@ in
           [ (lib.comment "aarch64: syscall (svc 0)") 1 0 0 212 ]
         ;
 
+        ADD_imm =
+          #
+          #        ╒══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╦══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╕
+          # ╒══════╡  31  │  30  │  29  │  28  │  27  │  26  │  25  │  24  ║  23  │  22  │  21  │  20  │  19  │  18  │  17  │  16  │
+          # │ ADDim│░░░░░░│   0  │   0  │   1  │   0  │   0  │   0  │   1  ║   0  │   0  │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡  sf  │  op  │   S  │                                         │  sh  │  imm12                              ... │
+          #        ├──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────╥──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┤
+          # ╒══════╡  15  │  14  │  13  │  12  │  11  │  10  │   9  │   8  ║   7  │   6  │   5  │   4  │   3  │   2  │   1  │   0  │
+          # │ ADDim│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡ ... imm12                               │  Rn (source)                     │  Rd (destination)                │
+          #        ╘═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
+          #         See: https://developer.arm.com/documentation/ddi0602/2024-12/Base-Instructions/ADD--immediate---Add-immediate-value-
+          #         AKA: ADD_64_addsub_imm
+          #         AKA: ADD_32_addsub_imm
+          #         Encoded operation: 100100010xxxxxxxxxxxxxxxxxxxxxxx
+          #
+          reg: value:
+          let value' = value; in # break infrec
+          let
+            value =
+              if builtins.isInt value' then value' else
+              if builtins.isList value' then (lib.bytesUnsignedToNumber value') else
+              (throw "ADD_imm called with value of unexpected type (${builtins.typeOf value'}); expected integer or list.")
+            ;
+          in
+          let
+            reg' = registers."${reg}";
+            valueBytes = lib.ctypes.toUint64 value;
+            instruction =
+              builtins.foldl' builtins.add 0 ([]
+                ++ optional reg'.is64 (lib.bitShiftLeft 1 31)   # bit[31]    (size)
+                ++ [
+                    (lib.bitShiftLeft 34/* 0b0010_0010 */ 23)   # bit[23:30]
+                    (lib.bitShiftLeft value 10)                 # bit[10:21] (imm12)
+                    (lib.bitShiftLeft reg'.offset 5)            # bit[5:9]   (Rn)
+                    (reg'.offset)                               # bit[5:9]   (Rd)
+                  ]
+              )
+            ;
+          in
+          [ (lib.comment "aarch64: ADD_imm ${reg} ${toString value}") ]
+          ++ (instructionToBytes instruction)
+        ;
+        
         # TODO: The bits table
         # TODO: Generate all conditions, for B and BC
         B.NE =
