@@ -68,6 +68,47 @@ in
           [ (lib.comment "aarch64: syscall (svc 0)") 1 0 0 212 ]
         ;
 
+        LDR_imm =
+          #        ╒══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╦══════╤══════╤══════╤══════╤══════╤══════╤══════╤══════╕
+          # ╒══════╡  31  │  30  │  29  │  28  │  27  │  26  │  25  │  24  ║  23  │  22  │  21  │  20  │  19  │  18  │  17  │  16  │
+          # │  LDR │   1  │░░░░░░│   1  │   1  │   1  │   0  │   0  │   1  ║   0  │   1  │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡ size        │                    │  VR  │             ║  opc        │  imm12                              ... │
+          #        ├──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────╥──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┤
+          # ╒══════╡  15  │  14  │  13  │  12  │  11  │  10  │   9  │   8  ║   7  │   6  │   5  │   4  │   3  │   2  │   1  │   0  │
+          # │  LDR │░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░│
+          # ╘══════╡ ... imm12                               │  Rn                              │  Rt                              │
+          #        ╘═══════════════════════════════════════════════════════════════════════════════════════════════════════════════╛
+          #         See: 
+          #         AKA: LDR_64_ldst_pos
+          #         AKA: LDR_32_ldst_pos
+          #
+          # Encoded operation: 1x11100101xxxxxxxxxxxxxxxxxxxxxx
+          #
+          # `dest` is the destination register name.
+          # `src` is the address's source register name.
+          #
+          # We are not implementing the `imm12` offset.
+          dest: src:
+          let
+            dest' = registers."${dest}";
+            src' = registers."${src}";
+            instruction =
+              builtins.foldl' builtins.add 0 ([]
+                ++ [ (lib.bitShiftLeft 1 31) ]                  # bit[31]    (size)
+                ++ optional dest'.is64 (lib.bitShiftLeft 1 30)  # bit[30]    (size)
+                ++ [
+                    (lib.bitShiftLeft 229/* 0b11100101 */ 22)   # bit[22:29]
+                    # No `imm12` value
+                    (lib.bitShiftLeft src'.offset 5)            # bit[5:9]   (Rn)
+                    (dest'.offset)                              # bit[0:4]   (Rt)
+                  ]
+              )
+            ;
+          in
+          [ (lib.comment "aarch64: LDR_imm ${dest} ${src}") ]
+          ++ (instructionToBytes instruction)
+        ;
+
         MOV_reg =
           # NOTE: MOV operations are aliases of ORR.
           #
