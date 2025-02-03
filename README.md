@@ -1,5 +1,12 @@
+Nix is Hard
+===========
+
+A futile attempt at building binaries using Nix...
+
+* * *
+
 syscalls, in my Nix?
-====================
+--------------------
 
 No, not really. But too close for comfort, too.
 
