@@ -48,10 +48,10 @@ let
       { getString, ... }:
       builtins.concatLists [
         (dsl.argv1_to_reg {
-          register = "ARG0";
+          register = "ARG1";
           errorMessage = getString "no_argv1";
         })
-        (dsl.syscall.chmod null 511 /* 0777 */)
+        (dsl.syscall.fchmodat lib.linux.generic.AT_FDCWD null 511 /* 0777 */)
         # Move return value from previous syscall into ARG0
         # Making the tool return the return value of the syscall
         (dsl.copy_reg "ARG0" "RETURN")
