@@ -246,22 +246,38 @@ in
           reg: value:
           let value' = value; in # break infrec
           let
+            reg' = registers."${reg}";
             value =
-              if builtins.isInt value' then value' else
-              if builtins.isList value' then (lib.bytesUnsignedToNumber value') else
-              (throw "MOV_imm called with value of unexpected type (${builtins.typeOf value'}); expected integer or list.")
+              if builtins.isInt value'
+              then
+                if reg'.is64
+                then if value' < 0 then lib.ctypes.toInt64 value' else lib.ctypes.toUint64 value'
+                else if value' < 0 then lib.ctypes.toInt32 value' else lib.ctypes.toUint32 value'
+              else
+                if builtins.isList value' then value' else
+                (throw "MOV_imm called with value of unexpected type (${builtins.typeOf value'}); expected integer or list.")
             ;
           in
           let
-            reg' = registers."${reg}";
-            valueBytes = lib.ctypes.toUint64 value;
             oneInstruction =
               value: shift:
               let
+                # NOTE: handles LSB only
+                at =
+                  i:
+                  let offset = shift*2+i; in
+                  if offset < (builtins.length value)
+                  then
+                    builtins.elemAt value offset
+                  else
+                    0
+                ;
                 imm16 =
-                  builtins.bitAnd
-                  (lib.b11111111_11111111)
-                  (lib.bitShiftRight value (16*shift));
+                  lib.bytesUnsignedToNumber [
+                    (at 0)
+                    (at 1)
+                  ]
+                ;
               in
               builtins.foldl' builtins.add 0 ([]
                 ++ optional reg'.is64 (lib.bitShiftLeft 1 31)  # bit[31]    (sf)
@@ -283,8 +299,8 @@ in
           # The different MOV instructions are hard.
           # Let's make this simple, and always do the pedantic movk/movz grouping.
           # We *could* (later) optimize this and skip imm16 parts, past the first, that are zero.
-          ++ (instructionToBytes (oneInstruction value 0))
-          ++ (instructionToBytes (oneInstruction value 1))
+          ++                       (instructionToBytes (oneInstruction value 0))
+          ++                       (instructionToBytes (oneInstruction value 1))
           ++ optionals (reg'.is64) (instructionToBytes (oneInstruction value 2))
           ++ optionals (reg'.is64) (instructionToBytes (oneInstruction value 3))
         ;
