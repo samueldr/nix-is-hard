@@ -66,6 +66,7 @@ module ASM_aarch64
   INSTRUCTIONS = [
     ["add",  "ADD_imm",      [:reg2, :imm12]],
     ["b.ne", "B.NE",         [:off19]],
+    ["cmp",  "CMP_imm",      [:reg, :off12]],
     # syscall pseudo-instruction not tested; no operands, trivial and tested otherwise.
   ]
 
