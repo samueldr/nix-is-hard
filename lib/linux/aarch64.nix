@@ -130,7 +130,7 @@ in
 
             # We're using the output register as scratch to test presence of argv1
             # Get the *value* of argc
-            (lib.arch.aarch64.instructions.LDR_imm register' "sp")
+            (lib.arch.aarch64.instructions.LDR_mem register' "sp")
 
             # We're checking *strictly* for argc == 1
             (lib.arch.aarch64.instructions.CMP_imm register' (lib.ctypes.toUint32 1))
@@ -144,7 +144,7 @@ in
             # Skip over argc and argv0
             (lib.arch.aarch64.instructions.ADD_imm register' (lib.ctypes.toUint32 (2 * 8)))
             # Here we copy into the register (effectively (char*)argv[1]).
-            (lib.arch.aarch64.instructions.LDR_imm register' register')
+            (lib.arch.aarch64.instructions.LDR_mem register' register')
 
             [(lib.comment "<end> argv1 to register (${toString register})")]
           ]
