@@ -67,12 +67,14 @@ module ASM_aarch64
     ["add",  "ADD_imm",      [:reg2, :imm12]],
     ["b.ne", "B.NE",         [:off19]],
     ["cmp",  "CMP_imm",      [:reg, :off12]],
+    ["ldr",  "LDR_mem",      [:reg_no_sp, :mem]],
     # syscall pseudo-instruction not tested; no operands, trivial and tested otherwise.
   ]
 
   REGISTER_OPERAND_TYPES = [
     :reg,
     :reg2, # the same register, repeated twice, only in asm input
+    :reg_no_sp, # but not sp
     :mem,
   ]
 
@@ -104,10 +106,20 @@ module ASM_aarch64
       EOF
       type_cases = types.map do |type|
         case type
-        when :reg, :reg2
-          REGISTERS.map do |reg|
-            [type, reg]
-          end
+        when :reg, :reg2, :reg_no_sp
+          REGISTERS
+            .select do |reg|
+              case type
+              when :reg_no_sp
+                reg[:name] != "sp"
+              else
+                true
+              end
+            end
+            .map do |reg|
+              type = :reg if type == :reg_no_sp
+              [type, reg]
+            end
         when :mem
           REGISTERS.select{ _1[:width] == 64 }.map do |reg|
             [:mem, reg]
@@ -166,7 +178,7 @@ module ASM_aarch64
               operand[:name],
             ].join(", ")
           when :mem
-            operand[:name]
+            "[" + operand[:name] + "]"
           when :imm
             "##{operand}"
           when :off
