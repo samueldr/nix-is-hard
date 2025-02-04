@@ -1,2 +1,3 @@
+tests/lib/arch/aarch64.instructions.nix
 tests/lib/arch/x86_64.instructions.nix
 
