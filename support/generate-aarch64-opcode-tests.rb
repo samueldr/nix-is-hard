@@ -69,6 +69,8 @@ module ASM_aarch64
     ["cmp",  "CMP_imm",      [:reg, :off12]],
     ["ldr",  "LDR_mem",      [:reg_no_sp, :mem]],
     ["mov",  "MOV_reg",      [:reg, :reg]],
+    # XXX this is not correct, we're synthesizing four instructions, which is not the convention.
+    #["mov",  "MOV_imm",      [:reg, :imm64]],
     # syscall pseudo-instruction not tested; no operands, trivial and tested otherwise.
   ]
 
