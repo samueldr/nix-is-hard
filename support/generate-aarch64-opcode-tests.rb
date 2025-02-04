@@ -68,6 +68,7 @@ module ASM_aarch64
     ["b.ne", "B.NE",         [:off19]],
     ["cmp",  "CMP_imm",      [:reg, :off12]],
     ["ldr",  "LDR_mem",      [:reg_no_sp, :mem]],
+    ["mov",  "MOV_reg",      [:reg, :reg]],
     # syscall pseudo-instruction not tested; no operands, trivial and tested otherwise.
   ]
 

@@ -4785,4 +4785,4107 @@
     ;
   };
   
+  #
+  # Test generation input:
+  #     ["mov","MOV_reg",["reg","reg"]]
+  #
+  "MOV_reg" = {
+    "mov x0, x0" = expect ''"mov x0, x0" to be correct [e0 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x0"))
+      [ 224 3 0 170 ]
+    ;
+    "mov x0, x1" = expect ''"mov x0, x1" to be correct [e0 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x1"))
+      [ 224 3 1 170 ]
+    ;
+    "mov x0, x2" = expect ''"mov x0, x2" to be correct [e0 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x2"))
+      [ 224 3 2 170 ]
+    ;
+    "mov x0, x3" = expect ''"mov x0, x3" to be correct [e0 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x3"))
+      [ 224 3 3 170 ]
+    ;
+    "mov x0, x4" = expect ''"mov x0, x4" to be correct [e0 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x4"))
+      [ 224 3 4 170 ]
+    ;
+    "mov x0, x5" = expect ''"mov x0, x5" to be correct [e0 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x5"))
+      [ 224 3 5 170 ]
+    ;
+    "mov x0, x6" = expect ''"mov x0, x6" to be correct [e0 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x6"))
+      [ 224 3 6 170 ]
+    ;
+    "mov x0, x7" = expect ''"mov x0, x7" to be correct [e0 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x7"))
+      [ 224 3 7 170 ]
+    ;
+    "mov x0, x8" = expect ''"mov x0, x8" to be correct [e0 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x8"))
+      [ 224 3 8 170 ]
+    ;
+    "mov x0, x9" = expect ''"mov x0, x9" to be correct [e0 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x9"))
+      [ 224 3 9 170 ]
+    ;
+    "mov x0, x10" = expect ''"mov x0, x10" to be correct [e0 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x10"))
+      [ 224 3 10 170 ]
+    ;
+    "mov x0, x11" = expect ''"mov x0, x11" to be correct [e0 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x11"))
+      [ 224 3 11 170 ]
+    ;
+    "mov x0, x12" = expect ''"mov x0, x12" to be correct [e0 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x12"))
+      [ 224 3 12 170 ]
+    ;
+    "mov x0, x13" = expect ''"mov x0, x13" to be correct [e0 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x13"))
+      [ 224 3 13 170 ]
+    ;
+    "mov x0, x14" = expect ''"mov x0, x14" to be correct [e0 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x14"))
+      [ 224 3 14 170 ]
+    ;
+    "mov x0, x15" = expect ''"mov x0, x15" to be correct [e0 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x15"))
+      [ 224 3 15 170 ]
+    ;
+    "mov x0, x16" = expect ''"mov x0, x16" to be correct [e0 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x16"))
+      [ 224 3 16 170 ]
+    ;
+    "mov x0, x17" = expect ''"mov x0, x17" to be correct [e0 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x17"))
+      [ 224 3 17 170 ]
+    ;
+    "mov x0, x18" = expect ''"mov x0, x18" to be correct [e0 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x18"))
+      [ 224 3 18 170 ]
+    ;
+    "mov x0, x19" = expect ''"mov x0, x19" to be correct [e0 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x19"))
+      [ 224 3 19 170 ]
+    ;
+    "mov x0, x20" = expect ''"mov x0, x20" to be correct [e0 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x20"))
+      [ 224 3 20 170 ]
+    ;
+    "mov x0, x21" = expect ''"mov x0, x21" to be correct [e0 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x21"))
+      [ 224 3 21 170 ]
+    ;
+    "mov x0, x22" = expect ''"mov x0, x22" to be correct [e0 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x22"))
+      [ 224 3 22 170 ]
+    ;
+    "mov x0, x23" = expect ''"mov x0, x23" to be correct [e0 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x23"))
+      [ 224 3 23 170 ]
+    ;
+    "mov x0, x24" = expect ''"mov x0, x24" to be correct [e0 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x24"))
+      [ 224 3 24 170 ]
+    ;
+    "mov x0, x25" = expect ''"mov x0, x25" to be correct [e0 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x25"))
+      [ 224 3 25 170 ]
+    ;
+    "mov x0, x26" = expect ''"mov x0, x26" to be correct [e0 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x26"))
+      [ 224 3 26 170 ]
+    ;
+    "mov x0, x27" = expect ''"mov x0, x27" to be correct [e0 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x27"))
+      [ 224 3 27 170 ]
+    ;
+    "mov x0, x28" = expect ''"mov x0, x28" to be correct [e0 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x28"))
+      [ 224 3 28 170 ]
+    ;
+    "mov x0, x29" = expect ''"mov x0, x29" to be correct [e0 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x29"))
+      [ 224 3 29 170 ]
+    ;
+    "mov x0, x30" = expect ''"mov x0, x30" to be correct [e0 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "x30"))
+      [ 224 3 30 170 ]
+    ;
+    "mov x0, sp" = expect ''"mov x0, sp" to be correct [e0 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x0" "sp"))
+      [ 224 3 0 145 ]
+    ;
+    "mov x1, x0" = expect ''"mov x1, x0" to be correct [e1 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x0"))
+      [ 225 3 0 170 ]
+    ;
+    "mov x1, x1" = expect ''"mov x1, x1" to be correct [e1 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x1"))
+      [ 225 3 1 170 ]
+    ;
+    "mov x1, x2" = expect ''"mov x1, x2" to be correct [e1 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x2"))
+      [ 225 3 2 170 ]
+    ;
+    "mov x1, x3" = expect ''"mov x1, x3" to be correct [e1 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x3"))
+      [ 225 3 3 170 ]
+    ;
+    "mov x1, x4" = expect ''"mov x1, x4" to be correct [e1 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x4"))
+      [ 225 3 4 170 ]
+    ;
+    "mov x1, x5" = expect ''"mov x1, x5" to be correct [e1 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x5"))
+      [ 225 3 5 170 ]
+    ;
+    "mov x1, x6" = expect ''"mov x1, x6" to be correct [e1 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x6"))
+      [ 225 3 6 170 ]
+    ;
+    "mov x1, x7" = expect ''"mov x1, x7" to be correct [e1 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x7"))
+      [ 225 3 7 170 ]
+    ;
+    "mov x1, x8" = expect ''"mov x1, x8" to be correct [e1 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x8"))
+      [ 225 3 8 170 ]
+    ;
+    "mov x1, x9" = expect ''"mov x1, x9" to be correct [e1 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x9"))
+      [ 225 3 9 170 ]
+    ;
+    "mov x1, x10" = expect ''"mov x1, x10" to be correct [e1 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x10"))
+      [ 225 3 10 170 ]
+    ;
+    "mov x1, x11" = expect ''"mov x1, x11" to be correct [e1 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x11"))
+      [ 225 3 11 170 ]
+    ;
+    "mov x1, x12" = expect ''"mov x1, x12" to be correct [e1 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x12"))
+      [ 225 3 12 170 ]
+    ;
+    "mov x1, x13" = expect ''"mov x1, x13" to be correct [e1 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x13"))
+      [ 225 3 13 170 ]
+    ;
+    "mov x1, x14" = expect ''"mov x1, x14" to be correct [e1 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x14"))
+      [ 225 3 14 170 ]
+    ;
+    "mov x1, x15" = expect ''"mov x1, x15" to be correct [e1 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x15"))
+      [ 225 3 15 170 ]
+    ;
+    "mov x1, x16" = expect ''"mov x1, x16" to be correct [e1 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x16"))
+      [ 225 3 16 170 ]
+    ;
+    "mov x1, x17" = expect ''"mov x1, x17" to be correct [e1 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x17"))
+      [ 225 3 17 170 ]
+    ;
+    "mov x1, x18" = expect ''"mov x1, x18" to be correct [e1 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x18"))
+      [ 225 3 18 170 ]
+    ;
+    "mov x1, x19" = expect ''"mov x1, x19" to be correct [e1 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x19"))
+      [ 225 3 19 170 ]
+    ;
+    "mov x1, x20" = expect ''"mov x1, x20" to be correct [e1 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x20"))
+      [ 225 3 20 170 ]
+    ;
+    "mov x1, x21" = expect ''"mov x1, x21" to be correct [e1 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x21"))
+      [ 225 3 21 170 ]
+    ;
+    "mov x1, x22" = expect ''"mov x1, x22" to be correct [e1 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x22"))
+      [ 225 3 22 170 ]
+    ;
+    "mov x1, x23" = expect ''"mov x1, x23" to be correct [e1 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x23"))
+      [ 225 3 23 170 ]
+    ;
+    "mov x1, x24" = expect ''"mov x1, x24" to be correct [e1 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x24"))
+      [ 225 3 24 170 ]
+    ;
+    "mov x1, x25" = expect ''"mov x1, x25" to be correct [e1 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x25"))
+      [ 225 3 25 170 ]
+    ;
+    "mov x1, x26" = expect ''"mov x1, x26" to be correct [e1 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x26"))
+      [ 225 3 26 170 ]
+    ;
+    "mov x1, x27" = expect ''"mov x1, x27" to be correct [e1 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x27"))
+      [ 225 3 27 170 ]
+    ;
+    "mov x1, x28" = expect ''"mov x1, x28" to be correct [e1 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x28"))
+      [ 225 3 28 170 ]
+    ;
+    "mov x1, x29" = expect ''"mov x1, x29" to be correct [e1 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x29"))
+      [ 225 3 29 170 ]
+    ;
+    "mov x1, x30" = expect ''"mov x1, x30" to be correct [e1 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "x30"))
+      [ 225 3 30 170 ]
+    ;
+    "mov x1, sp" = expect ''"mov x1, sp" to be correct [e1 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x1" "sp"))
+      [ 225 3 0 145 ]
+    ;
+    "mov x2, x0" = expect ''"mov x2, x0" to be correct [e2 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x0"))
+      [ 226 3 0 170 ]
+    ;
+    "mov x2, x1" = expect ''"mov x2, x1" to be correct [e2 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x1"))
+      [ 226 3 1 170 ]
+    ;
+    "mov x2, x2" = expect ''"mov x2, x2" to be correct [e2 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x2"))
+      [ 226 3 2 170 ]
+    ;
+    "mov x2, x3" = expect ''"mov x2, x3" to be correct [e2 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x3"))
+      [ 226 3 3 170 ]
+    ;
+    "mov x2, x4" = expect ''"mov x2, x4" to be correct [e2 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x4"))
+      [ 226 3 4 170 ]
+    ;
+    "mov x2, x5" = expect ''"mov x2, x5" to be correct [e2 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x5"))
+      [ 226 3 5 170 ]
+    ;
+    "mov x2, x6" = expect ''"mov x2, x6" to be correct [e2 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x6"))
+      [ 226 3 6 170 ]
+    ;
+    "mov x2, x7" = expect ''"mov x2, x7" to be correct [e2 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x7"))
+      [ 226 3 7 170 ]
+    ;
+    "mov x2, x8" = expect ''"mov x2, x8" to be correct [e2 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x8"))
+      [ 226 3 8 170 ]
+    ;
+    "mov x2, x9" = expect ''"mov x2, x9" to be correct [e2 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x9"))
+      [ 226 3 9 170 ]
+    ;
+    "mov x2, x10" = expect ''"mov x2, x10" to be correct [e2 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x10"))
+      [ 226 3 10 170 ]
+    ;
+    "mov x2, x11" = expect ''"mov x2, x11" to be correct [e2 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x11"))
+      [ 226 3 11 170 ]
+    ;
+    "mov x2, x12" = expect ''"mov x2, x12" to be correct [e2 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x12"))
+      [ 226 3 12 170 ]
+    ;
+    "mov x2, x13" = expect ''"mov x2, x13" to be correct [e2 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x13"))
+      [ 226 3 13 170 ]
+    ;
+    "mov x2, x14" = expect ''"mov x2, x14" to be correct [e2 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x14"))
+      [ 226 3 14 170 ]
+    ;
+    "mov x2, x15" = expect ''"mov x2, x15" to be correct [e2 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x15"))
+      [ 226 3 15 170 ]
+    ;
+    "mov x2, x16" = expect ''"mov x2, x16" to be correct [e2 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x16"))
+      [ 226 3 16 170 ]
+    ;
+    "mov x2, x17" = expect ''"mov x2, x17" to be correct [e2 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x17"))
+      [ 226 3 17 170 ]
+    ;
+    "mov x2, x18" = expect ''"mov x2, x18" to be correct [e2 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x18"))
+      [ 226 3 18 170 ]
+    ;
+    "mov x2, x19" = expect ''"mov x2, x19" to be correct [e2 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x19"))
+      [ 226 3 19 170 ]
+    ;
+    "mov x2, x20" = expect ''"mov x2, x20" to be correct [e2 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x20"))
+      [ 226 3 20 170 ]
+    ;
+    "mov x2, x21" = expect ''"mov x2, x21" to be correct [e2 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x21"))
+      [ 226 3 21 170 ]
+    ;
+    "mov x2, x22" = expect ''"mov x2, x22" to be correct [e2 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x22"))
+      [ 226 3 22 170 ]
+    ;
+    "mov x2, x23" = expect ''"mov x2, x23" to be correct [e2 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x23"))
+      [ 226 3 23 170 ]
+    ;
+    "mov x2, x24" = expect ''"mov x2, x24" to be correct [e2 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x24"))
+      [ 226 3 24 170 ]
+    ;
+    "mov x2, x25" = expect ''"mov x2, x25" to be correct [e2 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x25"))
+      [ 226 3 25 170 ]
+    ;
+    "mov x2, x26" = expect ''"mov x2, x26" to be correct [e2 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x26"))
+      [ 226 3 26 170 ]
+    ;
+    "mov x2, x27" = expect ''"mov x2, x27" to be correct [e2 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x27"))
+      [ 226 3 27 170 ]
+    ;
+    "mov x2, x28" = expect ''"mov x2, x28" to be correct [e2 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x28"))
+      [ 226 3 28 170 ]
+    ;
+    "mov x2, x29" = expect ''"mov x2, x29" to be correct [e2 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x29"))
+      [ 226 3 29 170 ]
+    ;
+    "mov x2, x30" = expect ''"mov x2, x30" to be correct [e2 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "x30"))
+      [ 226 3 30 170 ]
+    ;
+    "mov x2, sp" = expect ''"mov x2, sp" to be correct [e2 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x2" "sp"))
+      [ 226 3 0 145 ]
+    ;
+    "mov x3, x0" = expect ''"mov x3, x0" to be correct [e3 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x0"))
+      [ 227 3 0 170 ]
+    ;
+    "mov x3, x1" = expect ''"mov x3, x1" to be correct [e3 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x1"))
+      [ 227 3 1 170 ]
+    ;
+    "mov x3, x2" = expect ''"mov x3, x2" to be correct [e3 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x2"))
+      [ 227 3 2 170 ]
+    ;
+    "mov x3, x3" = expect ''"mov x3, x3" to be correct [e3 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x3"))
+      [ 227 3 3 170 ]
+    ;
+    "mov x3, x4" = expect ''"mov x3, x4" to be correct [e3 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x4"))
+      [ 227 3 4 170 ]
+    ;
+    "mov x3, x5" = expect ''"mov x3, x5" to be correct [e3 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x5"))
+      [ 227 3 5 170 ]
+    ;
+    "mov x3, x6" = expect ''"mov x3, x6" to be correct [e3 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x6"))
+      [ 227 3 6 170 ]
+    ;
+    "mov x3, x7" = expect ''"mov x3, x7" to be correct [e3 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x7"))
+      [ 227 3 7 170 ]
+    ;
+    "mov x3, x8" = expect ''"mov x3, x8" to be correct [e3 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x8"))
+      [ 227 3 8 170 ]
+    ;
+    "mov x3, x9" = expect ''"mov x3, x9" to be correct [e3 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x9"))
+      [ 227 3 9 170 ]
+    ;
+    "mov x3, x10" = expect ''"mov x3, x10" to be correct [e3 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x10"))
+      [ 227 3 10 170 ]
+    ;
+    "mov x3, x11" = expect ''"mov x3, x11" to be correct [e3 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x11"))
+      [ 227 3 11 170 ]
+    ;
+    "mov x3, x12" = expect ''"mov x3, x12" to be correct [e3 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x12"))
+      [ 227 3 12 170 ]
+    ;
+    "mov x3, x13" = expect ''"mov x3, x13" to be correct [e3 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x13"))
+      [ 227 3 13 170 ]
+    ;
+    "mov x3, x14" = expect ''"mov x3, x14" to be correct [e3 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x14"))
+      [ 227 3 14 170 ]
+    ;
+    "mov x3, x15" = expect ''"mov x3, x15" to be correct [e3 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x15"))
+      [ 227 3 15 170 ]
+    ;
+    "mov x3, x16" = expect ''"mov x3, x16" to be correct [e3 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x16"))
+      [ 227 3 16 170 ]
+    ;
+    "mov x3, x17" = expect ''"mov x3, x17" to be correct [e3 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x17"))
+      [ 227 3 17 170 ]
+    ;
+    "mov x3, x18" = expect ''"mov x3, x18" to be correct [e3 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x18"))
+      [ 227 3 18 170 ]
+    ;
+    "mov x3, x19" = expect ''"mov x3, x19" to be correct [e3 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x19"))
+      [ 227 3 19 170 ]
+    ;
+    "mov x3, x20" = expect ''"mov x3, x20" to be correct [e3 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x20"))
+      [ 227 3 20 170 ]
+    ;
+    "mov x3, x21" = expect ''"mov x3, x21" to be correct [e3 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x21"))
+      [ 227 3 21 170 ]
+    ;
+    "mov x3, x22" = expect ''"mov x3, x22" to be correct [e3 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x22"))
+      [ 227 3 22 170 ]
+    ;
+    "mov x3, x23" = expect ''"mov x3, x23" to be correct [e3 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x23"))
+      [ 227 3 23 170 ]
+    ;
+    "mov x3, x24" = expect ''"mov x3, x24" to be correct [e3 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x24"))
+      [ 227 3 24 170 ]
+    ;
+    "mov x3, x25" = expect ''"mov x3, x25" to be correct [e3 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x25"))
+      [ 227 3 25 170 ]
+    ;
+    "mov x3, x26" = expect ''"mov x3, x26" to be correct [e3 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x26"))
+      [ 227 3 26 170 ]
+    ;
+    "mov x3, x27" = expect ''"mov x3, x27" to be correct [e3 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x27"))
+      [ 227 3 27 170 ]
+    ;
+    "mov x3, x28" = expect ''"mov x3, x28" to be correct [e3 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x28"))
+      [ 227 3 28 170 ]
+    ;
+    "mov x3, x29" = expect ''"mov x3, x29" to be correct [e3 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x29"))
+      [ 227 3 29 170 ]
+    ;
+    "mov x3, x30" = expect ''"mov x3, x30" to be correct [e3 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "x30"))
+      [ 227 3 30 170 ]
+    ;
+    "mov x3, sp" = expect ''"mov x3, sp" to be correct [e3 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x3" "sp"))
+      [ 227 3 0 145 ]
+    ;
+    "mov x4, x0" = expect ''"mov x4, x0" to be correct [e4 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x0"))
+      [ 228 3 0 170 ]
+    ;
+    "mov x4, x1" = expect ''"mov x4, x1" to be correct [e4 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x1"))
+      [ 228 3 1 170 ]
+    ;
+    "mov x4, x2" = expect ''"mov x4, x2" to be correct [e4 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x2"))
+      [ 228 3 2 170 ]
+    ;
+    "mov x4, x3" = expect ''"mov x4, x3" to be correct [e4 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x3"))
+      [ 228 3 3 170 ]
+    ;
+    "mov x4, x4" = expect ''"mov x4, x4" to be correct [e4 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x4"))
+      [ 228 3 4 170 ]
+    ;
+    "mov x4, x5" = expect ''"mov x4, x5" to be correct [e4 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x5"))
+      [ 228 3 5 170 ]
+    ;
+    "mov x4, x6" = expect ''"mov x4, x6" to be correct [e4 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x6"))
+      [ 228 3 6 170 ]
+    ;
+    "mov x4, x7" = expect ''"mov x4, x7" to be correct [e4 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x7"))
+      [ 228 3 7 170 ]
+    ;
+    "mov x4, x8" = expect ''"mov x4, x8" to be correct [e4 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x8"))
+      [ 228 3 8 170 ]
+    ;
+    "mov x4, x9" = expect ''"mov x4, x9" to be correct [e4 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x9"))
+      [ 228 3 9 170 ]
+    ;
+    "mov x4, x10" = expect ''"mov x4, x10" to be correct [e4 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x10"))
+      [ 228 3 10 170 ]
+    ;
+    "mov x4, x11" = expect ''"mov x4, x11" to be correct [e4 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x11"))
+      [ 228 3 11 170 ]
+    ;
+    "mov x4, x12" = expect ''"mov x4, x12" to be correct [e4 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x12"))
+      [ 228 3 12 170 ]
+    ;
+    "mov x4, x13" = expect ''"mov x4, x13" to be correct [e4 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x13"))
+      [ 228 3 13 170 ]
+    ;
+    "mov x4, x14" = expect ''"mov x4, x14" to be correct [e4 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x14"))
+      [ 228 3 14 170 ]
+    ;
+    "mov x4, x15" = expect ''"mov x4, x15" to be correct [e4 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x15"))
+      [ 228 3 15 170 ]
+    ;
+    "mov x4, x16" = expect ''"mov x4, x16" to be correct [e4 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x16"))
+      [ 228 3 16 170 ]
+    ;
+    "mov x4, x17" = expect ''"mov x4, x17" to be correct [e4 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x17"))
+      [ 228 3 17 170 ]
+    ;
+    "mov x4, x18" = expect ''"mov x4, x18" to be correct [e4 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x18"))
+      [ 228 3 18 170 ]
+    ;
+    "mov x4, x19" = expect ''"mov x4, x19" to be correct [e4 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x19"))
+      [ 228 3 19 170 ]
+    ;
+    "mov x4, x20" = expect ''"mov x4, x20" to be correct [e4 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x20"))
+      [ 228 3 20 170 ]
+    ;
+    "mov x4, x21" = expect ''"mov x4, x21" to be correct [e4 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x21"))
+      [ 228 3 21 170 ]
+    ;
+    "mov x4, x22" = expect ''"mov x4, x22" to be correct [e4 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x22"))
+      [ 228 3 22 170 ]
+    ;
+    "mov x4, x23" = expect ''"mov x4, x23" to be correct [e4 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x23"))
+      [ 228 3 23 170 ]
+    ;
+    "mov x4, x24" = expect ''"mov x4, x24" to be correct [e4 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x24"))
+      [ 228 3 24 170 ]
+    ;
+    "mov x4, x25" = expect ''"mov x4, x25" to be correct [e4 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x25"))
+      [ 228 3 25 170 ]
+    ;
+    "mov x4, x26" = expect ''"mov x4, x26" to be correct [e4 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x26"))
+      [ 228 3 26 170 ]
+    ;
+    "mov x4, x27" = expect ''"mov x4, x27" to be correct [e4 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x27"))
+      [ 228 3 27 170 ]
+    ;
+    "mov x4, x28" = expect ''"mov x4, x28" to be correct [e4 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x28"))
+      [ 228 3 28 170 ]
+    ;
+    "mov x4, x29" = expect ''"mov x4, x29" to be correct [e4 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x29"))
+      [ 228 3 29 170 ]
+    ;
+    "mov x4, x30" = expect ''"mov x4, x30" to be correct [e4 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "x30"))
+      [ 228 3 30 170 ]
+    ;
+    "mov x4, sp" = expect ''"mov x4, sp" to be correct [e4 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x4" "sp"))
+      [ 228 3 0 145 ]
+    ;
+    "mov x5, x0" = expect ''"mov x5, x0" to be correct [e5 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x0"))
+      [ 229 3 0 170 ]
+    ;
+    "mov x5, x1" = expect ''"mov x5, x1" to be correct [e5 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x1"))
+      [ 229 3 1 170 ]
+    ;
+    "mov x5, x2" = expect ''"mov x5, x2" to be correct [e5 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x2"))
+      [ 229 3 2 170 ]
+    ;
+    "mov x5, x3" = expect ''"mov x5, x3" to be correct [e5 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x3"))
+      [ 229 3 3 170 ]
+    ;
+    "mov x5, x4" = expect ''"mov x5, x4" to be correct [e5 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x4"))
+      [ 229 3 4 170 ]
+    ;
+    "mov x5, x5" = expect ''"mov x5, x5" to be correct [e5 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x5"))
+      [ 229 3 5 170 ]
+    ;
+    "mov x5, x6" = expect ''"mov x5, x6" to be correct [e5 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x6"))
+      [ 229 3 6 170 ]
+    ;
+    "mov x5, x7" = expect ''"mov x5, x7" to be correct [e5 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x7"))
+      [ 229 3 7 170 ]
+    ;
+    "mov x5, x8" = expect ''"mov x5, x8" to be correct [e5 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x8"))
+      [ 229 3 8 170 ]
+    ;
+    "mov x5, x9" = expect ''"mov x5, x9" to be correct [e5 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x9"))
+      [ 229 3 9 170 ]
+    ;
+    "mov x5, x10" = expect ''"mov x5, x10" to be correct [e5 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x10"))
+      [ 229 3 10 170 ]
+    ;
+    "mov x5, x11" = expect ''"mov x5, x11" to be correct [e5 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x11"))
+      [ 229 3 11 170 ]
+    ;
+    "mov x5, x12" = expect ''"mov x5, x12" to be correct [e5 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x12"))
+      [ 229 3 12 170 ]
+    ;
+    "mov x5, x13" = expect ''"mov x5, x13" to be correct [e5 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x13"))
+      [ 229 3 13 170 ]
+    ;
+    "mov x5, x14" = expect ''"mov x5, x14" to be correct [e5 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x14"))
+      [ 229 3 14 170 ]
+    ;
+    "mov x5, x15" = expect ''"mov x5, x15" to be correct [e5 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x15"))
+      [ 229 3 15 170 ]
+    ;
+    "mov x5, x16" = expect ''"mov x5, x16" to be correct [e5 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x16"))
+      [ 229 3 16 170 ]
+    ;
+    "mov x5, x17" = expect ''"mov x5, x17" to be correct [e5 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x17"))
+      [ 229 3 17 170 ]
+    ;
+    "mov x5, x18" = expect ''"mov x5, x18" to be correct [e5 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x18"))
+      [ 229 3 18 170 ]
+    ;
+    "mov x5, x19" = expect ''"mov x5, x19" to be correct [e5 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x19"))
+      [ 229 3 19 170 ]
+    ;
+    "mov x5, x20" = expect ''"mov x5, x20" to be correct [e5 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x20"))
+      [ 229 3 20 170 ]
+    ;
+    "mov x5, x21" = expect ''"mov x5, x21" to be correct [e5 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x21"))
+      [ 229 3 21 170 ]
+    ;
+    "mov x5, x22" = expect ''"mov x5, x22" to be correct [e5 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x22"))
+      [ 229 3 22 170 ]
+    ;
+    "mov x5, x23" = expect ''"mov x5, x23" to be correct [e5 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x23"))
+      [ 229 3 23 170 ]
+    ;
+    "mov x5, x24" = expect ''"mov x5, x24" to be correct [e5 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x24"))
+      [ 229 3 24 170 ]
+    ;
+    "mov x5, x25" = expect ''"mov x5, x25" to be correct [e5 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x25"))
+      [ 229 3 25 170 ]
+    ;
+    "mov x5, x26" = expect ''"mov x5, x26" to be correct [e5 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x26"))
+      [ 229 3 26 170 ]
+    ;
+    "mov x5, x27" = expect ''"mov x5, x27" to be correct [e5 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x27"))
+      [ 229 3 27 170 ]
+    ;
+    "mov x5, x28" = expect ''"mov x5, x28" to be correct [e5 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x28"))
+      [ 229 3 28 170 ]
+    ;
+    "mov x5, x29" = expect ''"mov x5, x29" to be correct [e5 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x29"))
+      [ 229 3 29 170 ]
+    ;
+    "mov x5, x30" = expect ''"mov x5, x30" to be correct [e5 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "x30"))
+      [ 229 3 30 170 ]
+    ;
+    "mov x5, sp" = expect ''"mov x5, sp" to be correct [e5 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x5" "sp"))
+      [ 229 3 0 145 ]
+    ;
+    "mov x6, x0" = expect ''"mov x6, x0" to be correct [e6 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x0"))
+      [ 230 3 0 170 ]
+    ;
+    "mov x6, x1" = expect ''"mov x6, x1" to be correct [e6 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x1"))
+      [ 230 3 1 170 ]
+    ;
+    "mov x6, x2" = expect ''"mov x6, x2" to be correct [e6 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x2"))
+      [ 230 3 2 170 ]
+    ;
+    "mov x6, x3" = expect ''"mov x6, x3" to be correct [e6 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x3"))
+      [ 230 3 3 170 ]
+    ;
+    "mov x6, x4" = expect ''"mov x6, x4" to be correct [e6 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x4"))
+      [ 230 3 4 170 ]
+    ;
+    "mov x6, x5" = expect ''"mov x6, x5" to be correct [e6 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x5"))
+      [ 230 3 5 170 ]
+    ;
+    "mov x6, x6" = expect ''"mov x6, x6" to be correct [e6 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x6"))
+      [ 230 3 6 170 ]
+    ;
+    "mov x6, x7" = expect ''"mov x6, x7" to be correct [e6 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x7"))
+      [ 230 3 7 170 ]
+    ;
+    "mov x6, x8" = expect ''"mov x6, x8" to be correct [e6 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x8"))
+      [ 230 3 8 170 ]
+    ;
+    "mov x6, x9" = expect ''"mov x6, x9" to be correct [e6 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x9"))
+      [ 230 3 9 170 ]
+    ;
+    "mov x6, x10" = expect ''"mov x6, x10" to be correct [e6 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x10"))
+      [ 230 3 10 170 ]
+    ;
+    "mov x6, x11" = expect ''"mov x6, x11" to be correct [e6 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x11"))
+      [ 230 3 11 170 ]
+    ;
+    "mov x6, x12" = expect ''"mov x6, x12" to be correct [e6 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x12"))
+      [ 230 3 12 170 ]
+    ;
+    "mov x6, x13" = expect ''"mov x6, x13" to be correct [e6 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x13"))
+      [ 230 3 13 170 ]
+    ;
+    "mov x6, x14" = expect ''"mov x6, x14" to be correct [e6 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x14"))
+      [ 230 3 14 170 ]
+    ;
+    "mov x6, x15" = expect ''"mov x6, x15" to be correct [e6 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x15"))
+      [ 230 3 15 170 ]
+    ;
+    "mov x6, x16" = expect ''"mov x6, x16" to be correct [e6 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x16"))
+      [ 230 3 16 170 ]
+    ;
+    "mov x6, x17" = expect ''"mov x6, x17" to be correct [e6 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x17"))
+      [ 230 3 17 170 ]
+    ;
+    "mov x6, x18" = expect ''"mov x6, x18" to be correct [e6 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x18"))
+      [ 230 3 18 170 ]
+    ;
+    "mov x6, x19" = expect ''"mov x6, x19" to be correct [e6 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x19"))
+      [ 230 3 19 170 ]
+    ;
+    "mov x6, x20" = expect ''"mov x6, x20" to be correct [e6 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x20"))
+      [ 230 3 20 170 ]
+    ;
+    "mov x6, x21" = expect ''"mov x6, x21" to be correct [e6 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x21"))
+      [ 230 3 21 170 ]
+    ;
+    "mov x6, x22" = expect ''"mov x6, x22" to be correct [e6 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x22"))
+      [ 230 3 22 170 ]
+    ;
+    "mov x6, x23" = expect ''"mov x6, x23" to be correct [e6 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x23"))
+      [ 230 3 23 170 ]
+    ;
+    "mov x6, x24" = expect ''"mov x6, x24" to be correct [e6 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x24"))
+      [ 230 3 24 170 ]
+    ;
+    "mov x6, x25" = expect ''"mov x6, x25" to be correct [e6 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x25"))
+      [ 230 3 25 170 ]
+    ;
+    "mov x6, x26" = expect ''"mov x6, x26" to be correct [e6 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x26"))
+      [ 230 3 26 170 ]
+    ;
+    "mov x6, x27" = expect ''"mov x6, x27" to be correct [e6 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x27"))
+      [ 230 3 27 170 ]
+    ;
+    "mov x6, x28" = expect ''"mov x6, x28" to be correct [e6 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x28"))
+      [ 230 3 28 170 ]
+    ;
+    "mov x6, x29" = expect ''"mov x6, x29" to be correct [e6 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x29"))
+      [ 230 3 29 170 ]
+    ;
+    "mov x6, x30" = expect ''"mov x6, x30" to be correct [e6 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "x30"))
+      [ 230 3 30 170 ]
+    ;
+    "mov x6, sp" = expect ''"mov x6, sp" to be correct [e6 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x6" "sp"))
+      [ 230 3 0 145 ]
+    ;
+    "mov x7, x0" = expect ''"mov x7, x0" to be correct [e7 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x0"))
+      [ 231 3 0 170 ]
+    ;
+    "mov x7, x1" = expect ''"mov x7, x1" to be correct [e7 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x1"))
+      [ 231 3 1 170 ]
+    ;
+    "mov x7, x2" = expect ''"mov x7, x2" to be correct [e7 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x2"))
+      [ 231 3 2 170 ]
+    ;
+    "mov x7, x3" = expect ''"mov x7, x3" to be correct [e7 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x3"))
+      [ 231 3 3 170 ]
+    ;
+    "mov x7, x4" = expect ''"mov x7, x4" to be correct [e7 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x4"))
+      [ 231 3 4 170 ]
+    ;
+    "mov x7, x5" = expect ''"mov x7, x5" to be correct [e7 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x5"))
+      [ 231 3 5 170 ]
+    ;
+    "mov x7, x6" = expect ''"mov x7, x6" to be correct [e7 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x6"))
+      [ 231 3 6 170 ]
+    ;
+    "mov x7, x7" = expect ''"mov x7, x7" to be correct [e7 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x7"))
+      [ 231 3 7 170 ]
+    ;
+    "mov x7, x8" = expect ''"mov x7, x8" to be correct [e7 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x8"))
+      [ 231 3 8 170 ]
+    ;
+    "mov x7, x9" = expect ''"mov x7, x9" to be correct [e7 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x9"))
+      [ 231 3 9 170 ]
+    ;
+    "mov x7, x10" = expect ''"mov x7, x10" to be correct [e7 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x10"))
+      [ 231 3 10 170 ]
+    ;
+    "mov x7, x11" = expect ''"mov x7, x11" to be correct [e7 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x11"))
+      [ 231 3 11 170 ]
+    ;
+    "mov x7, x12" = expect ''"mov x7, x12" to be correct [e7 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x12"))
+      [ 231 3 12 170 ]
+    ;
+    "mov x7, x13" = expect ''"mov x7, x13" to be correct [e7 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x13"))
+      [ 231 3 13 170 ]
+    ;
+    "mov x7, x14" = expect ''"mov x7, x14" to be correct [e7 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x14"))
+      [ 231 3 14 170 ]
+    ;
+    "mov x7, x15" = expect ''"mov x7, x15" to be correct [e7 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x15"))
+      [ 231 3 15 170 ]
+    ;
+    "mov x7, x16" = expect ''"mov x7, x16" to be correct [e7 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x16"))
+      [ 231 3 16 170 ]
+    ;
+    "mov x7, x17" = expect ''"mov x7, x17" to be correct [e7 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x17"))
+      [ 231 3 17 170 ]
+    ;
+    "mov x7, x18" = expect ''"mov x7, x18" to be correct [e7 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x18"))
+      [ 231 3 18 170 ]
+    ;
+    "mov x7, x19" = expect ''"mov x7, x19" to be correct [e7 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x19"))
+      [ 231 3 19 170 ]
+    ;
+    "mov x7, x20" = expect ''"mov x7, x20" to be correct [e7 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x20"))
+      [ 231 3 20 170 ]
+    ;
+    "mov x7, x21" = expect ''"mov x7, x21" to be correct [e7 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x21"))
+      [ 231 3 21 170 ]
+    ;
+    "mov x7, x22" = expect ''"mov x7, x22" to be correct [e7 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x22"))
+      [ 231 3 22 170 ]
+    ;
+    "mov x7, x23" = expect ''"mov x7, x23" to be correct [e7 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x23"))
+      [ 231 3 23 170 ]
+    ;
+    "mov x7, x24" = expect ''"mov x7, x24" to be correct [e7 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x24"))
+      [ 231 3 24 170 ]
+    ;
+    "mov x7, x25" = expect ''"mov x7, x25" to be correct [e7 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x25"))
+      [ 231 3 25 170 ]
+    ;
+    "mov x7, x26" = expect ''"mov x7, x26" to be correct [e7 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x26"))
+      [ 231 3 26 170 ]
+    ;
+    "mov x7, x27" = expect ''"mov x7, x27" to be correct [e7 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x27"))
+      [ 231 3 27 170 ]
+    ;
+    "mov x7, x28" = expect ''"mov x7, x28" to be correct [e7 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x28"))
+      [ 231 3 28 170 ]
+    ;
+    "mov x7, x29" = expect ''"mov x7, x29" to be correct [e7 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x29"))
+      [ 231 3 29 170 ]
+    ;
+    "mov x7, x30" = expect ''"mov x7, x30" to be correct [e7 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "x30"))
+      [ 231 3 30 170 ]
+    ;
+    "mov x7, sp" = expect ''"mov x7, sp" to be correct [e7 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x7" "sp"))
+      [ 231 3 0 145 ]
+    ;
+    "mov x8, x0" = expect ''"mov x8, x0" to be correct [e8 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x0"))
+      [ 232 3 0 170 ]
+    ;
+    "mov x8, x1" = expect ''"mov x8, x1" to be correct [e8 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x1"))
+      [ 232 3 1 170 ]
+    ;
+    "mov x8, x2" = expect ''"mov x8, x2" to be correct [e8 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x2"))
+      [ 232 3 2 170 ]
+    ;
+    "mov x8, x3" = expect ''"mov x8, x3" to be correct [e8 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x3"))
+      [ 232 3 3 170 ]
+    ;
+    "mov x8, x4" = expect ''"mov x8, x4" to be correct [e8 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x4"))
+      [ 232 3 4 170 ]
+    ;
+    "mov x8, x5" = expect ''"mov x8, x5" to be correct [e8 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x5"))
+      [ 232 3 5 170 ]
+    ;
+    "mov x8, x6" = expect ''"mov x8, x6" to be correct [e8 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x6"))
+      [ 232 3 6 170 ]
+    ;
+    "mov x8, x7" = expect ''"mov x8, x7" to be correct [e8 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x7"))
+      [ 232 3 7 170 ]
+    ;
+    "mov x8, x8" = expect ''"mov x8, x8" to be correct [e8 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x8"))
+      [ 232 3 8 170 ]
+    ;
+    "mov x8, x9" = expect ''"mov x8, x9" to be correct [e8 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x9"))
+      [ 232 3 9 170 ]
+    ;
+    "mov x8, x10" = expect ''"mov x8, x10" to be correct [e8 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x10"))
+      [ 232 3 10 170 ]
+    ;
+    "mov x8, x11" = expect ''"mov x8, x11" to be correct [e8 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x11"))
+      [ 232 3 11 170 ]
+    ;
+    "mov x8, x12" = expect ''"mov x8, x12" to be correct [e8 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x12"))
+      [ 232 3 12 170 ]
+    ;
+    "mov x8, x13" = expect ''"mov x8, x13" to be correct [e8 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x13"))
+      [ 232 3 13 170 ]
+    ;
+    "mov x8, x14" = expect ''"mov x8, x14" to be correct [e8 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x14"))
+      [ 232 3 14 170 ]
+    ;
+    "mov x8, x15" = expect ''"mov x8, x15" to be correct [e8 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x15"))
+      [ 232 3 15 170 ]
+    ;
+    "mov x8, x16" = expect ''"mov x8, x16" to be correct [e8 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x16"))
+      [ 232 3 16 170 ]
+    ;
+    "mov x8, x17" = expect ''"mov x8, x17" to be correct [e8 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x17"))
+      [ 232 3 17 170 ]
+    ;
+    "mov x8, x18" = expect ''"mov x8, x18" to be correct [e8 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x18"))
+      [ 232 3 18 170 ]
+    ;
+    "mov x8, x19" = expect ''"mov x8, x19" to be correct [e8 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x19"))
+      [ 232 3 19 170 ]
+    ;
+    "mov x8, x20" = expect ''"mov x8, x20" to be correct [e8 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x20"))
+      [ 232 3 20 170 ]
+    ;
+    "mov x8, x21" = expect ''"mov x8, x21" to be correct [e8 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x21"))
+      [ 232 3 21 170 ]
+    ;
+    "mov x8, x22" = expect ''"mov x8, x22" to be correct [e8 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x22"))
+      [ 232 3 22 170 ]
+    ;
+    "mov x8, x23" = expect ''"mov x8, x23" to be correct [e8 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x23"))
+      [ 232 3 23 170 ]
+    ;
+    "mov x8, x24" = expect ''"mov x8, x24" to be correct [e8 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x24"))
+      [ 232 3 24 170 ]
+    ;
+    "mov x8, x25" = expect ''"mov x8, x25" to be correct [e8 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x25"))
+      [ 232 3 25 170 ]
+    ;
+    "mov x8, x26" = expect ''"mov x8, x26" to be correct [e8 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x26"))
+      [ 232 3 26 170 ]
+    ;
+    "mov x8, x27" = expect ''"mov x8, x27" to be correct [e8 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x27"))
+      [ 232 3 27 170 ]
+    ;
+    "mov x8, x28" = expect ''"mov x8, x28" to be correct [e8 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x28"))
+      [ 232 3 28 170 ]
+    ;
+    "mov x8, x29" = expect ''"mov x8, x29" to be correct [e8 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x29"))
+      [ 232 3 29 170 ]
+    ;
+    "mov x8, x30" = expect ''"mov x8, x30" to be correct [e8 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "x30"))
+      [ 232 3 30 170 ]
+    ;
+    "mov x8, sp" = expect ''"mov x8, sp" to be correct [e8 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x8" "sp"))
+      [ 232 3 0 145 ]
+    ;
+    "mov x9, x0" = expect ''"mov x9, x0" to be correct [e9 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x0"))
+      [ 233 3 0 170 ]
+    ;
+    "mov x9, x1" = expect ''"mov x9, x1" to be correct [e9 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x1"))
+      [ 233 3 1 170 ]
+    ;
+    "mov x9, x2" = expect ''"mov x9, x2" to be correct [e9 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x2"))
+      [ 233 3 2 170 ]
+    ;
+    "mov x9, x3" = expect ''"mov x9, x3" to be correct [e9 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x3"))
+      [ 233 3 3 170 ]
+    ;
+    "mov x9, x4" = expect ''"mov x9, x4" to be correct [e9 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x4"))
+      [ 233 3 4 170 ]
+    ;
+    "mov x9, x5" = expect ''"mov x9, x5" to be correct [e9 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x5"))
+      [ 233 3 5 170 ]
+    ;
+    "mov x9, x6" = expect ''"mov x9, x6" to be correct [e9 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x6"))
+      [ 233 3 6 170 ]
+    ;
+    "mov x9, x7" = expect ''"mov x9, x7" to be correct [e9 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x7"))
+      [ 233 3 7 170 ]
+    ;
+    "mov x9, x8" = expect ''"mov x9, x8" to be correct [e9 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x8"))
+      [ 233 3 8 170 ]
+    ;
+    "mov x9, x9" = expect ''"mov x9, x9" to be correct [e9 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x9"))
+      [ 233 3 9 170 ]
+    ;
+    "mov x9, x10" = expect ''"mov x9, x10" to be correct [e9 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x10"))
+      [ 233 3 10 170 ]
+    ;
+    "mov x9, x11" = expect ''"mov x9, x11" to be correct [e9 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x11"))
+      [ 233 3 11 170 ]
+    ;
+    "mov x9, x12" = expect ''"mov x9, x12" to be correct [e9 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x12"))
+      [ 233 3 12 170 ]
+    ;
+    "mov x9, x13" = expect ''"mov x9, x13" to be correct [e9 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x13"))
+      [ 233 3 13 170 ]
+    ;
+    "mov x9, x14" = expect ''"mov x9, x14" to be correct [e9 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x14"))
+      [ 233 3 14 170 ]
+    ;
+    "mov x9, x15" = expect ''"mov x9, x15" to be correct [e9 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x15"))
+      [ 233 3 15 170 ]
+    ;
+    "mov x9, x16" = expect ''"mov x9, x16" to be correct [e9 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x16"))
+      [ 233 3 16 170 ]
+    ;
+    "mov x9, x17" = expect ''"mov x9, x17" to be correct [e9 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x17"))
+      [ 233 3 17 170 ]
+    ;
+    "mov x9, x18" = expect ''"mov x9, x18" to be correct [e9 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x18"))
+      [ 233 3 18 170 ]
+    ;
+    "mov x9, x19" = expect ''"mov x9, x19" to be correct [e9 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x19"))
+      [ 233 3 19 170 ]
+    ;
+    "mov x9, x20" = expect ''"mov x9, x20" to be correct [e9 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x20"))
+      [ 233 3 20 170 ]
+    ;
+    "mov x9, x21" = expect ''"mov x9, x21" to be correct [e9 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x21"))
+      [ 233 3 21 170 ]
+    ;
+    "mov x9, x22" = expect ''"mov x9, x22" to be correct [e9 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x22"))
+      [ 233 3 22 170 ]
+    ;
+    "mov x9, x23" = expect ''"mov x9, x23" to be correct [e9 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x23"))
+      [ 233 3 23 170 ]
+    ;
+    "mov x9, x24" = expect ''"mov x9, x24" to be correct [e9 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x24"))
+      [ 233 3 24 170 ]
+    ;
+    "mov x9, x25" = expect ''"mov x9, x25" to be correct [e9 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x25"))
+      [ 233 3 25 170 ]
+    ;
+    "mov x9, x26" = expect ''"mov x9, x26" to be correct [e9 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x26"))
+      [ 233 3 26 170 ]
+    ;
+    "mov x9, x27" = expect ''"mov x9, x27" to be correct [e9 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x27"))
+      [ 233 3 27 170 ]
+    ;
+    "mov x9, x28" = expect ''"mov x9, x28" to be correct [e9 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x28"))
+      [ 233 3 28 170 ]
+    ;
+    "mov x9, x29" = expect ''"mov x9, x29" to be correct [e9 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x29"))
+      [ 233 3 29 170 ]
+    ;
+    "mov x9, x30" = expect ''"mov x9, x30" to be correct [e9 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "x30"))
+      [ 233 3 30 170 ]
+    ;
+    "mov x9, sp" = expect ''"mov x9, sp" to be correct [e9 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x9" "sp"))
+      [ 233 3 0 145 ]
+    ;
+    "mov x10, x0" = expect ''"mov x10, x0" to be correct [ea 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x0"))
+      [ 234 3 0 170 ]
+    ;
+    "mov x10, x1" = expect ''"mov x10, x1" to be correct [ea 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x1"))
+      [ 234 3 1 170 ]
+    ;
+    "mov x10, x2" = expect ''"mov x10, x2" to be correct [ea 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x2"))
+      [ 234 3 2 170 ]
+    ;
+    "mov x10, x3" = expect ''"mov x10, x3" to be correct [ea 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x3"))
+      [ 234 3 3 170 ]
+    ;
+    "mov x10, x4" = expect ''"mov x10, x4" to be correct [ea 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x4"))
+      [ 234 3 4 170 ]
+    ;
+    "mov x10, x5" = expect ''"mov x10, x5" to be correct [ea 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x5"))
+      [ 234 3 5 170 ]
+    ;
+    "mov x10, x6" = expect ''"mov x10, x6" to be correct [ea 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x6"))
+      [ 234 3 6 170 ]
+    ;
+    "mov x10, x7" = expect ''"mov x10, x7" to be correct [ea 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x7"))
+      [ 234 3 7 170 ]
+    ;
+    "mov x10, x8" = expect ''"mov x10, x8" to be correct [ea 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x8"))
+      [ 234 3 8 170 ]
+    ;
+    "mov x10, x9" = expect ''"mov x10, x9" to be correct [ea 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x9"))
+      [ 234 3 9 170 ]
+    ;
+    "mov x10, x10" = expect ''"mov x10, x10" to be correct [ea 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x10"))
+      [ 234 3 10 170 ]
+    ;
+    "mov x10, x11" = expect ''"mov x10, x11" to be correct [ea 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x11"))
+      [ 234 3 11 170 ]
+    ;
+    "mov x10, x12" = expect ''"mov x10, x12" to be correct [ea 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x12"))
+      [ 234 3 12 170 ]
+    ;
+    "mov x10, x13" = expect ''"mov x10, x13" to be correct [ea 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x13"))
+      [ 234 3 13 170 ]
+    ;
+    "mov x10, x14" = expect ''"mov x10, x14" to be correct [ea 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x14"))
+      [ 234 3 14 170 ]
+    ;
+    "mov x10, x15" = expect ''"mov x10, x15" to be correct [ea 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x15"))
+      [ 234 3 15 170 ]
+    ;
+    "mov x10, x16" = expect ''"mov x10, x16" to be correct [ea 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x16"))
+      [ 234 3 16 170 ]
+    ;
+    "mov x10, x17" = expect ''"mov x10, x17" to be correct [ea 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x17"))
+      [ 234 3 17 170 ]
+    ;
+    "mov x10, x18" = expect ''"mov x10, x18" to be correct [ea 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x18"))
+      [ 234 3 18 170 ]
+    ;
+    "mov x10, x19" = expect ''"mov x10, x19" to be correct [ea 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x19"))
+      [ 234 3 19 170 ]
+    ;
+    "mov x10, x20" = expect ''"mov x10, x20" to be correct [ea 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x20"))
+      [ 234 3 20 170 ]
+    ;
+    "mov x10, x21" = expect ''"mov x10, x21" to be correct [ea 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x21"))
+      [ 234 3 21 170 ]
+    ;
+    "mov x10, x22" = expect ''"mov x10, x22" to be correct [ea 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x22"))
+      [ 234 3 22 170 ]
+    ;
+    "mov x10, x23" = expect ''"mov x10, x23" to be correct [ea 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x23"))
+      [ 234 3 23 170 ]
+    ;
+    "mov x10, x24" = expect ''"mov x10, x24" to be correct [ea 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x24"))
+      [ 234 3 24 170 ]
+    ;
+    "mov x10, x25" = expect ''"mov x10, x25" to be correct [ea 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x25"))
+      [ 234 3 25 170 ]
+    ;
+    "mov x10, x26" = expect ''"mov x10, x26" to be correct [ea 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x26"))
+      [ 234 3 26 170 ]
+    ;
+    "mov x10, x27" = expect ''"mov x10, x27" to be correct [ea 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x27"))
+      [ 234 3 27 170 ]
+    ;
+    "mov x10, x28" = expect ''"mov x10, x28" to be correct [ea 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x28"))
+      [ 234 3 28 170 ]
+    ;
+    "mov x10, x29" = expect ''"mov x10, x29" to be correct [ea 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x29"))
+      [ 234 3 29 170 ]
+    ;
+    "mov x10, x30" = expect ''"mov x10, x30" to be correct [ea 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "x30"))
+      [ 234 3 30 170 ]
+    ;
+    "mov x10, sp" = expect ''"mov x10, sp" to be correct [ea 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x10" "sp"))
+      [ 234 3 0 145 ]
+    ;
+    "mov x11, x0" = expect ''"mov x11, x0" to be correct [eb 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x0"))
+      [ 235 3 0 170 ]
+    ;
+    "mov x11, x1" = expect ''"mov x11, x1" to be correct [eb 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x1"))
+      [ 235 3 1 170 ]
+    ;
+    "mov x11, x2" = expect ''"mov x11, x2" to be correct [eb 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x2"))
+      [ 235 3 2 170 ]
+    ;
+    "mov x11, x3" = expect ''"mov x11, x3" to be correct [eb 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x3"))
+      [ 235 3 3 170 ]
+    ;
+    "mov x11, x4" = expect ''"mov x11, x4" to be correct [eb 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x4"))
+      [ 235 3 4 170 ]
+    ;
+    "mov x11, x5" = expect ''"mov x11, x5" to be correct [eb 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x5"))
+      [ 235 3 5 170 ]
+    ;
+    "mov x11, x6" = expect ''"mov x11, x6" to be correct [eb 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x6"))
+      [ 235 3 6 170 ]
+    ;
+    "mov x11, x7" = expect ''"mov x11, x7" to be correct [eb 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x7"))
+      [ 235 3 7 170 ]
+    ;
+    "mov x11, x8" = expect ''"mov x11, x8" to be correct [eb 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x8"))
+      [ 235 3 8 170 ]
+    ;
+    "mov x11, x9" = expect ''"mov x11, x9" to be correct [eb 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x9"))
+      [ 235 3 9 170 ]
+    ;
+    "mov x11, x10" = expect ''"mov x11, x10" to be correct [eb 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x10"))
+      [ 235 3 10 170 ]
+    ;
+    "mov x11, x11" = expect ''"mov x11, x11" to be correct [eb 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x11"))
+      [ 235 3 11 170 ]
+    ;
+    "mov x11, x12" = expect ''"mov x11, x12" to be correct [eb 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x12"))
+      [ 235 3 12 170 ]
+    ;
+    "mov x11, x13" = expect ''"mov x11, x13" to be correct [eb 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x13"))
+      [ 235 3 13 170 ]
+    ;
+    "mov x11, x14" = expect ''"mov x11, x14" to be correct [eb 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x14"))
+      [ 235 3 14 170 ]
+    ;
+    "mov x11, x15" = expect ''"mov x11, x15" to be correct [eb 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x15"))
+      [ 235 3 15 170 ]
+    ;
+    "mov x11, x16" = expect ''"mov x11, x16" to be correct [eb 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x16"))
+      [ 235 3 16 170 ]
+    ;
+    "mov x11, x17" = expect ''"mov x11, x17" to be correct [eb 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x17"))
+      [ 235 3 17 170 ]
+    ;
+    "mov x11, x18" = expect ''"mov x11, x18" to be correct [eb 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x18"))
+      [ 235 3 18 170 ]
+    ;
+    "mov x11, x19" = expect ''"mov x11, x19" to be correct [eb 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x19"))
+      [ 235 3 19 170 ]
+    ;
+    "mov x11, x20" = expect ''"mov x11, x20" to be correct [eb 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x20"))
+      [ 235 3 20 170 ]
+    ;
+    "mov x11, x21" = expect ''"mov x11, x21" to be correct [eb 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x21"))
+      [ 235 3 21 170 ]
+    ;
+    "mov x11, x22" = expect ''"mov x11, x22" to be correct [eb 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x22"))
+      [ 235 3 22 170 ]
+    ;
+    "mov x11, x23" = expect ''"mov x11, x23" to be correct [eb 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x23"))
+      [ 235 3 23 170 ]
+    ;
+    "mov x11, x24" = expect ''"mov x11, x24" to be correct [eb 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x24"))
+      [ 235 3 24 170 ]
+    ;
+    "mov x11, x25" = expect ''"mov x11, x25" to be correct [eb 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x25"))
+      [ 235 3 25 170 ]
+    ;
+    "mov x11, x26" = expect ''"mov x11, x26" to be correct [eb 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x26"))
+      [ 235 3 26 170 ]
+    ;
+    "mov x11, x27" = expect ''"mov x11, x27" to be correct [eb 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x27"))
+      [ 235 3 27 170 ]
+    ;
+    "mov x11, x28" = expect ''"mov x11, x28" to be correct [eb 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x28"))
+      [ 235 3 28 170 ]
+    ;
+    "mov x11, x29" = expect ''"mov x11, x29" to be correct [eb 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x29"))
+      [ 235 3 29 170 ]
+    ;
+    "mov x11, x30" = expect ''"mov x11, x30" to be correct [eb 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "x30"))
+      [ 235 3 30 170 ]
+    ;
+    "mov x11, sp" = expect ''"mov x11, sp" to be correct [eb 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x11" "sp"))
+      [ 235 3 0 145 ]
+    ;
+    "mov x12, x0" = expect ''"mov x12, x0" to be correct [ec 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x0"))
+      [ 236 3 0 170 ]
+    ;
+    "mov x12, x1" = expect ''"mov x12, x1" to be correct [ec 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x1"))
+      [ 236 3 1 170 ]
+    ;
+    "mov x12, x2" = expect ''"mov x12, x2" to be correct [ec 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x2"))
+      [ 236 3 2 170 ]
+    ;
+    "mov x12, x3" = expect ''"mov x12, x3" to be correct [ec 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x3"))
+      [ 236 3 3 170 ]
+    ;
+    "mov x12, x4" = expect ''"mov x12, x4" to be correct [ec 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x4"))
+      [ 236 3 4 170 ]
+    ;
+    "mov x12, x5" = expect ''"mov x12, x5" to be correct [ec 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x5"))
+      [ 236 3 5 170 ]
+    ;
+    "mov x12, x6" = expect ''"mov x12, x6" to be correct [ec 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x6"))
+      [ 236 3 6 170 ]
+    ;
+    "mov x12, x7" = expect ''"mov x12, x7" to be correct [ec 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x7"))
+      [ 236 3 7 170 ]
+    ;
+    "mov x12, x8" = expect ''"mov x12, x8" to be correct [ec 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x8"))
+      [ 236 3 8 170 ]
+    ;
+    "mov x12, x9" = expect ''"mov x12, x9" to be correct [ec 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x9"))
+      [ 236 3 9 170 ]
+    ;
+    "mov x12, x10" = expect ''"mov x12, x10" to be correct [ec 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x10"))
+      [ 236 3 10 170 ]
+    ;
+    "mov x12, x11" = expect ''"mov x12, x11" to be correct [ec 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x11"))
+      [ 236 3 11 170 ]
+    ;
+    "mov x12, x12" = expect ''"mov x12, x12" to be correct [ec 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x12"))
+      [ 236 3 12 170 ]
+    ;
+    "mov x12, x13" = expect ''"mov x12, x13" to be correct [ec 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x13"))
+      [ 236 3 13 170 ]
+    ;
+    "mov x12, x14" = expect ''"mov x12, x14" to be correct [ec 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x14"))
+      [ 236 3 14 170 ]
+    ;
+    "mov x12, x15" = expect ''"mov x12, x15" to be correct [ec 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x15"))
+      [ 236 3 15 170 ]
+    ;
+    "mov x12, x16" = expect ''"mov x12, x16" to be correct [ec 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x16"))
+      [ 236 3 16 170 ]
+    ;
+    "mov x12, x17" = expect ''"mov x12, x17" to be correct [ec 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x17"))
+      [ 236 3 17 170 ]
+    ;
+    "mov x12, x18" = expect ''"mov x12, x18" to be correct [ec 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x18"))
+      [ 236 3 18 170 ]
+    ;
+    "mov x12, x19" = expect ''"mov x12, x19" to be correct [ec 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x19"))
+      [ 236 3 19 170 ]
+    ;
+    "mov x12, x20" = expect ''"mov x12, x20" to be correct [ec 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x20"))
+      [ 236 3 20 170 ]
+    ;
+    "mov x12, x21" = expect ''"mov x12, x21" to be correct [ec 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x21"))
+      [ 236 3 21 170 ]
+    ;
+    "mov x12, x22" = expect ''"mov x12, x22" to be correct [ec 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x22"))
+      [ 236 3 22 170 ]
+    ;
+    "mov x12, x23" = expect ''"mov x12, x23" to be correct [ec 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x23"))
+      [ 236 3 23 170 ]
+    ;
+    "mov x12, x24" = expect ''"mov x12, x24" to be correct [ec 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x24"))
+      [ 236 3 24 170 ]
+    ;
+    "mov x12, x25" = expect ''"mov x12, x25" to be correct [ec 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x25"))
+      [ 236 3 25 170 ]
+    ;
+    "mov x12, x26" = expect ''"mov x12, x26" to be correct [ec 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x26"))
+      [ 236 3 26 170 ]
+    ;
+    "mov x12, x27" = expect ''"mov x12, x27" to be correct [ec 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x27"))
+      [ 236 3 27 170 ]
+    ;
+    "mov x12, x28" = expect ''"mov x12, x28" to be correct [ec 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x28"))
+      [ 236 3 28 170 ]
+    ;
+    "mov x12, x29" = expect ''"mov x12, x29" to be correct [ec 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x29"))
+      [ 236 3 29 170 ]
+    ;
+    "mov x12, x30" = expect ''"mov x12, x30" to be correct [ec 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "x30"))
+      [ 236 3 30 170 ]
+    ;
+    "mov x12, sp" = expect ''"mov x12, sp" to be correct [ec 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x12" "sp"))
+      [ 236 3 0 145 ]
+    ;
+    "mov x13, x0" = expect ''"mov x13, x0" to be correct [ed 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x0"))
+      [ 237 3 0 170 ]
+    ;
+    "mov x13, x1" = expect ''"mov x13, x1" to be correct [ed 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x1"))
+      [ 237 3 1 170 ]
+    ;
+    "mov x13, x2" = expect ''"mov x13, x2" to be correct [ed 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x2"))
+      [ 237 3 2 170 ]
+    ;
+    "mov x13, x3" = expect ''"mov x13, x3" to be correct [ed 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x3"))
+      [ 237 3 3 170 ]
+    ;
+    "mov x13, x4" = expect ''"mov x13, x4" to be correct [ed 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x4"))
+      [ 237 3 4 170 ]
+    ;
+    "mov x13, x5" = expect ''"mov x13, x5" to be correct [ed 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x5"))
+      [ 237 3 5 170 ]
+    ;
+    "mov x13, x6" = expect ''"mov x13, x6" to be correct [ed 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x6"))
+      [ 237 3 6 170 ]
+    ;
+    "mov x13, x7" = expect ''"mov x13, x7" to be correct [ed 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x7"))
+      [ 237 3 7 170 ]
+    ;
+    "mov x13, x8" = expect ''"mov x13, x8" to be correct [ed 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x8"))
+      [ 237 3 8 170 ]
+    ;
+    "mov x13, x9" = expect ''"mov x13, x9" to be correct [ed 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x9"))
+      [ 237 3 9 170 ]
+    ;
+    "mov x13, x10" = expect ''"mov x13, x10" to be correct [ed 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x10"))
+      [ 237 3 10 170 ]
+    ;
+    "mov x13, x11" = expect ''"mov x13, x11" to be correct [ed 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x11"))
+      [ 237 3 11 170 ]
+    ;
+    "mov x13, x12" = expect ''"mov x13, x12" to be correct [ed 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x12"))
+      [ 237 3 12 170 ]
+    ;
+    "mov x13, x13" = expect ''"mov x13, x13" to be correct [ed 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x13"))
+      [ 237 3 13 170 ]
+    ;
+    "mov x13, x14" = expect ''"mov x13, x14" to be correct [ed 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x14"))
+      [ 237 3 14 170 ]
+    ;
+    "mov x13, x15" = expect ''"mov x13, x15" to be correct [ed 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x15"))
+      [ 237 3 15 170 ]
+    ;
+    "mov x13, x16" = expect ''"mov x13, x16" to be correct [ed 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x16"))
+      [ 237 3 16 170 ]
+    ;
+    "mov x13, x17" = expect ''"mov x13, x17" to be correct [ed 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x17"))
+      [ 237 3 17 170 ]
+    ;
+    "mov x13, x18" = expect ''"mov x13, x18" to be correct [ed 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x18"))
+      [ 237 3 18 170 ]
+    ;
+    "mov x13, x19" = expect ''"mov x13, x19" to be correct [ed 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x19"))
+      [ 237 3 19 170 ]
+    ;
+    "mov x13, x20" = expect ''"mov x13, x20" to be correct [ed 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x20"))
+      [ 237 3 20 170 ]
+    ;
+    "mov x13, x21" = expect ''"mov x13, x21" to be correct [ed 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x21"))
+      [ 237 3 21 170 ]
+    ;
+    "mov x13, x22" = expect ''"mov x13, x22" to be correct [ed 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x22"))
+      [ 237 3 22 170 ]
+    ;
+    "mov x13, x23" = expect ''"mov x13, x23" to be correct [ed 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x23"))
+      [ 237 3 23 170 ]
+    ;
+    "mov x13, x24" = expect ''"mov x13, x24" to be correct [ed 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x24"))
+      [ 237 3 24 170 ]
+    ;
+    "mov x13, x25" = expect ''"mov x13, x25" to be correct [ed 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x25"))
+      [ 237 3 25 170 ]
+    ;
+    "mov x13, x26" = expect ''"mov x13, x26" to be correct [ed 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x26"))
+      [ 237 3 26 170 ]
+    ;
+    "mov x13, x27" = expect ''"mov x13, x27" to be correct [ed 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x27"))
+      [ 237 3 27 170 ]
+    ;
+    "mov x13, x28" = expect ''"mov x13, x28" to be correct [ed 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x28"))
+      [ 237 3 28 170 ]
+    ;
+    "mov x13, x29" = expect ''"mov x13, x29" to be correct [ed 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x29"))
+      [ 237 3 29 170 ]
+    ;
+    "mov x13, x30" = expect ''"mov x13, x30" to be correct [ed 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "x30"))
+      [ 237 3 30 170 ]
+    ;
+    "mov x13, sp" = expect ''"mov x13, sp" to be correct [ed 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x13" "sp"))
+      [ 237 3 0 145 ]
+    ;
+    "mov x14, x0" = expect ''"mov x14, x0" to be correct [ee 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x0"))
+      [ 238 3 0 170 ]
+    ;
+    "mov x14, x1" = expect ''"mov x14, x1" to be correct [ee 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x1"))
+      [ 238 3 1 170 ]
+    ;
+    "mov x14, x2" = expect ''"mov x14, x2" to be correct [ee 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x2"))
+      [ 238 3 2 170 ]
+    ;
+    "mov x14, x3" = expect ''"mov x14, x3" to be correct [ee 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x3"))
+      [ 238 3 3 170 ]
+    ;
+    "mov x14, x4" = expect ''"mov x14, x4" to be correct [ee 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x4"))
+      [ 238 3 4 170 ]
+    ;
+    "mov x14, x5" = expect ''"mov x14, x5" to be correct [ee 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x5"))
+      [ 238 3 5 170 ]
+    ;
+    "mov x14, x6" = expect ''"mov x14, x6" to be correct [ee 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x6"))
+      [ 238 3 6 170 ]
+    ;
+    "mov x14, x7" = expect ''"mov x14, x7" to be correct [ee 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x7"))
+      [ 238 3 7 170 ]
+    ;
+    "mov x14, x8" = expect ''"mov x14, x8" to be correct [ee 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x8"))
+      [ 238 3 8 170 ]
+    ;
+    "mov x14, x9" = expect ''"mov x14, x9" to be correct [ee 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x9"))
+      [ 238 3 9 170 ]
+    ;
+    "mov x14, x10" = expect ''"mov x14, x10" to be correct [ee 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x10"))
+      [ 238 3 10 170 ]
+    ;
+    "mov x14, x11" = expect ''"mov x14, x11" to be correct [ee 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x11"))
+      [ 238 3 11 170 ]
+    ;
+    "mov x14, x12" = expect ''"mov x14, x12" to be correct [ee 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x12"))
+      [ 238 3 12 170 ]
+    ;
+    "mov x14, x13" = expect ''"mov x14, x13" to be correct [ee 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x13"))
+      [ 238 3 13 170 ]
+    ;
+    "mov x14, x14" = expect ''"mov x14, x14" to be correct [ee 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x14"))
+      [ 238 3 14 170 ]
+    ;
+    "mov x14, x15" = expect ''"mov x14, x15" to be correct [ee 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x15"))
+      [ 238 3 15 170 ]
+    ;
+    "mov x14, x16" = expect ''"mov x14, x16" to be correct [ee 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x16"))
+      [ 238 3 16 170 ]
+    ;
+    "mov x14, x17" = expect ''"mov x14, x17" to be correct [ee 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x17"))
+      [ 238 3 17 170 ]
+    ;
+    "mov x14, x18" = expect ''"mov x14, x18" to be correct [ee 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x18"))
+      [ 238 3 18 170 ]
+    ;
+    "mov x14, x19" = expect ''"mov x14, x19" to be correct [ee 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x19"))
+      [ 238 3 19 170 ]
+    ;
+    "mov x14, x20" = expect ''"mov x14, x20" to be correct [ee 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x20"))
+      [ 238 3 20 170 ]
+    ;
+    "mov x14, x21" = expect ''"mov x14, x21" to be correct [ee 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x21"))
+      [ 238 3 21 170 ]
+    ;
+    "mov x14, x22" = expect ''"mov x14, x22" to be correct [ee 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x22"))
+      [ 238 3 22 170 ]
+    ;
+    "mov x14, x23" = expect ''"mov x14, x23" to be correct [ee 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x23"))
+      [ 238 3 23 170 ]
+    ;
+    "mov x14, x24" = expect ''"mov x14, x24" to be correct [ee 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x24"))
+      [ 238 3 24 170 ]
+    ;
+    "mov x14, x25" = expect ''"mov x14, x25" to be correct [ee 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x25"))
+      [ 238 3 25 170 ]
+    ;
+    "mov x14, x26" = expect ''"mov x14, x26" to be correct [ee 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x26"))
+      [ 238 3 26 170 ]
+    ;
+    "mov x14, x27" = expect ''"mov x14, x27" to be correct [ee 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x27"))
+      [ 238 3 27 170 ]
+    ;
+    "mov x14, x28" = expect ''"mov x14, x28" to be correct [ee 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x28"))
+      [ 238 3 28 170 ]
+    ;
+    "mov x14, x29" = expect ''"mov x14, x29" to be correct [ee 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x29"))
+      [ 238 3 29 170 ]
+    ;
+    "mov x14, x30" = expect ''"mov x14, x30" to be correct [ee 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "x30"))
+      [ 238 3 30 170 ]
+    ;
+    "mov x14, sp" = expect ''"mov x14, sp" to be correct [ee 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x14" "sp"))
+      [ 238 3 0 145 ]
+    ;
+    "mov x15, x0" = expect ''"mov x15, x0" to be correct [ef 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x0"))
+      [ 239 3 0 170 ]
+    ;
+    "mov x15, x1" = expect ''"mov x15, x1" to be correct [ef 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x1"))
+      [ 239 3 1 170 ]
+    ;
+    "mov x15, x2" = expect ''"mov x15, x2" to be correct [ef 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x2"))
+      [ 239 3 2 170 ]
+    ;
+    "mov x15, x3" = expect ''"mov x15, x3" to be correct [ef 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x3"))
+      [ 239 3 3 170 ]
+    ;
+    "mov x15, x4" = expect ''"mov x15, x4" to be correct [ef 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x4"))
+      [ 239 3 4 170 ]
+    ;
+    "mov x15, x5" = expect ''"mov x15, x5" to be correct [ef 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x5"))
+      [ 239 3 5 170 ]
+    ;
+    "mov x15, x6" = expect ''"mov x15, x6" to be correct [ef 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x6"))
+      [ 239 3 6 170 ]
+    ;
+    "mov x15, x7" = expect ''"mov x15, x7" to be correct [ef 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x7"))
+      [ 239 3 7 170 ]
+    ;
+    "mov x15, x8" = expect ''"mov x15, x8" to be correct [ef 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x8"))
+      [ 239 3 8 170 ]
+    ;
+    "mov x15, x9" = expect ''"mov x15, x9" to be correct [ef 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x9"))
+      [ 239 3 9 170 ]
+    ;
+    "mov x15, x10" = expect ''"mov x15, x10" to be correct [ef 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x10"))
+      [ 239 3 10 170 ]
+    ;
+    "mov x15, x11" = expect ''"mov x15, x11" to be correct [ef 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x11"))
+      [ 239 3 11 170 ]
+    ;
+    "mov x15, x12" = expect ''"mov x15, x12" to be correct [ef 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x12"))
+      [ 239 3 12 170 ]
+    ;
+    "mov x15, x13" = expect ''"mov x15, x13" to be correct [ef 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x13"))
+      [ 239 3 13 170 ]
+    ;
+    "mov x15, x14" = expect ''"mov x15, x14" to be correct [ef 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x14"))
+      [ 239 3 14 170 ]
+    ;
+    "mov x15, x15" = expect ''"mov x15, x15" to be correct [ef 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x15"))
+      [ 239 3 15 170 ]
+    ;
+    "mov x15, x16" = expect ''"mov x15, x16" to be correct [ef 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x16"))
+      [ 239 3 16 170 ]
+    ;
+    "mov x15, x17" = expect ''"mov x15, x17" to be correct [ef 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x17"))
+      [ 239 3 17 170 ]
+    ;
+    "mov x15, x18" = expect ''"mov x15, x18" to be correct [ef 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x18"))
+      [ 239 3 18 170 ]
+    ;
+    "mov x15, x19" = expect ''"mov x15, x19" to be correct [ef 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x19"))
+      [ 239 3 19 170 ]
+    ;
+    "mov x15, x20" = expect ''"mov x15, x20" to be correct [ef 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x20"))
+      [ 239 3 20 170 ]
+    ;
+    "mov x15, x21" = expect ''"mov x15, x21" to be correct [ef 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x21"))
+      [ 239 3 21 170 ]
+    ;
+    "mov x15, x22" = expect ''"mov x15, x22" to be correct [ef 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x22"))
+      [ 239 3 22 170 ]
+    ;
+    "mov x15, x23" = expect ''"mov x15, x23" to be correct [ef 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x23"))
+      [ 239 3 23 170 ]
+    ;
+    "mov x15, x24" = expect ''"mov x15, x24" to be correct [ef 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x24"))
+      [ 239 3 24 170 ]
+    ;
+    "mov x15, x25" = expect ''"mov x15, x25" to be correct [ef 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x25"))
+      [ 239 3 25 170 ]
+    ;
+    "mov x15, x26" = expect ''"mov x15, x26" to be correct [ef 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x26"))
+      [ 239 3 26 170 ]
+    ;
+    "mov x15, x27" = expect ''"mov x15, x27" to be correct [ef 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x27"))
+      [ 239 3 27 170 ]
+    ;
+    "mov x15, x28" = expect ''"mov x15, x28" to be correct [ef 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x28"))
+      [ 239 3 28 170 ]
+    ;
+    "mov x15, x29" = expect ''"mov x15, x29" to be correct [ef 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x29"))
+      [ 239 3 29 170 ]
+    ;
+    "mov x15, x30" = expect ''"mov x15, x30" to be correct [ef 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "x30"))
+      [ 239 3 30 170 ]
+    ;
+    "mov x15, sp" = expect ''"mov x15, sp" to be correct [ef 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x15" "sp"))
+      [ 239 3 0 145 ]
+    ;
+    "mov x16, x0" = expect ''"mov x16, x0" to be correct [f0 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x0"))
+      [ 240 3 0 170 ]
+    ;
+    "mov x16, x1" = expect ''"mov x16, x1" to be correct [f0 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x1"))
+      [ 240 3 1 170 ]
+    ;
+    "mov x16, x2" = expect ''"mov x16, x2" to be correct [f0 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x2"))
+      [ 240 3 2 170 ]
+    ;
+    "mov x16, x3" = expect ''"mov x16, x3" to be correct [f0 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x3"))
+      [ 240 3 3 170 ]
+    ;
+    "mov x16, x4" = expect ''"mov x16, x4" to be correct [f0 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x4"))
+      [ 240 3 4 170 ]
+    ;
+    "mov x16, x5" = expect ''"mov x16, x5" to be correct [f0 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x5"))
+      [ 240 3 5 170 ]
+    ;
+    "mov x16, x6" = expect ''"mov x16, x6" to be correct [f0 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x6"))
+      [ 240 3 6 170 ]
+    ;
+    "mov x16, x7" = expect ''"mov x16, x7" to be correct [f0 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x7"))
+      [ 240 3 7 170 ]
+    ;
+    "mov x16, x8" = expect ''"mov x16, x8" to be correct [f0 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x8"))
+      [ 240 3 8 170 ]
+    ;
+    "mov x16, x9" = expect ''"mov x16, x9" to be correct [f0 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x9"))
+      [ 240 3 9 170 ]
+    ;
+    "mov x16, x10" = expect ''"mov x16, x10" to be correct [f0 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x10"))
+      [ 240 3 10 170 ]
+    ;
+    "mov x16, x11" = expect ''"mov x16, x11" to be correct [f0 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x11"))
+      [ 240 3 11 170 ]
+    ;
+    "mov x16, x12" = expect ''"mov x16, x12" to be correct [f0 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x12"))
+      [ 240 3 12 170 ]
+    ;
+    "mov x16, x13" = expect ''"mov x16, x13" to be correct [f0 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x13"))
+      [ 240 3 13 170 ]
+    ;
+    "mov x16, x14" = expect ''"mov x16, x14" to be correct [f0 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x14"))
+      [ 240 3 14 170 ]
+    ;
+    "mov x16, x15" = expect ''"mov x16, x15" to be correct [f0 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x15"))
+      [ 240 3 15 170 ]
+    ;
+    "mov x16, x16" = expect ''"mov x16, x16" to be correct [f0 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x16"))
+      [ 240 3 16 170 ]
+    ;
+    "mov x16, x17" = expect ''"mov x16, x17" to be correct [f0 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x17"))
+      [ 240 3 17 170 ]
+    ;
+    "mov x16, x18" = expect ''"mov x16, x18" to be correct [f0 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x18"))
+      [ 240 3 18 170 ]
+    ;
+    "mov x16, x19" = expect ''"mov x16, x19" to be correct [f0 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x19"))
+      [ 240 3 19 170 ]
+    ;
+    "mov x16, x20" = expect ''"mov x16, x20" to be correct [f0 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x20"))
+      [ 240 3 20 170 ]
+    ;
+    "mov x16, x21" = expect ''"mov x16, x21" to be correct [f0 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x21"))
+      [ 240 3 21 170 ]
+    ;
+    "mov x16, x22" = expect ''"mov x16, x22" to be correct [f0 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x22"))
+      [ 240 3 22 170 ]
+    ;
+    "mov x16, x23" = expect ''"mov x16, x23" to be correct [f0 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x23"))
+      [ 240 3 23 170 ]
+    ;
+    "mov x16, x24" = expect ''"mov x16, x24" to be correct [f0 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x24"))
+      [ 240 3 24 170 ]
+    ;
+    "mov x16, x25" = expect ''"mov x16, x25" to be correct [f0 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x25"))
+      [ 240 3 25 170 ]
+    ;
+    "mov x16, x26" = expect ''"mov x16, x26" to be correct [f0 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x26"))
+      [ 240 3 26 170 ]
+    ;
+    "mov x16, x27" = expect ''"mov x16, x27" to be correct [f0 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x27"))
+      [ 240 3 27 170 ]
+    ;
+    "mov x16, x28" = expect ''"mov x16, x28" to be correct [f0 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x28"))
+      [ 240 3 28 170 ]
+    ;
+    "mov x16, x29" = expect ''"mov x16, x29" to be correct [f0 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x29"))
+      [ 240 3 29 170 ]
+    ;
+    "mov x16, x30" = expect ''"mov x16, x30" to be correct [f0 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "x30"))
+      [ 240 3 30 170 ]
+    ;
+    "mov x16, sp" = expect ''"mov x16, sp" to be correct [f0 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x16" "sp"))
+      [ 240 3 0 145 ]
+    ;
+    "mov x17, x0" = expect ''"mov x17, x0" to be correct [f1 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x0"))
+      [ 241 3 0 170 ]
+    ;
+    "mov x17, x1" = expect ''"mov x17, x1" to be correct [f1 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x1"))
+      [ 241 3 1 170 ]
+    ;
+    "mov x17, x2" = expect ''"mov x17, x2" to be correct [f1 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x2"))
+      [ 241 3 2 170 ]
+    ;
+    "mov x17, x3" = expect ''"mov x17, x3" to be correct [f1 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x3"))
+      [ 241 3 3 170 ]
+    ;
+    "mov x17, x4" = expect ''"mov x17, x4" to be correct [f1 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x4"))
+      [ 241 3 4 170 ]
+    ;
+    "mov x17, x5" = expect ''"mov x17, x5" to be correct [f1 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x5"))
+      [ 241 3 5 170 ]
+    ;
+    "mov x17, x6" = expect ''"mov x17, x6" to be correct [f1 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x6"))
+      [ 241 3 6 170 ]
+    ;
+    "mov x17, x7" = expect ''"mov x17, x7" to be correct [f1 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x7"))
+      [ 241 3 7 170 ]
+    ;
+    "mov x17, x8" = expect ''"mov x17, x8" to be correct [f1 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x8"))
+      [ 241 3 8 170 ]
+    ;
+    "mov x17, x9" = expect ''"mov x17, x9" to be correct [f1 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x9"))
+      [ 241 3 9 170 ]
+    ;
+    "mov x17, x10" = expect ''"mov x17, x10" to be correct [f1 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x10"))
+      [ 241 3 10 170 ]
+    ;
+    "mov x17, x11" = expect ''"mov x17, x11" to be correct [f1 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x11"))
+      [ 241 3 11 170 ]
+    ;
+    "mov x17, x12" = expect ''"mov x17, x12" to be correct [f1 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x12"))
+      [ 241 3 12 170 ]
+    ;
+    "mov x17, x13" = expect ''"mov x17, x13" to be correct [f1 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x13"))
+      [ 241 3 13 170 ]
+    ;
+    "mov x17, x14" = expect ''"mov x17, x14" to be correct [f1 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x14"))
+      [ 241 3 14 170 ]
+    ;
+    "mov x17, x15" = expect ''"mov x17, x15" to be correct [f1 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x15"))
+      [ 241 3 15 170 ]
+    ;
+    "mov x17, x16" = expect ''"mov x17, x16" to be correct [f1 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x16"))
+      [ 241 3 16 170 ]
+    ;
+    "mov x17, x17" = expect ''"mov x17, x17" to be correct [f1 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x17"))
+      [ 241 3 17 170 ]
+    ;
+    "mov x17, x18" = expect ''"mov x17, x18" to be correct [f1 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x18"))
+      [ 241 3 18 170 ]
+    ;
+    "mov x17, x19" = expect ''"mov x17, x19" to be correct [f1 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x19"))
+      [ 241 3 19 170 ]
+    ;
+    "mov x17, x20" = expect ''"mov x17, x20" to be correct [f1 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x20"))
+      [ 241 3 20 170 ]
+    ;
+    "mov x17, x21" = expect ''"mov x17, x21" to be correct [f1 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x21"))
+      [ 241 3 21 170 ]
+    ;
+    "mov x17, x22" = expect ''"mov x17, x22" to be correct [f1 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x22"))
+      [ 241 3 22 170 ]
+    ;
+    "mov x17, x23" = expect ''"mov x17, x23" to be correct [f1 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x23"))
+      [ 241 3 23 170 ]
+    ;
+    "mov x17, x24" = expect ''"mov x17, x24" to be correct [f1 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x24"))
+      [ 241 3 24 170 ]
+    ;
+    "mov x17, x25" = expect ''"mov x17, x25" to be correct [f1 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x25"))
+      [ 241 3 25 170 ]
+    ;
+    "mov x17, x26" = expect ''"mov x17, x26" to be correct [f1 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x26"))
+      [ 241 3 26 170 ]
+    ;
+    "mov x17, x27" = expect ''"mov x17, x27" to be correct [f1 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x27"))
+      [ 241 3 27 170 ]
+    ;
+    "mov x17, x28" = expect ''"mov x17, x28" to be correct [f1 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x28"))
+      [ 241 3 28 170 ]
+    ;
+    "mov x17, x29" = expect ''"mov x17, x29" to be correct [f1 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x29"))
+      [ 241 3 29 170 ]
+    ;
+    "mov x17, x30" = expect ''"mov x17, x30" to be correct [f1 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "x30"))
+      [ 241 3 30 170 ]
+    ;
+    "mov x17, sp" = expect ''"mov x17, sp" to be correct [f1 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x17" "sp"))
+      [ 241 3 0 145 ]
+    ;
+    "mov x18, x0" = expect ''"mov x18, x0" to be correct [f2 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x0"))
+      [ 242 3 0 170 ]
+    ;
+    "mov x18, x1" = expect ''"mov x18, x1" to be correct [f2 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x1"))
+      [ 242 3 1 170 ]
+    ;
+    "mov x18, x2" = expect ''"mov x18, x2" to be correct [f2 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x2"))
+      [ 242 3 2 170 ]
+    ;
+    "mov x18, x3" = expect ''"mov x18, x3" to be correct [f2 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x3"))
+      [ 242 3 3 170 ]
+    ;
+    "mov x18, x4" = expect ''"mov x18, x4" to be correct [f2 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x4"))
+      [ 242 3 4 170 ]
+    ;
+    "mov x18, x5" = expect ''"mov x18, x5" to be correct [f2 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x5"))
+      [ 242 3 5 170 ]
+    ;
+    "mov x18, x6" = expect ''"mov x18, x6" to be correct [f2 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x6"))
+      [ 242 3 6 170 ]
+    ;
+    "mov x18, x7" = expect ''"mov x18, x7" to be correct [f2 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x7"))
+      [ 242 3 7 170 ]
+    ;
+    "mov x18, x8" = expect ''"mov x18, x8" to be correct [f2 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x8"))
+      [ 242 3 8 170 ]
+    ;
+    "mov x18, x9" = expect ''"mov x18, x9" to be correct [f2 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x9"))
+      [ 242 3 9 170 ]
+    ;
+    "mov x18, x10" = expect ''"mov x18, x10" to be correct [f2 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x10"))
+      [ 242 3 10 170 ]
+    ;
+    "mov x18, x11" = expect ''"mov x18, x11" to be correct [f2 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x11"))
+      [ 242 3 11 170 ]
+    ;
+    "mov x18, x12" = expect ''"mov x18, x12" to be correct [f2 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x12"))
+      [ 242 3 12 170 ]
+    ;
+    "mov x18, x13" = expect ''"mov x18, x13" to be correct [f2 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x13"))
+      [ 242 3 13 170 ]
+    ;
+    "mov x18, x14" = expect ''"mov x18, x14" to be correct [f2 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x14"))
+      [ 242 3 14 170 ]
+    ;
+    "mov x18, x15" = expect ''"mov x18, x15" to be correct [f2 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x15"))
+      [ 242 3 15 170 ]
+    ;
+    "mov x18, x16" = expect ''"mov x18, x16" to be correct [f2 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x16"))
+      [ 242 3 16 170 ]
+    ;
+    "mov x18, x17" = expect ''"mov x18, x17" to be correct [f2 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x17"))
+      [ 242 3 17 170 ]
+    ;
+    "mov x18, x18" = expect ''"mov x18, x18" to be correct [f2 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x18"))
+      [ 242 3 18 170 ]
+    ;
+    "mov x18, x19" = expect ''"mov x18, x19" to be correct [f2 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x19"))
+      [ 242 3 19 170 ]
+    ;
+    "mov x18, x20" = expect ''"mov x18, x20" to be correct [f2 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x20"))
+      [ 242 3 20 170 ]
+    ;
+    "mov x18, x21" = expect ''"mov x18, x21" to be correct [f2 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x21"))
+      [ 242 3 21 170 ]
+    ;
+    "mov x18, x22" = expect ''"mov x18, x22" to be correct [f2 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x22"))
+      [ 242 3 22 170 ]
+    ;
+    "mov x18, x23" = expect ''"mov x18, x23" to be correct [f2 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x23"))
+      [ 242 3 23 170 ]
+    ;
+    "mov x18, x24" = expect ''"mov x18, x24" to be correct [f2 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x24"))
+      [ 242 3 24 170 ]
+    ;
+    "mov x18, x25" = expect ''"mov x18, x25" to be correct [f2 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x25"))
+      [ 242 3 25 170 ]
+    ;
+    "mov x18, x26" = expect ''"mov x18, x26" to be correct [f2 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x26"))
+      [ 242 3 26 170 ]
+    ;
+    "mov x18, x27" = expect ''"mov x18, x27" to be correct [f2 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x27"))
+      [ 242 3 27 170 ]
+    ;
+    "mov x18, x28" = expect ''"mov x18, x28" to be correct [f2 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x28"))
+      [ 242 3 28 170 ]
+    ;
+    "mov x18, x29" = expect ''"mov x18, x29" to be correct [f2 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x29"))
+      [ 242 3 29 170 ]
+    ;
+    "mov x18, x30" = expect ''"mov x18, x30" to be correct [f2 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "x30"))
+      [ 242 3 30 170 ]
+    ;
+    "mov x18, sp" = expect ''"mov x18, sp" to be correct [f2 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x18" "sp"))
+      [ 242 3 0 145 ]
+    ;
+    "mov x19, x0" = expect ''"mov x19, x0" to be correct [f3 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x0"))
+      [ 243 3 0 170 ]
+    ;
+    "mov x19, x1" = expect ''"mov x19, x1" to be correct [f3 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x1"))
+      [ 243 3 1 170 ]
+    ;
+    "mov x19, x2" = expect ''"mov x19, x2" to be correct [f3 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x2"))
+      [ 243 3 2 170 ]
+    ;
+    "mov x19, x3" = expect ''"mov x19, x3" to be correct [f3 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x3"))
+      [ 243 3 3 170 ]
+    ;
+    "mov x19, x4" = expect ''"mov x19, x4" to be correct [f3 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x4"))
+      [ 243 3 4 170 ]
+    ;
+    "mov x19, x5" = expect ''"mov x19, x5" to be correct [f3 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x5"))
+      [ 243 3 5 170 ]
+    ;
+    "mov x19, x6" = expect ''"mov x19, x6" to be correct [f3 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x6"))
+      [ 243 3 6 170 ]
+    ;
+    "mov x19, x7" = expect ''"mov x19, x7" to be correct [f3 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x7"))
+      [ 243 3 7 170 ]
+    ;
+    "mov x19, x8" = expect ''"mov x19, x8" to be correct [f3 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x8"))
+      [ 243 3 8 170 ]
+    ;
+    "mov x19, x9" = expect ''"mov x19, x9" to be correct [f3 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x9"))
+      [ 243 3 9 170 ]
+    ;
+    "mov x19, x10" = expect ''"mov x19, x10" to be correct [f3 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x10"))
+      [ 243 3 10 170 ]
+    ;
+    "mov x19, x11" = expect ''"mov x19, x11" to be correct [f3 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x11"))
+      [ 243 3 11 170 ]
+    ;
+    "mov x19, x12" = expect ''"mov x19, x12" to be correct [f3 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x12"))
+      [ 243 3 12 170 ]
+    ;
+    "mov x19, x13" = expect ''"mov x19, x13" to be correct [f3 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x13"))
+      [ 243 3 13 170 ]
+    ;
+    "mov x19, x14" = expect ''"mov x19, x14" to be correct [f3 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x14"))
+      [ 243 3 14 170 ]
+    ;
+    "mov x19, x15" = expect ''"mov x19, x15" to be correct [f3 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x15"))
+      [ 243 3 15 170 ]
+    ;
+    "mov x19, x16" = expect ''"mov x19, x16" to be correct [f3 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x16"))
+      [ 243 3 16 170 ]
+    ;
+    "mov x19, x17" = expect ''"mov x19, x17" to be correct [f3 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x17"))
+      [ 243 3 17 170 ]
+    ;
+    "mov x19, x18" = expect ''"mov x19, x18" to be correct [f3 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x18"))
+      [ 243 3 18 170 ]
+    ;
+    "mov x19, x19" = expect ''"mov x19, x19" to be correct [f3 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x19"))
+      [ 243 3 19 170 ]
+    ;
+    "mov x19, x20" = expect ''"mov x19, x20" to be correct [f3 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x20"))
+      [ 243 3 20 170 ]
+    ;
+    "mov x19, x21" = expect ''"mov x19, x21" to be correct [f3 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x21"))
+      [ 243 3 21 170 ]
+    ;
+    "mov x19, x22" = expect ''"mov x19, x22" to be correct [f3 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x22"))
+      [ 243 3 22 170 ]
+    ;
+    "mov x19, x23" = expect ''"mov x19, x23" to be correct [f3 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x23"))
+      [ 243 3 23 170 ]
+    ;
+    "mov x19, x24" = expect ''"mov x19, x24" to be correct [f3 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x24"))
+      [ 243 3 24 170 ]
+    ;
+    "mov x19, x25" = expect ''"mov x19, x25" to be correct [f3 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x25"))
+      [ 243 3 25 170 ]
+    ;
+    "mov x19, x26" = expect ''"mov x19, x26" to be correct [f3 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x26"))
+      [ 243 3 26 170 ]
+    ;
+    "mov x19, x27" = expect ''"mov x19, x27" to be correct [f3 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x27"))
+      [ 243 3 27 170 ]
+    ;
+    "mov x19, x28" = expect ''"mov x19, x28" to be correct [f3 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x28"))
+      [ 243 3 28 170 ]
+    ;
+    "mov x19, x29" = expect ''"mov x19, x29" to be correct [f3 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x29"))
+      [ 243 3 29 170 ]
+    ;
+    "mov x19, x30" = expect ''"mov x19, x30" to be correct [f3 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "x30"))
+      [ 243 3 30 170 ]
+    ;
+    "mov x19, sp" = expect ''"mov x19, sp" to be correct [f3 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x19" "sp"))
+      [ 243 3 0 145 ]
+    ;
+    "mov x20, x0" = expect ''"mov x20, x0" to be correct [f4 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x0"))
+      [ 244 3 0 170 ]
+    ;
+    "mov x20, x1" = expect ''"mov x20, x1" to be correct [f4 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x1"))
+      [ 244 3 1 170 ]
+    ;
+    "mov x20, x2" = expect ''"mov x20, x2" to be correct [f4 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x2"))
+      [ 244 3 2 170 ]
+    ;
+    "mov x20, x3" = expect ''"mov x20, x3" to be correct [f4 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x3"))
+      [ 244 3 3 170 ]
+    ;
+    "mov x20, x4" = expect ''"mov x20, x4" to be correct [f4 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x4"))
+      [ 244 3 4 170 ]
+    ;
+    "mov x20, x5" = expect ''"mov x20, x5" to be correct [f4 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x5"))
+      [ 244 3 5 170 ]
+    ;
+    "mov x20, x6" = expect ''"mov x20, x6" to be correct [f4 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x6"))
+      [ 244 3 6 170 ]
+    ;
+    "mov x20, x7" = expect ''"mov x20, x7" to be correct [f4 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x7"))
+      [ 244 3 7 170 ]
+    ;
+    "mov x20, x8" = expect ''"mov x20, x8" to be correct [f4 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x8"))
+      [ 244 3 8 170 ]
+    ;
+    "mov x20, x9" = expect ''"mov x20, x9" to be correct [f4 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x9"))
+      [ 244 3 9 170 ]
+    ;
+    "mov x20, x10" = expect ''"mov x20, x10" to be correct [f4 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x10"))
+      [ 244 3 10 170 ]
+    ;
+    "mov x20, x11" = expect ''"mov x20, x11" to be correct [f4 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x11"))
+      [ 244 3 11 170 ]
+    ;
+    "mov x20, x12" = expect ''"mov x20, x12" to be correct [f4 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x12"))
+      [ 244 3 12 170 ]
+    ;
+    "mov x20, x13" = expect ''"mov x20, x13" to be correct [f4 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x13"))
+      [ 244 3 13 170 ]
+    ;
+    "mov x20, x14" = expect ''"mov x20, x14" to be correct [f4 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x14"))
+      [ 244 3 14 170 ]
+    ;
+    "mov x20, x15" = expect ''"mov x20, x15" to be correct [f4 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x15"))
+      [ 244 3 15 170 ]
+    ;
+    "mov x20, x16" = expect ''"mov x20, x16" to be correct [f4 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x16"))
+      [ 244 3 16 170 ]
+    ;
+    "mov x20, x17" = expect ''"mov x20, x17" to be correct [f4 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x17"))
+      [ 244 3 17 170 ]
+    ;
+    "mov x20, x18" = expect ''"mov x20, x18" to be correct [f4 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x18"))
+      [ 244 3 18 170 ]
+    ;
+    "mov x20, x19" = expect ''"mov x20, x19" to be correct [f4 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x19"))
+      [ 244 3 19 170 ]
+    ;
+    "mov x20, x20" = expect ''"mov x20, x20" to be correct [f4 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x20"))
+      [ 244 3 20 170 ]
+    ;
+    "mov x20, x21" = expect ''"mov x20, x21" to be correct [f4 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x21"))
+      [ 244 3 21 170 ]
+    ;
+    "mov x20, x22" = expect ''"mov x20, x22" to be correct [f4 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x22"))
+      [ 244 3 22 170 ]
+    ;
+    "mov x20, x23" = expect ''"mov x20, x23" to be correct [f4 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x23"))
+      [ 244 3 23 170 ]
+    ;
+    "mov x20, x24" = expect ''"mov x20, x24" to be correct [f4 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x24"))
+      [ 244 3 24 170 ]
+    ;
+    "mov x20, x25" = expect ''"mov x20, x25" to be correct [f4 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x25"))
+      [ 244 3 25 170 ]
+    ;
+    "mov x20, x26" = expect ''"mov x20, x26" to be correct [f4 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x26"))
+      [ 244 3 26 170 ]
+    ;
+    "mov x20, x27" = expect ''"mov x20, x27" to be correct [f4 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x27"))
+      [ 244 3 27 170 ]
+    ;
+    "mov x20, x28" = expect ''"mov x20, x28" to be correct [f4 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x28"))
+      [ 244 3 28 170 ]
+    ;
+    "mov x20, x29" = expect ''"mov x20, x29" to be correct [f4 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x29"))
+      [ 244 3 29 170 ]
+    ;
+    "mov x20, x30" = expect ''"mov x20, x30" to be correct [f4 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "x30"))
+      [ 244 3 30 170 ]
+    ;
+    "mov x20, sp" = expect ''"mov x20, sp" to be correct [f4 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x20" "sp"))
+      [ 244 3 0 145 ]
+    ;
+    "mov x21, x0" = expect ''"mov x21, x0" to be correct [f5 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x0"))
+      [ 245 3 0 170 ]
+    ;
+    "mov x21, x1" = expect ''"mov x21, x1" to be correct [f5 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x1"))
+      [ 245 3 1 170 ]
+    ;
+    "mov x21, x2" = expect ''"mov x21, x2" to be correct [f5 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x2"))
+      [ 245 3 2 170 ]
+    ;
+    "mov x21, x3" = expect ''"mov x21, x3" to be correct [f5 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x3"))
+      [ 245 3 3 170 ]
+    ;
+    "mov x21, x4" = expect ''"mov x21, x4" to be correct [f5 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x4"))
+      [ 245 3 4 170 ]
+    ;
+    "mov x21, x5" = expect ''"mov x21, x5" to be correct [f5 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x5"))
+      [ 245 3 5 170 ]
+    ;
+    "mov x21, x6" = expect ''"mov x21, x6" to be correct [f5 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x6"))
+      [ 245 3 6 170 ]
+    ;
+    "mov x21, x7" = expect ''"mov x21, x7" to be correct [f5 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x7"))
+      [ 245 3 7 170 ]
+    ;
+    "mov x21, x8" = expect ''"mov x21, x8" to be correct [f5 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x8"))
+      [ 245 3 8 170 ]
+    ;
+    "mov x21, x9" = expect ''"mov x21, x9" to be correct [f5 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x9"))
+      [ 245 3 9 170 ]
+    ;
+    "mov x21, x10" = expect ''"mov x21, x10" to be correct [f5 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x10"))
+      [ 245 3 10 170 ]
+    ;
+    "mov x21, x11" = expect ''"mov x21, x11" to be correct [f5 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x11"))
+      [ 245 3 11 170 ]
+    ;
+    "mov x21, x12" = expect ''"mov x21, x12" to be correct [f5 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x12"))
+      [ 245 3 12 170 ]
+    ;
+    "mov x21, x13" = expect ''"mov x21, x13" to be correct [f5 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x13"))
+      [ 245 3 13 170 ]
+    ;
+    "mov x21, x14" = expect ''"mov x21, x14" to be correct [f5 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x14"))
+      [ 245 3 14 170 ]
+    ;
+    "mov x21, x15" = expect ''"mov x21, x15" to be correct [f5 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x15"))
+      [ 245 3 15 170 ]
+    ;
+    "mov x21, x16" = expect ''"mov x21, x16" to be correct [f5 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x16"))
+      [ 245 3 16 170 ]
+    ;
+    "mov x21, x17" = expect ''"mov x21, x17" to be correct [f5 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x17"))
+      [ 245 3 17 170 ]
+    ;
+    "mov x21, x18" = expect ''"mov x21, x18" to be correct [f5 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x18"))
+      [ 245 3 18 170 ]
+    ;
+    "mov x21, x19" = expect ''"mov x21, x19" to be correct [f5 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x19"))
+      [ 245 3 19 170 ]
+    ;
+    "mov x21, x20" = expect ''"mov x21, x20" to be correct [f5 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x20"))
+      [ 245 3 20 170 ]
+    ;
+    "mov x21, x21" = expect ''"mov x21, x21" to be correct [f5 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x21"))
+      [ 245 3 21 170 ]
+    ;
+    "mov x21, x22" = expect ''"mov x21, x22" to be correct [f5 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x22"))
+      [ 245 3 22 170 ]
+    ;
+    "mov x21, x23" = expect ''"mov x21, x23" to be correct [f5 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x23"))
+      [ 245 3 23 170 ]
+    ;
+    "mov x21, x24" = expect ''"mov x21, x24" to be correct [f5 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x24"))
+      [ 245 3 24 170 ]
+    ;
+    "mov x21, x25" = expect ''"mov x21, x25" to be correct [f5 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x25"))
+      [ 245 3 25 170 ]
+    ;
+    "mov x21, x26" = expect ''"mov x21, x26" to be correct [f5 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x26"))
+      [ 245 3 26 170 ]
+    ;
+    "mov x21, x27" = expect ''"mov x21, x27" to be correct [f5 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x27"))
+      [ 245 3 27 170 ]
+    ;
+    "mov x21, x28" = expect ''"mov x21, x28" to be correct [f5 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x28"))
+      [ 245 3 28 170 ]
+    ;
+    "mov x21, x29" = expect ''"mov x21, x29" to be correct [f5 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x29"))
+      [ 245 3 29 170 ]
+    ;
+    "mov x21, x30" = expect ''"mov x21, x30" to be correct [f5 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "x30"))
+      [ 245 3 30 170 ]
+    ;
+    "mov x21, sp" = expect ''"mov x21, sp" to be correct [f5 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x21" "sp"))
+      [ 245 3 0 145 ]
+    ;
+    "mov x22, x0" = expect ''"mov x22, x0" to be correct [f6 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x0"))
+      [ 246 3 0 170 ]
+    ;
+    "mov x22, x1" = expect ''"mov x22, x1" to be correct [f6 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x1"))
+      [ 246 3 1 170 ]
+    ;
+    "mov x22, x2" = expect ''"mov x22, x2" to be correct [f6 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x2"))
+      [ 246 3 2 170 ]
+    ;
+    "mov x22, x3" = expect ''"mov x22, x3" to be correct [f6 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x3"))
+      [ 246 3 3 170 ]
+    ;
+    "mov x22, x4" = expect ''"mov x22, x4" to be correct [f6 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x4"))
+      [ 246 3 4 170 ]
+    ;
+    "mov x22, x5" = expect ''"mov x22, x5" to be correct [f6 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x5"))
+      [ 246 3 5 170 ]
+    ;
+    "mov x22, x6" = expect ''"mov x22, x6" to be correct [f6 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x6"))
+      [ 246 3 6 170 ]
+    ;
+    "mov x22, x7" = expect ''"mov x22, x7" to be correct [f6 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x7"))
+      [ 246 3 7 170 ]
+    ;
+    "mov x22, x8" = expect ''"mov x22, x8" to be correct [f6 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x8"))
+      [ 246 3 8 170 ]
+    ;
+    "mov x22, x9" = expect ''"mov x22, x9" to be correct [f6 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x9"))
+      [ 246 3 9 170 ]
+    ;
+    "mov x22, x10" = expect ''"mov x22, x10" to be correct [f6 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x10"))
+      [ 246 3 10 170 ]
+    ;
+    "mov x22, x11" = expect ''"mov x22, x11" to be correct [f6 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x11"))
+      [ 246 3 11 170 ]
+    ;
+    "mov x22, x12" = expect ''"mov x22, x12" to be correct [f6 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x12"))
+      [ 246 3 12 170 ]
+    ;
+    "mov x22, x13" = expect ''"mov x22, x13" to be correct [f6 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x13"))
+      [ 246 3 13 170 ]
+    ;
+    "mov x22, x14" = expect ''"mov x22, x14" to be correct [f6 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x14"))
+      [ 246 3 14 170 ]
+    ;
+    "mov x22, x15" = expect ''"mov x22, x15" to be correct [f6 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x15"))
+      [ 246 3 15 170 ]
+    ;
+    "mov x22, x16" = expect ''"mov x22, x16" to be correct [f6 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x16"))
+      [ 246 3 16 170 ]
+    ;
+    "mov x22, x17" = expect ''"mov x22, x17" to be correct [f6 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x17"))
+      [ 246 3 17 170 ]
+    ;
+    "mov x22, x18" = expect ''"mov x22, x18" to be correct [f6 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x18"))
+      [ 246 3 18 170 ]
+    ;
+    "mov x22, x19" = expect ''"mov x22, x19" to be correct [f6 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x19"))
+      [ 246 3 19 170 ]
+    ;
+    "mov x22, x20" = expect ''"mov x22, x20" to be correct [f6 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x20"))
+      [ 246 3 20 170 ]
+    ;
+    "mov x22, x21" = expect ''"mov x22, x21" to be correct [f6 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x21"))
+      [ 246 3 21 170 ]
+    ;
+    "mov x22, x22" = expect ''"mov x22, x22" to be correct [f6 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x22"))
+      [ 246 3 22 170 ]
+    ;
+    "mov x22, x23" = expect ''"mov x22, x23" to be correct [f6 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x23"))
+      [ 246 3 23 170 ]
+    ;
+    "mov x22, x24" = expect ''"mov x22, x24" to be correct [f6 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x24"))
+      [ 246 3 24 170 ]
+    ;
+    "mov x22, x25" = expect ''"mov x22, x25" to be correct [f6 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x25"))
+      [ 246 3 25 170 ]
+    ;
+    "mov x22, x26" = expect ''"mov x22, x26" to be correct [f6 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x26"))
+      [ 246 3 26 170 ]
+    ;
+    "mov x22, x27" = expect ''"mov x22, x27" to be correct [f6 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x27"))
+      [ 246 3 27 170 ]
+    ;
+    "mov x22, x28" = expect ''"mov x22, x28" to be correct [f6 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x28"))
+      [ 246 3 28 170 ]
+    ;
+    "mov x22, x29" = expect ''"mov x22, x29" to be correct [f6 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x29"))
+      [ 246 3 29 170 ]
+    ;
+    "mov x22, x30" = expect ''"mov x22, x30" to be correct [f6 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "x30"))
+      [ 246 3 30 170 ]
+    ;
+    "mov x22, sp" = expect ''"mov x22, sp" to be correct [f6 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x22" "sp"))
+      [ 246 3 0 145 ]
+    ;
+    "mov x23, x0" = expect ''"mov x23, x0" to be correct [f7 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x0"))
+      [ 247 3 0 170 ]
+    ;
+    "mov x23, x1" = expect ''"mov x23, x1" to be correct [f7 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x1"))
+      [ 247 3 1 170 ]
+    ;
+    "mov x23, x2" = expect ''"mov x23, x2" to be correct [f7 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x2"))
+      [ 247 3 2 170 ]
+    ;
+    "mov x23, x3" = expect ''"mov x23, x3" to be correct [f7 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x3"))
+      [ 247 3 3 170 ]
+    ;
+    "mov x23, x4" = expect ''"mov x23, x4" to be correct [f7 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x4"))
+      [ 247 3 4 170 ]
+    ;
+    "mov x23, x5" = expect ''"mov x23, x5" to be correct [f7 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x5"))
+      [ 247 3 5 170 ]
+    ;
+    "mov x23, x6" = expect ''"mov x23, x6" to be correct [f7 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x6"))
+      [ 247 3 6 170 ]
+    ;
+    "mov x23, x7" = expect ''"mov x23, x7" to be correct [f7 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x7"))
+      [ 247 3 7 170 ]
+    ;
+    "mov x23, x8" = expect ''"mov x23, x8" to be correct [f7 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x8"))
+      [ 247 3 8 170 ]
+    ;
+    "mov x23, x9" = expect ''"mov x23, x9" to be correct [f7 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x9"))
+      [ 247 3 9 170 ]
+    ;
+    "mov x23, x10" = expect ''"mov x23, x10" to be correct [f7 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x10"))
+      [ 247 3 10 170 ]
+    ;
+    "mov x23, x11" = expect ''"mov x23, x11" to be correct [f7 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x11"))
+      [ 247 3 11 170 ]
+    ;
+    "mov x23, x12" = expect ''"mov x23, x12" to be correct [f7 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x12"))
+      [ 247 3 12 170 ]
+    ;
+    "mov x23, x13" = expect ''"mov x23, x13" to be correct [f7 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x13"))
+      [ 247 3 13 170 ]
+    ;
+    "mov x23, x14" = expect ''"mov x23, x14" to be correct [f7 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x14"))
+      [ 247 3 14 170 ]
+    ;
+    "mov x23, x15" = expect ''"mov x23, x15" to be correct [f7 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x15"))
+      [ 247 3 15 170 ]
+    ;
+    "mov x23, x16" = expect ''"mov x23, x16" to be correct [f7 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x16"))
+      [ 247 3 16 170 ]
+    ;
+    "mov x23, x17" = expect ''"mov x23, x17" to be correct [f7 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x17"))
+      [ 247 3 17 170 ]
+    ;
+    "mov x23, x18" = expect ''"mov x23, x18" to be correct [f7 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x18"))
+      [ 247 3 18 170 ]
+    ;
+    "mov x23, x19" = expect ''"mov x23, x19" to be correct [f7 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x19"))
+      [ 247 3 19 170 ]
+    ;
+    "mov x23, x20" = expect ''"mov x23, x20" to be correct [f7 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x20"))
+      [ 247 3 20 170 ]
+    ;
+    "mov x23, x21" = expect ''"mov x23, x21" to be correct [f7 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x21"))
+      [ 247 3 21 170 ]
+    ;
+    "mov x23, x22" = expect ''"mov x23, x22" to be correct [f7 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x22"))
+      [ 247 3 22 170 ]
+    ;
+    "mov x23, x23" = expect ''"mov x23, x23" to be correct [f7 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x23"))
+      [ 247 3 23 170 ]
+    ;
+    "mov x23, x24" = expect ''"mov x23, x24" to be correct [f7 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x24"))
+      [ 247 3 24 170 ]
+    ;
+    "mov x23, x25" = expect ''"mov x23, x25" to be correct [f7 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x25"))
+      [ 247 3 25 170 ]
+    ;
+    "mov x23, x26" = expect ''"mov x23, x26" to be correct [f7 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x26"))
+      [ 247 3 26 170 ]
+    ;
+    "mov x23, x27" = expect ''"mov x23, x27" to be correct [f7 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x27"))
+      [ 247 3 27 170 ]
+    ;
+    "mov x23, x28" = expect ''"mov x23, x28" to be correct [f7 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x28"))
+      [ 247 3 28 170 ]
+    ;
+    "mov x23, x29" = expect ''"mov x23, x29" to be correct [f7 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x29"))
+      [ 247 3 29 170 ]
+    ;
+    "mov x23, x30" = expect ''"mov x23, x30" to be correct [f7 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "x30"))
+      [ 247 3 30 170 ]
+    ;
+    "mov x23, sp" = expect ''"mov x23, sp" to be correct [f7 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x23" "sp"))
+      [ 247 3 0 145 ]
+    ;
+    "mov x24, x0" = expect ''"mov x24, x0" to be correct [f8 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x0"))
+      [ 248 3 0 170 ]
+    ;
+    "mov x24, x1" = expect ''"mov x24, x1" to be correct [f8 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x1"))
+      [ 248 3 1 170 ]
+    ;
+    "mov x24, x2" = expect ''"mov x24, x2" to be correct [f8 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x2"))
+      [ 248 3 2 170 ]
+    ;
+    "mov x24, x3" = expect ''"mov x24, x3" to be correct [f8 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x3"))
+      [ 248 3 3 170 ]
+    ;
+    "mov x24, x4" = expect ''"mov x24, x4" to be correct [f8 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x4"))
+      [ 248 3 4 170 ]
+    ;
+    "mov x24, x5" = expect ''"mov x24, x5" to be correct [f8 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x5"))
+      [ 248 3 5 170 ]
+    ;
+    "mov x24, x6" = expect ''"mov x24, x6" to be correct [f8 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x6"))
+      [ 248 3 6 170 ]
+    ;
+    "mov x24, x7" = expect ''"mov x24, x7" to be correct [f8 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x7"))
+      [ 248 3 7 170 ]
+    ;
+    "mov x24, x8" = expect ''"mov x24, x8" to be correct [f8 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x8"))
+      [ 248 3 8 170 ]
+    ;
+    "mov x24, x9" = expect ''"mov x24, x9" to be correct [f8 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x9"))
+      [ 248 3 9 170 ]
+    ;
+    "mov x24, x10" = expect ''"mov x24, x10" to be correct [f8 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x10"))
+      [ 248 3 10 170 ]
+    ;
+    "mov x24, x11" = expect ''"mov x24, x11" to be correct [f8 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x11"))
+      [ 248 3 11 170 ]
+    ;
+    "mov x24, x12" = expect ''"mov x24, x12" to be correct [f8 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x12"))
+      [ 248 3 12 170 ]
+    ;
+    "mov x24, x13" = expect ''"mov x24, x13" to be correct [f8 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x13"))
+      [ 248 3 13 170 ]
+    ;
+    "mov x24, x14" = expect ''"mov x24, x14" to be correct [f8 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x14"))
+      [ 248 3 14 170 ]
+    ;
+    "mov x24, x15" = expect ''"mov x24, x15" to be correct [f8 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x15"))
+      [ 248 3 15 170 ]
+    ;
+    "mov x24, x16" = expect ''"mov x24, x16" to be correct [f8 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x16"))
+      [ 248 3 16 170 ]
+    ;
+    "mov x24, x17" = expect ''"mov x24, x17" to be correct [f8 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x17"))
+      [ 248 3 17 170 ]
+    ;
+    "mov x24, x18" = expect ''"mov x24, x18" to be correct [f8 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x18"))
+      [ 248 3 18 170 ]
+    ;
+    "mov x24, x19" = expect ''"mov x24, x19" to be correct [f8 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x19"))
+      [ 248 3 19 170 ]
+    ;
+    "mov x24, x20" = expect ''"mov x24, x20" to be correct [f8 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x20"))
+      [ 248 3 20 170 ]
+    ;
+    "mov x24, x21" = expect ''"mov x24, x21" to be correct [f8 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x21"))
+      [ 248 3 21 170 ]
+    ;
+    "mov x24, x22" = expect ''"mov x24, x22" to be correct [f8 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x22"))
+      [ 248 3 22 170 ]
+    ;
+    "mov x24, x23" = expect ''"mov x24, x23" to be correct [f8 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x23"))
+      [ 248 3 23 170 ]
+    ;
+    "mov x24, x24" = expect ''"mov x24, x24" to be correct [f8 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x24"))
+      [ 248 3 24 170 ]
+    ;
+    "mov x24, x25" = expect ''"mov x24, x25" to be correct [f8 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x25"))
+      [ 248 3 25 170 ]
+    ;
+    "mov x24, x26" = expect ''"mov x24, x26" to be correct [f8 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x26"))
+      [ 248 3 26 170 ]
+    ;
+    "mov x24, x27" = expect ''"mov x24, x27" to be correct [f8 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x27"))
+      [ 248 3 27 170 ]
+    ;
+    "mov x24, x28" = expect ''"mov x24, x28" to be correct [f8 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x28"))
+      [ 248 3 28 170 ]
+    ;
+    "mov x24, x29" = expect ''"mov x24, x29" to be correct [f8 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x29"))
+      [ 248 3 29 170 ]
+    ;
+    "mov x24, x30" = expect ''"mov x24, x30" to be correct [f8 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "x30"))
+      [ 248 3 30 170 ]
+    ;
+    "mov x24, sp" = expect ''"mov x24, sp" to be correct [f8 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x24" "sp"))
+      [ 248 3 0 145 ]
+    ;
+    "mov x25, x0" = expect ''"mov x25, x0" to be correct [f9 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x0"))
+      [ 249 3 0 170 ]
+    ;
+    "mov x25, x1" = expect ''"mov x25, x1" to be correct [f9 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x1"))
+      [ 249 3 1 170 ]
+    ;
+    "mov x25, x2" = expect ''"mov x25, x2" to be correct [f9 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x2"))
+      [ 249 3 2 170 ]
+    ;
+    "mov x25, x3" = expect ''"mov x25, x3" to be correct [f9 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x3"))
+      [ 249 3 3 170 ]
+    ;
+    "mov x25, x4" = expect ''"mov x25, x4" to be correct [f9 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x4"))
+      [ 249 3 4 170 ]
+    ;
+    "mov x25, x5" = expect ''"mov x25, x5" to be correct [f9 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x5"))
+      [ 249 3 5 170 ]
+    ;
+    "mov x25, x6" = expect ''"mov x25, x6" to be correct [f9 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x6"))
+      [ 249 3 6 170 ]
+    ;
+    "mov x25, x7" = expect ''"mov x25, x7" to be correct [f9 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x7"))
+      [ 249 3 7 170 ]
+    ;
+    "mov x25, x8" = expect ''"mov x25, x8" to be correct [f9 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x8"))
+      [ 249 3 8 170 ]
+    ;
+    "mov x25, x9" = expect ''"mov x25, x9" to be correct [f9 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x9"))
+      [ 249 3 9 170 ]
+    ;
+    "mov x25, x10" = expect ''"mov x25, x10" to be correct [f9 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x10"))
+      [ 249 3 10 170 ]
+    ;
+    "mov x25, x11" = expect ''"mov x25, x11" to be correct [f9 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x11"))
+      [ 249 3 11 170 ]
+    ;
+    "mov x25, x12" = expect ''"mov x25, x12" to be correct [f9 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x12"))
+      [ 249 3 12 170 ]
+    ;
+    "mov x25, x13" = expect ''"mov x25, x13" to be correct [f9 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x13"))
+      [ 249 3 13 170 ]
+    ;
+    "mov x25, x14" = expect ''"mov x25, x14" to be correct [f9 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x14"))
+      [ 249 3 14 170 ]
+    ;
+    "mov x25, x15" = expect ''"mov x25, x15" to be correct [f9 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x15"))
+      [ 249 3 15 170 ]
+    ;
+    "mov x25, x16" = expect ''"mov x25, x16" to be correct [f9 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x16"))
+      [ 249 3 16 170 ]
+    ;
+    "mov x25, x17" = expect ''"mov x25, x17" to be correct [f9 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x17"))
+      [ 249 3 17 170 ]
+    ;
+    "mov x25, x18" = expect ''"mov x25, x18" to be correct [f9 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x18"))
+      [ 249 3 18 170 ]
+    ;
+    "mov x25, x19" = expect ''"mov x25, x19" to be correct [f9 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x19"))
+      [ 249 3 19 170 ]
+    ;
+    "mov x25, x20" = expect ''"mov x25, x20" to be correct [f9 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x20"))
+      [ 249 3 20 170 ]
+    ;
+    "mov x25, x21" = expect ''"mov x25, x21" to be correct [f9 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x21"))
+      [ 249 3 21 170 ]
+    ;
+    "mov x25, x22" = expect ''"mov x25, x22" to be correct [f9 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x22"))
+      [ 249 3 22 170 ]
+    ;
+    "mov x25, x23" = expect ''"mov x25, x23" to be correct [f9 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x23"))
+      [ 249 3 23 170 ]
+    ;
+    "mov x25, x24" = expect ''"mov x25, x24" to be correct [f9 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x24"))
+      [ 249 3 24 170 ]
+    ;
+    "mov x25, x25" = expect ''"mov x25, x25" to be correct [f9 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x25"))
+      [ 249 3 25 170 ]
+    ;
+    "mov x25, x26" = expect ''"mov x25, x26" to be correct [f9 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x26"))
+      [ 249 3 26 170 ]
+    ;
+    "mov x25, x27" = expect ''"mov x25, x27" to be correct [f9 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x27"))
+      [ 249 3 27 170 ]
+    ;
+    "mov x25, x28" = expect ''"mov x25, x28" to be correct [f9 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x28"))
+      [ 249 3 28 170 ]
+    ;
+    "mov x25, x29" = expect ''"mov x25, x29" to be correct [f9 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x29"))
+      [ 249 3 29 170 ]
+    ;
+    "mov x25, x30" = expect ''"mov x25, x30" to be correct [f9 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "x30"))
+      [ 249 3 30 170 ]
+    ;
+    "mov x25, sp" = expect ''"mov x25, sp" to be correct [f9 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x25" "sp"))
+      [ 249 3 0 145 ]
+    ;
+    "mov x26, x0" = expect ''"mov x26, x0" to be correct [fa 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x0"))
+      [ 250 3 0 170 ]
+    ;
+    "mov x26, x1" = expect ''"mov x26, x1" to be correct [fa 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x1"))
+      [ 250 3 1 170 ]
+    ;
+    "mov x26, x2" = expect ''"mov x26, x2" to be correct [fa 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x2"))
+      [ 250 3 2 170 ]
+    ;
+    "mov x26, x3" = expect ''"mov x26, x3" to be correct [fa 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x3"))
+      [ 250 3 3 170 ]
+    ;
+    "mov x26, x4" = expect ''"mov x26, x4" to be correct [fa 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x4"))
+      [ 250 3 4 170 ]
+    ;
+    "mov x26, x5" = expect ''"mov x26, x5" to be correct [fa 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x5"))
+      [ 250 3 5 170 ]
+    ;
+    "mov x26, x6" = expect ''"mov x26, x6" to be correct [fa 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x6"))
+      [ 250 3 6 170 ]
+    ;
+    "mov x26, x7" = expect ''"mov x26, x7" to be correct [fa 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x7"))
+      [ 250 3 7 170 ]
+    ;
+    "mov x26, x8" = expect ''"mov x26, x8" to be correct [fa 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x8"))
+      [ 250 3 8 170 ]
+    ;
+    "mov x26, x9" = expect ''"mov x26, x9" to be correct [fa 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x9"))
+      [ 250 3 9 170 ]
+    ;
+    "mov x26, x10" = expect ''"mov x26, x10" to be correct [fa 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x10"))
+      [ 250 3 10 170 ]
+    ;
+    "mov x26, x11" = expect ''"mov x26, x11" to be correct [fa 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x11"))
+      [ 250 3 11 170 ]
+    ;
+    "mov x26, x12" = expect ''"mov x26, x12" to be correct [fa 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x12"))
+      [ 250 3 12 170 ]
+    ;
+    "mov x26, x13" = expect ''"mov x26, x13" to be correct [fa 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x13"))
+      [ 250 3 13 170 ]
+    ;
+    "mov x26, x14" = expect ''"mov x26, x14" to be correct [fa 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x14"))
+      [ 250 3 14 170 ]
+    ;
+    "mov x26, x15" = expect ''"mov x26, x15" to be correct [fa 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x15"))
+      [ 250 3 15 170 ]
+    ;
+    "mov x26, x16" = expect ''"mov x26, x16" to be correct [fa 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x16"))
+      [ 250 3 16 170 ]
+    ;
+    "mov x26, x17" = expect ''"mov x26, x17" to be correct [fa 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x17"))
+      [ 250 3 17 170 ]
+    ;
+    "mov x26, x18" = expect ''"mov x26, x18" to be correct [fa 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x18"))
+      [ 250 3 18 170 ]
+    ;
+    "mov x26, x19" = expect ''"mov x26, x19" to be correct [fa 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x19"))
+      [ 250 3 19 170 ]
+    ;
+    "mov x26, x20" = expect ''"mov x26, x20" to be correct [fa 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x20"))
+      [ 250 3 20 170 ]
+    ;
+    "mov x26, x21" = expect ''"mov x26, x21" to be correct [fa 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x21"))
+      [ 250 3 21 170 ]
+    ;
+    "mov x26, x22" = expect ''"mov x26, x22" to be correct [fa 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x22"))
+      [ 250 3 22 170 ]
+    ;
+    "mov x26, x23" = expect ''"mov x26, x23" to be correct [fa 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x23"))
+      [ 250 3 23 170 ]
+    ;
+    "mov x26, x24" = expect ''"mov x26, x24" to be correct [fa 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x24"))
+      [ 250 3 24 170 ]
+    ;
+    "mov x26, x25" = expect ''"mov x26, x25" to be correct [fa 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x25"))
+      [ 250 3 25 170 ]
+    ;
+    "mov x26, x26" = expect ''"mov x26, x26" to be correct [fa 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x26"))
+      [ 250 3 26 170 ]
+    ;
+    "mov x26, x27" = expect ''"mov x26, x27" to be correct [fa 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x27"))
+      [ 250 3 27 170 ]
+    ;
+    "mov x26, x28" = expect ''"mov x26, x28" to be correct [fa 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x28"))
+      [ 250 3 28 170 ]
+    ;
+    "mov x26, x29" = expect ''"mov x26, x29" to be correct [fa 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x29"))
+      [ 250 3 29 170 ]
+    ;
+    "mov x26, x30" = expect ''"mov x26, x30" to be correct [fa 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "x30"))
+      [ 250 3 30 170 ]
+    ;
+    "mov x26, sp" = expect ''"mov x26, sp" to be correct [fa 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x26" "sp"))
+      [ 250 3 0 145 ]
+    ;
+    "mov x27, x0" = expect ''"mov x27, x0" to be correct [fb 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x0"))
+      [ 251 3 0 170 ]
+    ;
+    "mov x27, x1" = expect ''"mov x27, x1" to be correct [fb 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x1"))
+      [ 251 3 1 170 ]
+    ;
+    "mov x27, x2" = expect ''"mov x27, x2" to be correct [fb 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x2"))
+      [ 251 3 2 170 ]
+    ;
+    "mov x27, x3" = expect ''"mov x27, x3" to be correct [fb 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x3"))
+      [ 251 3 3 170 ]
+    ;
+    "mov x27, x4" = expect ''"mov x27, x4" to be correct [fb 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x4"))
+      [ 251 3 4 170 ]
+    ;
+    "mov x27, x5" = expect ''"mov x27, x5" to be correct [fb 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x5"))
+      [ 251 3 5 170 ]
+    ;
+    "mov x27, x6" = expect ''"mov x27, x6" to be correct [fb 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x6"))
+      [ 251 3 6 170 ]
+    ;
+    "mov x27, x7" = expect ''"mov x27, x7" to be correct [fb 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x7"))
+      [ 251 3 7 170 ]
+    ;
+    "mov x27, x8" = expect ''"mov x27, x8" to be correct [fb 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x8"))
+      [ 251 3 8 170 ]
+    ;
+    "mov x27, x9" = expect ''"mov x27, x9" to be correct [fb 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x9"))
+      [ 251 3 9 170 ]
+    ;
+    "mov x27, x10" = expect ''"mov x27, x10" to be correct [fb 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x10"))
+      [ 251 3 10 170 ]
+    ;
+    "mov x27, x11" = expect ''"mov x27, x11" to be correct [fb 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x11"))
+      [ 251 3 11 170 ]
+    ;
+    "mov x27, x12" = expect ''"mov x27, x12" to be correct [fb 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x12"))
+      [ 251 3 12 170 ]
+    ;
+    "mov x27, x13" = expect ''"mov x27, x13" to be correct [fb 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x13"))
+      [ 251 3 13 170 ]
+    ;
+    "mov x27, x14" = expect ''"mov x27, x14" to be correct [fb 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x14"))
+      [ 251 3 14 170 ]
+    ;
+    "mov x27, x15" = expect ''"mov x27, x15" to be correct [fb 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x15"))
+      [ 251 3 15 170 ]
+    ;
+    "mov x27, x16" = expect ''"mov x27, x16" to be correct [fb 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x16"))
+      [ 251 3 16 170 ]
+    ;
+    "mov x27, x17" = expect ''"mov x27, x17" to be correct [fb 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x17"))
+      [ 251 3 17 170 ]
+    ;
+    "mov x27, x18" = expect ''"mov x27, x18" to be correct [fb 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x18"))
+      [ 251 3 18 170 ]
+    ;
+    "mov x27, x19" = expect ''"mov x27, x19" to be correct [fb 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x19"))
+      [ 251 3 19 170 ]
+    ;
+    "mov x27, x20" = expect ''"mov x27, x20" to be correct [fb 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x20"))
+      [ 251 3 20 170 ]
+    ;
+    "mov x27, x21" = expect ''"mov x27, x21" to be correct [fb 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x21"))
+      [ 251 3 21 170 ]
+    ;
+    "mov x27, x22" = expect ''"mov x27, x22" to be correct [fb 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x22"))
+      [ 251 3 22 170 ]
+    ;
+    "mov x27, x23" = expect ''"mov x27, x23" to be correct [fb 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x23"))
+      [ 251 3 23 170 ]
+    ;
+    "mov x27, x24" = expect ''"mov x27, x24" to be correct [fb 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x24"))
+      [ 251 3 24 170 ]
+    ;
+    "mov x27, x25" = expect ''"mov x27, x25" to be correct [fb 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x25"))
+      [ 251 3 25 170 ]
+    ;
+    "mov x27, x26" = expect ''"mov x27, x26" to be correct [fb 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x26"))
+      [ 251 3 26 170 ]
+    ;
+    "mov x27, x27" = expect ''"mov x27, x27" to be correct [fb 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x27"))
+      [ 251 3 27 170 ]
+    ;
+    "mov x27, x28" = expect ''"mov x27, x28" to be correct [fb 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x28"))
+      [ 251 3 28 170 ]
+    ;
+    "mov x27, x29" = expect ''"mov x27, x29" to be correct [fb 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x29"))
+      [ 251 3 29 170 ]
+    ;
+    "mov x27, x30" = expect ''"mov x27, x30" to be correct [fb 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "x30"))
+      [ 251 3 30 170 ]
+    ;
+    "mov x27, sp" = expect ''"mov x27, sp" to be correct [fb 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x27" "sp"))
+      [ 251 3 0 145 ]
+    ;
+    "mov x28, x0" = expect ''"mov x28, x0" to be correct [fc 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x0"))
+      [ 252 3 0 170 ]
+    ;
+    "mov x28, x1" = expect ''"mov x28, x1" to be correct [fc 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x1"))
+      [ 252 3 1 170 ]
+    ;
+    "mov x28, x2" = expect ''"mov x28, x2" to be correct [fc 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x2"))
+      [ 252 3 2 170 ]
+    ;
+    "mov x28, x3" = expect ''"mov x28, x3" to be correct [fc 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x3"))
+      [ 252 3 3 170 ]
+    ;
+    "mov x28, x4" = expect ''"mov x28, x4" to be correct [fc 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x4"))
+      [ 252 3 4 170 ]
+    ;
+    "mov x28, x5" = expect ''"mov x28, x5" to be correct [fc 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x5"))
+      [ 252 3 5 170 ]
+    ;
+    "mov x28, x6" = expect ''"mov x28, x6" to be correct [fc 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x6"))
+      [ 252 3 6 170 ]
+    ;
+    "mov x28, x7" = expect ''"mov x28, x7" to be correct [fc 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x7"))
+      [ 252 3 7 170 ]
+    ;
+    "mov x28, x8" = expect ''"mov x28, x8" to be correct [fc 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x8"))
+      [ 252 3 8 170 ]
+    ;
+    "mov x28, x9" = expect ''"mov x28, x9" to be correct [fc 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x9"))
+      [ 252 3 9 170 ]
+    ;
+    "mov x28, x10" = expect ''"mov x28, x10" to be correct [fc 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x10"))
+      [ 252 3 10 170 ]
+    ;
+    "mov x28, x11" = expect ''"mov x28, x11" to be correct [fc 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x11"))
+      [ 252 3 11 170 ]
+    ;
+    "mov x28, x12" = expect ''"mov x28, x12" to be correct [fc 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x12"))
+      [ 252 3 12 170 ]
+    ;
+    "mov x28, x13" = expect ''"mov x28, x13" to be correct [fc 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x13"))
+      [ 252 3 13 170 ]
+    ;
+    "mov x28, x14" = expect ''"mov x28, x14" to be correct [fc 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x14"))
+      [ 252 3 14 170 ]
+    ;
+    "mov x28, x15" = expect ''"mov x28, x15" to be correct [fc 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x15"))
+      [ 252 3 15 170 ]
+    ;
+    "mov x28, x16" = expect ''"mov x28, x16" to be correct [fc 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x16"))
+      [ 252 3 16 170 ]
+    ;
+    "mov x28, x17" = expect ''"mov x28, x17" to be correct [fc 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x17"))
+      [ 252 3 17 170 ]
+    ;
+    "mov x28, x18" = expect ''"mov x28, x18" to be correct [fc 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x18"))
+      [ 252 3 18 170 ]
+    ;
+    "mov x28, x19" = expect ''"mov x28, x19" to be correct [fc 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x19"))
+      [ 252 3 19 170 ]
+    ;
+    "mov x28, x20" = expect ''"mov x28, x20" to be correct [fc 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x20"))
+      [ 252 3 20 170 ]
+    ;
+    "mov x28, x21" = expect ''"mov x28, x21" to be correct [fc 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x21"))
+      [ 252 3 21 170 ]
+    ;
+    "mov x28, x22" = expect ''"mov x28, x22" to be correct [fc 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x22"))
+      [ 252 3 22 170 ]
+    ;
+    "mov x28, x23" = expect ''"mov x28, x23" to be correct [fc 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x23"))
+      [ 252 3 23 170 ]
+    ;
+    "mov x28, x24" = expect ''"mov x28, x24" to be correct [fc 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x24"))
+      [ 252 3 24 170 ]
+    ;
+    "mov x28, x25" = expect ''"mov x28, x25" to be correct [fc 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x25"))
+      [ 252 3 25 170 ]
+    ;
+    "mov x28, x26" = expect ''"mov x28, x26" to be correct [fc 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x26"))
+      [ 252 3 26 170 ]
+    ;
+    "mov x28, x27" = expect ''"mov x28, x27" to be correct [fc 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x27"))
+      [ 252 3 27 170 ]
+    ;
+    "mov x28, x28" = expect ''"mov x28, x28" to be correct [fc 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x28"))
+      [ 252 3 28 170 ]
+    ;
+    "mov x28, x29" = expect ''"mov x28, x29" to be correct [fc 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x29"))
+      [ 252 3 29 170 ]
+    ;
+    "mov x28, x30" = expect ''"mov x28, x30" to be correct [fc 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "x30"))
+      [ 252 3 30 170 ]
+    ;
+    "mov x28, sp" = expect ''"mov x28, sp" to be correct [fc 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x28" "sp"))
+      [ 252 3 0 145 ]
+    ;
+    "mov x29, x0" = expect ''"mov x29, x0" to be correct [fd 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x0"))
+      [ 253 3 0 170 ]
+    ;
+    "mov x29, x1" = expect ''"mov x29, x1" to be correct [fd 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x1"))
+      [ 253 3 1 170 ]
+    ;
+    "mov x29, x2" = expect ''"mov x29, x2" to be correct [fd 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x2"))
+      [ 253 3 2 170 ]
+    ;
+    "mov x29, x3" = expect ''"mov x29, x3" to be correct [fd 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x3"))
+      [ 253 3 3 170 ]
+    ;
+    "mov x29, x4" = expect ''"mov x29, x4" to be correct [fd 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x4"))
+      [ 253 3 4 170 ]
+    ;
+    "mov x29, x5" = expect ''"mov x29, x5" to be correct [fd 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x5"))
+      [ 253 3 5 170 ]
+    ;
+    "mov x29, x6" = expect ''"mov x29, x6" to be correct [fd 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x6"))
+      [ 253 3 6 170 ]
+    ;
+    "mov x29, x7" = expect ''"mov x29, x7" to be correct [fd 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x7"))
+      [ 253 3 7 170 ]
+    ;
+    "mov x29, x8" = expect ''"mov x29, x8" to be correct [fd 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x8"))
+      [ 253 3 8 170 ]
+    ;
+    "mov x29, x9" = expect ''"mov x29, x9" to be correct [fd 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x9"))
+      [ 253 3 9 170 ]
+    ;
+    "mov x29, x10" = expect ''"mov x29, x10" to be correct [fd 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x10"))
+      [ 253 3 10 170 ]
+    ;
+    "mov x29, x11" = expect ''"mov x29, x11" to be correct [fd 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x11"))
+      [ 253 3 11 170 ]
+    ;
+    "mov x29, x12" = expect ''"mov x29, x12" to be correct [fd 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x12"))
+      [ 253 3 12 170 ]
+    ;
+    "mov x29, x13" = expect ''"mov x29, x13" to be correct [fd 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x13"))
+      [ 253 3 13 170 ]
+    ;
+    "mov x29, x14" = expect ''"mov x29, x14" to be correct [fd 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x14"))
+      [ 253 3 14 170 ]
+    ;
+    "mov x29, x15" = expect ''"mov x29, x15" to be correct [fd 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x15"))
+      [ 253 3 15 170 ]
+    ;
+    "mov x29, x16" = expect ''"mov x29, x16" to be correct [fd 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x16"))
+      [ 253 3 16 170 ]
+    ;
+    "mov x29, x17" = expect ''"mov x29, x17" to be correct [fd 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x17"))
+      [ 253 3 17 170 ]
+    ;
+    "mov x29, x18" = expect ''"mov x29, x18" to be correct [fd 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x18"))
+      [ 253 3 18 170 ]
+    ;
+    "mov x29, x19" = expect ''"mov x29, x19" to be correct [fd 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x19"))
+      [ 253 3 19 170 ]
+    ;
+    "mov x29, x20" = expect ''"mov x29, x20" to be correct [fd 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x20"))
+      [ 253 3 20 170 ]
+    ;
+    "mov x29, x21" = expect ''"mov x29, x21" to be correct [fd 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x21"))
+      [ 253 3 21 170 ]
+    ;
+    "mov x29, x22" = expect ''"mov x29, x22" to be correct [fd 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x22"))
+      [ 253 3 22 170 ]
+    ;
+    "mov x29, x23" = expect ''"mov x29, x23" to be correct [fd 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x23"))
+      [ 253 3 23 170 ]
+    ;
+    "mov x29, x24" = expect ''"mov x29, x24" to be correct [fd 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x24"))
+      [ 253 3 24 170 ]
+    ;
+    "mov x29, x25" = expect ''"mov x29, x25" to be correct [fd 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x25"))
+      [ 253 3 25 170 ]
+    ;
+    "mov x29, x26" = expect ''"mov x29, x26" to be correct [fd 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x26"))
+      [ 253 3 26 170 ]
+    ;
+    "mov x29, x27" = expect ''"mov x29, x27" to be correct [fd 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x27"))
+      [ 253 3 27 170 ]
+    ;
+    "mov x29, x28" = expect ''"mov x29, x28" to be correct [fd 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x28"))
+      [ 253 3 28 170 ]
+    ;
+    "mov x29, x29" = expect ''"mov x29, x29" to be correct [fd 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x29"))
+      [ 253 3 29 170 ]
+    ;
+    "mov x29, x30" = expect ''"mov x29, x30" to be correct [fd 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "x30"))
+      [ 253 3 30 170 ]
+    ;
+    "mov x29, sp" = expect ''"mov x29, sp" to be correct [fd 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x29" "sp"))
+      [ 253 3 0 145 ]
+    ;
+    "mov x30, x0" = expect ''"mov x30, x0" to be correct [fe 3 0 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x0"))
+      [ 254 3 0 170 ]
+    ;
+    "mov x30, x1" = expect ''"mov x30, x1" to be correct [fe 3 1 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x1"))
+      [ 254 3 1 170 ]
+    ;
+    "mov x30, x2" = expect ''"mov x30, x2" to be correct [fe 3 2 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x2"))
+      [ 254 3 2 170 ]
+    ;
+    "mov x30, x3" = expect ''"mov x30, x3" to be correct [fe 3 3 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x3"))
+      [ 254 3 3 170 ]
+    ;
+    "mov x30, x4" = expect ''"mov x30, x4" to be correct [fe 3 4 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x4"))
+      [ 254 3 4 170 ]
+    ;
+    "mov x30, x5" = expect ''"mov x30, x5" to be correct [fe 3 5 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x5"))
+      [ 254 3 5 170 ]
+    ;
+    "mov x30, x6" = expect ''"mov x30, x6" to be correct [fe 3 6 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x6"))
+      [ 254 3 6 170 ]
+    ;
+    "mov x30, x7" = expect ''"mov x30, x7" to be correct [fe 3 7 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x7"))
+      [ 254 3 7 170 ]
+    ;
+    "mov x30, x8" = expect ''"mov x30, x8" to be correct [fe 3 8 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x8"))
+      [ 254 3 8 170 ]
+    ;
+    "mov x30, x9" = expect ''"mov x30, x9" to be correct [fe 3 9 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x9"))
+      [ 254 3 9 170 ]
+    ;
+    "mov x30, x10" = expect ''"mov x30, x10" to be correct [fe 3 a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x10"))
+      [ 254 3 10 170 ]
+    ;
+    "mov x30, x11" = expect ''"mov x30, x11" to be correct [fe 3 b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x11"))
+      [ 254 3 11 170 ]
+    ;
+    "mov x30, x12" = expect ''"mov x30, x12" to be correct [fe 3 c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x12"))
+      [ 254 3 12 170 ]
+    ;
+    "mov x30, x13" = expect ''"mov x30, x13" to be correct [fe 3 d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x13"))
+      [ 254 3 13 170 ]
+    ;
+    "mov x30, x14" = expect ''"mov x30, x14" to be correct [fe 3 e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x14"))
+      [ 254 3 14 170 ]
+    ;
+    "mov x30, x15" = expect ''"mov x30, x15" to be correct [fe 3 f aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x15"))
+      [ 254 3 15 170 ]
+    ;
+    "mov x30, x16" = expect ''"mov x30, x16" to be correct [fe 3 10 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x16"))
+      [ 254 3 16 170 ]
+    ;
+    "mov x30, x17" = expect ''"mov x30, x17" to be correct [fe 3 11 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x17"))
+      [ 254 3 17 170 ]
+    ;
+    "mov x30, x18" = expect ''"mov x30, x18" to be correct [fe 3 12 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x18"))
+      [ 254 3 18 170 ]
+    ;
+    "mov x30, x19" = expect ''"mov x30, x19" to be correct [fe 3 13 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x19"))
+      [ 254 3 19 170 ]
+    ;
+    "mov x30, x20" = expect ''"mov x30, x20" to be correct [fe 3 14 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x20"))
+      [ 254 3 20 170 ]
+    ;
+    "mov x30, x21" = expect ''"mov x30, x21" to be correct [fe 3 15 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x21"))
+      [ 254 3 21 170 ]
+    ;
+    "mov x30, x22" = expect ''"mov x30, x22" to be correct [fe 3 16 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x22"))
+      [ 254 3 22 170 ]
+    ;
+    "mov x30, x23" = expect ''"mov x30, x23" to be correct [fe 3 17 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x23"))
+      [ 254 3 23 170 ]
+    ;
+    "mov x30, x24" = expect ''"mov x30, x24" to be correct [fe 3 18 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x24"))
+      [ 254 3 24 170 ]
+    ;
+    "mov x30, x25" = expect ''"mov x30, x25" to be correct [fe 3 19 aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x25"))
+      [ 254 3 25 170 ]
+    ;
+    "mov x30, x26" = expect ''"mov x30, x26" to be correct [fe 3 1a aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x26"))
+      [ 254 3 26 170 ]
+    ;
+    "mov x30, x27" = expect ''"mov x30, x27" to be correct [fe 3 1b aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x27"))
+      [ 254 3 27 170 ]
+    ;
+    "mov x30, x28" = expect ''"mov x30, x28" to be correct [fe 3 1c aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x28"))
+      [ 254 3 28 170 ]
+    ;
+    "mov x30, x29" = expect ''"mov x30, x29" to be correct [fe 3 1d aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x29"))
+      [ 254 3 29 170 ]
+    ;
+    "mov x30, x30" = expect ''"mov x30, x30" to be correct [fe 3 1e aa]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "x30"))
+      [ 254 3 30 170 ]
+    ;
+    "mov x30, sp" = expect ''"mov x30, sp" to be correct [fe 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "x30" "sp"))
+      [ 254 3 0 145 ]
+    ;
+    "mov sp, x0" = expect ''"mov sp, x0" to be correct [1f 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x0"))
+      [ 31 0 0 145 ]
+    ;
+    "mov sp, x1" = expect ''"mov sp, x1" to be correct [3f 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x1"))
+      [ 63 0 0 145 ]
+    ;
+    "mov sp, x2" = expect ''"mov sp, x2" to be correct [5f 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x2"))
+      [ 95 0 0 145 ]
+    ;
+    "mov sp, x3" = expect ''"mov sp, x3" to be correct [7f 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x3"))
+      [ 127 0 0 145 ]
+    ;
+    "mov sp, x4" = expect ''"mov sp, x4" to be correct [9f 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x4"))
+      [ 159 0 0 145 ]
+    ;
+    "mov sp, x5" = expect ''"mov sp, x5" to be correct [bf 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x5"))
+      [ 191 0 0 145 ]
+    ;
+    "mov sp, x6" = expect ''"mov sp, x6" to be correct [df 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x6"))
+      [ 223 0 0 145 ]
+    ;
+    "mov sp, x7" = expect ''"mov sp, x7" to be correct [ff 0 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x7"))
+      [ 255 0 0 145 ]
+    ;
+    "mov sp, x8" = expect ''"mov sp, x8" to be correct [1f 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x8"))
+      [ 31 1 0 145 ]
+    ;
+    "mov sp, x9" = expect ''"mov sp, x9" to be correct [3f 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x9"))
+      [ 63 1 0 145 ]
+    ;
+    "mov sp, x10" = expect ''"mov sp, x10" to be correct [5f 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x10"))
+      [ 95 1 0 145 ]
+    ;
+    "mov sp, x11" = expect ''"mov sp, x11" to be correct [7f 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x11"))
+      [ 127 1 0 145 ]
+    ;
+    "mov sp, x12" = expect ''"mov sp, x12" to be correct [9f 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x12"))
+      [ 159 1 0 145 ]
+    ;
+    "mov sp, x13" = expect ''"mov sp, x13" to be correct [bf 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x13"))
+      [ 191 1 0 145 ]
+    ;
+    "mov sp, x14" = expect ''"mov sp, x14" to be correct [df 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x14"))
+      [ 223 1 0 145 ]
+    ;
+    "mov sp, x15" = expect ''"mov sp, x15" to be correct [ff 1 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x15"))
+      [ 255 1 0 145 ]
+    ;
+    "mov sp, x16" = expect ''"mov sp, x16" to be correct [1f 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x16"))
+      [ 31 2 0 145 ]
+    ;
+    "mov sp, x17" = expect ''"mov sp, x17" to be correct [3f 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x17"))
+      [ 63 2 0 145 ]
+    ;
+    "mov sp, x18" = expect ''"mov sp, x18" to be correct [5f 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x18"))
+      [ 95 2 0 145 ]
+    ;
+    "mov sp, x19" = expect ''"mov sp, x19" to be correct [7f 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x19"))
+      [ 127 2 0 145 ]
+    ;
+    "mov sp, x20" = expect ''"mov sp, x20" to be correct [9f 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x20"))
+      [ 159 2 0 145 ]
+    ;
+    "mov sp, x21" = expect ''"mov sp, x21" to be correct [bf 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x21"))
+      [ 191 2 0 145 ]
+    ;
+    "mov sp, x22" = expect ''"mov sp, x22" to be correct [df 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x22"))
+      [ 223 2 0 145 ]
+    ;
+    "mov sp, x23" = expect ''"mov sp, x23" to be correct [ff 2 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x23"))
+      [ 255 2 0 145 ]
+    ;
+    "mov sp, x24" = expect ''"mov sp, x24" to be correct [1f 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x24"))
+      [ 31 3 0 145 ]
+    ;
+    "mov sp, x25" = expect ''"mov sp, x25" to be correct [3f 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x25"))
+      [ 63 3 0 145 ]
+    ;
+    "mov sp, x26" = expect ''"mov sp, x26" to be correct [5f 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x26"))
+      [ 95 3 0 145 ]
+    ;
+    "mov sp, x27" = expect ''"mov sp, x27" to be correct [7f 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x27"))
+      [ 127 3 0 145 ]
+    ;
+    "mov sp, x28" = expect ''"mov sp, x28" to be correct [9f 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x28"))
+      [ 159 3 0 145 ]
+    ;
+    "mov sp, x29" = expect ''"mov sp, x29" to be correct [bf 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x29"))
+      [ 191 3 0 145 ]
+    ;
+    "mov sp, x30" = expect ''"mov sp, x30" to be correct [df 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "x30"))
+      [ 223 3 0 145 ]
+    ;
+    "mov sp, sp" = expect ''"mov sp, sp" to be correct [ff 3 0 91]''
+      (lib.stripComments (lib.arch.aarch64.instructions.MOV_reg "sp" "sp"))
+      [ 255 3 0 145 ]
+    ;
+  };
+  
 }
