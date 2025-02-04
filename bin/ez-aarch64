@@ -18,7 +18,7 @@ LD_FLAGS=(
 PS4=" $ "
 set -x
 aarch64-unknown-linux-gnu-as "${AS_FLAGS[@]}" -o "$f".o "$f".asm
-aarch64-unknown-linux-gnu-ld "${LD_FLAGS[@]}" -s -o "$f" "$f".o
+aarch64-unknown-linux-gnu-ld "${LD_FLAGS[@]}" -o "$f" "$f".o
 
 aarch64-unknown-linux-gnu-objdump --disassembler-color=on --disassemble --insn-width=12 --visualize-jumps=color ./"$f"
 )
